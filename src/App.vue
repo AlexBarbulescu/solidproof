@@ -26,10 +26,7 @@
     </header>
 
     <main class="content">
-      <div class="container">
-        <h1>Responsive Test Page</h1>
-        <p>Minimal page with a responsive menu and footer.</p>
-      </div>
+      <Hero />
     </main>
 
     <footer class="site-footer">
@@ -43,6 +40,7 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
+import Hero from './components/Hero.vue'
 
 const isOpen = ref(false)
 
@@ -69,19 +67,19 @@ body { margin: 0; }
 .page-root { display: flex; flex-direction: column; min-height: 100%; }
 .container { max-width: 960px; margin: 0 auto; padding: 0 16px; }
 
-.site-header { border-bottom: 1px solid #e5e7eb; background: #fff; }
+.site-header { border-bottom: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
 .site-header .container { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; }
-.brand { font-weight: 600; color: #111; text-decoration: none; }
+.brand { font-weight: 600; color: #fff; text-decoration: none; }
 
-.nav-toggle { display: inline-flex; flex-direction: column; gap: 4px; padding: 8px; border: 1px solid #e5e7eb; border-radius: 6px; background: transparent; }
-.nav-toggle .bar { width: 20px; height: 2px; background: #111; border-radius: 1px; }
+.nav-toggle { display: inline-flex; flex-direction: column; gap: 4px; padding: 8px; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; background: transparent; }
+.nav-toggle .bar { width: 20px; height: 2px; background: #fff; border-radius: 1px; }
 
-.primary-nav { position: absolute; top: 56px; left: 0; right: 0; background: #fff; border-bottom: 1px solid #e5e7eb; display: none; }
+.primary-nav { position: absolute; top: 56px; left: 0; right: 0; background: rgba(0,0,0,0.7); border-bottom: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); display: none; }
 .primary-nav.open { display: block; }
 .nav-list { list-style: none; margin: 0; padding: 8px; }
 .nav-list li { margin: 4px 0; }
-.nav-list a { display: block; padding: 8px 12px; border-radius: 6px; color: #111; text-decoration: none; }
-.nav-list a:hover { background: #f3f4f6; }
+.nav-list a { display: block; padding: 8px 12px; border-radius: 6px; color: #fff; text-decoration: none; }
+.nav-list a:hover { background: rgba(255,255,255,0.08); }
 
 .content { flex: 1; padding: 24px 0; }
 
