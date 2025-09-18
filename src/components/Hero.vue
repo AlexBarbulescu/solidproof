@@ -1,7 +1,7 @@
 <template>
   <section class="hero-section">
     <div class="hero-background">
-      <video class="background-video" src="https://cdn.builder.io/o/assets%2F7aeb5cf45399475b85c3a321bfd0a8a2%2Fdf095d7627c64d3fa89d179cd8bf8f27?alt=media&token=bc6f0c15-ec8f-4fe1-9858-2427511dacdf&apiKey=7aeb5cf45399475b85c3a321bfd0a8a2" autoplay muted loop playsinline></video>
+      <video ref="videoEl" class="background-video" preload="none" autoplay muted loop playsinline aria-hidden="true"></video>
       <div class="hero-overlay"></div>
     </div>
     <div class="hero-inner">
@@ -20,6 +20,43 @@
 </template>
 
 <script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue'
+
+const videoEl = ref(null)
+let observer = null
+const VIDEO_SRC = 'https://cdn.builder.io/o/assets%2F7aeb5cf45399475b85c3a321bfd0a8a2%2Fdf095d7627c64d3fa89d179cd8bf8f27?alt=media&token=bc6f0c15-ec8f-4fe1-9858-2427511dacdf&apiKey=7aeb5cf45399475b85c3a321bfd0a8a2'
+
+onMounted(() => {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  if (prefersReducedMotion) return
+
+  const el = videoEl.value
+  if (!el) return
+
+  if (!('IntersectionObserver' in window)) {
+    el.src = VIDEO_SRC
+    el.load()
+    el.play().catch(() => {})
+    return
+  }
+
+  observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        el.src = VIDEO_SRC
+        el.load()
+        el.play().catch(() => {})
+        if (observer) observer.disconnect()
+      }
+    })
+  }, { rootMargin: '200px 0px' })
+
+  observer.observe(el)
+})
+
+onBeforeUnmount(() => {
+  if (observer) observer.disconnect()
+})
 </script>
 
 <style scoped>
@@ -50,5 +87,8 @@
   .hero-actions { justify-content: center; }
   .hero-title { font-size: 56px; }
   .hero-subtitle { font-size: 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .background-video { display: none; }
 }
 </style>
