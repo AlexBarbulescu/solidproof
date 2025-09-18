@@ -99,7 +99,7 @@ body { margin: 0; }
 
 .content { flex: 1; padding: 0 0 24px; }
 
-.site-footer { border-top: 1px solid #e5e7eb; background: #fff; }
+.site-footer { border-top: 1px solid #e5e7eb; background: #000; }
 .site-footer .container { display: flex; align-items: center; justify-content: space-between; padding: 16px; }
 
 .back-to-top { position: fixed; right: 20px; bottom: 24px; width: 44px; height: 44px; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); color: #fff; cursor: pointer; }
