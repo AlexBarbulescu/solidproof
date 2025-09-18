@@ -1,5 +1,9 @@
 <template>
   <section class="hero-section">
+    <div class="hero-background">
+      <video class="background-video" src="https://cdn.builder.io/o/assets%2F7aeb5cf45399475b85c3a321bfd0a8a2%2Fdf095d7627c64d3fa89d179cd8bf8f27?alt=media&token=bc6f0c15-ec8f-4fe1-9858-2427511dacdf&apiKey=7aeb5cf45399475b85c3a321bfd0a8a2" autoplay muted loop playsinline></video>
+      <div class="hero-overlay"></div>
+    </div>
     <div class="hero-inner">
       <div class="hero-layout">
         <div class="hero-copy">
@@ -23,8 +27,12 @@
 </script>
 
 <style scoped>
-.hero-section { padding: 56px 0 72px; }
-.hero-inner { max-width: 1440px; margin: 0 auto; padding: 0 16px; }
+.hero-section { position: relative; overflow: hidden; padding: 56px 0 72px; }
+.hero-inner { max-width: 1440px; margin: 0 auto; padding: 0 16px; position: relative; z-index: 1; }
+
+.hero-background { position: absolute; inset: 0; z-index: 0; }
+.background-video { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+.hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.45); }
 
 .hero-layout { display: grid; grid-template-columns: 1fr; align-items: center; gap: 32px; }
 
