@@ -43,7 +43,8 @@
 
 
 @media (min-width: 768px) {
-  .hero-section { padding: 72px 0 96px; }
+  .hero-section { padding: 72px 0 96px; min-height: 880px; }
+  .hero-inner { min-height: 880px; display: flex; align-items: center; }
   .hero-layout { grid-template-columns: 1fr; gap: 40px; justify-items: center; }
   .hero-copy { text-align: center; }
   .hero-actions { justify-content: center; }
