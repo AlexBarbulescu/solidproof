@@ -14,10 +14,6 @@
             <a href="#" class="hero-cta secondary-cta">Contact Us</a>
           </div>
         </div>
-        <div class="hero-visual" aria-hidden="true">
-          <div class="orb orb-1"></div>
-          <div class="orb orb-2"></div>
-        </div>
       </div>
     </div>
   </section>
@@ -45,16 +41,13 @@
 .primary-cta { background: var(--color-background-soft); }
 .secondary-cta { background: transparent; }
 
-.hero-visual { position: relative; height: 220px; }
-.orb { position: absolute; border-radius: 50%; filter: blur(24px); opacity: 0.6; }
-.orb-1 { width: 180px; height: 180px; right: 10%; top: 10%; background: #6ee7b7; }
-.orb-2 { width: 140px; height: 140px; left: 8%; bottom: 10%; background: #93c5fd; }
 
 @media (min-width: 768px) {
   .hero-section { padding: 72px 0 96px; }
-  .hero-layout { grid-template-columns: 1.1fr 0.9fr; gap: 40px; }
+  .hero-layout { grid-template-columns: 1fr; gap: 40px; justify-items: center; }
+  .hero-copy { text-align: center; }
+  .hero-actions { justify-content: center; }
   .hero-title { font-size: 56px; }
   .hero-subtitle { font-size: 20px; }
-  .hero-visual { height: 320px; }
 }
 </style>
