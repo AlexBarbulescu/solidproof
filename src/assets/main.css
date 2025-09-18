@@ -3,4 +3,7 @@
 html, body { margin: 0; }
 #app { min-height: 100vh; }
 
+/* Force dark background site-wide */
+body { background: #000; color: var(--vt-c-text-dark-1); }
+
 a { color: inherit; text-decoration: none; }
