@@ -35,6 +35,13 @@
         <small>© 2024 SolidProof</small>
       </div>
     </footer>
+
+    <button
+      class="back-to-top"
+      v-show="showTop"
+      @click="scrollToTop"
+      aria-label="Back to top"
+    >↑</button>
   </div>
 </template>
 
@@ -43,19 +50,28 @@ import { ref, onMounted, onBeforeUnmount } from 'vue'
 import Hero from './components/Hero.vue'
 
 const isOpen = ref(false)
+const showTop = ref(false)
 
 function handleResize() {
   if (window.matchMedia('(min-width: 768px)').matches) {
     isOpen.value = false
   }
 }
+function handleScroll() {
+  showTop.value = window.scrollY > 200
+}
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
 
 onMounted(() => {
   window.addEventListener('resize', handleResize)
+  window.addEventListener('scroll', handleScroll)
 })
 
 onBeforeUnmount(() => {
   window.removeEventListener('resize', handleResize)
+  window.removeEventListener('scroll', handleScroll)
 })
 </script>
 
@@ -67,8 +83,8 @@ body { margin: 0; }
 .page-root { display: flex; flex-direction: column; min-height: 100%; }
 .container { max-width: 960px; margin: 0 auto; padding: 0 16px; }
 
-.site-header { border-bottom: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
-.site-header .container { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; }
+.site-header { position: sticky; top: 0; z-index: 20; background: transparent; border-bottom: none; }
+.site-header .container { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.08); border-radius: 100px; }
 .brand { font-weight: 600; color: #fff; text-decoration: none; }
 
 .nav-toggle { display: inline-flex; flex-direction: column; gap: 4px; padding: 8px; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; background: transparent; }
@@ -86,6 +102,8 @@ body { margin: 0; }
 .site-footer { border-top: 1px solid #e5e7eb; background: #fff; }
 .site-footer .container { display: flex; align-items: center; justify-content: space-between; padding: 16px; }
 
+.back-to-top { position: fixed; right: 20px; bottom: 24px; width: 44px; height: 44px; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.2); background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); color: #fff; cursor: pointer; }
+
 @media (min-width: 768px) {
   .nav-toggle { display: none; }
   .primary-nav { all: unset; }
@@ -93,6 +111,7 @@ body { margin: 0; }
   .primary-nav .nav-list { display: flex; gap: 16px; align-items: center; }
   .nav-list li { margin: 0; }
   .nav-list a { padding: 8px 10px; }
+  .site-header .container { max-width: 1240px; }
 }
 
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
