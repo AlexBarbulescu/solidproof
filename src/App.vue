@@ -88,7 +88,7 @@ body { margin: 0; }
 .container { max-width: 960px; margin: 0 auto; padding: 0 16px; }
 
 .site-header { position: fixed; top: 40px; left: 0; right: 0; z-index: 20; background: transparent; border-bottom: none; }
-.site-header .container { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.08); border-radius: 100px; }
+.site-header .container { display: flex; align-items: center; justify-content: space-between; padding: 12px 30px; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.08); border-radius: 100px; }
 .brand { font-weight: 600; color: #fff; text-decoration: none; }
 
 .nav-toggle { display: inline-flex; flex-direction: column; gap: 4px; padding: 8px; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; background: transparent; }
