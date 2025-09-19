@@ -24,7 +24,7 @@ import { ref, onMounted, onBeforeUnmount } from 'vue'
 
 const videoEl = ref(null)
 let observer = null
-const VIDEO_SRC = 'https://cdn.builder.io/o/assets%2F7aeb5cf45399475b85c3a321bfd0a8a2%2Fdf095d7627c64d3fa89d179cd8bf8f27?alt=media&token=bc6f0c15-ec8f-4fe1-9858-2427511dacdf&apiKey=7aeb5cf45399475b85c3a321bfd0a8a2'
+const VIDEO_SRC = '/images/hero_video.mp4'
 
 onMounted(() => {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
