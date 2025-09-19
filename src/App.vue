@@ -2,7 +2,11 @@
   <div class="page-root">
     <header class="site-header">
       <div class="container">
-        <a href="#" class="brand">SolidProof</a>
+        <a href="#" class="brand">
+          <span class="sr-only">SolidProof</span>
+          <img src="/logo_horizontal_white.svg" alt="SolidProof" class="brand-logo brand-logo--dark" />
+          <img src="/logo_horizontal_black.svg" alt="SolidProof" class="brand-logo brand-logo--light" />
+        </a>
         <button
           class="nav-toggle"
           @click="isOpen = !isOpen"
@@ -115,4 +119,12 @@ body { margin: 0; }
 }
 
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.brand { display: inline-flex; align-items: center; gap: 8px; }
+.brand-logo { height: 24px; width: auto; display: block; }
+@media (min-width: 768px) { .brand-logo { height: 28px; } }
+.brand-logo--light { display: none; }
+@media (prefers-color-scheme: light) {
+  .brand-logo--dark { display: none; }
+  .brand-logo--light { display: block; }
+}
 </style>
