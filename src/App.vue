@@ -21,9 +21,10 @@
         <nav id="primary-nav" class="primary-nav" :class="{ open: isOpen }">
           <ul class="nav-list">
             <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
             <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Company</a></li>
+            <li><a href="#">News</a></li>
           </ul>
         </nav>
       </div>
@@ -88,7 +89,7 @@ body { margin: 0; }
 .container { max-width: 960px; margin: 0 auto; padding: 0 16px; }
 
 .site-header { position: fixed; top: 40px; left: 0; right: 0; z-index: 20; background: transparent; border-bottom: none; }
-.site-header .container { display: flex; align-items: center; justify-content: space-between; padding: 12px 30px; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.08); border-radius: 100px; }
+.site-header .container { position: relative; display: flex; align-items: center; justify-content: space-between; padding: 12px 30px; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.08); border-radius: 100px; }
 .brand { font-weight: 600; color: #fff; text-decoration: none; }
 
 .nav-toggle { display: inline-flex; flex-direction: column; gap: 4px; padding: 8px; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; background: transparent; }
@@ -111,8 +112,8 @@ body { margin: 0; }
 @media (min-width: 768px) {
   .nav-toggle { display: none; }
   .primary-nav { all: unset; }
-  .primary-nav { display: block; }
-  .primary-nav .nav-list { display: flex; gap: 16px; align-items: center; }
+  .primary-nav { display: block; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+  .primary-nav .nav-list { display: flex; gap: 16px; align-items: center; justify-content: center; }
   .nav-list li { margin: 0; }
   .nav-list a { padding: 8px 10px; }
   .site-header .container { max-width: 1240px; }
