@@ -121,8 +121,8 @@ body { margin: 0; }
 
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 .brand { display: inline-flex; align-items: center; gap: 8px; }
-.brand-logo { height: 24px; width: auto; display: block; }
-@media (min-width: 768px) { .brand-logo { height: 28px; } }
+.brand-logo { height: 48px; width: auto; display: block; }
+@media (min-width: 768px) { .brand-logo { height: 36px; } }
 .brand-logo--light { display: none; }
 @media (prefers-color-scheme: light) {
   .brand-logo--dark { display: none; }
