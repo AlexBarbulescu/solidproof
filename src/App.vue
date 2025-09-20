@@ -3,7 +3,6 @@
     <header class="site-header">
       <div class="container">
         <a href="#" class="brand">
-          <span class="sr-only">SolidProof</span>
           <img src="/logo_horizontal_white.svg" alt="SolidProof" class="brand-logo brand-logo--dark" />
           <img src="/logo_horizontal_black.svg" alt="SolidProof" class="brand-logo brand-logo--light" />
         </a>
