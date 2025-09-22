@@ -590,26 +590,88 @@ body { margin: 0; }
   .dropdown-header { padding: 8px 12px; }
   .dropdown-items { gap: 8px; }
   .dropdown-items .dropdown-item + .dropdown-item { margin-top: 8px; }
+  
+  /* Force flex layout for mobile */
   .dropdown-item {
-    display: grid;
-    grid-template-columns: 24px 1fr;
-    column-gap: 12px;
-    align-items: start;
-    padding: 12px;
-    min-height: unset;
+    position: relative !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    padding: 12px !important;
+    min-height: unset !important;
   }
-  .item-icon { position: static; width: 16px; height: 16px; transform: none; margin-top: 2px; }
-  .item-content { position: static; left: auto; top: auto; transform: none; width: auto; grid-column: 2; }
-  .dropdown-item > svg.item-icon { grid-column: 1; }
+  
+  /* Reset icon positioning */
+  .item-icon {
+    position: static !important;
+    left: unset !important;
+    top: unset !important;
+    transform: none !important;
+    width: 16px !important;
+    height: 16px !important;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+  
+  /* Reset content positioning */
+  .item-content {
+    position: static !important;
+    left: unset !important;
+    top: unset !important;
+    transform: none !important;
+    width: auto !important;
+    flex: 1;
+  }
+  
   .item-title { font-size: 15px; }
   .item-description { font-size: 12px; line-height: 140%; }
 
   /* GitHub special item responsive */
-  .github-special { padding: 12px; min-height: auto; }
-  .github-special .item-icon { position: static; width: 14px; height: 16px; margin-top: 2px; }
-  .github-content { position: static; transform: none; width: auto; height: auto; padding: 0; grid-column: 2; }
-  .github-section { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 12px; height: auto; padding-bottom: 0; }
-  .github-text { position: static; width: auto; height: auto; }
-  .github-icons { position: static; width: auto; height: auto; padding: 0; }
+  .github-special {
+    padding: 12px !important;
+    min-height: auto !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+  .github-special .item-icon {
+    position: static !important;
+    left: unset !important;
+    top: unset !important;
+    transform: none !important;
+    width: 14px !important;
+    height: 16px !important;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+  .github-content {
+    position: static !important;
+    left: unset !important;
+    top: unset !important;
+    transform: none !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 0;
+    flex: 1;
+  }
+  .github-section {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 12px;
+    height: auto;
+    padding-bottom: 0;
+  }
+  .github-text {
+    position: static;
+    width: auto;
+    height: auto;
+  }
+  .github-icons {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+  }
 }
 </style>
