@@ -607,7 +607,7 @@ body { margin: 0; }
   /* GitHub special item responsive */
   .github-special { padding: 12px; min-height: auto; }
   .github-special .item-icon { position: static; width: 14px; height: 16px; margin-top: 2px; }
-  .github-content { position: static; transform: none; width: auto; height: auto; padding: 0; }
+  .github-content { position: static; transform: none; width: auto; height: auto; padding: 0; grid-column: 2; }
   .github-section { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 12px; height: auto; padding-bottom: 0; }
   .github-text { position: static; width: auto; height: auto; }
   .github-icons { position: static; width: auto; height: auto; padding: 0; }
