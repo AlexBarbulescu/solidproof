@@ -557,33 +557,6 @@ body { margin: 0; }
   gap: 10px;
 }
 
-.github-icon {
-  width: 25px;
-  height: 25px;
-  flex-shrink: 0;
-}
-
-.current-badge {
-  position: absolute;
-  right: 7px;
-  bottom: 5px;
-  background: #0D6EFD;
-  border-radius: 4px;
-  width: 33px;
-  height: 9px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.current-badge span {
-  color: white;
-  font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
-  font-size: 6px;
-  font-weight: bold;
-  letter-spacing: 0px;
-}
-
 @media (max-width: 767px) {
   .services-dropdown,
   .projects-dropdown {
