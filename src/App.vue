@@ -458,7 +458,7 @@ body { margin: 0; }
   font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 11px;
   font-weight: 400;
-  line-height: 100%;
+  line-height: 120%;
 }
 
 /* Projects Dropdown */
@@ -481,14 +481,14 @@ body { margin: 0; }
 .github-special {
   background: #2A2A2C;
   padding: 5px 15px;
-  min-height: 77px;
+  min-height: 94px;
   align-items: flex-start;
 }
 
 .github-special .item-icon {
   position: absolute;
   left: 16px;
-  top: 2px;
+  top: 5px;
   transform: none;
   width: 14px;
   height: 16px;
@@ -496,12 +496,12 @@ body { margin: 0; }
 
 .github-content {
   position: absolute;
-  left: 30px;
+  left: 43px;
   top: 50%;
   transform: translateY(-50%);
   width: 228px;
-  height: 77px;
-  padding: 2px 0;
+  height: 94px;
+  padding: 5px 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -525,6 +525,9 @@ body { margin: 0; }
   top: 0;
   width: 129px;
   height: 55px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .github-description {
@@ -532,7 +535,7 @@ body { margin: 0; }
   font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 11px;
   font-weight: 400;
-  line-height: 100%;
+  line-height: 120%;
 }
 
 .saat-link {
@@ -540,7 +543,7 @@ body { margin: 0; }
   font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 11px;
   font-weight: 400;
-  line-height: 100%;
+  line-height: 120%;
   text-decoration: underline;
 }
 
