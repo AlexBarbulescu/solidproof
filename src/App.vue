@@ -485,30 +485,51 @@ body { margin: 0; }
 
 .github-special {
   background: #2A2A2C;
-  min-height: auto;
+  padding: 5px 15px;
+  min-height: 77px;
+  align-items: flex-start;
+}
+
+.github-special .item-icon {
+  position: absolute;
+  left: 16px;
+  top: 2px;
+  transform: none;
+  width: 14px;
+  height: 16px;
 }
 
 .github-content {
-  position: static;
-  width: auto;
-  transform: none;
-  top: auto;
+  position: absolute;
   left: 30px;
-  right: 19px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 228px;
+  height: 77px;
   padding: 2px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
 }
 
 .github-section {
+  position: relative;
   display: flex;
-  justify-content: space-between;
+  padding-bottom: 2px;
+  justify-content: center;
   align-items: flex-start;
-  gap: 9px;
-  margin-top: 3px;
+  gap: 9.208px;
+  align-self: stretch;
+  height: 56px;
 }
 
 .github-text {
-  flex: 1;
-  min-width: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 129px;
+  height: 55px;
 }
 
 .github-description {
@@ -529,10 +550,16 @@ body { margin: 0; }
 }
 
 .github-icons {
+  position: absolute;
+  left: 138px;
+  top: 0;
+  width: 90px;
+  height: 56px;
   display: flex;
+  padding: 5px 10px;
+  justify-content: flex-end;
   align-items: flex-start;
-  gap: 8px;
-  flex-shrink: 0;
+  gap: 10px;
 }
 
 .github-icon {
@@ -542,13 +569,16 @@ body { margin: 0; }
 }
 
 .current-badge {
+  position: absolute;
+  right: 7px;
+  bottom: 5px;
   background: #0D6EFD;
   border-radius: 4px;
-  padding: 2px 8px;
+  width: 33px;
+  height: 9px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 17px;
 }
 
 .current-badge span {
