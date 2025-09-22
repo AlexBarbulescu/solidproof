@@ -21,7 +21,7 @@
         <nav id="primary-nav" class="primary-nav" :class="{ open: isOpen }">
           <ul class="nav-list">
             <li><a href="#">Home</a></li>
-            <li class="dropdown-container" @mouseenter="showDropdown = true" @mouseleave="showDropdown = false">
+            <li class="dropdown-container" ref="dropdownWrapper">
               <a href="#" class="dropdown-trigger" @click.prevent.stop="toggleDropdown" :aria-expanded="showDropdown ? 'true' : 'false'">
                 Services
                 <svg class="trigger-caret" width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -202,9 +202,17 @@ import Hero from './components/Hero.vue'
 const isOpen = ref(false)
 const showTop = ref(false)
 const showDropdown = ref(false)
+const dropdownWrapper = ref(null)
 
 function toggleDropdown() {
   showDropdown.value = !showDropdown.value
+}
+function onDocClick(e) {
+  if (!showDropdown.value) return
+  const root = dropdownWrapper.value
+  if (root && !root.contains(e.target)) {
+    showDropdown.value = false
+  }
 }
 
 function handleResize() {
@@ -222,11 +230,13 @@ function scrollToTop() {
 onMounted(() => {
   window.addEventListener('resize', handleResize)
   window.addEventListener('scroll', handleScroll)
+  document.addEventListener('click', onDocClick)
 })
 
 onBeforeUnmount(() => {
   window.removeEventListener('resize', handleResize)
   window.removeEventListener('scroll', handleScroll)
+  document.removeEventListener('click', onDocClick)
 })
 </script>
 
