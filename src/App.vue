@@ -330,11 +330,10 @@ body { margin: 0; }
   gap: 0;
 }
 .dropdown-item {
+  position: relative;
   display: flex;
-  flex-direction: row;
   align-items: flex-start;
-  gap: 14px;
-  padding: 2px 13px;
+  padding: 0 19px 13px 13px;
   min-height: 45px;
   text-decoration: none;
   color: inherit;
@@ -344,17 +343,22 @@ body { margin: 0; }
   background: rgba(255, 255, 255, 0.05);
 }
 .item-icon {
+  position: absolute;
+  left: 13px;
+  top: 2px;
   width: 16px;
   height: 16px;
   flex-shrink: 0;
-  margin-top: 2px;
 }
 .item-content {
+  position: absolute;
+  left: 43px;
+  top: 0px;
+  width: 228px;
   display: flex;
   flex-direction: column;
   gap: 3px;
-  flex: 1;
-  padding: 0;
+  padding: 2px 0;
 }
 .item-title {
   color: #fff;
