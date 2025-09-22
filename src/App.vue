@@ -22,7 +22,12 @@
           <ul class="nav-list">
             <li><a href="#">Home</a></li>
             <li class="dropdown-container" @mouseenter="showDropdown = true" @mouseleave="showDropdown = false">
-              <a href="#" class="dropdown-trigger">Services</a>
+              <a href="#" class="dropdown-trigger" @click.prevent.stop="toggleDropdown" :aria-expanded="showDropdown ? 'true' : 'false'">
+                Services
+                <svg class="trigger-caret" width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M4.64645 6.64645C4.84171 6.45118 5.15829 6.45118 5.35355 6.64645L8 9.29289L10.6464 6.64645C10.8417 6.45118 11.1583 6.45118 11.3536 6.64645C11.5488 6.84171 11.5488 7.15829 11.3536 7.35355L8.35355 10.3536C8.15829 10.5488 7.84171 10.5488 7.64645 10.3536L4.64645 7.35355C4.45118 7.15829 4.45118 6.84171 4.64645 6.64645Z" fill="currentColor"/>
+                </svg>
+              </a>
               <div class="services-dropdown" v-show="showDropdown">
                 <div class="dropdown-header">
                   <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -198,6 +203,10 @@ const isOpen = ref(false)
 const showTop = ref(false)
 const showDropdown = ref(false)
 
+function toggleDropdown() {
+  showDropdown.value = !showDropdown.value
+}
+
 function handleResize() {
   if (window.matchMedia('(min-width: 768px)').matches) {
     isOpen.value = false
@@ -272,6 +281,9 @@ body { margin: 0; }
 
 /* Services Dropdown */
 .dropdown-container { position: relative; }
+.dropdown-trigger { display: inline-flex; align-items: center; gap: 6px; color: #fff; }
+.trigger-caret { transition: transform 0.2s ease; }
+.dropdown-trigger[aria-expanded="true"] .trigger-caret { transform: rotate(180deg); }
 .services-dropdown {
   position: absolute;
   top: calc(100% + 8px);
@@ -319,6 +331,7 @@ body { margin: 0; }
 }
 .dropdown-item {
   display: flex;
+  flex-direction: row;
   align-items: flex-start;
   gap: 14px;
   padding: 2px 13px;
