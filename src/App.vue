@@ -351,7 +351,6 @@ body { margin: 0; }
 .dropdown-item:hover {
   background: rgba(255, 255, 255, 0.05);
 }
-/* fixed spacing between items */
 .dropdown-items .dropdown-item + .dropdown-item { margin-top: 10px; }
 .item-icon {
   position: absolute;
