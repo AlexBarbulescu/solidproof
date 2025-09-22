@@ -248,7 +248,7 @@ body { margin: 0; }
 .container { max-width: 960px; margin: 0 auto; padding: 0 16px; }
 
 .site-header { position: fixed; top: 40px; left: 0; right: 0; z-index: 20; background: transparent; border-bottom: none; }
-.site-header .container { position: relative; display: flex; align-items: center; justify-content: space-between; padding: 12px 30px; height: 80px; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.08); border-radius: 100px; }
+.site-header .container { position: relative; display: flex; align-items: center; justify-content: space-between; padding: 30px 40px; height: 80px; background: rgba(48,49,53,0.5); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: 1px solid rgba(96,96,96,0.6); border-radius: 100px; }
 .brand { font-weight: 600; color: #fff; text-decoration: none; }
 
 .nav-toggle { display: inline-flex; flex-direction: column; gap: 4px; padding: 8px; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; background: transparent; }
@@ -258,7 +258,7 @@ body { margin: 0; }
 .primary-nav.open { display: block; }
 .nav-list { list-style: none; margin: 0; padding: 8px; }
 .nav-list li { margin: 4px 0; }
-.nav-list a { display: block; padding: 8px 12px; border-radius: 6px; color: #fff; text-decoration: none; }
+.nav-list a { display: block; padding: 8px 12px; color: #fff; text-decoration: none; }
 .nav-list a:hover { background: rgba(255,255,255,0.08); }
 
 .content { flex: 1; padding: 0 0 24px; }
@@ -312,7 +312,7 @@ body { margin: 0; }
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 5px 19px 5px 13px;
+  padding: 10px 19px 10px 13px;
 }
 .dropdown-icon {
   width: 16px;
@@ -337,6 +337,7 @@ body { margin: 0; }
   display: flex;
   flex-direction: column;
   gap: 0;
+  margin-top: 20px;
 }
 .dropdown-item {
   position: relative;
@@ -352,7 +353,7 @@ body { margin: 0; }
   background: rgba(255, 255, 255, 0.05);
 }
 /* fixed spacing between items */
-.dropdown-items .dropdown-item + .dropdown-item { margin-top: 10px; }
+.dropdown-items .dropdown-item + .dropdown-item { margin-top: 5px; }
 .item-icon {
   position: absolute;
   left: 13px;
