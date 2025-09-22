@@ -337,7 +337,6 @@ body { margin: 0; }
   display: flex;
   flex-direction: column;
   gap: 0;
-  margin-top: 20px;
 }
 .dropdown-item {
   position: relative;
