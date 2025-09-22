@@ -330,7 +330,7 @@ body { margin: 0; }
   width: 100%;
   height: 1px;
   background: #464649;
-  margin: 4px 0;
+  margin: 10px 0 10px;
   filter: drop-shadow(0 -1px 0 #2B2C2F);
 }
 .dropdown-items {
