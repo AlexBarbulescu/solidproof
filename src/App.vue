@@ -599,7 +599,8 @@ body { margin: 0; }
     min-height: unset;
   }
   .item-icon { position: static; width: 16px; height: 16px; transform: none; margin-top: 2px; }
-  .item-content { position: static; left: auto; top: auto; transform: none; width: auto; }
+  .item-content { position: static; left: auto; top: auto; transform: none; width: auto; grid-column: 2; }
+  .dropdown-item > svg.item-icon { grid-column: 1; }
   .item-title { font-size: 15px; }
   .item-description { font-size: 12px; line-height: 140%; }
 
