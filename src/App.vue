@@ -341,8 +341,8 @@ body { margin: 0; }
 .dropdown-item {
   position: relative;
   display: flex;
-  align-items: flex-start;
-  padding: 0 19px 0 13px;
+  align-items: center;
+  padding: 10px 19px 10px 13px;
   min-height: 45px;
   text-decoration: none;
   color: inherit;
@@ -355,7 +355,8 @@ body { margin: 0; }
 .item-icon {
   position: absolute;
   left: 13px;
-  top: 2px;
+  top: 50%;
+  transform: translateY(-50%);
   width: 16px;
   height: 16px;
   flex-shrink: 0;
@@ -363,12 +364,13 @@ body { margin: 0; }
 .item-content {
   position: absolute;
   left: 43px;
-  top: 0px;
+  top: 50%;
+  transform: translateY(-50%);
   width: 228px;
   display: flex;
   flex-direction: column;
   gap: 3px;
-  padding: 2px 0;
+  padding: 0;
 }
 .item-title {
   color: #fff;
