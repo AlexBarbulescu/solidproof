@@ -466,7 +466,103 @@ body { margin: 0; }
   line-height: 100%;
 }
 
+/* Projects Dropdown */
+.projects-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 290px;
+  padding: 10px 0;
+  background: linear-gradient(180deg, rgba(47, 47, 51, 0.87) 0%, rgba(61, 62, 67, 0.87) 34.82%, rgba(47, 47, 51, 0.87) 100%), #2F2F33;
+  border: 1px solid #606061;
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1000;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.github-special {
+  background: #2A2A2C;
+  min-height: auto;
+}
+
+.github-content {
+  position: static;
+  width: auto;
+  transform: none;
+  top: auto;
+  left: 30px;
+  right: 19px;
+  padding: 2px 0;
+}
+
+.github-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 9px;
+  margin-top: 3px;
+}
+
+.github-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.github-description {
+  color: #898A8B;
+  font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 100%;
+}
+
+.saat-link {
+  color: #fff;
+  font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 100%;
+  text-decoration: underline;
+}
+
+.github-icons {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.github-icon {
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
+}
+
+.current-badge {
+  background: #0D6EFD;
+  border-radius: 4px;
+  padding: 2px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 17px;
+}
+
+.current-badge span {
+  color: white;
+  font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 6px;
+  font-weight: bold;
+  letter-spacing: 0px;
+}
+
 @media (max-width: 767px) {
-  .services-dropdown { display: none !important; }
+  .services-dropdown,
+  .projects-dropdown {
+    display: none !important;
+  }
 }
 </style>
