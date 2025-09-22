@@ -560,10 +560,48 @@ body { margin: 0; }
   gap: 10px;
 }
 
-@media (max-width: 767px) {
+/* Tablet adjustments */
+@media (max-width: 1024px) {
   .services-dropdown,
   .projects-dropdown {
-    display: none !important;
+    width: min(92vw, 480px);
+    left: 50%;
+    transform: translateX(-50%);
   }
+  .item-content { width: calc(100% - 62px); }
+  .github-content { width: calc(100% - 62px); }
+}
+
+/* Mobile dropdown: inline accordion style inside nav */
+@media (max-width: 767px) {
+  .dropdown-container { width: 100%; }
+  .dropdown-trigger { width: 100%; justify-content: space-between; }
+  .services-dropdown,
+  .projects-dropdown {
+    position: static;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+    padding: 10px 8px;
+    margin-top: 8px;
+    border-radius: 12px;
+  }
+  .dropdown-header { padding: 8px 12px; }
+  .dropdown-items { gap: 8px; }
+  .dropdown-items .dropdown-item + .dropdown-item { margin-top: 8px; }
+  .dropdown-item { padding: 12px 12px 12px 40px; min-height: unset; }
+  .item-icon { left: 16px; top: 18px; transform: none; }
+  .item-content { position: static; left: auto; top: auto; transform: none; width: auto; }
+  .item-title { font-size: 15px; }
+  .item-description { font-size: 12px; line-height: 140%; }
+
+  /* GitHub special item responsive */
+  .github-special { padding: 10px 12px; min-height: auto; }
+  .github-special .item-icon { left: 12px; top: 12px; }
+  .github-content { position: static; transform: none; width: auto; height: auto; padding: 0; }
+  .github-section { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 12px; height: auto; padding-bottom: 0; }
+  .github-text { position: static; width: auto; height: auto; }
+  .github-icons { position: static; width: auto; height: auto; padding: 0; }
 }
 </style>
