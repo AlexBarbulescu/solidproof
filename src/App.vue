@@ -611,6 +611,7 @@ body { margin: 0; }
   align-items: start;
   gap: 36px;
   min-height: 360px;
+  position: relative;
 }
 
 .contact-content {
@@ -666,8 +667,9 @@ body { margin: 0; }
   align-items: center;
   width: 600px;
   height: auto;
-  align-self: end;
-  margin-top: -120px;
+  position: absolute;
+  right: 48px;
+  bottom: 0;
   z-index: 1;
 }
 
@@ -701,8 +703,8 @@ body { margin: 0; }
   .contact-image {
     width: min(72vw, 520px);
     height: auto;
-    margin: -80px auto 0 auto;
-    align-self: end;
+    right: 32px;
+    bottom: 0;
   }
 }
 
@@ -829,8 +831,10 @@ body { margin: 0; }
   .contact-image {
     width: min(88vw, 360px);
     height: auto;
-    margin-top: -60px;
-    align-self: end;
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
+    bottom: 0;
   }
 }
 </style>
