@@ -790,5 +790,29 @@ body { margin: 0; }
     height: auto;
     padding: 0;
   }
+
+  /* Contact section mobile */
+  .contact-container {
+    padding: 40px 20px;
+    gap: 30px;
+  }
+  .contact-title {
+    font-size: 42px;
+    line-height: 95%;
+  }
+  .contact-description {
+    font-size: 16px;
+    line-height: 120%;
+  }
+  .contact-cta {
+    width: 180px;
+    height: 44px;
+    font-size: 15px;
+  }
+  .contact-image {
+    width: 100%;
+    max-width: 350px;
+    height: 350px;
+  }
 }
 </style>
