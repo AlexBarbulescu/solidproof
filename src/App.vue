@@ -236,6 +236,24 @@
 
     <main class="content">
       <Hero />
+
+      <!-- Contact Section -->
+      <section class="contact-section">
+        <div class="contact-container">
+          <div class="contact-content">
+            <h2 class="contact-title">Have questions or need a quote?</h2>
+            <p class="contact-description">
+              Reach out to SolidProof for expert support in blockchain auditing, KYC, smart contract development, and marketing.
+              <br><br>
+              Our team is ready to assist you with secure, professional solutions tailored to your project.
+            </p>
+            <a href="#" class="contact-cta">Contact Us</a>
+          </div>
+          <div class="contact-image">
+            <img src="https://api.builder.io/api/v1/image/assets/TEMP/5053e7b8d0e05c7cbe6ed08dcfa48f29f576582b?width=1322" alt="SolidProof team member" />
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">
