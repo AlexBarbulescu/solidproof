@@ -671,6 +671,22 @@ body { margin: 0; }
   }
   .item-content { width: calc(100% - 62px); }
   .github-content { width: calc(100% - 62px); }
+
+  /* Contact section tablet */
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 60px 40px;
+    text-align: center;
+  }
+  .contact-title { font-size: 56px; }
+  .contact-description { font-size: 18px; }
+  .contact-image {
+    width: 100%;
+    max-width: 500px;
+    height: 500px;
+    margin: 0 auto;
+  }
 }
 
 /* Mobile dropdown: inline accordion style inside nav */
