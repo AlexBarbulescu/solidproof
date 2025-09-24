@@ -600,16 +600,17 @@ body { margin: 0; }
 .contact-card {
   background: radial-gradient(38.71% 100.4% at 69.97% 62.68%, rgba(0, 128, 255, 0.20) 33.65%, rgba(0, 0, 0, 0.00) 98.56%), #131415;
   border-radius: 20px;
-  overflow: hidden;
+  overflow: visible;
+  position: relative;
 }
 
 .contact-container {
-  padding: 64px 60px;
+  padding: 48px 60px 56px 60px;
   display: grid;
-  grid-template-columns: 1fr 661px;
-  align-items: center;
-  gap: 60px;
-  min-height: 518px;
+  grid-template-columns: 1fr 520px;
+  align-items: start;
+  gap: 40px;
+  min-height: 420px;
 }
 
 .contact-content {
@@ -663,14 +664,17 @@ body { margin: 0; }
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 661px;
-  height: 661px;
+  width: 520px;
+  height: auto;
+  align-self: start;
+  margin-top: -80px;
+  z-index: 1;
 }
 
 .contact-image img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
 }
 
 /* Tablet adjustments */
@@ -688,17 +692,16 @@ body { margin: 0; }
   .contact-section { padding: 32px 16px; }
   .contact-container {
     grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 48px 32px;
+    gap: 32px;
+    padding: 48px 32px 56px 32px;
     text-align: center;
   }
   .contact-title { font-size: 56px; }
   .contact-description { font-size: 18px; }
   .contact-image {
-    width: 100%;
-    max-width: 500px;
-    height: 500px;
-    margin: 0 auto;
+    width: min(70vw, 480px);
+    height: auto;
+    margin: -60px auto 0 auto;
   }
 }
 
@@ -823,9 +826,9 @@ body { margin: 0; }
     font-size: 15px;
   }
   .contact-image {
-    width: 100%;
-    max-width: 350px;
-    height: 350px;
+    width: min(85vw, 340px);
+    height: auto;
+    margin-top: -40px;
   }
 }
 </style>
