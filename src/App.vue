@@ -695,7 +695,7 @@ body { margin: 0; }
   .contact-container {
     grid-template-columns: 1fr;
     gap: 32px;
-    padding: 48px 32px 56px 32px;
+    padding: 48px 32px 0 32px;
     text-align: center;
   }
   .contact-title { font-size: 56px; }
@@ -813,8 +813,9 @@ body { margin: 0; }
   }
 
   /* Contact section mobile */
+  .contact-card { overflow: hidden; }
   .contact-container {
-    padding: 40px 20px;
+    padding: 40px 20px 0;
     gap: 30px;
   }
   .contact-section { margin-top: 40px; }
@@ -834,11 +835,11 @@ body { margin: 0; }
     display: inline-block;
   }
   .contact-image {
-    width: min(88vw, 360px);
+    width: 100%;
     height: auto;
     position: static;
     transform: none;
-    margin: 16px auto 0;
+    margin: 16px 0 0;
     right: auto;
     bottom: auto;
   }
