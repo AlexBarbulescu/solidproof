@@ -239,8 +239,10 @@
 
       <!-- Contact Section -->
       <section class="contact-section">
-        <div class="contact-container">
-          <div class="contact-content">
+        <div class="contact-wrapper">
+          <div class="contact-card">
+            <div class="contact-container">
+              <div class="contact-content">
             <h2 class="contact-title">Have questions or need a quote?</h2>
             <p class="contact-description">
               Reach out to SolidProof for expert support in blockchain auditing, KYC, smart contract development, and marketing.
@@ -248,9 +250,11 @@
               Our team is ready to assist you with secure, professional solutions tailored to your project.
             </p>
             <a href="#" class="contact-cta">Contact Us</a>
-          </div>
-          <div class="contact-image">
-            <img src="https://api.builder.io/api/v1/image/assets/TEMP/5053e7b8d0e05c7cbe6ed08dcfa48f29f576582b?width=1322" alt="SolidProof team member" />
+              </div>
+              <div class="contact-image">
+                <img src="https://api.builder.io/api/v1/image/assets/TEMP/5053e7b8d0e05c7cbe6ed08dcfa48f29f576582b?width=1322" alt="SolidProof team member" />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -582,16 +586,25 @@ body { margin: 0; }
 /* Contact Section */
 .contact-section {
   width: 100%;
-  padding: 0;
+  padding: 40px 20px;
   margin: 0;
-  background: radial-gradient(38.71% 100.4% at 69.97% 62.68%, rgba(0, 128, 255, 0.20) 33.65%, rgba(0, 0, 0, 0.00) 98.56%), #131415;
+  background: transparent;
   position: relative;
 }
 
-.contact-container {
+.contact-wrapper {
   max-width: 1360px;
   margin: 0 auto;
-  padding: 80px 60px;
+}
+
+.contact-card {
+  background: radial-gradient(38.71% 100.4% at 69.97% 62.68%, rgba(0, 128, 255, 0.20) 33.65%, rgba(0, 0, 0, 0.00) 98.56%), #131415;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.contact-container {
+  padding: 64px 60px;
   display: grid;
   grid-template-columns: 1fr 661px;
   align-items: center;
@@ -658,7 +671,6 @@ body { margin: 0; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 20px;
 }
 
 /* Tablet adjustments */
@@ -673,10 +685,11 @@ body { margin: 0; }
   .github-content { width: calc(100% - 62px); }
 
   /* Contact section tablet */
+  .contact-section { padding: 32px 16px; }
   .contact-container {
     grid-template-columns: 1fr;
     gap: 40px;
-    padding: 60px 40px;
+    padding: 48px 32px;
     text-align: center;
   }
   .contact-title { font-size: 56px; }
