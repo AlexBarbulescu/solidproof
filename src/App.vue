@@ -701,9 +701,9 @@ body { margin: 0; }
   .contact-title { font-size: 56px; }
   .contact-description { font-size: 18px; }
   .contact-container { text-align: center; }
-  .contact-content { align-items: center; }
+  .contact-content { align-items: center; justify-content: center; text-align: center; }
   .contact-title, .contact-description { text-align: center; }
-  .contact-cta { margin: 0 auto; }
+  .contact-cta { margin: 0 auto; display: inline-block; }
   .contact-image {
     width: min(72vw, 520px);
     height: auto;
