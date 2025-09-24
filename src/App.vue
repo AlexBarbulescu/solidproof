@@ -666,7 +666,7 @@ body { margin: 0; }
   align-items: center;
   width: 600px;
   height: auto;
-  align-self: start;
+  align-self: end;
   margin-top: -120px;
   z-index: 1;
 }
@@ -702,6 +702,7 @@ body { margin: 0; }
     width: min(72vw, 520px);
     height: auto;
     margin: -80px auto 0 auto;
+    align-self: end;
   }
 }
 
@@ -829,6 +830,7 @@ body { margin: 0; }
     width: min(88vw, 360px);
     height: auto;
     margin-top: -60px;
+    align-self: end;
   }
 }
 </style>
