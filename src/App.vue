@@ -586,8 +586,8 @@ body { margin: 0; }
 /* Contact Section */
 .contact-section {
   width: 100%;
-  padding: 40px 20px;
-  margin: 0;
+  padding: 72px 20px 40px;
+  margin: 64px 0 0;
   background: transparent;
   position: relative;
 }
@@ -691,7 +691,7 @@ body { margin: 0; }
   .github-content { width: calc(100% - 62px); }
 
   /* Contact section tablet */
-  .contact-section { padding: 32px 16px; }
+  .contact-section { padding: 48px 16px 32px; margin-top: 48px; }
   .contact-container {
     grid-template-columns: 1fr;
     gap: 32px;
@@ -815,6 +815,7 @@ body { margin: 0; }
     padding: 40px 20px;
     gap: 30px;
   }
+  .contact-section { margin-top: 40px; }
   .contact-title {
     font-size: 42px;
     line-height: 95%;
