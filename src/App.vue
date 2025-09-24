@@ -619,6 +619,7 @@ body { margin: 0; }
   flex-direction: column;
   gap: 15px;
   max-width: 522px;
+  align-items: flex-start;
 }
 
 .contact-title {
