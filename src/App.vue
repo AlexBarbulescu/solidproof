@@ -843,5 +843,11 @@ body { margin: 0; }
     right: auto;
     bottom: auto;
   }
+
+  /* Center contact text and button */
+  .contact-container { text-align: center; }
+  .contact-content { align-items: center; }
+  .contact-title, .contact-description { text-align: center; }
+  .contact-cta { margin: 0 auto; }
 }
 </style>
