@@ -700,6 +700,10 @@ body { margin: 0; }
   }
   .contact-title { font-size: 56px; }
   .contact-description { font-size: 18px; }
+  .contact-container { text-align: center; }
+  .contact-content { align-items: center; }
+  .contact-title, .contact-description { text-align: center; }
+  .contact-cta { margin: 0 auto; }
   .contact-image {
     width: min(72vw, 520px);
     height: auto;
