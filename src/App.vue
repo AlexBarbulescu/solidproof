@@ -703,8 +703,10 @@ body { margin: 0; }
   .contact-image {
     width: min(72vw, 520px);
     height: auto;
-    right: 32px;
-    bottom: 0;
+    position: static;
+    margin: 16px auto 0;
+    right: auto;
+    bottom: auto;
   }
 }
 
@@ -834,10 +836,11 @@ body { margin: 0; }
   .contact-image {
     width: min(88vw, 360px);
     height: auto;
-    left: 50%;
-    transform: translateX(-50%);
+    position: static;
+    transform: none;
+    margin: 16px auto 0;
     right: auto;
-    bottom: 0;
+    bottom: auto;
   }
 }
 </style>
