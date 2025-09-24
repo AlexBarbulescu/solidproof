@@ -579,6 +579,88 @@ body { margin: 0; }
   gap: 10px;
 }
 
+/* Contact Section */
+.contact-section {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background: radial-gradient(38.71% 100.4% at 69.97% 62.68%, rgba(0, 128, 255, 0.20) 33.65%, rgba(0, 0, 0, 0.00) 98.56%), #131415;
+  position: relative;
+}
+
+.contact-container {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 80px 60px;
+  display: grid;
+  grid-template-columns: 1fr 661px;
+  align-items: center;
+  gap: 60px;
+  min-height: 518px;
+}
+
+.contact-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 522px;
+}
+
+.contact-title {
+  color: #fff;
+  font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 90%;
+  margin: 0;
+}
+
+.contact-description {
+  color: #9BA1A5;
+  font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 100%;
+  margin: 0;
+}
+
+.contact-cta {
+  display: inline-flex;
+  width: 205px;
+  height: 40px;
+  padding: 3px 12px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 23px;
+  background: linear-gradient(0deg, #0080FF 0%, #0080FF 100%), linear-gradient(91deg, rgba(47, 47, 51, 0.87) 0.25%, rgba(61, 62, 67, 0.87) 32.18%, rgba(47, 47, 51, 0.87) 91.95%), #2F2F33;
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 16.212px;
+  transition: opacity 0.2s ease;
+}
+
+.contact-cta:hover {
+  opacity: 0.9;
+}
+
+.contact-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 661px;
+  height: 661px;
+}
+
+.contact-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
 /* Tablet adjustments */
 @media (max-width: 1024px) {
   .services-dropdown,
