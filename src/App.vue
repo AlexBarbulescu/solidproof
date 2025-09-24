@@ -824,10 +824,11 @@ body { margin: 0; }
     line-height: 120%;
   }
   .contact-cta {
-    width: 100%;
-    max-width: 280px;
-    padding: 14px 24px;
+    width: auto;
+    max-width: none;
+    padding: 12px 24px;
     font-size: 14px;
+    display: inline-block;
   }
   .contact-image {
     width: min(88vw, 360px);
