@@ -640,25 +640,24 @@ body { margin: 0; }
 }
 
 .contact-cta {
-  display: inline-flex;
-  width: 205px;
-  height: 40px;
-  padding: 3px 12px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 23px;
-  background: linear-gradient(0deg, #0080FF 0%, #0080FF 100%), linear-gradient(91deg, rgba(47, 47, 51, 0.87) 0.25%, rgba(61, 62, 67, 0.87) 32.18%, rgba(47, 47, 51, 0.87) 91.95%), #2F2F33;
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: linear-gradient(135deg, #0D6EFD 0%, #6366F1 100%);
   color: #fff;
   text-decoration: none;
   font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 16.212px;
-  transition: opacity 0.2s ease;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  box-shadow: 0 8px 25px rgba(13, 110, 253, 0.3);
+  transition: all 0.3s ease;
 }
 
 .contact-cta:hover {
-  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(13, 110, 253, 0.4);
 }
 
 .contact-image {
@@ -825,9 +824,10 @@ body { margin: 0; }
     line-height: 120%;
   }
   .contact-cta {
-    width: 180px;
-    height: 44px;
-    font-size: 15px;
+    width: 100%;
+    max-width: 280px;
+    padding: 14px 24px;
+    font-size: 14px;
   }
   .contact-image {
     width: min(88vw, 360px);
