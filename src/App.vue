@@ -237,6 +237,7 @@
     <main class="content">
       <Hero />
       <ContactSection />
+      <FAQ />
     </main>
 
     <Footer />
@@ -250,6 +251,7 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 import Hero from './components/Hero.vue'
 import ContactSection from './components/ContactSection.vue'
+import FAQ from './components/FAQ.vue'
 import Footer from './components/Footer.vue'
 import FloatingButtons from './components/FloatingButtons.vue'
 
