@@ -316,6 +316,10 @@ onBeforeUnmount(() => {
 .dropdown-trigger { display: inline-flex; align-items: center; gap: 6px; color: #fff; }
 .trigger-caret { transition: transform 0.2s ease; }
 .dropdown-trigger[aria-expanded="true"] .trigger-caret { transform: rotate(180deg); }
+
+/* keep trigger text and caret on same line and prevent caret shrinking */
+.dropdown-trigger { white-space: nowrap; }
+.trigger-caret { flex-shrink: 0; margin-left: 4px; }
 .services-dropdown {
   position: absolute;
   top: calc(100% + 8px);
@@ -383,8 +387,8 @@ onBeforeUnmount(() => {
   .github-content { width: calc(100% - 62px); }
 }
 
-/* Mobile dropdown: inline accordion style inside nav */
-@media (max-width: 767px) {
+/* Mobile & Tablet dropdown: inline accordion style inside nav */
+@media (max-width: 1024px) {
   .dropdown-container { width: 100%; }
   .dropdown-trigger { width: 100%; justify-content: space-between; }
   .services-dropdown,
@@ -414,7 +418,8 @@ onBeforeUnmount(() => {
   .github-icons { position: static; width: auto; height: auto; padding: 0; }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1025px) {
+  /* full desktop navigation only at >=1025px */
   .nav-toggle { display: none; }
   .primary-nav { all: unset; }
   .primary-nav { display: block; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
