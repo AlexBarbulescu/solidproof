@@ -239,12 +239,7 @@
       <ContactSection />
     </main>
 
-    <footer class="site-footer">
-      <div class="container">
-        <p>Test Footer</p>
-        <small>© 2024 SolidProof</small>
-      </div>
-    </footer>
+    <Footer />
 
     <!-- Floating Buttons Component -->
     <FloatingButtons />
@@ -255,6 +250,7 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 import Hero from './components/Hero.vue'
 import ContactSection from './components/ContactSection.vue'
+import Footer from './components/Footer.vue'
 import FloatingButtons from './components/FloatingButtons.vue'
 
 const isOpen = ref(false)
@@ -326,9 +322,6 @@ body { margin: 0; }
 .nav-list a:hover { background: rgba(255,255,255,0.08); }
 
 .content { flex: 1; padding: 0 0 24px; }
-
-.site-footer { background: #000; }
-.site-footer .container { display: flex; align-items: center; justify-content: space-between; padding: 16px; }
 
 @media (min-width: 768px) {
   .nav-toggle { display: none; }
