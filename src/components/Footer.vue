@@ -5,7 +5,7 @@
       <div class="footer-top">
         <div class="footer-left">
           <a class="footer-brand" href="#" aria-label="SolidProof">
-            <img class="footer-logo" src="/logo_horizontal_white.svg" alt="SolidProof" />
+            <img class="footer-logo" src="/images/logo_horizontal_white.svg" alt="SolidProof" />
           </a>
 
           <!-- Company details directly under the logo -->
@@ -128,7 +128,7 @@
           <span class="footer-copy" ref="footerCopy">© 2020 - 2025 Solidproof.io</span>
         </div>
 
-        <img class="footer-alliance-img" src="/defi-security-alliance.svg" alt="DeFi Security Alliance" />
+        <img class="footer-alliance-img" src="/images/defi-security-alliance.svg" alt="DeFi Security Alliance" />
       </div>
     </div>
   </footer>

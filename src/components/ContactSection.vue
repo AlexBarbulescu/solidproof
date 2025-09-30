@@ -13,7 +13,7 @@
             <a href="#" class="contact-cta">Contact Us</a>
           </div>
           <div class="contact-image">
-            <img src="https://api.builder.io/api/v1/image/assets/TEMP/5053e7b8d0e05c7cbe6ed08dcfa48f29f576582b?width=1322" alt="SolidProof team member" />
+            <img src="/images/kevin01.png" alt="SolidProof team member" />
           </div>
         </div>
       </div>

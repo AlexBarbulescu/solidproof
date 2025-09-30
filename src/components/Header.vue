@@ -2,8 +2,8 @@
   <header class="site-header">
     <div class="container">
       <a href="#" class="brand">
-        <img src="/logo_horizontal_white.svg" alt="SolidProof" class="brand-logo brand-logo--dark" />
-        <img src="/logo_horizontal_black.svg" alt="SolidProof" class="brand-logo brand-logo--light" />
+        <img src="/images/logo_horizontal_white.svg" alt="SolidProof" class="brand-logo brand-logo--dark" />
+        <img src="/images/logo_horizontal_black.svg" alt="SolidProof" class="brand-logo brand-logo--light" />
       </a>
       <button
         class="nav-toggle"
