@@ -13,7 +13,9 @@
             <a href="#" class="contact-cta">Contact Us</a>
           </div>
           <div class="contact-image">
-            <img src="/images/kevin01.png" alt="SolidProof team member" />
+            <div class="contact-flip" :class="{ flipping: isFlipping }">
+              <img :src="currentSrc" alt="SolidProof team member" />
+            </div>
           </div>
         </div>
       </div>
@@ -22,7 +24,66 @@
 </template>
 
 <script setup>
-// No script logic needed for this static component
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
+
+// Image sources to cycle through
+const images = ['/images/kevin01.png', '/images/kevin02.png', '/images/kevin03.png']
+const index = ref(0)
+const currentSrc = computed(() => images[index.value])
+
+// Flip control
+const isFlipping = ref(false)
+const FLIP_DURATION = 750 // ms, slightly faster but still smooth
+const CYCLE_INTERVAL = 6000 // ms between flips
+
+let intervalId = null
+let midTimeoutId = null
+let endTimeoutId = null
+
+function startFlip() {
+  if (isFlipping.value) return
+  isFlipping.value = true
+  // Swap image at the middle of the flip when element is edge-on
+  midTimeoutId = setTimeout(() => {
+    index.value = (index.value + 1) % images.length
+  }, FLIP_DURATION / 2)
+  // End flip, reset class
+  endTimeoutId = setTimeout(() => {
+    isFlipping.value = false
+  }, FLIP_DURATION)
+}
+
+onMounted(() => {
+  // Improved randomizer: avoid repeating the last image across refreshes
+  try {
+    const storageKey = 'contactFlipLastIndex'
+    const stored = localStorage.getItem(storageKey)
+    const last = stored !== null ? parseInt(stored, 10) : -1
+    const candidates = images.map((_, i) => i).filter((i) => i !== last)
+    const next = candidates[Math.floor(Math.random() * candidates.length)]
+    index.value = Number.isFinite(next) ? next : Math.floor(Math.random() * images.length)
+    localStorage.setItem(storageKey, String(index.value))
+  } catch (e) {
+    // Fallback if localStorage is not available
+    index.value = Math.floor(Math.random() * images.length)
+  }
+
+  const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  if (prefersReduced) {
+    // No flip animation; just change images less frequently
+    intervalId = setInterval(() => {
+      index.value = (index.value + 1) % images.length
+    }, Math.max(CYCLE_INTERVAL, 6000))
+  } else {
+    intervalId = setInterval(startFlip, CYCLE_INTERVAL)
+  }
+})
+
+onBeforeUnmount(() => {
+  if (intervalId) clearInterval(intervalId)
+  if (midTimeoutId) clearTimeout(midTimeoutId)
+  if (endTimeoutId) clearTimeout(endTimeoutId)
+})
 </script>
 
 <style scoped>
@@ -114,12 +175,37 @@
   right: 48px;
   bottom: 0;
   z-index: 1;
+  perspective: 1000px; /* enable 3D space for horizontal flip */
 }
 
 .contact-image img {
   width: 100%;
   height: auto;
   object-fit: contain;
+  display: block; /* remove baseline gap so it touches the bottom */
+  backface-visibility: hidden;
+}
+
+/* Flip animation wrapper – does not change the container position */
+.contact-flip {
+  width: 100%;
+  transform-style: preserve-3d;
+  --flip-duration: 750ms;
+  /* Ensure it sits flush with the bottom of the container */
+  margin: 0;
+  padding: 0;
+}
+
+.contact-flip.flipping {
+  animation: flipSwap var(--flip-duration) cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+/* Flip from 0 -> 90deg, swap image, then -90deg -> 0 to avoid mirrored back side */
+@keyframes flipSwap {
+  0%   { transform: rotateY(0deg); }
+  49.9% { transform: rotateY(90deg); }
+  50.1% { transform: rotateY(-90deg); }
+  100% { transform: rotateY(0deg); }
 }
 
 /* Responsive Styles */
@@ -237,6 +323,13 @@
   
   .contact-container {
     padding: 16px 20px 20px 20px;
+  }
+}
+
+/* Respect reduced motion: no flipping animation */
+@media (prefers-reduced-motion: reduce) {
+  .contact-flip.flipping {
+    animation: none !important;
   }
 }
 </style>
