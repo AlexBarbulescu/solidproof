@@ -226,6 +226,103 @@
               </div>
             </div>
           </li>
+          <!-- Socials Dropdown -->
+          <li class="dropdown-container" ref="socialsDropdownWrapper">
+            <a href="#" class="dropdown-trigger" @click.prevent.stop="toggleSocialsDropdown" :aria-expanded="showSocialsDropdown ? 'true' : 'false'">
+              Socials
+              <svg class="trigger-caret" width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M4.64645 6.64645C4.84171 6.45118 5.15829 6.45118 5.35355 6.64645L8 9.29289L10.6464 6.64645C10.8417 6.45118 11.1583 6.45118 11.3536 6.64645C11.5488 6.84171 11.5488 7.15829 11.3536 7.35355L8.35355 10.3536C8.15829 10.5488 7.84171 10.5488 7.64645 10.3536L4.64645 7.35355C4.45118 7.15829 4.45118 6.84171 4.64645 6.64645Z" fill="currentColor"/>
+              </svg>
+            </a>
+            <div class="socials-dropdown" v-show="showSocialsDropdown">
+              <div class="dropdown-header">
+                <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0Z" fill="white"/>
+                </svg>
+                <span class="dropdown-title">Socials</span>
+              </div>
+
+              <div class="dropdown-divider"></div>
+
+              <div class="dropdown-items">
+                <a href="https://twitter.com/SolidProof_io" target="_blank" rel="noopener noreferrer" class="dropdown-item">
+                  <svg class="item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M4 4l7.2 9.3L4.6 20h2.2l5.2-5.7 4.2 5.7H20l-7.5-10L19.2 4H17l-4.8 5.3L8.4 4H4z" fill="white"/>
+                  </svg>
+                  <div class="item-content">
+                    <div class="item-title">Twitter (Main)</div>
+                    <div class="item-description">Official updates and announcements</div>
+                  </div>
+                </a>
+                <a href="https://twitter.com/solidproof_news" target="_blank" rel="noopener noreferrer" class="dropdown-item">
+                  <svg class="item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M4 4l7.2 9.3L4.6 20h2.2l5.2-5.7 4.2 5.7H20l-7.5-10L19.2 4H17l-4.8 5.3L8.4 4H4z" fill="white"/>
+                  </svg>
+                  <div class="item-content">
+                    <div class="item-title">Twitter (News)</div>
+                    <div class="item-description">Real-time news and coverage</div>
+                  </div>
+                </a>
+                <a href="https://www.youtube.com/channel/UCobb0xTQ7n8wa4C84-Fv4Dw" target="_blank" rel="noopener noreferrer" class="dropdown-item">
+                  <svg class="item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M22 12s0-3.2-.4-4.6c-.2-.8-.8-1.4-1.6-1.6C18.6 5.4 12 5.4 12 5.4s-6.6 0-8 .4c-.8.2-1.4.8-1.6 1.6C2 8.8 2 12 2 12s0 3.2.4 4.6c.2.8.8 1.4 1.6 1.6 1.4.4 8 .4 8 .4s6.6 0 8-.4c.8-.2 1.4-.8 1.6-1.6.4-1.4.4-4.6.4-4.6z" fill="white"/>
+                    <path d="M10 9.75v4.5L15 12l-5-2.25z" fill="#0B0B0B"/>
+                  </svg>
+                  <div class="item-content">
+                    <div class="item-title">YouTube</div>
+                    <div class="item-description">Videos, AMAs and tutorials</div>
+                  </div>
+                </a>
+                <a href="https://www.facebook.com/solidproof.io" target="_blank" rel="noopener noreferrer" class="dropdown-item">
+                  <svg class="item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M9 8H7v3h2v9h3v-9h2.4l.6-3H12V6.5c0-.8.2-1.3 1.3-1.3H15V2.2c-.3 0-1.3-.2-2.5-.2C10 2 9 3.7 9 6.1V8z" fill="white"/>
+                  </svg>
+                  <div class="item-content">
+                    <div class="item-title">Facebook</div>
+                    <div class="item-description">Community updates and posts</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item" v-if="ENABLE_INSTAGRAM">
+                  <svg class="item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="3" width="18" height="18" rx="5" stroke="white" stroke-width="2"/>
+                    <circle cx="12" cy="12" r="4" stroke="white" stroke-width="2"/>
+                    <circle cx="17.5" cy="6.5" r="1.5" fill="white"/>
+                  </svg>
+                  <div class="item-content">
+                    <div class="item-title">Instagram</div>
+                    <div class="item-description">Visual highlights and stories</div>
+                  </div>
+                </a>
+                <a href="http://t.me/solidproof" target="_blank" rel="noopener noreferrer" class="dropdown-item">
+                  <svg class="item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M9.5 14L8.9 18.8c.1.3.5.4.7.1l2.7-2.7 4.3 3.2c.5.3 1.1.1 1.3-.5L21.8 5c.2-.8-.4-1.3-1.1-1L3.4 11.4c-.7.3-.7 1.1 0 1.3l4.9 1.6 9.5-6c.4-.2.8.1.4.4L9.5 14z" fill="white"/>
+                  </svg>
+                  <div class="item-content">
+                    <div class="item-title">Telegram</div>
+                    <div class="item-description">Join our community chat</div>
+                  </div>
+                </a>
+                <a href="https://solidproof-io.medium.com/" target="_blank" rel="noopener noreferrer" class="dropdown-item">
+                  <svg class="item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M4 7.5c0-.4.2-.8.6-1l3.5-2.3c.3-.2.7-.1.9.2l3.9 6.1 4.6-6.3c.2-.3.6-.3.9-.1l1.4.9c.1.1.2.3.2.5v11.2c0 .4-.2.8-.6 1l-3.5 2.3c-.3.2-.7.1-.9-.2l-4.5-7.1-4.1 6.6c-.2.3-.6.4-.9.2l-1.4-.9a.6.6 0 0 1-.2-.5V7.5z" fill="white"/>
+                  </svg>
+                  <div class="item-content">
+                    <div class="item-title">Medium</div>
+                    <div class="item-description">Articles and deep dives</div>
+                  </div>
+                </a>
+                <a href="https://github.com/solidproof" target="_blank" rel="noopener noreferrer" class="dropdown-item">
+                  <svg class="item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.9c-2.8.6-3.4-1.1-3.4-1.1-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.5 1.1 3.2.8.1-.7.3-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.2-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.5 9.5 0 0 1 5.1 0c2-1.3 2.8-1 2.8-1 .5 1.4.2 2.5.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .3.3.6.8.6 1.6v2.3c0 .3.2.6.7.5A10 10 0 0 0 12 2z" fill="white"/>
+                  </svg>
+                  <div class="item-content">
+                    <div class="item-title">GitHub</div>
+                    <div class="item-description">Code, audits and repositories</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
           <li><a href="#">Company</a></li>
           <li><a href="#">News</a></li>
         </ul>
@@ -237,19 +334,30 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 
+const ENABLE_INSTAGRAM = false
+
 const isOpen = ref(false)
 const showDropdown = ref(false)
 const showProjectsDropdown = ref(false)
+const showSocialsDropdown = ref(false)
 const dropdownWrapper = ref(null)
 const projectsDropdownWrapper = ref(null)
+const socialsDropdownWrapper = ref(null)
 
 function toggleDropdown() {
   showDropdown.value = !showDropdown.value
   showProjectsDropdown.value = false
+  showSocialsDropdown.value = false
 }
 function toggleProjectsDropdown() {
   showProjectsDropdown.value = !showProjectsDropdown.value
   showDropdown.value = false
+  showSocialsDropdown.value = false
+}
+function toggleSocialsDropdown() {
+  showSocialsDropdown.value = !showSocialsDropdown.value
+  showDropdown.value = false
+  showProjectsDropdown.value = false
 }
 function onDocClick(e) {
   if (showDropdown.value) {
@@ -262,6 +370,12 @@ function onDocClick(e) {
     const projectsRoot = projectsDropdownWrapper.value
     if (projectsRoot && !projectsRoot.contains(e.target)) {
       showProjectsDropdown.value = false
+    }
+  }
+  if (showSocialsDropdown.value) {
+    const socialsRoot = socialsDropdownWrapper.value
+    if (socialsRoot && !socialsRoot.contains(e.target)) {
+      showSocialsDropdown.value = false
     }
   }
 }
@@ -370,6 +484,23 @@ onBeforeUnmount(() => {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
+/* Socials Dropdown */
+.socials-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 290px;
+  padding: 10px 0;
+  background: linear-gradient(180deg, rgba(47, 47, 51, 0.87) 0%, rgba(61, 62, 67, 0.87) 34.82%, rgba(47, 47, 51, 0.87) 100%), #2F2F33;
+  border: 1px solid #606061;
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1000;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
 .github-special { background: #2A2A2C; padding: 5px 15px; min-height: 94px; align-items: flex-start; }
 .github-special .item-icon { position: absolute; left: 16px; top: 5px; transform: none; width: 14px; height: 16px; }
 .github-content { position: absolute; left: 43px; top: 50%; transform: translateY(-50%); width: 228px; height: 94px; padding: 5px 0; display: flex; flex-direction: column; align-items: flex-start; gap: 3px; }
@@ -382,7 +513,8 @@ onBeforeUnmount(() => {
 /* Tablet adjustments */
 @media (max-width: 1024px) {
   .services-dropdown,
-  .projects-dropdown { width: min(92vw, 480px); left: 50%; transform: translateX(-50%); }
+  .projects-dropdown,
+  .socials-dropdown { width: min(92vw, 480px); left: 50%; transform: translateX(-50%); }
   .item-content { width: calc(100% - 62px); }
   .github-content { width: calc(100% - 62px); }
 }
@@ -392,7 +524,8 @@ onBeforeUnmount(() => {
   .dropdown-container { width: 100%; }
   .dropdown-trigger { width: 100%; justify-content: space-between; }
   .services-dropdown,
-  .projects-dropdown { position: static; top: auto; left: auto; transform: none; width: 100%; padding: 10px 8px; margin-top: 8px; border-radius: 12px; }
+  .projects-dropdown,
+  .socials-dropdown { position: static; top: auto; left: auto; transform: none; width: 100%; padding: 10px 8px; margin-top: 8px; border-radius: 12px; }
   .dropdown-header { padding: 8px 12px; }
   .dropdown-items { gap: 8px; }
   .dropdown-items .dropdown-item + .dropdown-item { margin-top: 8px; }
