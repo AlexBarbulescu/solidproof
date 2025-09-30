@@ -7,8 +7,8 @@
           Find answers to common questions about our blockchain security services, auditing processes, and how we can help protect your project.
         </p>
         
-        <div class="faq-list">
-          <div class="faq-item" v-for="(faq, index) in faqs" :key="index">
+        <div class="faq-list" ref="faqList">
+          <div class="faq-item" v-for="(faq, index) in faqs" :key="index" :style="{ '--i': index }">
             <button 
               class="faq-question" 
               @click="toggleFAQ(index)"
@@ -32,7 +32,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 
 const faqs = ref([
   {
@@ -106,6 +106,86 @@ const faqs = ref([
 const MAX_OPEN_FAQS = 3
 const STAGGER_DELAY = 500 // 500ms between each close for animation effect
 
+// Flip animation per item: enter and reverse on exit
+const faqList = ref(null)
+let activeObserver = null // triggers enter + near-bottom reverse
+let resetObserver = null  // resets classes when fully out of viewport
+let lastScrollY = 0
+let scrollDir = 'down'
+
+function handleScroll() {
+  const y = window.scrollY || document.documentElement.scrollTop || 0
+  scrollDir = y < lastScrollY ? 'up' : 'down'
+  lastScrollY = y
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll, { passive: true })
+
+  // Active observer: shrink bottom by 20% to trigger reverse near bottom
+  activeObserver = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        const el = entry.target
+        if (entry.isIntersecting) {
+          el.classList.add('in-view')
+          el.classList.remove('out-view')
+        } else {
+          // Near-bottom or out of active zone; reverse only on upward scroll
+          if (scrollDir === 'up') {
+            el.classList.remove('in-view')
+            el.classList.add('out-view')
+          }
+          // If scrolling down, keep in-view to avoid flicker until fully out
+        }
+      }
+    },
+    {
+      threshold: 0.01,
+      root: null,
+      rootMargin: '0px 0px -8% 0px'
+    }
+  )
+
+  // Reset observer: full viewport; when fully out, clear classes to allow re-animating
+  resetObserver = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        const el = entry.target
+        if (!entry.isIntersecting) {
+          el.classList.remove('in-view')
+          el.classList.remove('out-view')
+        }
+      }
+    },
+    {
+      threshold: 0,
+      root: null,
+      rootMargin: '0px'
+    }
+  )
+
+  if (faqList.value) {
+    const items = faqList.value.querySelectorAll('.faq-item')
+    items.forEach((el) => {
+      activeObserver.observe(el)
+      resetObserver.observe(el)
+    })
+  }
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', handleScroll)
+  if (activeObserver) {
+    activeObserver.disconnect()
+    activeObserver = null
+  }
+  if (resetObserver) {
+    resetObserver.disconnect()
+    resetObserver = null
+  }
+})
+
 function toggleFAQ(index) {
   const faq = faqs.value[index]
   
@@ -152,10 +232,14 @@ function toggleFAQ(index) {
   margin: 64px 0 0;
   background: transparent;
   position: relative;
+  /* Flip animation defaults (slower + smoother) */
+  --flip-duration: 900ms;
+  --flip-stagger: 140ms;
 }
 
 .faq-wrapper {
-  max-width: 1360px;
+  /* max-width: 1360px; */
+  max-width: 960px;
   margin: 0 auto;
 }
 
@@ -191,6 +275,7 @@ function toggleFAQ(index) {
   flex-direction: column;
   gap: 16px;
   text-align: left;
+  perspective: 1000px; /* Enable 3D space for flip */
 }
 
 .faq-item {
@@ -199,11 +284,44 @@ function toggleFAQ(index) {
   border-radius: 12px;
   overflow: hidden;
   transition: all 0.8s ease;
+  /* Flip-in initial state */
+  opacity: 0;
+  transform-origin: top center;
+  transform: rotateX(-80deg) translateY(20px);
+  backface-visibility: hidden;
+  will-change: transform, opacity;
 }
 
 .faq-item:hover {
   border-color: rgba(255, 255, 255, 0.2);
   background: rgba(26, 27, 29, 0.7);
+}
+
+/* Trigger flip-in when item enters viewport */
+.faq-item.in-view {
+  animation: faqFlipIn var(--flip-duration) cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  animation-delay: calc(var(--i, 0) * var(--flip-stagger));
+}
+
+/* Reverse when leaving viewport (no stagger for responsiveness) */
+.faq-item.out-view {
+  animation: faqFlipIn var(--flip-duration) cubic-bezier(0.22, 0.61, 0.36, 1) reverse forwards;
+  animation-delay: 0ms;
+}
+
+@keyframes faqFlipIn {
+  0% {
+    opacity: 0;
+    transform: rotateX(-80deg) translateY(20px);
+  }
+  50% {
+    opacity: 0.9;
+    transform: rotateX(12deg) translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateX(0deg) translateY(0);
+  }
 }
 
 .faq-question {
@@ -289,6 +407,10 @@ function toggleFAQ(index) {
     font-size: 16px;
     margin-bottom: 40px;
   }
+  .faq-section {
+    --flip-duration: 850ms;
+    --flip-stagger: 120ms;
+  }
   
   .faq-question {
     padding: 20px;
@@ -351,6 +473,15 @@ function toggleFAQ(index) {
   .faq-icon {
     width: 14px;
     height: 14px;
+  }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .faq-item {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
   }
 }
 </style>
