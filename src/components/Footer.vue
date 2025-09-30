@@ -82,7 +82,7 @@
             </a>
           </li>
           <li>
-            <a href="http://t.me/solidproof" aria-label="Telegram" target="_blank" rel="noopener noreferrer">
+            <a href="https://t.me/solidproof" aria-label="Telegram" target="_blank" rel="noopener noreferrer">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M9.5 14L8.9 18.8c.1.3.5.4.7.1l2.7-2.7 4.3 3.2c.5.3 1.1.1 1.3-.5L21.8 5c.2-.8-.4-1.3-1.1-1L3.4 11.4c-.7.3-.7 1.1 0 1.3l4.9 1.6 9.5-6c.4-.2.8.1.4.4L9.5 14z" fill="currentColor"/>
               </svg>
