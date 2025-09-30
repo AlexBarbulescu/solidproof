@@ -400,18 +400,18 @@ onBeforeUnmount(() => {
 <style scoped>
 /* Header container and layout */
 .site-header { position: fixed; top: 40px; left: 0; right: 0; z-index: 20; background: transparent; border-bottom: none; }
-.site-header .container { position: relative; display: flex; align-items: center; justify-content: space-between; padding: 30px 40px; height: 80px; background: rgba(26, 27, 29, 0.5); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: 1px solid var(--color-border); border-radius: 100px; margin: 0 auto; max-width: 960px; }
+.site-header .container { position: relative; display: flex; align-items: center; justify-content: space-between; padding: 30px 40px; height: 80px; background: #000000ad; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: 1px solid #1f1f1f73; border-radius: 100px; margin: 0 auto; max-width: 960px; }
 .brand { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; color: #fff; text-decoration: none; }
 
 .nav-toggle { display: inline-flex; flex-direction: column; gap: 4px; padding: 8px; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; background: transparent; }
 .nav-toggle .bar { width: 20px; height: 2px; background: #fff; border-radius: 1px; }
 
-.primary-nav { position: absolute; top: 56px; left: 0; right: 0; background: rgba(0,0,0,0.7); border-bottom: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); display: none; }
+.primary-nav { position: absolute; top: 78px; left: 0; right: 0; background: rgba(0,0,0,0.7); border-bottom: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); display: none; }
 .primary-nav.open { display: block; }
 .nav-list { list-style: none; margin: 0; padding: 8px; }
 .nav-list li { margin: 4px 0; }
-.nav-list a { display: block; padding: 8px 12px; color: #fff; text-decoration: none; }
-.nav-list a:hover { background: rgba(255,255,255,0.08); }
+.nav-list a { display: block; padding: 8px 12px; color: #9BA1A5; text-decoration: none; transition: color 0.2s ease; }
+.nav-list a:hover, .nav-list a:focus { color: #fff; background: transparent; }
 
 .brand-logo { height: 48px; width: auto; display: block; }
 @media (max-width: 1024px) { .brand-logo { height: 35px; } }
@@ -427,7 +427,9 @@ onBeforeUnmount(() => {
 
 /* Services Dropdown */
 .dropdown-container { position: relative; }
-.dropdown-trigger { display: inline-flex; align-items: center; gap: 6px; color: #fff; }
+.dropdown-trigger { display: inline-flex; align-items: center; gap: 6px; color: #9BA1A5; transition: color 0.2s ease; }
+.dropdown-trigger:hover, .dropdown-trigger:focus { color: #fff; }
+.dropdown-trigger[aria-expanded="true"] { color: #fff; }
 .trigger-caret { transition: transform 0.2s ease; }
 .dropdown-trigger[aria-expanded="true"] .trigger-caret { transform: rotate(180deg); }
 
@@ -436,7 +438,7 @@ onBeforeUnmount(() => {
 .trigger-caret { flex-shrink: 0; margin-left: 4px; }
 .services-dropdown {
   position: absolute;
-  top: calc(100% + 8px);
+  top: calc(100% + 18px);
   left: 50%;
   transform: translateX(-50%);
   width: 290px;
@@ -470,7 +472,7 @@ onBeforeUnmount(() => {
 /* Projects Dropdown */
 .projects-dropdown {
   position: absolute;
-  top: calc(100% + 8px);
+  top: calc(100% + 18px);
   left: 50%;
   transform: translateX(-50%);
   width: 290px;
@@ -487,7 +489,7 @@ onBeforeUnmount(() => {
 /* Socials Dropdown */
 .socials-dropdown {
   position: absolute;
-  top: calc(100% + 8px);
+  top: calc(100% + 18px);
   left: 50%;
   transform: translateX(-50%);
   width: 290px;
@@ -556,7 +558,7 @@ onBeforeUnmount(() => {
   .nav-toggle { display: none; }
   .primary-nav { all: unset; }
   .primary-nav { display: block; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
-  .primary-nav .nav-list { display: flex; gap: 16px; align-items: center; justify-content: center; }
+  .primary-nav .nav-list { display: flex; gap: 8px; align-items: center; justify-content: center; }
   .nav-list li { margin: 0; }
   .nav-list a { padding: 8px 10px; }
   .site-header .container { max-width: 1240px; }
