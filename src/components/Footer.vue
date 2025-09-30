@@ -10,8 +10,8 @@
 
           <!-- Company details directly under the logo -->
           <address class="footer-company" aria-label="Company details">
-            <p class="footer-company-name">FutureVisions Deutschland UG (haftungsbeschränkt)</p>
-            <p class="footer-company-address">
+            <p class="footer-company-name" ref="companyName">FutureVisions Deutschland UG (haftungsbeschränkt)</p>
+            <p class="footer-company-address" ref="companyAddress">
               Heideland-Ost 34<br>
               24976 Handewitt<br>
               Deutschland
@@ -125,7 +125,7 @@
             <span class="flag-band flag-red"></span>
             <span class="flag-band flag-gold"></span>
           </span>
-          <span class="footer-copy">© 2020 - 2025 Solidproof.io</span>
+          <span class="footer-copy" ref="footerCopy">© 2020 - 2025 Solidproof.io</span>
         </div>
 
         <img class="footer-alliance-img" src="/defi-security-alliance.svg" alt="DeFi Security Alliance" />
@@ -135,7 +135,185 @@
 </template>
 
 <script setup>
-// static footer
+import { ref, onMounted, onBeforeUnmount } from 'vue'
+
+// 5s scramble reveal (duration controlled by DURATION) that resets when footer leaves viewport
+const footerCopy = ref(null)
+const companyName = ref(null)
+const companyAddress = ref(null)
+
+let observer
+let rafId = null
+let startTime = 0
+let originalText = ''
+let lastScrambleUpdate = 0
+let lastWindowStart = -1
+let windowBuffer = [] // cached random letters for the active window
+
+const DURATION = 2500 // ms total to fully reveal
+const WINDOW = 3      // only 3 characters actively reveal at a time
+// Character pool for scrambling in lowercase letters (plus digits/some symbols)
+const CHARS = 'abcdefghjklmnpqrstuvwxyz0123456789@$%&*+-=?#<>,.?/:;'
+// How often the random letters change (lower = faster flicker)
+const SCRAMBLE_INTERVAL = 60 // ms
+
+function randomChar() {
+  return CHARS[Math.floor(Math.random() * CHARS.length)]
+}
+
+function escapeHtml(str) {
+  return str
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;')
+}
+
+// Apply scramble reveal to any element's textContent (preserves newlines using CSS where needed)
+function setupScrambleForEl(el) {
+  if (!el) return () => {}
+  let _rafId = 0
+  let _startTime = 0
+  let _original = el.textContent || ''
+  let _lastScrambleUpdate = 0
+  let _lastWindowStart = -1
+  let _buffer = []
+
+  function _render(progress, now = performance.now()) {
+    const len = _original.length
+    const pointerMax = len + WINDOW
+    const pointer = Math.floor(progress * pointerMax)
+    const windowStart = Math.min(Math.max(0, pointer), len)
+    const windowEnd = Math.min(windowStart + WINDOW, len)
+
+    const revealed = _original.slice(0, windowStart)
+    const slice = _original.slice(windowStart, windowEnd)
+    const needsNew = windowStart !== _lastWindowStart
+    const needsUpdate = now - _lastScrambleUpdate >= SCRAMBLE_INTERVAL
+    if (needsNew) {
+      _buffer = Array.from(slice, ch => (ch === ' ' || ch === '\n' || ch === '\t') ? ch : randomChar())
+      _lastWindowStart = windowStart
+      _lastScrambleUpdate = now
+    } else if (needsUpdate) {
+      _buffer = Array.from(slice, ch => (ch === ' ' || ch === '\n' || ch === '\t') ? ch : randomChar())
+      _lastScrambleUpdate = now
+    }
+
+    const windowOut = _buffer.join('')
+    el.innerHTML = '<span class="revealed">' +
+      escapeHtml(revealed) +
+      '</span><span class="window" style="color:#FFFFFF;">' +
+      escapeHtml(windowOut) +
+      '</span>'
+  }
+
+  function _start() {
+    cancelAnimationFrame(_rafId)
+    _startTime = performance.now()
+    const step = (now) => {
+      const elapsed = now - _startTime
+      const progress = Math.min(elapsed / DURATION, 1)
+      _render(progress, now)
+      if (progress < 1) {
+        _rafId = requestAnimationFrame(step)
+      }
+    }
+    _rafId = requestAnimationFrame(step)
+  }
+
+  function _reset() {
+    cancelAnimationFrame(_rafId)
+    _lastWindowStart = -1
+    _buffer = []
+    _render(0)
+  }
+
+  // Observe visibility for this element
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) _start(); else _reset();
+    })
+  }, { threshold: 0.25 })
+
+  // Initialize hidden state and start observing
+  _render(0)
+  io.observe(el)
+
+  return () => { io.disconnect(); cancelAnimationFrame(_rafId) }
+}
+
+function renderProgress(progress, now = performance.now()) {
+  if (!footerCopy.value) return
+  const len = originalText.length
+  // pointer advances across text; window scrambles [pointer, pointer+WINDOW)
+  const pointerMax = len + WINDOW
+  const pointer = Math.floor(progress * pointerMax)
+  const windowStart = Math.min(Math.max(0, pointer), len)
+  const windowEnd = Math.min(windowStart + WINDOW, len)
+
+  const revealed = originalText.slice(0, windowStart)
+  // Build/update window buffer based on SCRAMBLE_INTERVAL and window movement
+  const slice = originalText.slice(windowStart, windowEnd)
+  const needsNewWindow = windowStart !== lastWindowStart
+  const needsUpdate = now - lastScrambleUpdate >= SCRAMBLE_INTERVAL
+  if (needsNewWindow) {
+    windowBuffer = Array.from(slice, ch => (ch === ' ' || ch === '\n' || ch === '\t') ? ch : randomChar())
+    lastWindowStart = windowStart
+    lastScrambleUpdate = now
+  } else if (needsUpdate) {
+    // Refresh only non-whitespace positions
+    windowBuffer = Array.from(slice, (ch, idx) => (ch === ' ' || ch === '\n' || ch === '\t') ? ch : randomChar())
+    lastScrambleUpdate = now
+  }
+  let windowOut = windowBuffer.join('')
+  // Render only revealed + active window; omit the rest to avoid full text showing
+  footerCopy.value.innerHTML = '<span class="revealed">' +
+    escapeHtml(revealed) +
+    '</span><span class="window" style="color:#FFFFFF;">' +
+    escapeHtml(windowOut) +
+    '</span>'
+}
+
+function startScramble() {
+  if (!footerCopy.value) return
+  cancelAnimationFrame(rafId)
+  startTime = performance.now()
+  const step = (now) => {
+    const elapsed = now - startTime
+    const progress = Math.min(elapsed / DURATION, 1)
+    renderProgress(progress, now)
+    if (progress < 1) {
+      rafId = requestAnimationFrame(step)
+    }
+  }
+  rafId = requestAnimationFrame(step)
+}
+
+function resetScramble() {
+  cancelAnimationFrame(rafId)
+  startTime = 0
+  lastWindowStart = -1
+  windowBuffer = []
+  // Show fully scrambled (hidden) state
+  renderProgress(0)
+}
+
+onMounted(() => {
+  // Leave footerCopy static (no scramble effect)
+
+  // Setup scramblers for company details (name and address)
+  const cleaners = []
+  if (companyName.value) cleaners.push(setupScrambleForEl(companyName.value))
+  if (companyAddress.value) cleaners.push(setupScrambleForEl(companyAddress.value))
+
+  onBeforeUnmount(() => cleaners.forEach((c) => c && c()))
+})
+
+onBeforeUnmount(() => {
+  if (observer) observer.disconnect()
+  cancelAnimationFrame(rafId)
+})
 </script>
 
 <style scoped>
@@ -165,14 +343,14 @@
 .footer-logo { height: 40px; width: auto; display: block; opacity: 0.9; }
 
 /* Company details */
-.footer-company { margin-top: 0; font-style: normal; color: #9BA1A5; font-size: 13px; line-height: 1.6; }
-.footer-company-name { margin: 0 0 6px; color: #FFFFFF; font-weight: 600; font-size: 14px; }
+.footer-company { margin-top: 0; font-style: normal; color: #51565a; font-size: 13px; line-height: 1.6; }
+.footer-company-name { margin: 0 0 6px; color: #9BA1A5; font-weight: 600; font-size: 14px; }
 .footer-company-address { margin: 0 0 10px; }
 .footer-company-email { display: grid; grid-template-columns: auto 1fr; column-gap: 8px; align-items: start; }
-.footer-label { color: #9BA1A5; font-size: 12px; letter-spacing: 0.04em; margin-top: 2px; }
+.footer-label { color: #51565a; font-size: 12px; letter-spacing: 0.04em; margin-top: 2px; }
 .footer-email-list { list-style: none; padding: 0; margin: 0; }
 .footer-email-list li { margin: 2px 0; }
-.footer-email-list a { color: #9BA1A5; text-decoration: none; }
+.footer-email-list a { color: #51565a; text-decoration: none; }
 .footer-email-list a:hover { color: #FFFFFF; text-decoration: underline; }
 
 .footer-links { display: contents; }
@@ -201,7 +379,25 @@
 .flag-black { background: #1b1b1b; }
 .flag-red { background: #d71f3b; }
 .flag-gold { background: #f2c200; }
-.footer-copy { color: #9BA1A5; font-size: 13px; }
+.footer-copy {
+  color: #51565a;
+  font-size: 13px;
+  text-align: left; /* anchor left to reduce perceived vibration */
+  white-space: nowrap; /* keep on one line so letters stay next to each other */
+}
+.footer-copy .revealed { color: #51565a; }
+.footer-copy .window { color: #FFFFFF; }
+
+/* Ensure company details reveal uses same colors and preserves line breaks */
+.footer-company .revealed { color: #51565a; }
+.footer-company .window { color: #FFFFFF; }
+.footer-company-address { white-space: pre-line; }
+
+/* Keep class for possible future styling; scramble is JS-driven */
+.reveal { display: inline-block; }
+
+/* Center the middle column content */
+.footer-center { align-items: center; }
 
 /* Badge image now unstyled; using intrinsic SVG sizing via width attribute in markup */
 /* Alliance SVG size controlled via CSS */
