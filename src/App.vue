@@ -4,6 +4,7 @@
 
     <main class="content">
       <Hero />
+      <PartnersSection />
       <ContactSection />
       <FAQ />
     </main>
@@ -17,6 +18,7 @@
 
 <script setup>
 import Hero from './components/Hero.vue'
+import PartnersSection from './components/PartnersSection.vue'
 import ContactSection from './components/ContactSection.vue'
 import FAQ from './components/FAQ.vue'
 import Footer from './components/Footer.vue'
