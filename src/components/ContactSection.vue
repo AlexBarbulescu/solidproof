@@ -13,8 +13,12 @@
             <a href="#" class="contact-cta">Contact Us</a>
           </div>
           <div class="contact-image">
-            <div class="contact-flip" :class="{ flipping: isFlipping }">
-              <img :src="currentSrc" alt="SolidProof team member" />
+            <div class="contact-fade">
+              <img 
+                :src="currentSrc" 
+                alt="SolidProof team member" 
+                :class="{ fading: isTransitioning }"
+              />
             </div>
           </div>
         </div>
@@ -31,26 +35,23 @@ const images = ['/images/kevin01.png', '/images/kevin02.png', '/images/kevin03.p
 const index = ref(0)
 const currentSrc = computed(() => images[index.value])
 
-// Flip control
-const isFlipping = ref(false)
-const FLIP_DURATION = 750 // ms, slightly faster but still smooth
-const CYCLE_INTERVAL = 6000 // ms between flips
+// Fade transition control
+const isTransitioning = ref(false)
+const FADE_DURATION = 600 // ms, smooth fade transition
+const CYCLE_INTERVAL = 5000 // ms between transitions
 
 let intervalId = null
-let midTimeoutId = null
-let endTimeoutId = null
+let fadeTimeoutId = null
 
-function startFlip() {
-  if (isFlipping.value) return
-  isFlipping.value = true
-  // Swap image at the middle of the flip when element is edge-on
-  midTimeoutId = setTimeout(() => {
+function startTransition() {
+  if (isTransitioning.value) return
+  isTransitioning.value = true
+  
+  // Start fade out, then change image and fade back in
+  setTimeout(() => {
     index.value = (index.value + 1) % images.length
-  }, FLIP_DURATION / 2)
-  // End flip, reset class
-  endTimeoutId = setTimeout(() => {
-    isFlipping.value = false
-  }, FLIP_DURATION)
+    isTransitioning.value = false
+  }, FADE_DURATION / 2)
 }
 
 onMounted(() => {
@@ -70,19 +71,18 @@ onMounted(() => {
 
   const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
   if (prefersReduced) {
-    // No flip animation; just change images less frequently
+    // No fade animation; just change images less frequently
     intervalId = setInterval(() => {
       index.value = (index.value + 1) % images.length
     }, Math.max(CYCLE_INTERVAL, 6000))
   } else {
-    intervalId = setInterval(startFlip, CYCLE_INTERVAL)
+    intervalId = setInterval(startTransition, CYCLE_INTERVAL)
   }
 })
 
 onBeforeUnmount(() => {
   if (intervalId) clearInterval(intervalId)
-  if (midTimeoutId) clearTimeout(midTimeoutId)
-  if (endTimeoutId) clearTimeout(endTimeoutId)
+  if (fadeTimeoutId) clearTimeout(fadeTimeoutId)
 })
 </script>
 
@@ -175,37 +175,28 @@ onBeforeUnmount(() => {
   right: 48px;
   bottom: 0;
   z-index: 1;
-  perspective: 1000px; /* enable 3D space for horizontal flip */
 }
 
 .contact-image img {
   width: 100%;
   height: auto;
   object-fit: contain;
-  display: block; /* remove baseline gap so it touches the bottom */
-  backface-visibility: hidden;
+  display: block;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+  transform: scale(1);
 }
 
-/* Flip animation wrapper – does not change the container position */
-.contact-flip {
+.contact-image img.fading {
+  opacity: 0.3;
+  transform: scale(1.02);
+}
+
+/* Fade animation wrapper */
+.contact-fade {
   width: 100%;
-  transform-style: preserve-3d;
-  --flip-duration: 750ms;
-  /* Ensure it sits flush with the bottom of the container */
   margin: 0;
   padding: 0;
-}
-
-.contact-flip.flipping {
-  animation: flipSwap var(--flip-duration) cubic-bezier(0.22, 0.61, 0.36, 1) both;
-}
-
-/* Flip from 0 -> 90deg, swap image, then -90deg -> 0 to avoid mirrored back side */
-@keyframes flipSwap {
-  0%   { transform: rotateY(0deg); }
-  49.9% { transform: rotateY(90deg); }
-  50.1% { transform: rotateY(-90deg); }
-  100% { transform: rotateY(0deg); }
 }
 
 /* Responsive Styles */
@@ -326,10 +317,10 @@ onBeforeUnmount(() => {
   }
 }
 
-/* Respect reduced motion: no flipping animation */
+/* Respect reduced motion: no fade animation */
 @media (prefers-reduced-motion: reduce) {
-  .contact-flip.flipping {
-    animation: none !important;
+  .contact-image img {
+    transition: none !important;
   }
 }
 </style>
