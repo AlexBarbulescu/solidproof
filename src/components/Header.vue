@@ -5,6 +5,9 @@
         <img src="/images/logo_horizontal_white.svg" alt="SolidProof" class="brand-logo brand-logo--dark" />
         <img src="/images/logo_horizontal_black.svg" alt="SolidProof" class="brand-logo brand-logo--light" />
       </a>
+      <a href="#" class="quote-btn">
+        Request a Quote
+      </a>
       <button
         class="nav-toggle"
         @click="isOpen = !isOpen"
@@ -325,6 +328,9 @@
           </li>
           <li><a href="#">Company</a></li>
           <li><a href="#">News</a></li>
+          <li class="mobile-quote-item">
+            <a href="#" class="mobile-quote-btn">Request a Quote</a>
+          </li>
         </ul>
       </nav>
     </div>
@@ -420,6 +426,55 @@ onBeforeUnmount(() => {
 @media (prefers-color-scheme: light) {
   .brand-logo--dark { display: none; }
   .brand-logo--light { display: block; }
+}
+
+/* Quote Button */
+.quote-btn {
+  display: inline-block;
+  padding: 14px 24px;
+  border-radius: 8px;
+  background: #0D6EFD;
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.quote-btn:hover {
+  background: #0B5ED7;
+  transform: translateY(-1px);
+}
+
+/* Mobile Quote Button */
+.mobile-quote-item {
+  margin-top: 8px !important;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.mobile-quote-btn {
+  display: block !important;
+  padding: 12px 16px !important;
+  margin: 0 4px;
+  border-radius: 6px;
+  background: #0D6EFD !important;
+  color: #fff !important;
+  text-decoration: none;
+  font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.mobile-quote-btn:hover {
+  background: #0B5ED7 !important;
+  color: #fff !important;
 }
 
 /* Accessibility */
@@ -553,9 +608,16 @@ onBeforeUnmount(() => {
   .github-icons { position: static; width: auto; height: auto; padding: 0; }
 }
 
+/* Responsive behavior for quote button */
+@media (max-width: 1024px) {
+  .quote-btn { display: none; }
+  .mobile-quote-item { display: block; }
+}
+
 @media (min-width: 1025px) {
   /* full desktop navigation only at >=1025px */
   .nav-toggle { display: none; }
+  .mobile-quote-item { display: none !important; }
   .primary-nav { all: unset; }
   .primary-nav { display: block; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
   .primary-nav .nav-list { display: flex; gap: 8px; align-items: center; justify-content: center; }
