@@ -238,7 +238,7 @@ onMounted(() => {
 /* Content */
 .service-content { position: relative; z-index: 2; padding: 22px; max-width: 560px; display: flex; flex-direction: column; gap: 10px; }
 .service-name { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 22px; font-weight: 700; line-height: 1.2; margin: 0; }
-.service-description { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; line-height: 1.5; margin: 0; font-variant-ligatures: none; font-kerning: none; font-feature-settings: 'liga' 0, 'clig' 0, 'calt' 0; }
+.service-description { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; line-height: 1.5; margin: 0; font-variant-ligatures: none; font-kerning: none; font-feature-settings: 'liga' 0, 'clig' 0, 'calt' 0; text-rendering: geometricPrecision; }
 
 /* moving highlight window colors (use deep so dynamically injected spans are styled within scoped CSS) */
 .service-description :deep(.sd-highlight-overlay) {
