@@ -7,8 +7,8 @@
       </div>
 
       <div class="services-grid">
-        <!-- Audits -->
-        <article class="service-card service-card--tall" aria-labelledby="service-audits-title">
+        <!-- Audits (spans 2 cols, landscape) -->
+        <article class="service-card card--audits" aria-labelledby="service-audits-title">
           <div class="service-content">
             <h3 id="service-audits-title" class="service-name">Audits</h3>
             <p class="service-description">
@@ -20,8 +20,21 @@
           </figure>
         </article>
 
-        <!-- KYC -->
-        <article class="service-card" aria-labelledby="service-kyc-title">
+        <!-- Marketing (tall right column) -->
+        <article class="service-card card--marketing" aria-labelledby="service-marketing-title">
+          <div class="service-content">
+            <h3 id="service-marketing-title" class="service-name">Marketing</h3>
+            <p class="service-description">
+              Experienced professionals collaborating closely with clients to drive project success in the competitive market, providing tailored consultation services in development, security advisory, and marketing for blockchain startups and Web3 organizations.
+            </p>
+          </div>
+          <figure class="service-media">
+            <img src="https://images.pexels.com/photos/32624441/pexels-photo-32624441.jpeg" alt="Metallic spiral ring showcasing growth and reach for marketing" loading="lazy" />
+          </figure>
+        </article>
+
+        <!-- KYC (square) -->
+        <article class="service-card card--kyc" aria-labelledby="service-kyc-title">
           <div class="service-content">
             <h3 id="service-kyc-title" class="service-name">KYC</h3>
             <p class="service-description">
@@ -33,8 +46,8 @@
           </figure>
         </article>
 
-        <!-- Consulting -->
-        <article class="service-card" aria-labelledby="service-consulting-title">
+        <!-- Consulting (square) -->
+        <article class="service-card card--consulting" aria-labelledby="service-consulting-title">
           <div class="service-content">
             <h3 id="service-consulting-title" class="service-name">Consulting</h3>
             <p class="service-description">
@@ -46,21 +59,8 @@
           </figure>
         </article>
 
-        <!-- DApp Development -->
-        <article class="service-card" aria-labelledby="service-dapp-title">
-          <div class="service-content">
-            <h3 id="service-dapp-title" class="service-name">DApp Development</h3>
-            <p class="service-description">
-              Unlock your project's marketing potential with SolidProof's comprehensive marketing solutions. Partnered with high-class agencies, we tailor strategies to meet your goals. Our one-stop marketing arsenal ensures top-quality solutions at competitive prices.
-            </p>
-          </div>
-          <figure class="service-media">
-            <img src="https://images.pexels.com/photos/17485705/pexels-photo-17485705.png" alt="Geometric 3D artwork symbolizing decentralized application development" loading="lazy" />
-          </figure>
-        </article>
-
-        <!-- Smart Contracts -->
-        <article class="service-card" aria-labelledby="service-contracts-title">
+        <!-- Smart Contracts (landscape) -->
+        <article class="service-card card--contracts" aria-labelledby="service-contracts-title">
           <div class="service-content">
             <h3 id="service-contracts-title" class="service-name">Smart Contracts</h3>
             <p class="service-description">
@@ -72,16 +72,16 @@
           </figure>
         </article>
 
-        <!-- Marketing -->
-        <article class="service-card" aria-labelledby="service-marketing-title">
+        <!-- DApp Development (landscape) -->
+        <article class="service-card card--dapp" aria-labelledby="service-dapp-title">
           <div class="service-content">
-            <h3 id="service-marketing-title" class="service-name">Marketing</h3>
+            <h3 id="service-dapp-title" class="service-name">DApp Development</h3>
             <p class="service-description">
-              Experienced professionals collaborating closely with clients to drive project success in the competitive market, providing tailored consultation services in development, security advisory, and marketing for blockchain startups and Web3 organizations.
+              Unlock your project's marketing potential with SolidProof's comprehensive marketing solutions. Partnered with high-class agencies, we tailor strategies to meet your goals. Our one-stop marketing arsenal ensures top-quality solutions at competitive prices.
             </p>
           </div>
           <figure class="service-media">
-            <img src="https://images.pexels.com/photos/32624441/pexels-photo-32624441.jpeg" alt="Metallic spiral ring showcasing growth and reach for marketing" loading="lazy" />
+            <img src="https://images.pexels.com/photos/17485705/pexels-photo-17485705.png" alt="Geometric 3D artwork symbolizing decentralized application development" loading="lazy" />
           </figure>
         </article>
       </div>
@@ -101,31 +101,59 @@
 .services-title { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 48px; font-weight: 700; line-height: 1.1; margin: 0 0 12px; }
 .services-intro { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 18px; line-height: 1.6; margin: 0 auto; max-width: 680px; }
 
-.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; grid-auto-rows: 1fr; grid-template-areas:
+  'audits audits marketing'
+  'kyc consulting marketing'
+  'contracts dapp marketing'; }
 
-.service-card { position: relative; overflow: hidden; border-radius: 18px; background: #111213; border: 1px solid rgba(255,255,255,0.08); min-height: 260px; isolation: isolate; }
-.service-card::before { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 120% at 80% 90%, rgba(13,110,253,0.18) 0%, rgba(99,102,241,0.10) 40%, rgba(0,0,0,0) 70%); pointer-events: none; z-index: 0; }
-.service-card:hover { border-color: rgba(255,255,255,0.16); box-shadow: 0 12px 30px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(255,255,255,0.03); }
+/* Base card */
+.service-card { position: relative; overflow: hidden; border-radius: 16px; background: #0F1011; border: 1px solid rgba(255,255,255,0.08); min-height: 270px; isolation: isolate; }
+.service-card::before { content: ""; position: absolute; inset: 0; background: radial-gradient(55% 110% at 80% 90%, rgba(13,110,253,0.18) 0%, rgba(99,102,241,0.1) 40%, rgba(0,0,0,0) 70%); pointer-events: none; z-index: 0; }
+.service-card:hover { border-color: rgba(255,255,255,0.18); box-shadow: 0 10px 28px rgba(0,0,0,0.35); }
 
-.service-card--tall { grid-row: span 2; min-height: 540px; }
+/* Mosaic placement */
+.card--audits { grid-area: audits; min-height: 360px; }
+.card--marketing { grid-area: marketing; min-height: 560px; }
+.card--kyc { grid-area: kyc; min-height: 280px; }
+.card--consulting { grid-area: consulting; min-height: 280px; }
+.card--contracts { grid-area: contracts; min-height: 300px; }
+.card--dapp { grid-area: dapp; min-height: 300px; }
 
-.service-content { position: relative; z-index: 2; padding: 24px; max-width: 560px; display: flex; flex-direction: column; gap: 10px; }
-.service-name { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 24px; font-weight: 700; line-height: 1.2; margin: 0; }
-.service-description { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 15px; line-height: 1.6; margin: 0; }
+/* Content */
+.service-content { position: relative; z-index: 2; padding: 22px; max-width: 560px; display: flex; flex-direction: column; gap: 10px; }
+.service-name { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 22px; font-weight: 700; line-height: 1.2; margin: 0; }
+.service-description { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; line-height: 1.5; margin: 0; }
 
-.service-media { position: absolute; right: 0; bottom: 0; z-index: 1; width: 56%; height: 70%; display: flex; align-items: flex-end; justify-content: flex-end; pointer-events: none; }
-.service-media img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; filter: saturate(115%) contrast(110%); transform: translate3d(8px, 8px, 0) scale(1.02); transition: transform 0.35s ease; border-top-left-radius: 16px; }
+/* Media */
+.service-media { position: absolute; inset: 0; z-index: 1; display: flex; align-items: flex-end; justify-content: flex-end; pointer-events: none; }
+.service-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0) 60%); z-index: 1; }
+.service-media img { position: absolute; right: 0; bottom: 0; width: 70%; height: 78%; object-fit: cover; object-position: center; filter: saturate(115%) contrast(110%); transform: translate3d(10px, 10px, 0) scale(1.02); transition: transform 0.35s ease; border-top-left-radius: 14px; }
 .service-card:hover .service-media img { transform: translate3d(0, 0, 0) scale(1.06); }
 
+/* Per-card image tweaks for composition */
+.card--audits .service-media img { width: 80%; height: 85%; object-position: center bottom; }
+.card--marketing .service-media img { width: 100%; height: 100%; object-fit: cover; object-position: center; transform: none; }
+.card--kyc .service-media img { width: 60%; height: 60%; object-position: right bottom; }
+.card--consulting .service-media img { width: 75%; height: 75%; object-position: right center; }
+.card--contracts .service-media img { width: 70%; height: 78%; object-position: left center; }
+.card--dapp .service-media img { width: 70%; height: 78%; object-position: right center; }
+
 /* Responsive */
-@media (max-width: 1180px) { .services-grid { grid-template-columns: repeat(2, 1fr); } .service-card--tall { grid-row: auto; min-height: 320px; } }
+@media (max-width: 1180px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); grid-template-areas:
+    'audits marketing'
+    'kyc marketing'
+    'consulting marketing'
+    'contracts dapp'; }
+  .card--marketing { min-height: 520px; }
+}
 @media (max-width: 768px) {
   .services-section { padding: 64px 16px 32px; }
   .services-title { font-size: 36px; }
   .services-intro { font-size: 16px; }
-  .services-grid { grid-template-columns: 1fr; gap: 14px; }
-  .service-card { min-height: 280px; }
-  .service-media { position: absolute; right: 0; bottom: 0; width: 68%; height: 56%; }
+  .services-grid { grid-template-columns: 1fr; grid-template-areas: 'audits' 'marketing' 'kyc' 'consulting' 'contracts' 'dapp'; gap: 12px; }
+  .service-card { min-height: 300px; }
+  .service-media img { width: 80%; height: 60%; }
 }
 
 /* Respect reduced motion */
