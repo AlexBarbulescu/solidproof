@@ -13,7 +13,13 @@
             <a href="#" class="contact-cta">Contact Us</a>
           </div>
           <div class="contact-image">
-            <img src="https://api.builder.io/api/v1/image/assets/TEMP/5053e7b8d0e05c7cbe6ed08dcfa48f29f576582b?width=1322" alt="SolidProof team member" />
+            <div class="contact-fade">
+              <img 
+                :src="currentSrc" 
+                alt="SolidProof team member" 
+                :class="{ fading: isTransitioning }"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -22,7 +28,62 @@
 </template>
 
 <script setup>
-// No script logic needed for this static component
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
+
+// Image sources to cycle through
+const images = ['/images/kevin01.png', '/images/kevin02.png', '/images/kevin03.png']
+const index = ref(0)
+const currentSrc = computed(() => images[index.value])
+
+// Fade transition control
+const isTransitioning = ref(false)
+const FADE_DURATION = 600 // ms, smooth fade transition
+const CYCLE_INTERVAL = 5000 // ms between transitions
+
+let intervalId = null
+let fadeTimeoutId = null
+
+function startTransition() {
+  if (isTransitioning.value) return
+  isTransitioning.value = true
+  
+  // Start fade out, then change image and fade back in
+  setTimeout(() => {
+    index.value = (index.value + 1) % images.length
+    isTransitioning.value = false
+  }, FADE_DURATION / 2)
+}
+
+onMounted(() => {
+  // Improved randomizer: avoid repeating the last image across refreshes
+  try {
+    const storageKey = 'contactFlipLastIndex'
+    const stored = localStorage.getItem(storageKey)
+    const last = stored !== null ? parseInt(stored, 10) : -1
+    const candidates = images.map((_, i) => i).filter((i) => i !== last)
+    const next = candidates[Math.floor(Math.random() * candidates.length)]
+    index.value = Number.isFinite(next) ? next : Math.floor(Math.random() * images.length)
+    localStorage.setItem(storageKey, String(index.value))
+  } catch (e) {
+    // Fallback if localStorage is not available
+    index.value = Math.floor(Math.random() * images.length)
+  }
+
+  const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  if (prefersReduced) {
+    // No fade animation; just change images less frequently
+    intervalId = setInterval(() => {
+      index.value = (index.value + 1) % images.length
+    }, Math.max(CYCLE_INTERVAL, 6000))
+  } else {
+    intervalId = setInterval(startTransition, CYCLE_INTERVAL)
+  }
+})
+
+onBeforeUnmount(() => {
+  if (intervalId) clearInterval(intervalId)
+  if (fadeTimeoutId) clearTimeout(fadeTimeoutId)
+})
 </script>
 
 <style scoped>
@@ -120,6 +181,22 @@
   width: 100%;
   height: auto;
   object-fit: contain;
+  display: block;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+  transform: scale(1);
+}
+
+.contact-image img.fading {
+  opacity: 0.3;
+  transform: scale(1.02);
+}
+
+/* Fade animation wrapper */
+.contact-fade {
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 /* Responsive Styles */
@@ -237,6 +314,13 @@
   
   .contact-container {
     padding: 16px 20px 20px 20px;
+  }
+}
+
+/* Respect reduced motion: no fade animation */
+@media (prefers-reduced-motion: reduce) {
+  .contact-image img {
+    transition: none !important;
   }
 }
 </style>

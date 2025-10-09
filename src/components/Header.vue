@@ -2,8 +2,11 @@
   <header class="site-header">
     <div class="container">
       <a href="#" class="brand">
-        <img src="/logo_horizontal_white.svg" alt="SolidProof" class="brand-logo brand-logo--dark" />
-        <img src="/logo_horizontal_black.svg" alt="SolidProof" class="brand-logo brand-logo--light" />
+        <img src="/images/logo_horizontal_white.svg" alt="SolidProof" class="brand-logo brand-logo--dark" />
+        <img src="/images/logo_horizontal_black.svg" alt="SolidProof" class="brand-logo brand-logo--light" />
+      </a>
+      <a href="#" class="quote-btn">
+        Request a Quote
       </a>
       <button
         class="nav-toggle"
@@ -226,8 +229,108 @@
               </div>
             </div>
           </li>
+          <!-- Socials Dropdown -->
+          <li class="dropdown-container" ref="socialsDropdownWrapper">
+            <a href="#" class="dropdown-trigger" @click.prevent.stop="toggleSocialsDropdown" :aria-expanded="showSocialsDropdown ? 'true' : 'false'">
+              Socials
+              <svg class="trigger-caret" width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M4.64645 6.64645C4.84171 6.45118 5.15829 6.45118 5.35355 6.64645L8 9.29289L10.6464 6.64645C10.8417 6.45118 11.1583 6.45118 11.3536 6.64645C11.5488 6.84171 11.5488 7.15829 11.3536 7.35355L8.35355 10.3536C8.15829 10.5488 7.84171 10.5488 7.64645 10.3536L4.64645 7.35355C4.45118 7.15829 4.45118 6.84171 4.64645 6.64645Z" fill="currentColor"/>
+              </svg>
+            </a>
+            <div class="socials-dropdown" v-show="showSocialsDropdown">
+              <div class="dropdown-header">
+                <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0Z" fill="white"/>
+                </svg>
+                <span class="dropdown-title">Socials</span>
+              </div>
+
+              <div class="dropdown-divider"></div>
+
+              <div class="dropdown-items">
+                <a href="https://twitter.com/SolidProof_io" target="_blank" rel="noopener noreferrer" class="dropdown-item">
+                  <svg class="item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M4 4l7.2 9.3L4.6 20h2.2l5.2-5.7 4.2 5.7H20l-7.5-10L19.2 4H17l-4.8 5.3L8.4 4H4z" fill="white"/>
+                  </svg>
+                  <div class="item-content">
+                    <div class="item-title">Twitter (Main)</div>
+                    <div class="item-description">Official updates and announcements</div>
+                  </div>
+                </a>
+                <a href="https://twitter.com/solidproof_news" target="_blank" rel="noopener noreferrer" class="dropdown-item">
+                  <svg class="item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M4 4l7.2 9.3L4.6 20h2.2l5.2-5.7 4.2 5.7H20l-7.5-10L19.2 4H17l-4.8 5.3L8.4 4H4z" fill="white"/>
+                  </svg>
+                  <div class="item-content">
+                    <div class="item-title">Twitter (News)</div>
+                    <div class="item-description">Real-time news and coverage</div>
+                  </div>
+                </a>
+                <a href="https://www.youtube.com/channel/UCobb0xTQ7n8wa4C84-Fv4Dw" target="_blank" rel="noopener noreferrer" class="dropdown-item">
+                  <svg class="item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M22 12s0-3.2-.4-4.6c-.2-.8-.8-1.4-1.6-1.6C18.6 5.4 12 5.4 12 5.4s-6.6 0-8 .4c-.8.2-1.4.8-1.6 1.6C2 8.8 2 12 2 12s0 3.2.4 4.6c.2.8.8 1.4 1.6 1.6 1.4.4 8 .4 8 .4s6.6 0 8-.4c.8-.2 1.4-.8 1.6-1.6.4-1.4.4-4.6.4-4.6z" fill="white"/>
+                    <path d="M10 9.75v4.5L15 12l-5-2.25z" fill="#0B0B0B"/>
+                  </svg>
+                  <div class="item-content">
+                    <div class="item-title">YouTube</div>
+                    <div class="item-description">Videos, AMAs and tutorials</div>
+                  </div>
+                </a>
+                <a href="https://www.facebook.com/solidproof.io" target="_blank" rel="noopener noreferrer" class="dropdown-item">
+                  <svg class="item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M9 8H7v3h2v9h3v-9h2.4l.6-3H12V6.5c0-.8.2-1.3 1.3-1.3H15V2.2c-.3 0-1.3-.2-2.5-.2C10 2 9 3.7 9 6.1V8z" fill="white"/>
+                  </svg>
+                  <div class="item-content">
+                    <div class="item-title">Facebook</div>
+                    <div class="item-description">Community updates and posts</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item" v-if="ENABLE_INSTAGRAM">
+                  <svg class="item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="3" width="18" height="18" rx="5" stroke="white" stroke-width="2"/>
+                    <circle cx="12" cy="12" r="4" stroke="white" stroke-width="2"/>
+                    <circle cx="17.5" cy="6.5" r="1.5" fill="white"/>
+                  </svg>
+                  <div class="item-content">
+                    <div class="item-title">Instagram</div>
+                    <div class="item-description">Visual highlights and stories</div>
+                  </div>
+                </a>
+                <a href="https://t.me/solidproof" target="_blank" rel="noopener noreferrer" class="dropdown-item">
+                  <svg class="item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M9.5 14L8.9 18.8c.1.3.5.4.7.1l2.7-2.7 4.3 3.2c.5.3 1.1.1 1.3-.5L21.8 5c.2-.8-.4-1.3-1.1-1L3.4 11.4c-.7.3-.7 1.1 0 1.3l4.9 1.6 9.5-6c.4-.2.8.1.4.4L9.5 14z" fill="white"/>
+                  </svg>
+                  <div class="item-content">
+                    <div class="item-title">Telegram</div>
+                    <div class="item-description">Join our community chat</div>
+                  </div>
+                </a>
+                <a href="https://solidproof-io.medium.com/" target="_blank" rel="noopener noreferrer" class="dropdown-item">
+                  <svg class="item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M4 7.5c0-.4.2-.8.6-1l3.5-2.3c.3-.2.7-.1.9.2l3.9 6.1 4.6-6.3c.2-.3.6-.3.9-.1l1.4.9c.1.1.2.3.2.5v11.2c0 .4-.2.8-.6 1l-3.5 2.3c-.3.2-.7.1-.9-.2l-4.5-7.1-4.1 6.6c-.2.3-.6.4-.9.2l-1.4-.9a.6.6 0 0 1-.2-.5V7.5z" fill="white"/>
+                  </svg>
+                  <div class="item-content">
+                    <div class="item-title">Medium</div>
+                    <div class="item-description">Articles and deep dives</div>
+                  </div>
+                </a>
+                <a href="https://github.com/solidproof" target="_blank" rel="noopener noreferrer" class="dropdown-item">
+                  <svg class="item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.9c-2.8.6-3.4-1.1-3.4-1.1-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.5 1.1 3.2.8.1-.7.3-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.2-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.5 9.5 0 0 1 5.1 0c2-1.3 2.8-1 2.8-1 .5 1.4.2 2.5.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .3.3.6.8.6 1.6v2.3c0 .3.2.6.7.5A10 10 0 0 0 12 2z" fill="white"/>
+                  </svg>
+                  <div class="item-content">
+                    <div class="item-title">GitHub</div>
+                    <div class="item-description">Code, audits and repositories</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
           <li><a href="#">Company</a></li>
           <li><a href="#">News</a></li>
+          <li class="mobile-quote-item">
+            <a href="#" class="mobile-quote-btn">Request a Quote</a>
+          </li>
         </ul>
       </nav>
     </div>
@@ -236,19 +339,31 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
+
+const ENABLE_INSTAGRAM = false
+
 const isOpen = ref(false)
 const showDropdown = ref(false)
 const showProjectsDropdown = ref(false)
+const showSocialsDropdown = ref(false)
 const dropdownWrapper = ref(null)
 const projectsDropdownWrapper = ref(null)
+const socialsDropdownWrapper = ref(null)
 
 function toggleDropdown() {
   showDropdown.value = !showDropdown.value
   showProjectsDropdown.value = false
+  showSocialsDropdown.value = false
 }
 function toggleProjectsDropdown() {
   showProjectsDropdown.value = !showProjectsDropdown.value
   showDropdown.value = false
+  showSocialsDropdown.value = false
+}
+function toggleSocialsDropdown() {
+  showSocialsDropdown.value = !showSocialsDropdown.value
+  showDropdown.value = false
+  showProjectsDropdown.value = false
 }
 function onDocClick(e) {
   if (showDropdown.value) {
@@ -263,6 +378,12 @@ function onDocClick(e) {
       showProjectsDropdown.value = false
     }
   }
+  if (showSocialsDropdown.value) {
+    const socialsRoot = socialsDropdownWrapper.value
+    if (socialsRoot && !socialsRoot.contains(e.target)) {
+      showSocialsDropdown.value = false
+    }
+  }
 }
 
 function handleResize() {
@@ -272,34 +393,32 @@ function handleResize() {
 }
 
 onMounted(() => {
-  document.addEventListener('click', onDocClick)
   window.addEventListener('resize', handleResize)
+  document.addEventListener('click', onDocClick)
 })
+
 onBeforeUnmount(() => {
-  document.removeEventListener('click', onDocClick)
   window.removeEventListener('resize', handleResize)
+  document.removeEventListener('click', onDocClick)
 })
 </script>
 
 <style scoped>
+/* Header container and layout */
 .site-header { position: fixed; top: 40px; left: 0; right: 0; z-index: 20; background: transparent; border-bottom: none; }
-.site-header .container { 
-  position: relative; 
-  display: flex; 
-  align-items: center; 
-  justify-content: space-between; 
-  padding: 30px 40px; 
-  height: 80px; 
-  background: rgba(26, 27, 29, 0.5); 
-  backdrop-filter: blur(4px); 
-  -webkit-backdrop-filter: blur(4px); 
-  border: 1px solid rgba(255,255,255,0.1); 
-  border-radius: 100px; 
-  max-width: 1240px;
-  margin: 0 auto;
-  min-width: 0; /* Prevent overflow */
-}
-.brand { font-weight: 600; color: #fff; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+.site-header .container { position: relative; display: flex; align-items: center; justify-content: space-between; padding: 30px 40px; height: 80px; background: #000000ad; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: 1px solid #1f1f1f73; border-radius: 100px; margin: 0 auto; max-width: 960px; }
+.brand { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; color: #fff; text-decoration: none; }
+
+.nav-toggle { display: inline-flex; flex-direction: column; gap: 4px; padding: 8px; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; background: transparent; }
+.nav-toggle .bar { width: 20px; height: 2px; background: #fff; border-radius: 1px; }
+
+.primary-nav { position: absolute; top: 78px; left: 0; right: 0; background: rgba(0,0,0,0.7); border-bottom: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); display: none; }
+.primary-nav.open { display: block; }
+.nav-list { list-style: none; margin: 0; padding: 8px; }
+.nav-list li { margin: 4px 0; }
+.nav-list a { display: block; padding: 8px 12px; color: #9BA1A5; text-decoration: none; transition: color 0.2s ease; }
+.nav-list a:hover, .nav-list a:focus { color: #fff; background: transparent; }
+
 .brand-logo { height: 48px; width: auto; display: block; }
 @media (max-width: 1024px) { .brand-logo { height: 35px; } }
 @media (max-width: 767px) { .brand-logo { height: 35px; } }
@@ -308,35 +427,107 @@ onBeforeUnmount(() => {
   .brand-logo--dark { display: none; }
   .brand-logo--light { display: block; }
 }
-.nav-toggle { display: inline-flex; flex-direction: column; gap: 4px; padding: 8px; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; background: transparent; }
-.nav-toggle .bar { width: 20px; height: 2px; background: #fff; border-radius: 1px; }
+
+/* Quote Button */
+.quote-btn {
+  display: inline-block;
+  padding: 14px 24px;
+  border-radius: 8px;
+  background: #0D6EFD;
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.quote-btn:hover {
+  background: #0B5ED7;
+  transform: translateY(-1px);
+}
+
+/* Mobile Quote Button */
+.mobile-quote-item {
+  margin-top: 8px !important;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.mobile-quote-btn {
+  display: block !important;
+  padding: 12px 16px !important;
+  margin: 0 4px;
+  border-radius: 6px;
+  background: #0D6EFD !important;
+  color: #fff !important;
+  text-decoration: none;
+  font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.mobile-quote-btn:hover {
+  background: #0B5ED7 !important;
+  color: #fff !important;
+}
+
+/* Accessibility */
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
-.primary-nav { position: absolute; top: 56px; left: 0; right: 0; background: rgba(0,0,0,0.7); border-bottom: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); display: none; }
-.primary-nav.open { display: block; }
-.nav-list { list-style: none; margin: 0; padding: 8px; }
-.nav-list li { margin: 4px 0; }
-.nav-list a { display: block; padding: 8px 12px; color: #fff; text-decoration: none; }
-.nav-list a:hover { background: rgba(255,255,255,0.08); }
 
-/* Prevent navigation items from wrapping or overlapping */
-.primary-nav .nav-list {
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.nav-list a {
-  white-space: nowrap;
-}
-
-/* Dropdown Styles */
+/* Services Dropdown */
 .dropdown-container { position: relative; }
-.dropdown-trigger { display: inline-flex; align-items: center; gap: 6px; color: #fff; }
+.dropdown-trigger { display: inline-flex; align-items: center; gap: 6px; color: #9BA1A5; transition: color 0.2s ease; }
+.dropdown-trigger:hover, .dropdown-trigger:focus { color: #fff; }
+.dropdown-trigger[aria-expanded="true"] { color: #fff; }
 .trigger-caret { transition: transform 0.2s ease; }
 .dropdown-trigger[aria-expanded="true"] .trigger-caret { transform: rotate(180deg); }
 
-.services-dropdown, .projects-dropdown {
+/* keep trigger text and caret on same line and prevent caret shrinking */
+.dropdown-trigger { white-space: nowrap; }
+.trigger-caret { flex-shrink: 0; margin-left: 4px; }
+.services-dropdown {
   position: absolute;
-  top: calc(100% + 8px);
+  top: calc(100% + 18px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 290px;
+  padding: 10px 0;
+  background: linear-gradient(180deg, rgba(47, 47, 51, 0.87) 0%, rgba(61, 62, 67, 0.87) 34.82%, rgba(47, 47, 51, 0.87) 100%), #2F2F33;
+  border: 1px solid #606061;
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1000;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+.dropdown-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 19px 10px 13px;
+}
+.dropdown-icon { width: 16px; height: 16px; flex-shrink: 0; }
+.dropdown-title { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; font-weight: 500; line-height: 100%; }
+.dropdown-divider { width: 100%; height: 1px; background: #464649; margin: 10px 0 10px; filter: drop-shadow(0 -1px 0 #2B2C2F); }
+.dropdown-items { display: flex; flex-direction: column; gap: 0; }
+.dropdown-item { position: relative; display: flex; align-items: center; padding: 10px 19px 10px 13px; min-height: 45px; text-decoration: none; color: inherit; transition: background-color 0.15s ease; }
+.dropdown-item:hover { background: rgba(255, 255, 255, 0.05); }
+.dropdown-items .dropdown-item + .dropdown-item { margin-top: 10px; }
+.item-icon { position: absolute; left: 13px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; flex-shrink: 0; }
+.item-content { position: absolute; left: 43px; top: 50%; transform: translateY(-50%); width: 228px; display: flex; flex-direction: column; gap: 3px; padding: 0; }
+.item-title { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; font-weight: 500; line-height: 100%; }
+.item-description { color: #898A8B; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 11px; font-weight: 400; line-height: 120%; }
+
+/* Projects Dropdown */
+.projects-dropdown {
+  position: absolute;
+  top: calc(100% + 18px);
   left: 50%;
   transform: translateX(-50%);
   width: 290px;
@@ -350,333 +541,88 @@ onBeforeUnmount(() => {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
-.dropdown-header {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 10px 19px 10px 13px;
-}
-
-.dropdown-icon {
-  width: 16px;
-  height: 16px;
-  flex-shrink: 0;
-}
-
-.dropdown-title {
-  color: #fff;
-  font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 100%;
-}
-
-.dropdown-divider {
-  width: 100%;
-  height: 1px;
-  background: #464649;
-  margin: 10px 0 10px;
-  filter: drop-shadow(0 -1px 0 #2B2C2F);
-}
-
-.dropdown-items {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.dropdown-item {
-  position: relative;
-  display: flex;
-  align-items: center;
-  padding: 10px 19px 10px 13px;
-  min-height: 45px;
-  text-decoration: none;
-  color: inherit;
-  transition: background-color 0.15s ease;
-}
-
-.dropdown-item:hover {
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.dropdown-items .dropdown-item + .dropdown-item { margin-top: 10px; }
-
-.item-icon {
+/* Socials Dropdown */
+.socials-dropdown {
   position: absolute;
-  left: 13px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 16px;
-  height: 16px;
-  flex-shrink: 0;
+  top: calc(100% + 18px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 290px;
+  padding: 10px 0;
+  background: linear-gradient(180deg, rgba(47, 47, 51, 0.87) 0%, rgba(61, 62, 67, 0.87) 34.82%, rgba(47, 47, 51, 0.87) 100%), #2F2F33;
+  border: 1px solid #606061;
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1000;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
-.item-content {
-  position: absolute;
-  left: 43px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 228px;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  padding: 0;
-}
+.github-special { background: #2A2A2C; padding: 5px 15px; min-height: 94px; align-items: flex-start; }
+.github-special .item-icon { position: absolute; left: 16px; top: 5px; transform: none; width: 14px; height: 16px; }
+.github-content { position: absolute; left: 43px; top: 50%; transform: translateY(-50%); width: 228px; height: 94px; padding: 5px 0; display: flex; flex-direction: column; align-items: flex-start; gap: 3px; }
+.github-section { position: relative; display: flex; padding-bottom: 2px; justify-content: center; align-items: flex-start; gap: 9.208px; align-self: stretch; height: 56px; }
+.github-text { position: absolute; left: 0; top: 0; width: 129px; height: 55px; display: flex; flex-direction: column; gap: 2px; }
+.github-description { color: #898A8B; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 11px; font-weight: 400; line-height: 120%; }
+.saat-link { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 11px; font-weight: 400; line-height: 120%; text-decoration: underline; }
+.github-icons { position: absolute; left: 138px; top: 0; width: 90px; height: 56px; display: flex; padding: 5px 10px; justify-content: flex-end; align-items: flex-start; gap: 10px; }
 
-.item-title {
-  color: #fff;
-  font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 100%;
-}
-
-.item-description {
-  color: #898A8B;
-  font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
-  font-size: 11px;
-  font-weight: 400;
-  line-height: 120%;
-}
-
-/* GitHub Special Item Styles */
-.github-special {
-  background: #2A2A2C;
-  padding: 5px 15px;
-  min-height: 94px;
-  align-items: flex-start;
-}
-
-.github-special .item-icon {
-  position: absolute;
-  left: 16px;
-  top: 5px;
-  transform: none;
-  width: 14px;
-  height: 16px;
-}
-
-.github-content {
-  position: absolute;
-  left: 43px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 228px;
-  height: 94px;
-  padding: 5px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 3px;
-}
-
-.github-section {
-  position: relative;
-  display: flex;
-  padding-bottom: 2px;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 9.208px;
-  align-self: stretch;
-  height: 56px;
-}
-
-.github-text {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 129px;
-  height: 55px;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.github-description {
-  color: #898A8B;
-  font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
-  font-size: 11px;
-  font-weight: 400;
-  line-height: 120%;
-}
-
-.saat-link {
-  color: #fff;
-  font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
-  font-size: 11px;
-  font-weight: 400;
-  line-height: 120%;
-  text-decoration: underline;
-}
-
-.github-icons {
-  position: absolute;
-  left: 138px;
-  top: 0;
-  width: 90px;
-  height: 56px;
-  display: flex;
-  padding: 5px 10px;
-  justify-content: flex-end;
-  align-items: flex-start;
-  gap: 10px;
-}
-
-/* Large desktop - full navigation */
-@media (min-width: 1200px) {
-  .nav-toggle { display: none; }
-  .primary-nav { all: unset; }
-  .primary-nav { display: block; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
-  .primary-nav .nav-list { display: flex; gap: 24px; align-items: center; justify-content: center; flex-wrap: nowrap; }
-  .nav-list li { margin: 0; }
-  .nav-list a { padding: 8px 12px; white-space: nowrap; }
-}
-
-/* Medium desktop - slightly reduced spacing */
-@media (min-width: 1025px) and (max-width: 1199px) {
-  .nav-toggle { display: none; }
-  .primary-nav { all: unset; }
-  .primary-nav { display: block; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
-  .primary-nav .nav-list { display: flex; gap: 16px; align-items: center; justify-content: center; flex-wrap: nowrap; }
-  .nav-list li { margin: 0; }
-  .nav-list a { padding: 8px 10px; white-space: nowrap; font-size: 14px; }
-}
-
-/* Tablet adjustments - show mobile menu earlier to prevent text wrapping */
+/* Tablet adjustments */
 @media (max-width: 1024px) {
-  .nav-toggle { display: inline-flex; }
-  .primary-nav { 
-    position: absolute; 
-    top: 56px; 
-    left: 0; 
-    right: 0; 
-    background: rgba(0,0,0,0.7); 
-    border-bottom: 1px solid rgba(255,255,255,0.08); 
-    backdrop-filter: blur(4px); 
-    -webkit-backdrop-filter: blur(4px); 
-    display: none; 
-  }
-  .primary-nav.open { display: block; }
-  .nav-list { list-style: none; margin: 0; padding: 8px; }
-  .nav-list li { margin: 4px 0; }
-  .nav-list a { display: block; padding: 8px 12px; color: #fff; text-decoration: none; }
-  .nav-list a:hover { background: rgba(255,255,255,0.08); }
-  
-  .site-header .container { 
-    max-width: 95vw;
-    padding: 20px 30px;
-  }
-  
-  /* Apply mobile dropdown styles to tablet too */
+  .services-dropdown,
+  .projects-dropdown,
+  .socials-dropdown { width: min(92vw, 480px); left: 50%; transform: translateX(-50%); }
+  .item-content { width: calc(100% - 62px); }
+  .github-content { width: calc(100% - 62px); }
+}
+
+/* Mobile & Tablet dropdown: inline accordion style inside nav */
+@media (max-width: 1024px) {
   .dropdown-container { width: 100%; }
   .dropdown-trigger { width: 100%; justify-content: space-between; }
-  
   .services-dropdown,
-  .projects-dropdown {
-    position: static;
-    top: auto;
-    left: auto;
-    transform: none;
-    width: 100%;
-    padding: 10px 8px;
-    margin-top: 8px;
-    border-radius: 12px;
-  }
-  
+  .projects-dropdown,
+  .socials-dropdown { position: static; top: auto; left: auto; transform: none; width: 100%; padding: 10px 8px; margin-top: 8px; border-radius: 12px; }
   .dropdown-header { padding: 8px 12px; }
   .dropdown-items { gap: 8px; }
   .dropdown-items .dropdown-item + .dropdown-item { margin-top: 8px; }
-  
-  /* Force flex layout for tablet/mobile */
-  .dropdown-item {
-    position: relative !important;
-    display: flex !important;
-    align-items: flex-start !important;
-    gap: 12px !important;
-    padding: 12px !important;
-    min-height: unset !important;
-  }
-  
+
+  /* Force flex layout for mobile */
+  .dropdown-item { position: relative !important; display: flex !important; align-items: flex-start !important; gap: 12px !important; padding: 12px !important; min-height: unset !important; }
+
   /* Reset icon positioning */
-  .item-icon {
-    position: static !important;
-    left: unset !important;
-    top: unset !important;
-    transform: none !important;
-    width: 16px !important;
-    height: 16px !important;
-    margin-top: 2px;
-    flex-shrink: 0;
-  }
-  
+  .item-icon { position: static !important; left: unset !important; top: unset !important; transform: none !important; width: 16px !important; height: 16px !important; margin-top: 2px; flex-shrink: 0; }
+
   /* Reset content positioning */
-  .item-content {
-    position: static !important;
-    left: unset !important;
-    top: unset !important;
-    transform: none !important;
-    width: auto !important;
-    flex: 1;
-  }
-  
+  .item-content { position: static !important; left: unset !important; top: unset !important; transform: none !important; width: auto !important; flex: 1; }
+
   .item-title { font-size: 15px; }
   .item-description { font-size: 12px; line-height: 140%; }
 
   /* GitHub special item responsive */
-  .github-special {
-    padding: 12px !important;
-    min-height: auto !important;
-    display: flex !important;
-    align-items: flex-start !important;
-    gap: 12px !important;
-  }
-  .github-special .item-icon {
-    position: static !important;
-    left: unset !important;
-    top: unset !important;
-    transform: none !important;
-    width: 14px !important;
-    height: 16px !important;
-    margin-top: 2px;
-    flex-shrink: 0;
-  }
-  .github-content {
-    position: static !important;
-    left: unset !important;
-    top: unset !important;
-    transform: none !important;
-    width: auto !important;
-    height: auto !important;
-    padding: 0;
-    flex: 1;
-  }
-  .github-section {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    gap: 12px;
-    height: auto;
-    padding-bottom: 0;
-  }
-  .github-text {
-    position: static;
-    width: auto;
-    height: auto;
-  }
-  .github-icons {
-    position: static;
-    width: auto;
-    height: auto;
-    padding: 0;
-  }
+  .github-special { padding: 12px !important; min-height: auto !important; display: flex !important; align-items: flex-start !important; gap: 12px !important; }
+  .github-special .item-icon { position: static !important; left: unset !important; top: unset !important; transform: none !important; width: 14px !important; height: 16px !important; margin-top: 2px; flex-shrink: 0; }
+  .github-content { position: static !important; left: unset !important; top: unset !important; transform: none !important; width: auto !important; height: auto !important; padding: 0; flex: 1; }
+  .github-section { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 12px; height: auto; padding-bottom: 0; }
+  .github-text { position: static; width: auto; height: auto; }
+  .github-icons { position: static; width: auto; height: auto; padding: 0; }
 }
 
-/* Mobile specific adjustments */
-@media (max-width: 767px) {
-  .site-header .container { 
-    max-width: 95vw;
-    padding: 20px;
-  }
+/* Responsive behavior for quote button */
+@media (max-width: 1024px) {
+  .quote-btn { display: none; }
+  .mobile-quote-item { display: block; }
+}
+
+@media (min-width: 1025px) {
+  /* full desktop navigation only at >=1025px */
+  .nav-toggle { display: none; }
+  .mobile-quote-item { display: none !important; }
+  .primary-nav { all: unset; }
+  .primary-nav { display: block; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+  .primary-nav .nav-list { display: flex; gap: 8px; align-items: center; justify-content: center; }
+  .nav-list li { margin: 0; }
+  .nav-list a { padding: 8px 10px; }
+  .site-header .container { max-width: 1240px; }
 }
 </style>

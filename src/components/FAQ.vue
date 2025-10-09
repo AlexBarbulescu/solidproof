@@ -7,8 +7,8 @@
           Find answers to common questions about our blockchain security services, auditing processes, and how we can help protect your project.
         </p>
         
-        <div class="faq-list">
-          <div class="faq-item" v-for="(faq, index) in faqs" :key="index">
+        <div class="faq-list" ref="faqList">
+          <div class="faq-item" v-for="(faq, index) in faqs" :key="index" :style="{ '--i': index }">
             <button 
               class="faq-question" 
               @click="toggleFAQ(index)"
@@ -19,7 +19,7 @@
                 <path d="M4.64645 6.64645C4.84171 6.45118 5.15829 6.45118 5.35355 6.64645L8 9.29289L10.6464 6.64645C10.8417 6.45118 11.1583 6.45118 11.3536 6.64645C11.5488 6.84171 11.5488 7.15829 11.3536 7.35355L8.35355 10.3536C8.15829 10.5488 7.84171 10.5488 7.64645 10.3536L4.64645 7.35355C4.45118 7.15829 4.45118 6.84171 4.64645 6.64645Z" fill="currentColor"/>
               </svg>
             </button>
-            <div class="faq-answer" :class="{ 'open': faq.open }" v-show="faq.open">
+            <div class="faq-answer" :class="{ 'open': faq.open }">
               <div class="faq-answer-content">
                 {{ faq.answer }}
               </div>
@@ -32,68 +32,195 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 
 const faqs = ref([
   {
     question: "What is Solidproof.io?",
     answer: "Solidproof.io is a leading blockchain security company that offers comprehensive auditing, KYC, development, and consulting services to businesses operating in the blockchain industry.",
-    open: false
+    open: false,
+    openedAt: null
   },
   {
     question: "What is blockchain auditing?",
     answer: "Blockchain auditing is the process of thoroughly examining and assessing the security, integrity, and reliability of blockchain systems and smart contracts. Our auditing services help identify vulnerabilities, potential exploits, and weaknesses in blockchain implementations.",
-    open: false
+    open: false,
+    openedAt: null
   },
   {
     question: "Why is blockchain auditing important?",
     answer: "Blockchain auditing is crucial for ensuring the robustness and security of blockchain systems. By conducting thorough audits, Solidproof.io helps clients detect and prevent potential vulnerabilities and ensures the integrity of their blockchain applications.",
-    open: false
+    open: false,
+    openedAt: null
   },
   {
     question: "What is KYC and how does Solidproof.io assist with it?",
     answer: "KYC, or Know Your Customer, refers to the process of verifying the identity and authenticity of individuals engaging in financial transactions or using blockchain services. Solidproof.io provides KYC solutions that enable businesses to meet regulatory requirements and establish a secure and compliant environment for their users.",
-    open: false
+    open: false,
+    openedAt: null
   },
   {
     question: "What services does SolidProof offer?",
     answer: "SolidProof focuses on high-tier security services, including smart contract and blockchain audits, KYC processes, consulting and development services. Next to our primary focus, we also offer top-notch marketing solutions through the many marketing agencies we are partnered with.",
-    open: false
+    open: false,
+    openedAt: null
   },
   {
     question: "How can SolidProof help protect our project from security vulnerabilities?",
     answer: "SolidProof helps protect your project from vulnerabilities through comprehensive security audits and testing. Our experienced team thoroughly examines your smart contracts and system architecture, identifying potential weaknesses and vulnerabilities. We provide actionable recommendations and best practices to mitigate risks and enhance the overall security of your project, ensuring that your assets and users are safeguarded against potential threats.",
-    open: false
+    open: false,
+    openedAt: null
   },
   {
     question: "How experienced is the team at SolidProof in the field of crypto security?",
     answer: "The team at SolidProof is highly experienced in the field of crypto security. Our team members have extensive expertise and knowledge in blockchain technology, smart contract auditing, and cybersecurity. With years of experience in the industry, we have successfully conducted over 1500 audits, gaining a strong reputation for our thoroughness, professionalism, and commitment to protecting our clients and their investors.",
-    open: false
+    open: false,
+    openedAt: null
   },
   {
     question: "What is the typical timeframe for conducting a security audit or testing?",
     answer: "The timeframe for conducting a security audit or testing can vary depending on the projects complexity and the scope of contracts. The duration typically ranges from two days to two weeks, depending on the size and complexity of the contracts. Generally, it involves a meticulous and comprehensive evaluation of the projects codebase, smart contracts, and overall security architecture. At SolidProof, we prioritize both efficiency and accuracy in our audits, ensuring that the assessment is conducted promptly without compromising the quality of our findings.",
-    open: false
+    open: false,
+    openedAt: null
   },
   {
     question: "How does SolidProof handle confidentiality and data protection?",
     answer: "At SolidProof, we take confidentiality and data protection seriously. As a Germany-based company, we operate under the strict guidelines of the General Data Protection Regulation (GDPR), known as Datenschutz-Grundverordnung (DSGVO) in German. This means that we adhere to robust security measures and procedures to safeguard our clients sensitive information. We ensure that all data shared with us during the auditing process is treated with the utmost confidentiality and stored securely. Our commitment to data protection and compliance allows our clients to have complete confidence in the handling of their information throughout our engagement.",
-    open: false
+    open: false,
+    openedAt: null
   },
   {
     question: "Can SolidProof help with incident response and recovery in case of a security breach?",
     answer: "Absolutely. At SolidProof, we understand the importance of being prepared for potential security breaches. Our team of experts is well-equipped to assist you with incident response and recovery in case of any security incident. We provide timely and effective support to help identify the breach, mitigate the impact, and implement measures to prevent future occurrences. Our goal is to minimize the impact of any security breach and ensure a swift and comprehensive recovery process, allowing you to regain control and safeguard your project and investments.",
-    open: false
+    open: false,
+    openedAt: null
   },
   {
     question: "How can we get started with SolidProofs services?",
     answer: "Getting started with SolidProof is simple. You can directly request a quote by contacting our team through our website Contact or by emailing us. Additionally, you can visit our services section on the website, where you will find detailed information and step-by-step guides on how to engage our services.",
-    open: false
+    open: false,
+    openedAt: null
   }
 ])
 
+const MAX_OPEN_FAQS = 3
+const STAGGER_DELAY = 500 // 500ms between each close for animation effect
+
+// Flip animation per item: enter and reverse on exit
+const faqList = ref(null)
+let activeObserver = null // triggers enter + near-bottom reverse
+let resetObserver = null  // resets classes when fully out of viewport
+let lastScrollY = 0
+let scrollDir = 'down'
+
+function handleScroll() {
+  const y = window.scrollY || document.documentElement.scrollTop || 0
+  scrollDir = y < lastScrollY ? 'up' : 'down'
+  lastScrollY = y
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll, { passive: true })
+
+  // Active observer: shrink bottom by 20% to trigger reverse near bottom
+  activeObserver = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        const el = entry.target
+        if (entry.isIntersecting) {
+          el.classList.add('in-view')
+          el.classList.remove('out-view')
+        } else {
+          // Near-bottom or out of active zone; reverse only on upward scroll
+          if (scrollDir === 'up') {
+            el.classList.remove('in-view')
+            el.classList.add('out-view')
+          }
+          // If scrolling down, keep in-view to avoid flicker until fully out
+        }
+      }
+    },
+    {
+      threshold: 0.01,
+      root: null,
+      rootMargin: '0px 0px -8% 0px'
+    }
+  )
+
+  // Reset observer: full viewport; when fully out, clear classes to allow re-animating
+  resetObserver = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        const el = entry.target
+        if (!entry.isIntersecting) {
+          el.classList.remove('in-view')
+          el.classList.remove('out-view')
+        }
+      }
+    },
+    {
+      threshold: 0,
+      root: null,
+      rootMargin: '0px'
+    }
+  )
+
+  if (faqList.value) {
+    const items = faqList.value.querySelectorAll('.faq-item')
+    items.forEach((el) => {
+      activeObserver.observe(el)
+      resetObserver.observe(el)
+    })
+  }
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', handleScroll)
+  if (activeObserver) {
+    activeObserver.disconnect()
+    activeObserver = null
+  }
+  if (resetObserver) {
+    resetObserver.disconnect()
+    resetObserver = null
+  }
+})
+
 function toggleFAQ(index) {
-  faqs.value[index].open = !faqs.value[index].open
+  const faq = faqs.value[index]
+  
+  if (faq.open) {
+    // Close the FAQ
+    faq.open = false
+    faq.openedAt = null
+  } else {
+    // Open the FAQ
+    faq.open = true
+    faq.openedAt = Date.now()
+    
+    // Check if we have more than MAX_OPEN_FAQS open
+    const openFaqs = faqs.value.filter(f => f.open)
+    if (openFaqs.length > MAX_OPEN_FAQS) {
+      // Find all FAQs that need to be closed (excluding the one we just opened)
+      const faqsToClose = openFaqs
+        .filter(f => f !== faq) // Don't close the one we just opened
+        .sort((a, b) => a.openedAt - b.openedAt) // Sort by oldest first
+        .slice(0, openFaqs.length - MAX_OPEN_FAQS) // Take only the ones that exceed the limit
+      
+      // Close each FAQ with staggered animation
+      faqsToClose.forEach((faqToClose, index) => {
+        const delay = index * STAGGER_DELAY
+        
+        setTimeout(() => {
+          // Double-check it's still open before closing
+          if (faqToClose.open) {
+            faqToClose.open = false
+            faqToClose.openedAt = null
+          }
+        }, delay)
+      })
+    }
+  }
 }
 </script>
 
@@ -105,10 +232,14 @@ function toggleFAQ(index) {
   margin: 64px 0 0;
   background: transparent;
   position: relative;
+  /* Flip animation defaults (slower + smoother) */
+  --flip-duration: 900ms;
+  --flip-stagger: 140ms;
 }
 
 .faq-wrapper {
-  max-width: 1360px;
+  /* max-width: 1360px; */
+  max-width: 960px;
   margin: 0 auto;
 }
 
@@ -144,6 +275,7 @@ function toggleFAQ(index) {
   flex-direction: column;
   gap: 16px;
   text-align: left;
+  perspective: 1000px; /* Enable 3D space for flip */
 }
 
 .faq-item {
@@ -151,12 +283,45 @@ function toggleFAQ(index) {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.8s ease;
+  /* Flip-in initial state */
+  opacity: 0;
+  transform-origin: top center;
+  transform: rotateX(-80deg) translateY(20px);
+  backface-visibility: hidden;
+  will-change: transform, opacity;
 }
 
 .faq-item:hover {
   border-color: rgba(255, 255, 255, 0.2);
   background: rgba(26, 27, 29, 0.7);
+}
+
+/* Trigger flip-in when item enters viewport */
+.faq-item.in-view {
+  animation: faqFlipIn var(--flip-duration) cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  animation-delay: calc(var(--i, 0) * var(--flip-stagger));
+}
+
+/* Reverse when leaving viewport (no stagger for responsiveness) */
+.faq-item.out-view {
+  animation: faqFlipIn var(--flip-duration) cubic-bezier(0.22, 0.61, 0.36, 1) reverse forwards;
+  animation-delay: 0ms;
+}
+
+@keyframes faqFlipIn {
+  0% {
+    opacity: 0;
+    transform: rotateX(-80deg) translateY(20px);
+  }
+  50% {
+    opacity: 0.9;
+    transform: rotateX(12deg) translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateX(0deg) translateY(0);
+  }
 }
 
 .faq-question {
@@ -199,8 +364,13 @@ function toggleFAQ(index) {
 }
 
 .faq-answer {
+  max-height: 0;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-answer.open {
+  max-height: 500px; /* Adjust based on content needs */
 }
 
 .faq-answer-content {
@@ -211,6 +381,7 @@ function toggleFAQ(index) {
   font-weight: 400;
   line-height: 1.6;
   text-align: center;
+  transition: opacity 0.2s ease;
 }
 
 /* Tablet responsive */
@@ -236,10 +407,18 @@ function toggleFAQ(index) {
     font-size: 16px;
     margin-bottom: 40px;
   }
+  .faq-section {
+    --flip-duration: 850ms;
+    --flip-stagger: 120ms;
+  }
   
   .faq-question {
     padding: 20px;
     font-size: 16px;
+  }
+  
+  .faq-answer.open {
+    max-height: 400px; /* Slightly smaller for tablet */
   }
   
   .faq-answer-content {
@@ -282,6 +461,10 @@ function toggleFAQ(index) {
     line-height: 1.3;
   }
   
+  .faq-answer.open {
+    max-height: 350px; /* Smaller for mobile */
+  }
+  
   .faq-answer-content {
     padding: 0 18px 18px;
     font-size: 14px;
@@ -290,6 +473,15 @@ function toggleFAQ(index) {
   .faq-icon {
     width: 14px;
     height: 14px;
+  }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .faq-item {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
   }
 }
 </style>

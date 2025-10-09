@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="floating-buttons-container">
     <button
       class="back-to-top"
       v-show="showTop"
@@ -76,10 +76,18 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
-.back-to-top {
+.floating-buttons-container {
   position: fixed;
   right: 24px;
-  bottom: 96px;
+  bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  z-index: 1000;
+}
+
+.back-to-top {
   width: 44px;
   height: 44px;
   border-radius: 15px;
@@ -106,9 +114,6 @@ onBeforeUnmount(() => {
 }
 
 .chat-bubble {
-  position: fixed;
-  right: 20px;
-  bottom: 24px;
   width: 56px;
   height: 56px;
   border-radius: 50%;
@@ -135,14 +140,18 @@ onBeforeUnmount(() => {
 }
 
 @media (max-width: 767px) {
+  .floating-buttons-container {
+    right: 16px;
+    bottom: 20px;
+    gap: 12px;
+  }
+  
   .back-to-top {
-    right: 18px;
-    bottom: 88px;
+    width: 44px;
+    height: 44px;
   }
   
   .chat-bubble {
-    right: 16px;
-    bottom: 20px;
     width: 52px;
     height: 52px;
   }
