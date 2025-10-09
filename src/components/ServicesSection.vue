@@ -128,9 +128,12 @@ function setupMovingHighlight(el, { windowSize = 3, charsPerSecond = 10 } = {}) 
       pointer-events: none;
       color: transparent;
       z-index: 1;
-      white-space: pre-wrap;
+      white-space: inherit;
       font: inherit;
       line-height: inherit;
+      font-kerning: none;
+      font-variant-ligatures: none;
+      -webkit-font-smoothing: antialiased;
     `
     el.style.position = 'relative'
     el.appendChild(highlightEl)
@@ -235,7 +238,7 @@ onMounted(() => {
 /* Content */
 .service-content { position: relative; z-index: 2; padding: 22px; max-width: 560px; display: flex; flex-direction: column; gap: 10px; }
 .service-name { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 22px; font-weight: 700; line-height: 1.2; margin: 0; }
-.service-description { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; line-height: 1.5; margin: 0; }
+.service-description { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; line-height: 1.5; margin: 0; font-variant-ligatures: none; font-kerning: none; font-feature-settings: 'liga' 0, 'clig' 0, 'calt' 0; }
 
 /* moving highlight window colors (use deep so dynamically injected spans are styled within scoped CSS) */
 .service-description :deep(.sd-highlight-overlay) {
@@ -243,6 +246,10 @@ onMounted(() => {
   font-size: inherit;
   font-weight: inherit;
   letter-spacing: inherit;
+  white-space: inherit;
+  font-kerning: none;
+  font-variant-ligatures: none;
+  font-feature-settings: 'liga' 0, 'clig' 0, 'calt' 0;
 }
 
 .service-description :deep(.sd-window) {
@@ -253,6 +260,9 @@ onMounted(() => {
     0 0 8px rgba(255, 255, 255, 0.6),
     0 0 16px rgba(99, 102, 241, 0.4),
     0 0 24px rgba(13, 110, 253, 0.3);
+  font-kerning: none;
+  font-variant-ligatures: none;
+  font-feature-settings: 'liga' 0, 'clig' 0, 'calt' 0;
 }
 
 /* Media */
