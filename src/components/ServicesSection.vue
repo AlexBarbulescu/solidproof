@@ -127,16 +127,16 @@
 /* Media */
 .service-media { position: absolute; inset: 0; z-index: 1; display: flex; align-items: flex-end; justify-content: flex-end; pointer-events: none; }
 .service-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0) 60%); z-index: 1; }
-.service-media img { position: absolute; right: 0; bottom: 0; width: 70%; height: 78%; object-fit: cover; object-position: center; filter: saturate(115%) contrast(110%); transform: translate3d(10px, 10px, 0) scale(1.02); transition: transform 0.35s ease; border-top-left-radius: 14px; }
-.service-card:hover .service-media img { transform: translate3d(0, 0, 0) scale(1.06); }
+.service-media img { position: absolute; right: 0; bottom: 0; width: 70%; height: 78%; object-fit: cover; object-position: center; filter: saturate(115%) contrast(110%); transform: translate3d(6px, 6px, 0) scale(1.01); transition: transform 0.35s ease; border-top-left-radius: 14px; }
+.service-card:hover .service-media img { transform: translate3d(0, 0, 0) scale(1.04); }
 
 /* Per-card image tweaks for composition */
-.card--audits .service-media img { width: 88%; height: auto; max-height: 88%; object-fit: contain; right: 14px; bottom: 14px; object-position: center bottom; }
+.card--audits .service-media img { width: 100%; height: 100%; right: 0; bottom: 0; object-fit: cover; object-position: 60% 85%; }
 .card--marketing .service-media img { width: 100%; height: 100%; object-fit: cover; object-position: center; transform: none; right: 0; bottom: 0; }
-.card--kyc .service-media img { width: 48%; height: auto; max-height: 70%; left: 18px; right: auto; bottom: 18px; object-fit: contain; object-position: left bottom; }
-.card--consulting .service-media img { width: 70%; height: auto; max-height: 78%; right: 16px; bottom: 16px; object-fit: contain; object-position: right center; }
-.card--contracts .service-media img { width: 70%; height: auto; max-height: 78%; left: 14px; right: auto; bottom: 10px; object-fit: contain; object-position: left center; }
-.card--dapp .service-media img { width: 72%; height: auto; max-height: 78%; right: 16px; bottom: 12px; object-fit: contain; object-position: right center; }
+.card--kyc .service-media img { width: 40%; height: auto; max-height: 62%; left: 20px; right: auto; bottom: 20px; object-fit: contain; object-position: left bottom; }
+.card--consulting .service-media img { width: 54%; height: auto; max-height: 70%; left: 50%; transform: translateX(-50%); bottom: 18px; object-fit: contain; object-position: center bottom; }
+.card--contracts .service-media img { width: 56%; height: auto; max-height: 80%; left: 18px; right: auto; bottom: 16px; object-fit: contain; object-position: left bottom; }
+.card--dapp .service-media img { width: 60%; height: auto; max-height: 78%; right: 18px; bottom: 20px; object-fit: contain; object-position: right bottom; }
 
 /* Responsive */
 @media (max-width: 1180px) {
@@ -146,7 +146,10 @@
     'consulting marketing'
     'contracts dapp'; }
   .card--marketing { min-height: 520px; }
-  .card--audits .service-media img { width: 94%; max-height: 82%; }
+  .card--audits .service-media img { width: 100%; height: 100%; object-fit: cover; object-position: 58% 85%; }
+  .card--kyc .service-media img { width: 46%; }
+  .card--contracts .service-media img { width: 58%; }
+  .card--dapp .service-media img { width: 62%; }
 }
 @media (max-width: 768px) {
   .services-section { padding: 64px 16px 32px; }
@@ -154,9 +157,12 @@
   .services-intro { font-size: 16px; }
   .services-grid { grid-template-columns: 1fr; grid-template-areas: 'audits' 'marketing' 'kyc' 'consulting' 'contracts' 'dapp'; gap: 12px; }
   .service-card { min-height: 320px; }
-  .service-media img { width: 82%; height: auto; max-height: 64%; }
-  .card--marketing .service-media img { width: 100%; height: 70%; object-fit: cover; }
-  .card--kyc .service-media img { width: 56%; }
+  .service-media img { width: 80%; height: auto; max-height: 62%; }
+  .card--audits .service-media img { width: 100%; height: 70%; object-fit: cover; object-position: center bottom; }
+  .card--marketing .service-media img { width: 100%; height: 90%; object-fit: cover; }
+  .card--kyc .service-media img { width: 58%; }
+  .card--contracts .service-media img { width: 64%; }
+  .card--dapp .service-media img { width: 66%; }
 }
 
 /* Respect reduced motion */
