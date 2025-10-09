@@ -97,7 +97,7 @@ onBeforeUnmount(() => {
 }
 
 .contact-wrapper {
-  max-width: 1360px;
+  max-width: 1240px;
   margin: 0 auto;
 }
 
