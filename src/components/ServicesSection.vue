@@ -29,7 +29,7 @@
             </p>
           </div>
           <figure class="service-media">
-            <img src="/images/Protect_1.avif" alt="Iridescent chrome ring composition highlighting growth and awareness" loading="lazy" />
+            <img src="/images/Metodology_02-1.avif" alt="Iridescent chrome ring composition highlighting growth and awareness" loading="lazy" />
           </figure>
         </article>
 
@@ -42,7 +42,7 @@
             </p>
           </div>
           <figure class="service-media">
-            <img src="/images/Metodology_02-1.avif" alt="Methodology graphic symbolizing secure identity verification" loading="lazy" />
+            <img src="/images/Pebetration_Testing_1.avif" alt="Methodology graphic symbolizing secure identity verification" loading="lazy" />
           </figure>
         </article>
 
@@ -81,7 +81,7 @@
             </p>
           </div>
           <figure class="service-media">
-            <img src="/images/Pebetration_Testing_1.avif" alt="Iridescent geometric shards suggesting dApp engineering" loading="lazy" />
+            <img src="/images/Protect_1.avif" alt="Iridescent geometric shards suggesting dApp engineering" loading="lazy" />
           </figure>
         </article>
       </div>
