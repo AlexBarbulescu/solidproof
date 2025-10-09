@@ -1,5 +1,5 @@
 <template>
-  <section class="services-section" aria-labelledby="services-heading">
+  <section class="services-section" aria-labelledby="services-heading" ref="servicesRoot">
     <div class="services-wrapper">
       <div class="services-header">
         <h2 id="services-heading" class="services-title">Our Services</h2>
@@ -8,7 +8,7 @@
 
       <div class="services-grid">
         <!-- Audits (spans 2 cols, landscape) -->
-        <article class="service-card card--audits" aria-labelledby="service-audits-title" style="--img-w:100%; --img-h:100%; --img-fit:cover; --img-pos:60% 85%; --md-img-pos:58% 85%; --sm-img-h:70%; --sm-img-pos:center bottom; --img-transform:translate3d(0,0,0) scale(1); --img-transform-hover:translate3d(0,0,0) scale(1.02);">
+  <article class="service-card card--audits" aria-labelledby="service-audits-title">
           <div class="service-content">
             <h3 id="service-audits-title" class="service-name">Audits</h3>
             <p class="service-description">
@@ -21,7 +21,7 @@
         </article>
 
         <!-- Marketing (tall right column) -->
-        <article class="service-card card--marketing" aria-labelledby="service-marketing-title" style="--img-w:100%; --img-h:100%; --img-fit:cover; --img-pos:center; --img-transform:none; --img-transform-hover:none;">
+  <article class="service-card card--marketing" aria-labelledby="service-marketing-title">
           <div class="service-content">
             <h3 id="service-marketing-title" class="service-name">Marketing</h3>
             <p class="service-description">
@@ -34,7 +34,7 @@
         </article>
 
         <!-- KYC (square) -->
-        <article class="service-card card--kyc" aria-labelledby="service-kyc-title" style="--img-w:40%; --img-max-h:62%; --img-left:20px; --img-bottom:20px; --img-fit:contain; --img-pos:left bottom; --md-img-w:46%; --sm-img-w:58%;">
+  <article class="service-card card--kyc" aria-labelledby="service-kyc-title">
           <div class="service-content">
             <h3 id="service-kyc-title" class="service-name">KYC</h3>
             <p class="service-description">
@@ -47,7 +47,7 @@
         </article>
 
         <!-- Consulting (square) -->
-        <article class="service-card card--consulting" aria-labelledby="service-consulting-title" style="--img-w:54%; --img-max-h:70%; --img-left:50%; --img-bottom:18px; --img-fit:contain; --img-pos:center bottom; --img-transform:translate(-50%, 6px) scale(1.01); --img-transform-hover:translate(-50%, 0) scale(1.04);">
+  <article class="service-card card--consulting" aria-labelledby="service-consulting-title">
           <div class="service-content">
             <h3 id="service-consulting-title" class="service-name">Consulting</h3>
             <p class="service-description">
@@ -60,7 +60,7 @@
         </article>
 
         <!-- Smart Contracts (landscape) -->
-        <article class="service-card card--contracts" aria-labelledby="service-contracts-title" style="--img-w:56%; --img-max-h:80%; --img-left:18px; --img-bottom:16px; --img-fit:contain; --img-pos:left bottom; --md-img-w:58%; --sm-img-w:64%;">
+  <article class="service-card card--contracts" aria-labelledby="service-contracts-title">
           <div class="service-content">
             <h3 id="service-contracts-title" class="service-name">Smart Contracts</h3>
             <p class="service-description">
@@ -73,7 +73,7 @@
         </article>
 
         <!-- DApp Development (landscape) -->
-        <article class="service-card card--dapp" aria-labelledby="service-dapp-title" style="--img-w:60%; --img-max-h:78%; --img-right:18px; --img-bottom:20px; --img-fit:contain; --img-pos:right bottom; --md-img-w:62%; --sm-img-w:66%;">
+  <article class="service-card card--dapp" aria-labelledby="service-dapp-title">
           <div class="service-content">
             <h3 id="service-dapp-title" class="service-name">DApp Development</h3>
             <p class="service-description">
@@ -90,7 +90,120 @@
 </template>
 
 <script setup>
-// purely presentational
+import { ref, onMounted, onBeforeUnmount } from 'vue'
+
+const servicesRoot = ref(null)
+
+function escapeHtml(str) {
+  return str
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;')
+}
+
+// Create a left-to-right moving highlight window of fixed length over the element's text
+function setupMovingHighlight(el, { windowSize = 3, charsPerSecond = 10 } = {}) {
+  if (!el) return () => {}
+  const original = el.textContent || ''
+  let rafId = 0
+  let start = 0
+  let highlightEl = null
+  
+  // Desync animations: random starting character offset and slight speed jitter per element
+  const lenForPhase = Math.max((original || '').length, 1)
+  const phaseOffset = Math.floor(Math.random() * lenForPhase) // start at random position
+  const cps = charsPerSecond * (0.9 + Math.random() * 0.3) // ±15% jitter approximately
+
+  // Create overlay highlight element
+  function createHighlight() {
+    if (highlightEl) return
+    highlightEl = document.createElement('span')
+    highlightEl.className = 'sd-highlight-overlay'
+    highlightEl.style.cssText = `
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      color: transparent;
+      z-index: 1;
+      white-space: pre-wrap;
+      font: inherit;
+      line-height: inherit;
+    `
+    el.style.position = 'relative'
+    el.appendChild(highlightEl)
+  }
+
+  function render(now) {
+    const len = original.length
+    if (len === 0) return
+    const elapsed = (now - start) / 1000
+    const pointer = (Math.floor(elapsed * cps) + phaseOffset) % Math.max(len, 1)
+    const wStart = pointer
+    const wEnd = Math.min(wStart + windowSize, len)
+    const before = original.slice(0, wStart)
+    const middle = original.slice(wStart, wEnd)
+    const after = original.slice(wEnd)
+    
+    if (highlightEl) {
+      highlightEl.innerHTML = '<span style="color: transparent;">' + escapeHtml(before) + 
+                             '</span><span class="sd-window">' + escapeHtml(middle) + 
+                             '</span><span style="color: transparent;">' + escapeHtml(after) + '</span>'
+    }
+  }
+
+  function step(now) {
+    render(now)
+    rafId = requestAnimationFrame(step)
+  }
+
+  function startAnim() {
+    cancelAnimationFrame(rafId)
+    createHighlight()
+    start = performance.now()
+    rafId = requestAnimationFrame(step)
+  }
+
+  function stopAnim() {
+    cancelAnimationFrame(rafId)
+    if (highlightEl) {
+      highlightEl.remove()
+      highlightEl = null
+    }
+    el.style.position = ''
+  }
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) startAnim(); else stopAnim()
+    })
+  }, { threshold: 0.35 })
+
+  io.observe(el)
+  // initialize static state without highlight until intersection occurs
+  el.textContent = original
+
+  return () => { 
+    io.disconnect(); 
+    cancelAnimationFrame(rafId); 
+    if (highlightEl) {
+      highlightEl.remove()
+      highlightEl = null
+    }
+    el.style.position = ''
+  }
+}
+
+onMounted(() => {
+  const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  if (prefersReduced) return
+  const els = servicesRoot.value?.querySelectorAll('.service-description') || []
+  const cleaners = []
+  els.forEach((el) => cleaners.push(setupMovingHighlight(el, { windowSize: 6, charsPerSecond: 25 })))
+  onBeforeUnmount(() => cleaners.forEach((c) => c && c()))
+})
 </script>
 
 <style scoped>
@@ -124,13 +237,43 @@
 .service-name { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 22px; font-weight: 700; line-height: 1.2; margin: 0; }
 .service-description { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; line-height: 1.5; margin: 0; }
 
+/* moving highlight window colors (use deep so dynamically injected spans are styled within scoped CSS) */
+.service-description :deep(.sd-highlight-overlay) {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+}
+
+.service-description :deep(.sd-window) {
+  color: #FFFFFF;
+  /* enhanced glow for better visibility */
+  text-shadow:
+    0 0 3px rgba(255, 255, 255, 0.8),
+    0 0 8px rgba(255, 255, 255, 0.6),
+    0 0 16px rgba(99, 102, 241, 0.4),
+    0 0 24px rgba(13, 110, 253, 0.3);
+}
+
 /* Media */
 .service-media { position: absolute; inset: 0; z-index: 1; display: flex; align-items: flex-end; justify-content: flex-end; pointer-events: none; }
 .service-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0) 60%); z-index: 1; }
 .service-media img { position: absolute; right: var(--img-right, 0); left: var(--img-left, auto); bottom: var(--img-bottom, 0); top: var(--img-top, auto); width: var(--img-w, 70%); height: var(--img-h, auto); max-height: var(--img-max-h, 78%); object-fit: var(--img-fit, cover); object-position: var(--img-pos, center); filter: saturate(115%) contrast(110%); transform: var(--img-transform, translate3d(6px, 6px, 0) scale(1.01)); transition: transform 0.35s ease; border-top-left-radius: 14px; }
 .service-card:hover .service-media img { transform: var(--img-transform-hover, translate3d(0, 0, 0) scale(1.04)); }
 
-/* Per-card image configuration is controlled via CSS variables set on each card element (style attribute). */
+/* Per-card image configuration via CSS custom properties per-card */
+/* Audits */
+.card--audits { --img-w:100%; --img-h:100%; --img-fit:cover; --img-pos:50% 35%; --md-img-pos:50% 35%; --sm-img-h:70%; --sm-img-pos:center bottom; --img-transform:translate3d(0,0,0) scale(1); --img-transform-hover:translate3d(0,0,0) scale(1.02); }
+/* Marketing */
+.card--marketing { --img-w:100%; --img-h:100%; --img-fit:cover; --img-pos:center; --img-transform:none; --img-transform-hover:none; }
+/* KYC */
+.card--kyc { --img-w:100%; --img-max-h:62%; --img-left:20px; --img-bottom:-45px; --img-fit:contain; --img-pos:left bottom; --md-img-w:46%; --sm-img-w:58%; }
+/* Consulting */
+.card--consulting { --img-w:100%; --img-max-h:70%; --img-left:50%; --img-bottom:-45px; --img-fit:contain; --img-pos:center bottom; --img-transform:translate(-50%, 6px) scale(1.01); --img-transform-hover:translate(-50%, 0) scale(1.04); }
+/* Smart Contracts */
+.card--contracts { --img-w:100%; --img-max-h:80%; --img-left:20px; --img-bottom:-75px; --img-fit:contain; --img-pos:left bottom; --md-img-w:58%; --sm-img-w:64%; }
+/* DApp */
+.card--dapp { --img-w:100%; --img-max-h:78%; --img-right:20px; --img-bottom:-75px; --img-fit:contain; --img-pos:right bottom; --md-img-w:62%; --sm-img-w:66%; }
 
 /* Responsive */
 @media (max-width: 1180px) {
