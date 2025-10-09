@@ -8,7 +8,7 @@
 
       <div class="services-grid">
         <!-- Audits (spans 2 cols, landscape) -->
-        <article class="service-card card--audits" aria-labelledby="service-audits-title">
+        <article class="service-card card--audits" aria-labelledby="service-audits-title" style="--img-w:100%; --img-h:100%; --img-fit:cover; --img-pos:60% 85%; --md-img-pos:58% 85%; --sm-img-h:70%; --sm-img-pos:center bottom; --img-transform:translate3d(0,0,0) scale(1); --img-transform-hover:translate3d(0,0,0) scale(1.02);">
           <div class="service-content">
             <h3 id="service-audits-title" class="service-name">Audits</h3>
             <p class="service-description">
@@ -21,7 +21,7 @@
         </article>
 
         <!-- Marketing (tall right column) -->
-        <article class="service-card card--marketing" aria-labelledby="service-marketing-title">
+        <article class="service-card card--marketing" aria-labelledby="service-marketing-title" style="--img-w:100%; --img-h:100%; --img-fit:cover; --img-pos:center; --img-transform:none; --img-transform-hover:none;">
           <div class="service-content">
             <h3 id="service-marketing-title" class="service-name">Marketing</h3>
             <p class="service-description">
@@ -34,7 +34,7 @@
         </article>
 
         <!-- KYC (square) -->
-        <article class="service-card card--kyc" aria-labelledby="service-kyc-title">
+        <article class="service-card card--kyc" aria-labelledby="service-kyc-title" style="--img-w:40%; --img-max-h:62%; --img-left:20px; --img-bottom:20px; --img-fit:contain; --img-pos:left bottom; --md-img-w:46%; --sm-img-w:58%;">
           <div class="service-content">
             <h3 id="service-kyc-title" class="service-name">KYC</h3>
             <p class="service-description">
@@ -47,7 +47,7 @@
         </article>
 
         <!-- Consulting (square) -->
-        <article class="service-card card--consulting" aria-labelledby="service-consulting-title">
+        <article class="service-card card--consulting" aria-labelledby="service-consulting-title" style="--img-w:54%; --img-max-h:70%; --img-left:50%; --img-bottom:18px; --img-fit:contain; --img-pos:center bottom; --img-transform:translate(-50%, 6px) scale(1.01); --img-transform-hover:translate(-50%, 0) scale(1.04);">
           <div class="service-content">
             <h3 id="service-consulting-title" class="service-name">Consulting</h3>
             <p class="service-description">
@@ -60,7 +60,7 @@
         </article>
 
         <!-- Smart Contracts (landscape) -->
-        <article class="service-card card--contracts" aria-labelledby="service-contracts-title">
+        <article class="service-card card--contracts" aria-labelledby="service-contracts-title" style="--img-w:56%; --img-max-h:80%; --img-left:18px; --img-bottom:16px; --img-fit:contain; --img-pos:left bottom; --md-img-w:58%; --sm-img-w:64%;">
           <div class="service-content">
             <h3 id="service-contracts-title" class="service-name">Smart Contracts</h3>
             <p class="service-description">
@@ -73,7 +73,7 @@
         </article>
 
         <!-- DApp Development (landscape) -->
-        <article class="service-card card--dapp" aria-labelledby="service-dapp-title">
+        <article class="service-card card--dapp" aria-labelledby="service-dapp-title" style="--img-w:60%; --img-max-h:78%; --img-right:18px; --img-bottom:20px; --img-fit:contain; --img-pos:right bottom; --md-img-w:62%; --sm-img-w:66%;">
           <div class="service-content">
             <h3 id="service-dapp-title" class="service-name">DApp Development</h3>
             <p class="service-description">
@@ -127,16 +127,10 @@
 /* Media */
 .service-media { position: absolute; inset: 0; z-index: 1; display: flex; align-items: flex-end; justify-content: flex-end; pointer-events: none; }
 .service-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0) 60%); z-index: 1; }
-.service-media img { position: absolute; right: 0; bottom: 0; width: 70%; height: 78%; object-fit: cover; object-position: center; filter: saturate(115%) contrast(110%); transform: translate3d(6px, 6px, 0) scale(1.01); transition: transform 0.35s ease; border-top-left-radius: 14px; }
-.service-card:hover .service-media img { transform: translate3d(0, 0, 0) scale(1.04); }
+.service-media img { position: absolute; right: var(--img-right, 0); left: var(--img-left, auto); bottom: var(--img-bottom, 0); top: var(--img-top, auto); width: var(--img-w, 70%); height: var(--img-h, auto); max-height: var(--img-max-h, 78%); object-fit: var(--img-fit, cover); object-position: var(--img-pos, center); filter: saturate(115%) contrast(110%); transform: var(--img-transform, translate3d(6px, 6px, 0) scale(1.01)); transition: transform 0.35s ease; border-top-left-radius: 14px; }
+.service-card:hover .service-media img { transform: var(--img-transform-hover, translate3d(0, 0, 0) scale(1.04)); }
 
-/* Per-card image tweaks for composition */
-.card--audits .service-media img { width: 100%; height: 100%; right: 0; bottom: 0; object-fit: cover; object-position: 60% 85%; }
-.card--marketing .service-media img { width: 100%; height: 100%; object-fit: cover; object-position: center; transform: none; right: 0; bottom: 0; }
-.card--kyc .service-media img { width: 40%; height: auto; max-height: 62%; left: 20px; right: auto; bottom: 20px; object-fit: contain; object-position: left bottom; }
-.card--consulting .service-media img { width: 54%; height: auto; max-height: 70%; left: 50%; transform: translateX(-50%); bottom: 18px; object-fit: contain; object-position: center bottom; }
-.card--contracts .service-media img { width: 56%; height: auto; max-height: 80%; left: 18px; right: auto; bottom: 16px; object-fit: contain; object-position: left bottom; }
-.card--dapp .service-media img { width: 60%; height: auto; max-height: 78%; right: 18px; bottom: 20px; object-fit: contain; object-position: right bottom; }
+/* Per-card image configuration is controlled via CSS variables set on each card element (style attribute). */
 
 /* Responsive */
 @media (max-width: 1180px) {
@@ -146,10 +140,7 @@
     'consulting marketing'
     'contracts dapp'; }
   .card--marketing { min-height: 520px; }
-  .card--audits .service-media img { width: 100%; height: 100%; object-fit: cover; object-position: 58% 85%; }
-  .card--kyc .service-media img { width: 46%; }
-  .card--contracts .service-media img { width: 58%; }
-  .card--dapp .service-media img { width: 62%; }
+  .service-media img { width: var(--md-img-w, var(--img-w, 70%)); height: var(--md-img-h, var(--img-h, auto)); max-height: var(--md-img-max-h, var(--img-max-h, 78%)); right: var(--md-img-right, var(--img-right, 0)); left: var(--md-img-left, var(--img-left, auto)); bottom: var(--md-img-bottom, var(--img-bottom, 0)); top: var(--md-img-top, var(--img-top, auto)); object-fit: var(--md-img-fit, var(--img-fit, cover)); object-position: var(--md-img-pos, var(--img-pos, center)); }
 }
 @media (max-width: 768px) {
   .services-section { padding: 64px 16px 32px; }
@@ -157,12 +148,7 @@
   .services-intro { font-size: 16px; }
   .services-grid { grid-template-columns: 1fr; grid-template-areas: 'audits' 'marketing' 'kyc' 'consulting' 'contracts' 'dapp'; gap: 12px; }
   .service-card { min-height: 320px; }
-  .service-media img { width: 80%; height: auto; max-height: 62%; }
-  .card--audits .service-media img { width: 100%; height: 70%; object-fit: cover; object-position: center bottom; }
-  .card--marketing .service-media img { width: 100%; height: 90%; object-fit: cover; }
-  .card--kyc .service-media img { width: 58%; }
-  .card--contracts .service-media img { width: 64%; }
-  .card--dapp .service-media img { width: 66%; }
+  .service-media img { width: var(--sm-img-w, var(--md-img-w, var(--img-w, 70%))); height: var(--sm-img-h, var(--md-img-h, var(--img-h, auto))); max-height: var(--sm-img-max-h, var(--md-img-max-h, var(--img-max-h, 62%))); right: var(--sm-img-right, var(--md-img-right, var(--img-right, 0))); left: var(--sm-img-left, var(--md-img-left, var(--img-left, auto))); bottom: var(--sm-img-bottom, var(--md-img-bottom, var(--img-bottom, 0))); top: var(--sm-img-top, var(--md-img-top, var(--img-top, auto))); object-fit: var(--sm-img-fit, var(--md-img-fit, var(--img-fit, cover))); object-position: var(--sm-img-pos, var(--md-img-pos, var(--img-pos, center))); }
 }
 
 /* Respect reduced motion */
