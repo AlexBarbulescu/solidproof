@@ -20,6 +20,7 @@
 <script setup>
 import Hero from './components/Hero.vue'
 import PartnersSection from './components/PartnersSection.vue'
+import ServicesSection from './components/ServicesSection.vue'
 import ContactSection from './components/ContactSection.vue'
 import FAQ from './components/FAQ.vue'
 import Footer from './components/Footer.vue'
