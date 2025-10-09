@@ -1,5 +1,5 @@
 <template>
-  <section class="services-section" aria-labelledby="services-heading">
+  <section class="services-section" aria-labelledby="services-heading" ref="servicesRoot">
     <div class="services-wrapper">
       <div class="services-header">
         <h2 id="services-heading" class="services-title">Our Services</h2>
@@ -90,7 +90,120 @@
 </template>
 
 <script setup>
-// purely presentational
+import { ref, onMounted, onBeforeUnmount } from 'vue'
+
+const servicesRoot = ref(null)
+
+function escapeHtml(str) {
+  return str
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;')
+}
+
+// Create a left-to-right moving highlight window of fixed length over the element's text
+function setupMovingHighlight(el, { windowSize = 3, charsPerSecond = 10 } = {}) {
+  if (!el) return () => {}
+  const original = el.textContent || ''
+  let rafId = 0
+  let start = 0
+  let highlightEl = null
+  
+  // Desync animations: random starting character offset and slight speed jitter per element
+  const lenForPhase = Math.max((original || '').length, 1)
+  const phaseOffset = Math.floor(Math.random() * lenForPhase) // start at random position
+  const cps = charsPerSecond * (0.9 + Math.random() * 0.3) // ±15% jitter approximately
+
+  // Create overlay highlight element
+  function createHighlight() {
+    if (highlightEl) return
+    highlightEl = document.createElement('span')
+    highlightEl.className = 'sd-highlight-overlay'
+    highlightEl.style.cssText = `
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      color: transparent;
+      z-index: 1;
+      white-space: pre-wrap;
+      font: inherit;
+      line-height: inherit;
+    `
+    el.style.position = 'relative'
+    el.appendChild(highlightEl)
+  }
+
+  function render(now) {
+    const len = original.length
+    if (len === 0) return
+    const elapsed = (now - start) / 1000
+    const pointer = (Math.floor(elapsed * cps) + phaseOffset) % Math.max(len, 1)
+    const wStart = pointer
+    const wEnd = Math.min(wStart + windowSize, len)
+    const before = original.slice(0, wStart)
+    const middle = original.slice(wStart, wEnd)
+    const after = original.slice(wEnd)
+    
+    if (highlightEl) {
+      highlightEl.innerHTML = '<span style="color: transparent;">' + escapeHtml(before) + 
+                             '</span><span class="sd-window">' + escapeHtml(middle) + 
+                             '</span><span style="color: transparent;">' + escapeHtml(after) + '</span>'
+    }
+  }
+
+  function step(now) {
+    render(now)
+    rafId = requestAnimationFrame(step)
+  }
+
+  function startAnim() {
+    cancelAnimationFrame(rafId)
+    createHighlight()
+    start = performance.now()
+    rafId = requestAnimationFrame(step)
+  }
+
+  function stopAnim() {
+    cancelAnimationFrame(rafId)
+    if (highlightEl) {
+      highlightEl.remove()
+      highlightEl = null
+    }
+    el.style.position = ''
+  }
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) startAnim(); else stopAnim()
+    })
+  }, { threshold: 0.35 })
+
+  io.observe(el)
+  // initialize static state without highlight until intersection occurs
+  el.textContent = original
+
+  return () => { 
+    io.disconnect(); 
+    cancelAnimationFrame(rafId); 
+    if (highlightEl) {
+      highlightEl.remove()
+      highlightEl = null
+    }
+    el.style.position = ''
+  }
+}
+
+onMounted(() => {
+  const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  if (prefersReduced) return
+  const els = servicesRoot.value?.querySelectorAll('.service-description') || []
+  const cleaners = []
+  els.forEach((el) => cleaners.push(setupMovingHighlight(el, { windowSize: 6, charsPerSecond: 25 })))
+  onBeforeUnmount(() => cleaners.forEach((c) => c && c()))
+})
 </script>
 
 <style scoped>
@@ -123,6 +236,24 @@
 .service-content { position: relative; z-index: 2; padding: 22px; max-width: 560px; display: flex; flex-direction: column; gap: 10px; }
 .service-name { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 22px; font-weight: 700; line-height: 1.2; margin: 0; }
 .service-description { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; line-height: 1.5; margin: 0; }
+
+/* moving highlight window colors (use deep so dynamically injected spans are styled within scoped CSS) */
+.service-description :deep(.sd-highlight-overlay) {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+}
+
+.service-description :deep(.sd-window) {
+  color: #FFFFFF;
+  /* enhanced glow for better visibility */
+  text-shadow:
+    0 0 3px rgba(255, 255, 255, 0.8),
+    0 0 8px rgba(255, 255, 255, 0.6),
+    0 0 16px rgba(99, 102, 241, 0.4),
+    0 0 24px rgba(13, 110, 253, 0.3);
+}
 
 /* Media */
 .service-media { position: absolute; inset: 0; z-index: 1; display: flex; align-items: flex-end; justify-content: flex-end; pointer-events: none; }
