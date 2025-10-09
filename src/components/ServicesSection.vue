@@ -132,17 +132,17 @@
 
 /* Per-card image configuration via CSS custom properties per-card */
 /* Audits */
-.card--audits { --img-w:100%; --img-h:100%; --img-fit:cover; --img-pos:60% 85%; --md-img-pos:58% 85%; --sm-img-h:70%; --sm-img-pos:center bottom; --img-transform:translate3d(0,0,0) scale(1); --img-transform-hover:translate3d(0,0,0) scale(1.02); }
+.card--audits { --img-w:100%; --img-h:100%; --img-fit:cover; --img-pos:50% 35%; --md-img-pos:50% 35%; --sm-img-h:70%; --sm-img-pos:center bottom; --img-transform:translate3d(0,0,0) scale(1); --img-transform-hover:translate3d(0,0,0) scale(1.02); }
 /* Marketing */
 .card--marketing { --img-w:100%; --img-h:100%; --img-fit:cover; --img-pos:center; --img-transform:none; --img-transform-hover:none; }
 /* KYC */
-.card--kyc { --img-w:40%; --img-max-h:62%; --img-left:20px; --img-bottom:20px; --img-fit:contain; --img-pos:left bottom; --md-img-w:46%; --sm-img-w:58%; }
+.card--kyc { --img-w:100%; --img-max-h:62%; --img-left:20px; --img-bottom:-45px; --img-fit:contain; --img-pos:left bottom; --md-img-w:46%; --sm-img-w:58%; }
 /* Consulting */
-.card--consulting { --img-w:54%; --img-max-h:70%; --img-left:50%; --img-bottom:18px; --img-fit:contain; --img-pos:center bottom; --img-transform:translate(-50%, 6px) scale(1.01); --img-transform-hover:translate(-50%, 0) scale(1.04); }
+.card--consulting { --img-w:100%; --img-max-h:70%; --img-left:50%; --img-bottom:-45px; --img-fit:contain; --img-pos:center bottom; --img-transform:translate(-50%, 6px) scale(1.01); --img-transform-hover:translate(-50%, 0) scale(1.04); }
 /* Smart Contracts */
-.card--contracts { --img-w:56%; --img-max-h:80%; --img-left:18px; --img-bottom:16px; --img-fit:contain; --img-pos:left bottom; --md-img-w:58%; --sm-img-w:64%; }
+.card--contracts { --img-w:100%; --img-max-h:80%; --img-left:20px; --img-bottom:-75px; --img-fit:contain; --img-pos:left bottom; --md-img-w:58%; --sm-img-w:64%; }
 /* DApp */
-.card--dapp { --img-w:60%; --img-max-h:78%; --img-right:18px; --img-bottom:20px; --img-fit:contain; --img-pos:right bottom; --md-img-w:62%; --sm-img-w:66%; }
+.card--dapp { --img-w:100%; --img-max-h:78%; --img-right:20px; --img-bottom:-75px; --img-fit:contain; --img-pos:right bottom; --md-img-w:62%; --sm-img-w:66%; }
 
 /* Responsive */
 @media (max-width: 1180px) {
