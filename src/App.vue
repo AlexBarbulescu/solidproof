@@ -5,6 +5,7 @@
     <main class="content">
       <Hero />
       <PartnersSection />
+      <ServicesSection />
       <ContactSection />
       <FAQ />
     </main>
