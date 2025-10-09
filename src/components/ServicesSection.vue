@@ -16,7 +16,7 @@
             </p>
           </div>
           <figure class="service-media">
-            <img src="https://images.pexels.com/photos/5011647/pexels-photo-5011647.jpeg" alt="Futuristic glowing cube representing smart contract auditing" loading="lazy" />
+            <img src="/images/Blockchain_Protocol_Audit_2-1.avif" alt="Abstract chrome audit visual representing protocol assessments" loading="lazy" />
           </figure>
         </article>
 
@@ -29,7 +29,7 @@
             </p>
           </div>
           <figure class="service-media">
-            <img src="https://images.pexels.com/photos/32624441/pexels-photo-32624441.jpeg" alt="Metallic spiral ring showcasing growth and reach for marketing" loading="lazy" />
+            <img src="/images/Protect_1.avif" alt="Iridescent chrome ring composition highlighting growth and awareness" loading="lazy" />
           </figure>
         </article>
 
@@ -42,7 +42,7 @@
             </p>
           </div>
           <figure class="service-media">
-            <img src="https://images.pexels.com/photos/17483873/pexels-photo-17483873.png" alt="Abstract AI network visualization symbolizing identity verification" loading="lazy" />
+            <img src="/images/Metodology_02-1.avif" alt="Methodology graphic symbolizing secure identity verification" loading="lazy" />
           </figure>
         </article>
 
@@ -55,7 +55,7 @@
             </p>
           </div>
           <figure class="service-media">
-            <img src="https://images.pexels.com/photos/17486099/pexels-photo-17486099.png" alt="Holographic cylinders representing strategic consulting" loading="lazy" />
+            <img src="/images/Blockchain_Protocol_Audit_3.avif" alt="Strategic visualization for security consulting" loading="lazy" />
           </figure>
         </article>
 
@@ -68,7 +68,7 @@
             </p>
           </div>
           <figure class="service-media">
-            <img src="https://images.pexels.com/photos/9436715/pexels-photo-9436715.jpeg" alt="Pastel chrome cubes with spheres representing smart contract engineering" loading="lazy" />
+            <img src="/images/Proof_of_Reserves_2.avif" alt="Chrome vault-like cube implying robust smart contracts" loading="lazy" />
           </figure>
         </article>
 
@@ -81,7 +81,7 @@
             </p>
           </div>
           <figure class="service-media">
-            <img src="https://images.pexels.com/photos/17485705/pexels-photo-17485705.png" alt="Geometric 3D artwork symbolizing decentralized application development" loading="lazy" />
+            <img src="/images/Pebetration_Testing_1.avif" alt="Iridescent geometric shards suggesting dApp engineering" loading="lazy" />
           </figure>
         </article>
       </div>
@@ -131,12 +131,12 @@
 .service-card:hover .service-media img { transform: translate3d(0, 0, 0) scale(1.06); }
 
 /* Per-card image tweaks for composition */
-.card--audits .service-media img { width: 80%; height: 85%; object-position: center bottom; }
-.card--marketing .service-media img { width: 100%; height: 100%; object-fit: cover; object-position: center; transform: none; }
-.card--kyc .service-media img { width: 60%; height: 60%; object-position: right bottom; }
-.card--consulting .service-media img { width: 75%; height: 75%; object-position: right center; }
-.card--contracts .service-media img { width: 70%; height: 78%; object-position: left center; }
-.card--dapp .service-media img { width: 70%; height: 78%; object-position: right center; }
+.card--audits .service-media img { width: 88%; height: auto; max-height: 88%; object-fit: contain; right: 14px; bottom: 14px; object-position: center bottom; }
+.card--marketing .service-media img { width: 100%; height: 100%; object-fit: cover; object-position: center; transform: none; right: 0; bottom: 0; }
+.card--kyc .service-media img { width: 48%; height: auto; max-height: 70%; left: 18px; right: auto; bottom: 18px; object-fit: contain; object-position: left bottom; }
+.card--consulting .service-media img { width: 70%; height: auto; max-height: 78%; right: 16px; bottom: 16px; object-fit: contain; object-position: right center; }
+.card--contracts .service-media img { width: 70%; height: auto; max-height: 78%; left: 14px; right: auto; bottom: 10px; object-fit: contain; object-position: left center; }
+.card--dapp .service-media img { width: 72%; height: auto; max-height: 78%; right: 16px; bottom: 12px; object-fit: contain; object-position: right center; }
 
 /* Responsive */
 @media (max-width: 1180px) {
@@ -146,14 +146,17 @@
     'consulting marketing'
     'contracts dapp'; }
   .card--marketing { min-height: 520px; }
+  .card--audits .service-media img { width: 94%; max-height: 82%; }
 }
 @media (max-width: 768px) {
   .services-section { padding: 64px 16px 32px; }
   .services-title { font-size: 36px; }
   .services-intro { font-size: 16px; }
   .services-grid { grid-template-columns: 1fr; grid-template-areas: 'audits' 'marketing' 'kyc' 'consulting' 'contracts' 'dapp'; gap: 12px; }
-  .service-card { min-height: 300px; }
-  .service-media img { width: 80%; height: 60%; }
+  .service-card { min-height: 320px; }
+  .service-media img { width: 82%; height: auto; max-height: 64%; }
+  .card--marketing .service-media img { width: 100%; height: 70%; object-fit: cover; }
+  .card--kyc .service-media img { width: 56%; }
 }
 
 /* Respect reduced motion */
