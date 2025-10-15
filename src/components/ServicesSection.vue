@@ -16,7 +16,7 @@
             </p>
           </div>
           <figure class="service-media">
-            <img src="/images/Blockchain_Protocol_Audit_2-1.avif" alt="Abstract chrome audit visual representing protocol assessments" loading="lazy" />
+            <img src="/images/audits.png" alt="Abstract chrome audit visual representing protocol assessments" loading="lazy" />
           </figure>
         </article>
 
@@ -29,7 +29,7 @@
             </p>
           </div>
           <figure class="service-media">
-            <img src="/images/Metodology_02-1.avif" alt="Iridescent chrome ring composition highlighting growth and awareness" loading="lazy" />
+            <img src="/images/marketing-two.png" alt="Iridescent chrome ring composition highlighting growth and awareness" loading="lazy" />
           </figure>
         </article>
 
@@ -42,7 +42,7 @@
             </p>
           </div>
           <figure class="service-media">
-            <img src="/images/Pebetration_Testing_1.avif" alt="Methodology graphic symbolizing secure identity verification" loading="lazy" />
+            <img src="/images/kyc.png" alt="Methodology graphic symbolizing secure identity verification" loading="lazy" />
           </figure>
         </article>
 
@@ -55,7 +55,7 @@
             </p>
           </div>
           <figure class="service-media">
-            <img src="/images/Blockchain_Protocol_Audit_3.avif" alt="Strategic visualization for security consulting" loading="lazy" />
+            <img src="/images/consulting.png" alt="Strategic visualization for security consulting" loading="lazy" />
           </figure>
         </article>
 
@@ -68,7 +68,7 @@
             </p>
           </div>
           <figure class="service-media">
-            <img src="/images/Proof_of_Reserves_2.avif" alt="Chrome vault-like cube implying robust smart contracts" loading="lazy" />
+            <img src="/images/smartcontract.png" alt="Chrome vault-like cube implying robust smart contracts" loading="lazy" />
           </figure>
         </article>
 
@@ -81,7 +81,7 @@
             </p>
           </div>
           <figure class="service-media">
-            <img src="/images/Protect_1.avif" alt="Iridescent geometric shards suggesting dApp engineering" loading="lazy" />
+            <img src="/images/dapp.png" alt="Iridescent geometric shards suggesting dApp engineering" loading="lazy" />
           </figure>
         </article>
       </div>
@@ -275,15 +275,15 @@ onMounted(() => {
 /* Audits */
 .card--audits { --img-w:100%; --img-h:100%; --img-fit:cover; --img-pos:50% 35%; --md-img-pos:50% 35%; --sm-img-h:70%; --sm-img-pos:center bottom; --img-transform:translate3d(0,0,0) scale(1); --img-transform-hover:translate3d(0,0,0) scale(1.02); }
 /* Marketing */
-.card--marketing { --img-w:100%; --img-h:100%; --img-fit:cover; --img-pos:center; --img-transform:none; --img-transform-hover:none; }
+.card--marketing { --img-w:100%; --img-h:100%; --img-fit:cover; --img-pos:center; --img-transform:translate3d(0,0,0) scale(1); --img-transform-hover:translate3d(0,0,0) scale(1.02); }
 /* KYC */
-.card--kyc { --img-w:100%; --img-max-h:62%; --img-left:20px; --img-bottom:-45px; --img-fit:contain; --img-pos:left bottom; --md-img-w:46%; --sm-img-w:58%; }
+.card--kyc {  --img-w:100%; --img-max-h:70%; --img-left:50%; --img-bottom:-95px; --img-fit:contain; --img-pos:center bottom; --img-transform:translate(-50%, 6px) scale(1.5); --img-transform-hover:translate(-50%, 0) scale(1.52); }
 /* Consulting */
-.card--consulting { --img-w:100%; --img-max-h:70%; --img-left:50%; --img-bottom:-45px; --img-fit:contain; --img-pos:center bottom; --img-transform:translate(-50%, 6px) scale(1.01); --img-transform-hover:translate(-50%, 0) scale(1.04); }
+.card--consulting {  --img-w:100%; --img-max-h:70%; --img-left:50%; --img-bottom:-95px; --img-fit:contain; --img-pos:center bottom; --img-transform:translate(-50%, 6px) scale(1.5); --img-transform-hover:translate(-50%, 0) scale(1.52);; }
 /* Smart Contracts */
-.card--contracts { --img-w:100%; --img-max-h:80%; --img-left:20px; --img-bottom:-75px; --img-fit:contain; --img-pos:left bottom; --md-img-w:58%; --sm-img-w:64%; }
+.card--contracts {  --img-w:100%; --img-max-h:70%; --img-left:50%; --img-bottom:-95px; --img-fit:contain; --img-pos:center bottom; --img-transform:translate(-50%, 6px) scale(1.5); --img-transform-hover:translate(-50%, 0) scale(1.52);}
 /* DApp */
-.card--dapp { --img-w:100%; --img-max-h:78%; --img-right:20px; --img-bottom:-75px; --img-fit:contain; --img-pos:right bottom; --md-img-w:62%; --sm-img-w:66%; }
+.card--dapp { --img-w:100%; --img-max-h:70%; --img-left:50%; --img-bottom:-95px; --img-fit:contain; --img-pos:center bottom; --img-transform:translate(-50%, 6px) scale(1.5); --img-transform-hover:translate(-50%, 0) scale(1.52); }
 
 /* Responsive */
 @media (max-width: 1180px) {
