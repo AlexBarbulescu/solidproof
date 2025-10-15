@@ -50,7 +50,7 @@
               <div class="dropdown-divider"></div>
 
               <div class="dropdown-items">
-                <a href="#" class="dropdown-item">
+                <router-link to="/kyc" class="dropdown-item" @click="showDropdown = false">
                   <svg class="item-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <g clip-path="url(#clip0_kyc)">
                       <path fill-rule="evenodd" clip-rule="evenodd" d="M15.8541 5.14601C15.9007 5.19245 15.9376 5.24763 15.9629 5.30837C15.9881 5.36912 16.001 5.43424 16.001 5.50001C16.001 5.56578 15.9881 5.6309 15.9629 5.69164C15.9376 5.75239 15.9007 5.80756 15.8541 5.85401L12.8541 8.85401C12.8077 8.90057 12.7525 8.93751 12.6918 8.96272C12.631 8.98793 12.5659 9.0009 12.5001 9.0009C12.4344 9.0009 12.3693 8.98793 12.3085 8.96272C12.2478 8.93751 12.1926 8.90057 12.1461 8.85401L10.6461 7.35401C10.5523 7.26012 10.4995 7.13278 10.4995 7.00001C10.4995 6.86723 10.5523 6.7399 10.6461 6.64601C10.74 6.55212 10.8674 6.49938 11.0001 6.49938C11.1329 6.49938 11.2603 6.55212 11.3541 6.64601L12.5001 7.79301L15.1461 5.14601C15.1926 5.09945 15.2478 5.0625 15.3085 5.0373C15.3693 5.01209 15.4344 4.99911 15.5001 4.99911C15.5659 4.99911 15.631 5.01209 15.6918 5.0373C15.7525 5.0625 15.8077 5.09945 15.8541 5.14601Z" fill="white"/>
@@ -66,7 +66,7 @@
                     <div class="item-title">KYC</div>
                     <div class="item-description">KYC means more trust. We can help!</div>
                   </div>
-                </a>
+                </router-link>
 
                 <a href="#" class="dropdown-item">
                   <svg class="item-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
