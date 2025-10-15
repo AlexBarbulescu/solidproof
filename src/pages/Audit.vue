@@ -326,10 +326,11 @@ function toggle(i) {
 .audit-methods { padding: 32px 20px; }
 .am-wrap { max-width: 1240px; margin: 0 auto; }
 .am-title { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 36px; font-weight: 700; line-height: 1.2; margin: 0 0 16px; text-align: center; }
-.am-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-.am-card { padding: 16px; border-radius: 16px; background: #0F1011; border: 1px solid rgba(255,255,255,0.08); }
+.am-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; counter-reset: amstep; }
+.am-card { position: relative; padding: 16px; border-radius: 16px; background: #0F1011; border: 1px solid rgba(255,255,255,0.08); counter-increment: amstep; }
 .am-card-title { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 16px; font-weight: 600; line-height: 1.2; margin: 0 0 6px; }
 .am-card-desc { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; line-height: 1.5; margin: 0; }
+.am-card::before { content: counter(amstep); position: absolute; right: 12px; top: 12px; color: #464649; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 12px; line-height: 1; }
 
 /* Process */
 .audit-process { padding: 32px 20px; }
