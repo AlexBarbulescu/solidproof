@@ -21,7 +21,7 @@
       </button>
       <nav id="primary-nav" class="primary-nav" :class="{ open: isOpen }">
         <ul class="nav-list">
-          <li><a href="#">Home</a></li>
+          <li><router-link to="/">Home</router-link></li>
           <li class="dropdown-container" ref="dropdownWrapper">
             <a href="#" class="dropdown-trigger" @click.prevent.stop="toggleDropdown" :aria-expanded="showDropdown ? 'true' : 'false'">
               Services
