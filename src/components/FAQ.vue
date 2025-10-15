@@ -2,15 +2,15 @@
   <section class="faq-section">
     <div class="faq-wrapper">
       <div class="faq-container">
-        <h2 class="faq-title">Frequently Asked Questions</h2>
+        <h2 class="faq-title">{{ title }}</h2>
         <p class="faq-description">
-          Find answers to common questions about our blockchain security services, auditing processes, and how we can help protect your project.
+          {{ description }}
         </p>
-        
+
         <div class="faq-list" ref="faqList">
           <div class="faq-item" v-for="(faq, index) in faqs" :key="index" :style="{ '--i': index }">
-            <button 
-              class="faq-question" 
+            <button
+              class="faq-question"
               @click="toggleFAQ(index)"
               :aria-expanded="faq.open ? 'true' : 'false'"
             >
@@ -32,76 +32,70 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
 
-const faqs = ref([
+const props = defineProps({
+  title: { type: String, default: 'Frequently Asked Questions' },
+  description: { type: String, default: 'Find answers to common questions about our blockchain security services, auditing processes, and how we can help protect your project.' },
+  items: { type: Array, default: null }
+})
+
+const defaultItems = [
   {
     question: "What is Solidproof.io?",
-    answer: "Solidproof.io is a leading blockchain security company that offers comprehensive auditing, KYC, development, and consulting services to businesses operating in the blockchain industry.",
-    open: false,
-    openedAt: null
+    answer: "Solidproof.io is a leading blockchain security company that offers comprehensive auditing, KYC, development, and consulting services to businesses operating in the blockchain industry."
   },
   {
     question: "What is blockchain auditing?",
-    answer: "Blockchain auditing is the process of thoroughly examining and assessing the security, integrity, and reliability of blockchain systems and smart contracts. Our auditing services help identify vulnerabilities, potential exploits, and weaknesses in blockchain implementations.",
-    open: false,
-    openedAt: null
+    answer: "Blockchain auditing is the process of thoroughly examining and assessing the security, integrity, and reliability of blockchain systems and smart contracts. Our auditing services help identify vulnerabilities, potential exploits, and weaknesses in blockchain implementations."
   },
   {
     question: "Why is blockchain auditing important?",
-    answer: "Blockchain auditing is crucial for ensuring the robustness and security of blockchain systems. By conducting thorough audits, Solidproof.io helps clients detect and prevent potential vulnerabilities and ensures the integrity of their blockchain applications.",
-    open: false,
-    openedAt: null
+    answer: "Blockchain auditing is crucial for ensuring the robustness and security of blockchain systems. By conducting thorough audits, Solidproof.io helps clients detect and prevent potential vulnerabilities and ensures the integrity of their blockchain applications."
   },
   {
     question: "What is KYC and how does Solidproof.io assist with it?",
-    answer: "KYC, or Know Your Customer, refers to the process of verifying the identity and authenticity of individuals engaging in financial transactions or using blockchain services. Solidproof.io provides KYC solutions that enable businesses to meet regulatory requirements and establish a secure and compliant environment for their users.",
-    open: false,
-    openedAt: null
+    answer: "KYC, or Know Your Customer, refers to the process of verifying the identity and authenticity of individuals engaging in financial transactions or using blockchain services. Solidproof.io provides KYC solutions that enable businesses to meet regulatory requirements and establish a secure and compliant environment for their users."
   },
   {
     question: "What services does SolidProof offer?",
-    answer: "SolidProof focuses on high-tier security services, including smart contract and blockchain audits, KYC processes, consulting and development services. Next to our primary focus, we also offer top-notch marketing solutions through the many marketing agencies we are partnered with.",
-    open: false,
-    openedAt: null
+    answer: "SolidProof focuses on high-tier security services, including smart contract and blockchain audits, KYC processes, consulting and development services. Next to our primary focus, we also offer top-notch marketing solutions through the many marketing agencies we are partnered with."
   },
   {
     question: "How can SolidProof help protect our project from security vulnerabilities?",
-    answer: "SolidProof helps protect your project from vulnerabilities through comprehensive security audits and testing. Our experienced team thoroughly examines your smart contracts and system architecture, identifying potential weaknesses and vulnerabilities. We provide actionable recommendations and best practices to mitigate risks and enhance the overall security of your project, ensuring that your assets and users are safeguarded against potential threats.",
-    open: false,
-    openedAt: null
+    answer: "SolidProof helps protect your project from vulnerabilities through comprehensive security audits and testing. Our experienced team thoroughly examines your smart contracts and system architecture, identifying potential weaknesses and vulnerabilities. We provide actionable recommendations and best practices to mitigate risks and enhance the overall security of your project, ensuring that your assets and users are safeguarded against potential threats."
   },
   {
     question: "How experienced is the team at SolidProof in the field of crypto security?",
-    answer: "The team at SolidProof is highly experienced in the field of crypto security. Our team members have extensive expertise and knowledge in blockchain technology, smart contract auditing, and cybersecurity. With years of experience in the industry, we have successfully conducted over 1500 audits, gaining a strong reputation for our thoroughness, professionalism, and commitment to protecting our clients and their investors.",
-    open: false,
-    openedAt: null
+    answer: "The team at SolidProof is highly experienced in the field of crypto security. Our team members have extensive expertise and knowledge in blockchain technology, smart contract auditing, and cybersecurity. With years of experience in the industry, we have successfully conducted over 1500 audits, gaining a strong reputation for our thoroughness, professionalism, and commitment to protecting our clients and their investors."
   },
   {
     question: "What is the typical timeframe for conducting a security audit or testing?",
-    answer: "The timeframe for conducting a security audit or testing can vary depending on the projects complexity and the scope of contracts. The duration typically ranges from two days to two weeks, depending on the size and complexity of the contracts. Generally, it involves a meticulous and comprehensive evaluation of the projects codebase, smart contracts, and overall security architecture. At SolidProof, we prioritize both efficiency and accuracy in our audits, ensuring that the assessment is conducted promptly without compromising the quality of our findings.",
-    open: false,
-    openedAt: null
+    answer: "The timeframe for conducting a security audit or testing can vary depending on the projects complexity and the scope of contracts. The duration typically ranges from two days to two weeks, depending on the size and complexity of the contracts. Generally, it involves a meticulous and comprehensive evaluation of the projects codebase, smart contracts, and overall security architecture. At SolidProof, we prioritize both efficiency and accuracy in our audits, ensuring that the assessment is conducted promptly without compromising the quality of our findings."
   },
   {
     question: "How does SolidProof handle confidentiality and data protection?",
-    answer: "At SolidProof, we take confidentiality and data protection seriously. As a Germany-based company, we operate under the strict guidelines of the General Data Protection Regulation (GDPR), known as Datenschutz-Grundverordnung (DSGVO) in German. This means that we adhere to robust security measures and procedures to safeguard our clients sensitive information. We ensure that all data shared with us during the auditing process is treated with the utmost confidentiality and stored securely. Our commitment to data protection and compliance allows our clients to have complete confidence in the handling of their information throughout our engagement.",
-    open: false,
-    openedAt: null
+    answer: "At SolidProof, we take confidentiality and data protection seriously. As a Germany-based company, we operate under the strict guidelines of the General Data Protection Regulation (GDPR), known as Datenschutz-Grundverordnung (DSGVO) in German. This means that we adhere to robust security measures and procedures to safeguard our clients sensitive information. We ensure that all data shared with us during the auditing process is treated with the utmost confidentiality and stored securely. Our commitment to data protection and compliance allows our clients to have complete confidence in the handling of their information throughout our engagement."
   },
   {
     question: "Can SolidProof help with incident response and recovery in case of a security breach?",
-    answer: "Absolutely. At SolidProof, we understand the importance of being prepared for potential security breaches. Our team of experts is well-equipped to assist you with incident response and recovery in case of any security incident. We provide timely and effective support to help identify the breach, mitigate the impact, and implement measures to prevent future occurrences. Our goal is to minimize the impact of any security breach and ensure a swift and comprehensive recovery process, allowing you to regain control and safeguard your project and investments.",
-    open: false,
-    openedAt: null
+    answer: "Absolutely. At SolidProof, we understand the importance of being prepared for potential security breaches. Our team of experts is well-equipped to assist you with incident response and recovery in case of any security incident. We provide timely and effective support to help identify the breach, mitigate the impact, and implement measures to prevent future occurrences. Our goal is to minimize the impact of any security breach and ensure a swift and comprehensive recovery process, allowing you to regain control and safeguard your project and investments."
   },
   {
     question: "How can we get started with SolidProofs services?",
-    answer: "Getting started with SolidProof is simple. You can directly request a quote by contacting our team through our website Contact or by emailing us. Additionally, you can visit our services section on the website, where you will find detailed information and step-by-step guides on how to engage our services.",
-    open: false,
-    openedAt: null
+    answer: "Getting started with SolidProof is simple. You can directly request a quote by contacting our team through our website Contact or by emailing us. Additionally, you can visit our services section on the website, where you will find detailed information and step-by-step guides on how to engage our services."
   }
-])
+]
+
+function withState(arr) {
+  return arr.map((it) => ({ ...it, open: false, openedAt: null }))
+}
+
+const faqs = ref(withState(props.items ?? defaultItems))
+
+watch(() => props.items, (v) => {
+  if (v && Array.isArray(v)) faqs.value = withState(v)
+})
 
 const MAX_OPEN_FAQS = 3
 const STAGGER_DELAY = 500 // 500ms between each close for animation effect
@@ -131,12 +125,10 @@ onMounted(() => {
           el.classList.add('in-view')
           el.classList.remove('out-view')
         } else {
-          // Near-bottom or out of active zone; reverse only on upward scroll
           if (scrollDir === 'up') {
             el.classList.remove('in-view')
             el.classList.add('out-view')
           }
-          // If scrolling down, keep in-view to avoid flicker until fully out
         }
       }
     },
@@ -188,31 +180,24 @@ onBeforeUnmount(() => {
 
 function toggleFAQ(index) {
   const faq = faqs.value[index]
-  
+
   if (faq.open) {
-    // Close the FAQ
     faq.open = false
     faq.openedAt = null
   } else {
-    // Open the FAQ
     faq.open = true
     faq.openedAt = Date.now()
-    
-    // Check if we have more than MAX_OPEN_FAQS open
+
     const openFaqs = faqs.value.filter(f => f.open)
     if (openFaqs.length > MAX_OPEN_FAQS) {
-      // Find all FAQs that need to be closed (excluding the one we just opened)
       const faqsToClose = openFaqs
-        .filter(f => f !== faq) // Don't close the one we just opened
-        .sort((a, b) => a.openedAt - b.openedAt) // Sort by oldest first
-        .slice(0, openFaqs.length - MAX_OPEN_FAQS) // Take only the ones that exceed the limit
-      
-      // Close each FAQ with staggered animation
+        .filter(f => f !== faq)
+        .sort((a, b) => a.openedAt - b.openedAt)
+        .slice(0, openFaqs.length - MAX_OPEN_FAQS)
+
       faqsToClose.forEach((faqToClose, index) => {
         const delay = index * STAGGER_DELAY
-        
         setTimeout(() => {
-          // Double-check it's still open before closing
           if (faqToClose.open) {
             faqToClose.open = false
             faqToClose.openedAt = null
