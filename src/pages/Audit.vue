@@ -263,7 +263,7 @@ const vcRows = [
 .ap-wrap { max-width: 1240px; margin: 0 auto; }
 .ap-title { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 36px; font-weight: 700; line-height: 1.2; margin: 0 0 16px; text-align: center; }
 
-.ap-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; grid-template-areas:
+.ap-grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-areas:
   'lead accent'
   's3 s4'; gap: 12px; }
 
