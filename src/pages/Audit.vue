@@ -165,9 +165,15 @@
     <!-- CTA -->
     <section id="audit-contact" class="audit-cta-section">
       <div class="ac-wrap">
-        <h2 class="ac-title">Ready for an Audit?</h2>
-        <p class="ac-intro">Contact us to get a fast quote and timeline. Share your repository or source code to begin.</p>
-        <a href="#" class="ac-button">Request an Audit</a>
+        <h2 class="ac-title">Ready to Transform Your Web3 Project?</h2>
+        <p class="ac-intro">Let’s collaborate to bring your blockchain vision to life with our expert services and innovative solutions.</p>
+        <a href="#" class="ac-button">
+          <span>Get Started</span>
+          <svg class="ac-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
       </div>
     </section>
   </main>
@@ -275,12 +281,17 @@ const vcRows = [
 
 
 /* CTA */
-.audit-cta-section { padding: 32px 20px 64px; }
-.ac-wrap { max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; align-items: center; text-align: center; border-radius: 16px; background: #0F1011; border: 1px solid rgba(255,255,255,0.08); padding: 24px; }
-.ac-title { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 28px; font-weight: 700; line-height: 1.3; margin: 0; }
-.ac-intro { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; line-height: 1.6; margin: 0; max-width: 720px; }
-.ac-button { display: inline-block; margin-top: 6px; padding: 12px 18px; border-radius: 8px; background: #0D6EFD; color: #fff; text-decoration: none; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; font-weight: 500; line-height: 1; transition: all 0.25s ease; }
-.ac-button:hover { background: #0B5ED7; transform: translateY(-1px); }
+.audit-cta-section { position: relative; padding: 72px 20px 72px; overflow: hidden; }
+.audit-cta-section::before { content: ""; position: absolute; inset: 0; background:
+  radial-gradient(60% 120% at 50% 0%, rgba(142,96,238,0.15), rgba(0,0,0,0) 60%),
+  radial-gradient(60% 120% at 50% 100%, rgba(13,110,253,0.22), rgba(0,0,0,0) 60%),
+  linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.45)); pointer-events: none; }
+.ac-wrap { max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; align-items: center; text-align: center; padding: 0; background: transparent; border: 0; }
+.ac-title { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 32px; font-weight: 700; line-height: 1.25; margin: 0; }
+.ac-intro { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; line-height: 1.6; margin: 0; max-width: 760px; }
+.ac-button { display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; padding: 12px 20px; border-radius: 9999px; background: #0D6EFD; color: #fff; text-decoration: none; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; font-weight: 600; line-height: 1; transition: all 0.25s ease; box-shadow: 0 8px 24px rgba(13,110,253,0.25); }
+.ac-button:hover { background: #0B5ED7; transform: translateY(-1px); box-shadow: 0 10px 28px rgba(13,110,253,0.35); }
+.ac-arrow { display: inline-block; }
 
 /* Responsive */
 @media (max-width: 1180px) {
@@ -296,6 +307,7 @@ const vcRows = [
   .audit-hero-ctas { flex-wrap: wrap; }
   .ab-grid, .am-grid { grid-template-columns: 1fr; }
   .ap-grid { grid-template-columns: 1fr; grid-template-areas: 'lead' 'accent' 's3' 's4'; }
+  .ac-title { font-size: 24px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
