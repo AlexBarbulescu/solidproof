@@ -106,29 +106,22 @@
     <section id="audit-checklist" class="audit-checklist" aria-labelledby="audit-checklist-title">
       <div class="vc-wrap">
         <h2 id="audit-checklist-title" class="vc-title">Vulnerability Checklist</h2>
-        <ul class="vc-grid" role="list">
-          <li class="vc-item" role="listitem"><span class="vc-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="#6AFFB3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="vc-text">Reentrancy</span></li>
-          <li class="vc-item" role="listitem"><span class="vc-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="#6AFFB3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="vc-text">Timestamp Dependence</span></li>
-          <li class="vc-item" role="listitem"><span class="vc-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="#6AFFB3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="vc-text">Gas Limit and Loops</span></li>
-          <li class="vc-item" role="listitem"><span class="vc-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="#6AFFB3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="vc-text">DoS with Block Gas Limit</span></li>
-          <li class="vc-item" role="listitem"><span class="vc-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="#6AFFB3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="vc-text">TX-Ordering Dependence</span></li>
-          <li class="vc-item" role="listitem"><span class="vc-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="#6AFFB3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="vc-text">Use of tx.origin</span></li>
-          <li class="vc-item" role="listitem"><span class="vc-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="#6AFFB3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="vc-text">Exception disorder</span></li>
-          <li class="vc-item" role="listitem"><span class="vc-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="#6AFFB3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="vc-text">Gasless send</span></li>
-          <li class="vc-item" role="listitem"><span class="vc-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="#6AFFB3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="vc-text">Balance equality</span></li>
-          <li class="vc-item" role="listitem"><span class="vc-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="#6AFFB3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="vc-text">Byte array</span></li>
-          <li class="vc-item" role="listitem"><span class="vc-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="#6AFFB3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="vc-text">Transfer forwards all gas</span></li>
-          <li class="vc-item" role="listitem"><span class="vc-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="#6AFFB3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="vc-text">ERC20 API violation</span></li>
-          <li class="vc-item" role="listitem"><span class="vc-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="#6AFFB3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="vc-text">Malicious libraries</span></li>
-          <li class="vc-item" role="listitem"><span class="vc-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="#6AFFB3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="vc-text">Non-fixed Compiler version</span></li>
-          <li class="vc-item" role="listitem"><span class="vc-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="#6AFFB3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="vc-text">Redundant fallback function</span></li>
-          <li class="vc-item" role="listitem"><span class="vc-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="#6AFFB3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="vc-text">Send instead of transfer</span></li>
-          <li class="vc-item" role="listitem"><span class="vc-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="#6AFFB3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="vc-text">Style guide violation</span></li>
-          <li class="vc-item" role="listitem"><span class="vc-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="#6AFFB3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="vc-text">Unchecked external call</span></li>
-          <li class="vc-item" role="listitem"><span class="vc-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="#6AFFB3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="vc-text">Unchecked math</span></li>
-          <li class="vc-item" role="listitem"><span class="vc-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="#6AFFB3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="vc-text">Unsafe type inference</span></li>
-          <li class="vc-item" role="listitem"><span class="vc-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="#6AFFB3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="vc-text">Implicit visibility level</span></li>
-        </ul>
+        <div class="vc-table" role="table" aria-label="Vulnerability coverage comparison">
+          <div class="vc-row vc-head" role="row">
+            <div class="vc-cell vc-col-name" role="columnheader">Vulnerabilities</div>
+            <div class="vc-cell vc-col-brand" role="columnheader">Solidproof.io</div>
+            <div class="vc-cell vc-col-other" role="columnheader">Others</div>
+          </div>
+          <div class="vc-row" v-for="r in vcRows" :key="r.name" role="row">
+            <div class="vc-cell vc-col-name" role="cell">{{ r.name }}</div>
+            <div class="vc-cell vc-col-brand" role="cell">
+              <span class="vc-badge vc-badge--ok" aria-label="Included"></span>
+            </div>
+            <div class="vc-cell vc-col-other" role="cell">
+              <span class="vc-badge" :class="r.others ? 'vc-badge--ok' : 'vc-badge--no'" :aria-label="r.others ? 'Included' : 'Not included'"></span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -288,6 +281,30 @@ const faq = ref([true, false, false, false, false])
 function toggle(i) {
   faq.value[i] = !faq.value[i]
 }
+
+const vcRows = [
+  { name: 'Reentrancy', others: true },
+  { name: 'Timestamp Dependence', others: true },
+  { name: 'Gas Limit and Loops', others: true },
+  { name: 'DoS with Block Gas Limit', others: true },
+  { name: 'TX-Ordering Dependence', others: true },
+  { name: 'Use of tx.origin', others: true },
+  { name: 'Exception disorder', others: true },
+  { name: 'Gasless send', others: true },
+  { name: 'Balance equality', others: true },
+  { name: 'Byte array', others: true },
+  { name: 'Transfer forwards all gas', others: true },
+  { name: 'ERC20 API violation', others: true },
+  { name: 'Malicious libraries', others: true },
+  { name: 'Non-fixed Compiler version', others: true },
+  { name: 'Redundant fallback function', others: true },
+  { name: 'Send instead of transfer', others: true },
+  { name: 'Style guide violation', others: false },
+  { name: 'Unchecked external call', others: false },
+  { name: 'Unchecked math', others: false },
+  { name: 'Unsafe type inference', others: false },
+  { name: 'Implicit visibility level', others: false },
+]
 </script>
 
 <style scoped>
@@ -398,16 +415,25 @@ function toggle(i) {
 .audit-checklist { padding: 32px 20px; }
 .vc-wrap { max-width: 1240px; margin: 0 auto; }
 .vc-title { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 36px; font-weight: 700; line-height: 1.2; margin: 0 0 16px; text-align: center; }
-.vc-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-.vc-item { display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: center; padding: 12px 14px; border-radius: 14px; background: #0F1011; border: 1px solid rgba(255,255,255,0.08); }
-.vc-icon { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 7px; background: linear-gradient(180deg, rgba(47, 47, 51, 0.87) 0%, rgba(61, 62, 67, 0.87) 34.82%, rgba(47, 47, 51, 0.87) 100%), #2F2F33; border: 1px solid #606061; }
-.vc-text { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; line-height: 1.4; }
+.vc-table { display: grid; grid-template-columns: 1.3fr 160px 120px; gap: 0; border-radius: 16px; overflow: hidden; background: #0F1011; border: 1px solid rgba(255,255,255,0.08); }
+.vc-row { display: contents; }
+.vc-head > .vc-cell { background: rgba(255,255,255,0.04); font-weight: 700; }
+.vc-cell { padding: 14px 16px; border-bottom: 1px solid rgba(255,255,255,0.08); color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; line-height: 1.4; }
+.vc-col-name { text-align: left; }
+.vc-col-brand, .vc-col-other { text-align: center; }
+.vc-row:last-child > .vc-cell { border-bottom: 0; }
+
+.vc-badge { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%; border: 1px solid #606061; background: linear-gradient(180deg, rgba(47,47,51,0.87) 0%, rgba(61,62,67,0.87) 34.82%, rgba(47,47,51,0.87) 100%), #2F2F33; position: relative; }
+.vc-badge--ok { border-color: #2A9F72; background: radial-gradient(65% 70% at 50% 50%, rgba(106,255,179,0.85), rgba(13,110,253,0.2)); }
+.vc-badge--ok::after { content: ""; width: 8px; height: 4px; border-left: 2px solid #fff; border-bottom: 2px solid #fff; transform: rotate(-45deg); margin-top: -1px; }
+.vc-badge--no { border-color: #B94A7D; background: radial-gradient(65% 70% at 50% 50%, rgba(233, 64, 87, 0.55), rgba(13,110,253,0.08)); }
+.vc-badge--no::after { content: ""; width: 10px; height: 2px; background: #fff; border-radius: 2px; }
 
 @media (max-width: 1180px) {
-  .vc-grid { grid-template-columns: repeat(2, 1fr); }
+  .vc-table { grid-template-columns: 1fr 120px 100px; }
 }
 @media (max-width: 768px) {
-  .vc-grid { grid-template-columns: 1fr; }
+  .vc-table { grid-template-columns: 1fr 100px 80px; }
 }
 
 </style>
