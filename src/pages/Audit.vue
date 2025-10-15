@@ -344,10 +344,10 @@ const vcRows = [
 .am-wrap { max-width: 1240px; margin: 0 auto; }
 .am-title { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 36px; font-weight: 700; line-height: 1.2; margin: 0 0 16px; text-align: center; }
 .am-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; counter-reset: amstep; }
-.am-card { position: relative; padding: 16px; border-radius: 16px; background: #0F1011; border: 1px solid rgba(255,255,255,0.08); counter-increment: amstep; }
+.am-card { position: relative; padding: 16px 16px 16px 56px; border-radius: 16px; background: #0F1011; border: 1px solid rgba(255,255,255,0.08); counter-increment: amstep; }
 .am-card-title { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 16px; font-weight: 600; line-height: 1.2; margin: 0 0 6px; }
 .am-card-desc { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; line-height: 1.5; margin: 0; }
-.am-card::before { content: counter(amstep); position: absolute; right: 12px; top: 12px; color: #464649; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 12px; line-height: 1; }
+.am-card::before { content: counter(amstep); position: absolute; left: 16px; top: 16px; width: 28px; height: 28px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; font-weight: 600; color: #fff; background: linear-gradient(180deg, rgba(47, 47, 51, 0.87) 0%, rgba(61, 62, 67, 0.87) 34.82%, rgba(47, 47, 51, 0.87) 100%), #2F2F33; border: 1px solid #606061; }
 
 /* Process */
 .audit-process { padding: 32px 20px; }
