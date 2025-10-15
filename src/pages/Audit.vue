@@ -163,98 +163,10 @@
       </div>
     </section>
 
-    <!-- Trust -->
-    <section class="audit-trust" aria-labelledby="audit-trust-title">
-      <div class="at-wrap">
-        <h2 id="audit-trust-title" class="at-title">Trusted by leading launchpads</h2>
-        <p class="at-intro">Our audits are recognized across the Web3 ecosystem. Partner with a team focused on security, transparency, and excellence.</p>
-        <div class="at-logos">
-          <img src="/images/partners/unicrypt_logo.png" alt="Unicrypt" class="at-logo" loading="lazy"/>
-          <img src="/images/partners/pinksale_logo.png" alt="Pinksale" class="at-logo" loading="lazy"/>
-          <img src="/images/partners/dxsale_logo.png" alt="DxSale" class="at-logo" loading="lazy"/>
-          <img src="/images/partners/gempad_logo.png" alt="Gempad" class="at-logo" loading="lazy"/>
-          <img src="/images/partners/cryptic_logo.png" alt="Cryptic" class="at-logo" loading="lazy"/>
-        </div>
-      </div>
-    </section>
-
     <!-- FAQ -->
-    <section id="audit-faq" class="audit-faq" aria-labelledby="audit-faq-title">
-      <div class="af-wrap">
-        <h2 id="audit-faq-title" class="af-title">Audit FAQ</h2>
-        <div class="af-list" role="list">
-          <article class="af-item" role="listitem">
-            <h3 class="af-qh">
-              <button class="af-q" :aria-expanded="faq[0] ? 'true' : 'false'" :aria-controls="'af-a-0'" @click="toggle(0)">
-                <span class="af-qtext">What is a smart contract audit?</span>
-                <svg class="af-caret" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M4 6l4 4 4-4" :stroke="faq[0] ? '#6AFFB3' : '#ffffff'" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </button>
-            </h3>
-            <div class="af-a" :id="'af-a-0'" role="region" aria-labelledby="audit-faq-title" v-show="faq[0]">
-              <p class="af-atext">A thorough review of your smart contract code and behavior to identify vulnerabilities, security risks, and coding errors before deployment.</p>
-            </div>
-          </article>
-
-          <article class="af-item" role="listitem">
-            <h3 class="af-qh">
-              <button class="af-q" :aria-expanded="faq[1] ? 'true' : 'false'" :aria-controls="'af-a-1'" @click="toggle(1)">
-                <span class="af-qtext">Why is a smart contract audit important?</span>
-                <svg class="af-caret" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M4 6l4 4 4-4" :stroke="faq[1] ? '#6AFFB3' : '#ffffff'" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </button>
-            </h3>
-            <div class="af-a" :id="'af-a-1'" role="region" aria-labelledby="audit-faq-title" v-show="faq[1]">
-              <p class="af-atext">It mitigates risk of exploits and bugs, ensures reliability, and builds trust for developers, users, and investors.</p>
-            </div>
-          </article>
-
-          <article class="af-item" role="listitem">
-            <h3 class="af-qh">
-              <button class="af-q" :aria-expanded="faq[2] ? 'true' : 'false'" :aria-controls="'af-a-2'" @click="toggle(2)">
-                <span class="af-qtext">What does the audit process involve?</span>
-                <svg class="af-caret" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M4 6l4 4 4-4" :stroke="faq[2] ? '#6AFFB3' : '#ffffff'" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </button>
-            </h3>
-            <div class="af-a" :id="'af-a-2'" role="region" aria-labelledby="audit-faq-title" v-show="faq[2]">
-              <p class="af-atext">Manual and automated analysis of code, logic, and architecture; testing and simulations to evaluate behavior under different scenarios.</p>
-            </div>
-          </article>
-
-          <article class="af-item" role="listitem">
-            <h3 class="af-qh">
-              <button class="af-q" :aria-expanded="faq[3] ? 'true' : 'false'" :aria-controls="'af-a-3'" @click="toggle(3)">
-                <span class="af-qtext">How long does an audit take?</span>
-                <svg class="af-caret" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M4 6l4 4 4-4" :stroke="faq[3] ? '#6AFFB3' : '#ffffff'" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </button>
-            </h3>
-            <div class="af-a" :id="'af-a-3'" role="region" aria-labelledby="audit-faq-title" v-show="faq[3]">
-              <p class="af-atext">Typically from two days to two weeks, depending on contract complexity and scope.</p>
-            </div>
-          </article>
-
-          <article class="af-item" role="listitem">
-            <h3 class="af-qh">
-              <button class="af-q" :aria-expanded="faq[4] ? 'true' : 'false'" :aria-controls="'af-a-4'" @click="toggle(4)">
-                <span class="af-qtext">Do I get a report after the audit?</span>
-                <svg class="af-caret" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M4 6l4 4 4-4" :stroke="faq[4] ? '#6AFFB3' : '#ffffff'" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </button>
-            </h3>
-            <div class="af-a" :id="'af-a-4'" role="region" aria-labelledby="audit-faq-title" v-show="faq[4]">
-              <p class="af-atext">Yes. You receive an initial report during review and a final report after fixes or acknowledgments are complete.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+    <FAQ :items="auditFaqs"
+         title="Audit FAQ"
+         description="Answers to common questions about our audit methodology, timelines, and deliverables." />
 
     <!-- CTA -->
     <section id="audit-contact" class="audit-cta-section">
@@ -269,11 +181,15 @@
 
 <script setup>
 import { ref } from 'vue'
+import FAQ from '../components/FAQ.vue'
 
-const faq = ref([true, false, false, false, false])
-function toggle(i) {
-  faq.value[i] = !faq.value[i]
-}
+const auditFaqs = [
+  { question: 'What is a smart contract audit?', answer: 'A thorough review of your smart contract code and behavior to identify vulnerabilities, security risks, and coding errors before deployment.' },
+  { question: 'Why is a smart contract audit important?', answer: 'It mitigates risk of exploits and bugs, ensures reliability, and builds trust for developers, users, and investors.' },
+  { question: 'What does the audit process involve?', answer: 'Manual and automated analysis of code, logic, and architecture; testing and simulations to evaluate behavior under different scenarios.' },
+  { question: 'How long does an audit take?', answer: 'Typically from two days to two weeks, depending on contract complexity and scope.' },
+  { question: 'Do I get a report after the audit?', answer: 'Yes. You receive an initial report during review and a final report after fixes or acknowledgments are complete.' },
+]
 
 const vcRows = [
   { name: 'Reentrancy', others: true },
@@ -365,27 +281,6 @@ const vcRows = [
 .ap-chip-stack { position: absolute; right: 14px; top: 14px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
 .ap-chip { width: 26px; height: 26px; border-radius: 8px; background: linear-gradient(180deg, rgba(47,47,51,0.87) 0%, rgba(61,62,67,0.87) 34.82%, rgba(47,47,51,0.87) 100%), #2F2F33; border: 1px solid #606061; }
 
-/* Trust */
-.audit-trust { padding: 8px 20px 8px; }
-.at-wrap { max-width: 1240px; margin: 0 auto; }
-.at-title { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 28px; font-weight: 700; line-height: 1.3; margin: 0 0 8px; text-align: center; }
-.at-intro { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; line-height: 1.6; margin: 0 auto 16px; max-width: 720px; text-align: center; }
-.at-logos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; align-items: center; justify-items: center; }
-.at-logo { height: 42px; width: auto; filter: brightness(1.1) contrast(1.1); }
-
-/* FAQ */
-.audit-faq { padding: 8px 20px 24px; }
-.af-wrap { max-width: 1240px; margin: 0 auto; }
-.af-title { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 32px; font-weight: 700; line-height: 1.25; margin: 0 0 12px; text-align: center; }
-.af-list { display: grid; grid-template-columns: 1fr; gap: 10px; }
-.af-item { border-radius: 16px; background: #0F1011; border: 1px solid rgba(255,255,255,0.08); overflow: hidden; }
-.af-qh { margin: 0; }
-.af-q { width: 100%; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 12px; padding: 16px; background: transparent; border: 0; text-align: left; cursor: pointer; color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 16px; font-weight: 600; line-height: 1.2; }
-.af-q:focus { outline: 2px solid #0D6EFD; outline-offset: 2px; }
-.af-qtext { display: inline-block; }
-.af-caret { transition: transform 0.2s ease; }
-.af-a { padding: 0 16px 16px; }
-.af-atext { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; line-height: 1.6; margin: 0; }
 
 /* CTA */
 .audit-cta-section { padding: 32px 20px 64px; }
@@ -401,7 +296,6 @@ const vcRows = [
   .ab-grid { grid-template-columns: repeat(2, 1fr); }
   .am-grid { grid-template-columns: repeat(2, 1fr); }
   .ap-grid { grid-template-columns: 1fr 1fr; grid-template-areas: 'lead accent' 's3 s4'; }
-  .at-logos { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 768px) {
   .audit-hero { padding: 140px 16px 48px; }
@@ -410,7 +304,6 @@ const vcRows = [
   .audit-hero-ctas { flex-wrap: wrap; }
   .ab-grid, .am-grid { grid-template-columns: 1fr; }
   .ap-grid { grid-template-columns: 1fr; grid-template-areas: 'lead' 'accent' 's3' 's4'; }
-  .at-logos { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (prefers-reduced-motion: reduce) {
