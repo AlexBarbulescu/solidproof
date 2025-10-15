@@ -140,12 +140,6 @@
             <span class="ap-badge">2</span>
             <h3 class="ap-card-title">Begin of review</h3>
             <p class="ap-card-desc">Manual code checks supplemented by automated tools to uncover vulnerabilities and design issues.</p>
-            <div class="ap-chip-stack" aria-hidden="true">
-              <span class="ap-chip"></span>
-              <span class="ap-chip"></span>
-              <span class="ap-chip"></span>
-              <span class="ap-chip"></span>
-            </div>
           </article>
 
           <article class="ap-card ap-card--half ap-card--s3" role="listitem">
@@ -267,10 +261,10 @@ const vcRows = [
   'lead accent'
   's3 s4'; gap: 12px; }
 
-.ap-card { position: relative; border-radius: 16px; background: #0F1011; border: 1px solid rgba(255,255,255,0.08); padding: 18px; overflow: hidden; }
-.ap-card--lead { grid-area: lead; min-height: 140px; background: linear-gradient(180deg, rgba(47,47,51,0.87) 0%, rgba(61,62,67,0.87) 34.82%, rgba(47,47,51,0.87) 100%), #0F1011; }
-.ap-card--accent { grid-area: accent; min-height: 140px; position: relative; }
-.ap-card--half { min-height: 120px; }
+.ap-card { position: relative; border-radius: 16px; background: #0F1011; border: 1px solid rgba(255,255,255,0.08); padding: 18px; overflow: hidden; min-height: 140px; }
+.ap-card--lead { grid-area: lead; }
+.ap-card--accent { grid-area: accent; position: relative; }
+.ap-card--half { }
 .ap-card--s3 { grid-area: s3; }
 .ap-card--s4 { grid-area: s4; }
 
@@ -278,8 +272,6 @@ const vcRows = [
 .ap-card-title { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 18px; font-weight: 700; line-height: 1.2; margin: 0 0 6px 44px; }
 .ap-card-desc { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; line-height: 1.5; margin: 0 0 0 44px; max-width: 56ch; }
 
-.ap-chip-stack { position: absolute; right: 14px; top: 14px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
-.ap-chip { width: 26px; height: 26px; border-radius: 8px; background: linear-gradient(180deg, rgba(47,47,51,0.87) 0%, rgba(61,62,67,0.87) 34.82%, rgba(47,47,51,0.87) 100%), #2F2F33; border: 1px solid #606061; }
 
 
 /* CTA */
