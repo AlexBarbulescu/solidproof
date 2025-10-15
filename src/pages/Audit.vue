@@ -129,44 +129,37 @@
     <section class="audit-process" aria-labelledby="audit-process-title">
       <div class="ap-wrap">
         <h2 id="audit-process-title" class="ap-title">How to Audit</h2>
-        <ol class="ap-steps">
-          <li class="ap-step">
-            <div class="ap-step-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><rect x="3" y="5" width="18" height="14" rx="3" stroke="#6AFFB3" stroke-width="1.5"/><path d="M8 9h6M8 13h8" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <div class="ap-grid" role="list">
+          <article class="ap-card ap-card--lead" role="listitem">
+            <span class="ap-badge">1</span>
+            <h3 class="ap-card-title">Request a quote</h3>
+            <p class="ap-card-desc">Share your source code. We estimate cost and timeline based on scope, size, and complexity.</p>
+          </article>
+
+          <article class="ap-card ap-card--accent" role="listitem">
+            <span class="ap-badge">2</span>
+            <h3 class="ap-card-title">Begin of review</h3>
+            <p class="ap-card-desc">Manual code checks supplemented by automated tools to uncover vulnerabilities and design issues.</p>
+            <div class="ap-chip-stack" aria-hidden="true">
+              <span class="ap-chip"></span>
+              <span class="ap-chip"></span>
+              <span class="ap-chip"></span>
+              <span class="ap-chip"></span>
             </div>
-            <div class="ap-step-content">
-              <h3 class="ap-step-title">Request a quote</h3>
-              <p class="ap-step-desc">Share your source code. We estimate cost and timeline based on scope, size, and complexity.</p>
-            </div>
-          </li>
-          <li class="ap-step">
-            <div class="ap-step-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M4 7h16v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7Z" stroke="#fff" stroke-width="1.5"/><path d="M8 10v6M16 10v6" stroke="#8E60EE" stroke-width="1.5" stroke-linecap="round"/></svg>
-            </div>
-            <div class="ap-step-content">
-              <h3 class="ap-step-title">Begin of review</h3>
-              <p class="ap-step-desc">Manual code checks supplemented by automated tools to uncover vulnerabilities and design issues.</p>
-            </div>
-          </li>
-          <li class="ap-step">
-            <div class="ap-step-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M12 2l7 4v6c0 5-3.5 8-7 10C8.5 20 5 17 5 12V6l7-4Z" stroke="#fff" stroke-width="1.5"/><path d="M9.5 12l2 2 4-4" stroke="#6AFFB3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div class="ap-step-content">
-              <h3 class="ap-step-title">Initial audit report</h3>
-              <p class="ap-step-desc">We report findings and work with your team on fixes, clarifications, and improvements.</p>
-            </div>
-          </li>
-          <li class="ap-step">
-            <div class="ap-step-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="1.5"/><path d="M12 7v5l3 3" stroke="#8E60EE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div class="ap-step-content">
-              <h3 class="ap-step-title">Complete audit</h3>
-              <p class="ap-step-desc">After fixes or acknowledgments, we issue the final audit report that summarizes results and recommendations.</p>
-            </div>
-          </li>
-        </ol>
+          </article>
+
+          <article class="ap-card ap-card--half ap-card--s3" role="listitem">
+            <span class="ap-badge">3</span>
+            <h3 class="ap-card-title">Initial audit report</h3>
+            <p class="ap-card-desc">We report findings and work with your team on fixes, clarifications, and improvements.</p>
+          </article>
+
+          <article class="ap-card ap-card--half ap-card--s4" role="listitem">
+            <span class="ap-badge">4</span>
+            <h3 class="ap-card-title">Complete audit</h3>
+            <p class="ap-card-desc">After fixes or acknowledgments, we issue the final audit report that summarizes results and recommendations.</p>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -353,12 +346,24 @@ const vcRows = [
 .audit-process { padding: 32px 20px; }
 .ap-wrap { max-width: 1240px; margin: 0 auto; }
 .ap-title { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 36px; font-weight: 700; line-height: 1.2; margin: 0 0 16px; text-align: center; }
-.ap-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; counter-reset: step; }
-.ap-step { position: relative; display: grid; grid-template-columns: 28px 1fr; gap: 12px; padding: 16px; border-radius: 16px; background: #0F1011; border: 1px solid rgba(255,255,255,0.08); }
-.ap-step::before { counter-increment: step; content: counter(step); position: absolute; right: 12px; top: 12px; color: #464649; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 12px; }
-.ap-step-icon { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 8px; background: linear-gradient(180deg, rgba(47, 47, 51, 0.87) 0%, rgba(61, 62, 67, 0.87) 34.82%, rgba(47, 47, 51, 0.87) 100%), #2F2F33; border: 1px solid #606061; }
-.ap-step-title { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 16px; font-weight: 600; line-height: 1.2; margin: 0; }
-.ap-step-desc { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; line-height: 1.5; margin: 4px 0 0; }
+
+.ap-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; grid-template-areas:
+  'lead accent'
+  's3 s4'; gap: 12px; }
+
+.ap-card { position: relative; border-radius: 16px; background: #0F1011; border: 1px solid rgba(255,255,255,0.08); padding: 18px; overflow: hidden; }
+.ap-card--lead { grid-area: lead; min-height: 140px; background: linear-gradient(180deg, rgba(47,47,51,0.87) 0%, rgba(61,62,67,0.87) 34.82%, rgba(47,47,51,0.87) 100%), #0F1011; }
+.ap-card--accent { grid-area: accent; min-height: 140px; position: relative; }
+.ap-card--half { min-height: 120px; }
+.ap-card--s3 { grid-area: s3; }
+.ap-card--s4 { grid-area: s4; }
+
+.ap-badge { position: absolute; left: 14px; top: 14px; width: 28px; height: 28px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; font-weight: 600; color: #fff; background: linear-gradient(180deg, rgba(47, 47, 51, 0.87) 0%, rgba(61, 62, 67, 0.87) 34.82%, rgba(47, 47, 51, 0.87) 100%), #2F2F33; border: 1px solid #606061; }
+.ap-card-title { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 18px; font-weight: 700; line-height: 1.2; margin: 0 0 6px 44px; }
+.ap-card-desc { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; line-height: 1.5; margin: 0 0 0 44px; max-width: 56ch; }
+
+.ap-chip-stack { position: absolute; right: 14px; top: 14px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.ap-chip { width: 26px; height: 26px; border-radius: 8px; background: linear-gradient(180deg, rgba(47,47,51,0.87) 0%, rgba(61,62,67,0.87) 34.82%, rgba(47,47,51,0.87) 100%), #2F2F33; border: 1px solid #606061; }
 
 /* Trust */
 .audit-trust { padding: 8px 20px 8px; }
@@ -395,7 +400,7 @@ const vcRows = [
   .audit-hero-inner { grid-template-columns: 1fr; }
   .ab-grid { grid-template-columns: repeat(2, 1fr); }
   .am-grid { grid-template-columns: repeat(2, 1fr); }
-  .ap-steps { grid-template-columns: repeat(2, 1fr); }
+  .ap-grid { grid-template-columns: 1fr 1fr; grid-template-areas: 'lead accent' 's3 s4'; }
   .at-logos { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 768px) {
@@ -404,7 +409,7 @@ const vcRows = [
   .audit-hero-subtitle { font-size: 16px; }
   .audit-hero-ctas { flex-wrap: wrap; }
   .ab-grid, .am-grid { grid-template-columns: 1fr; }
-  .ap-steps { grid-template-columns: 1fr; }
+  .ap-grid { grid-template-columns: 1fr; grid-template-areas: 'lead' 'accent' 's3' 's4'; }
   .at-logos { grid-template-columns: repeat(2, 1fr); }
 }
 
