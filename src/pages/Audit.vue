@@ -283,14 +283,16 @@ const vcRows = [
 /* CTA */
 .audit-cta-section { position: relative; padding: 72px 20px 72px; overflow: hidden; }
 .audit-cta-section::before { content: ""; position: absolute; inset: 0; background:
-  radial-gradient(60% 120% at 50% 0%, rgba(142,96,238,0.15), rgba(0,0,0,0) 60%),
-  radial-gradient(60% 120% at 50% 100%, rgba(13,110,253,0.22), rgba(0,0,0,0) 60%),
-  linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.45)); pointer-events: none; }
+  radial-gradient(60% 120% at 50% 0%, rgba(142,96,238,0.10), rgba(0,0,0,0) 60%),
+  radial-gradient(60% 120% at 50% 100%, rgba(13,110,253,0.14), rgba(0,0,0,0) 60%),
+  linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.55)); pointer-events: none; }
+.audit-cta-section::after { content: ""; position: absolute; inset: 0; background:
+  radial-gradient(80% 100% at 50% 50%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.5) 100%); pointer-events: none; }
 .ac-wrap { max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; align-items: center; text-align: center; padding: 0; background: transparent; border: 0; }
-.ac-title { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 32px; font-weight: 700; line-height: 1.25; margin: 0; }
+.ac-title { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 36px; font-weight: 700; line-height: 1.25; margin: 0; }
 .ac-intro { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; line-height: 1.6; margin: 0; max-width: 760px; }
-.ac-button { display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; padding: 12px 20px; border-radius: 9999px; background: #0D6EFD; color: #fff; text-decoration: none; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; font-weight: 600; line-height: 1; transition: all 0.25s ease; box-shadow: 0 8px 24px rgba(13,110,253,0.25); }
-.ac-button:hover { background: #0B5ED7; transform: translateY(-1px); box-shadow: 0 10px 28px rgba(13,110,253,0.35); }
+.ac-button { display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; padding: 12px 22px; border-radius: 9999px; background: linear-gradient(180deg, #2B2C2F 0%, #1E1F22 100%), #202124; color: #fff; text-decoration: none; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; font-weight: 600; line-height: 1; transition: all 0.25s ease; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 8px 24px rgba(0,0,0,0.45), inset 0 1px rgba(255,255,255,0.06); }
+.ac-button:hover { background: linear-gradient(180deg, #323338 0%, #222427 100%); transform: translateY(-1px); box-shadow: 0 10px 28px rgba(0,0,0,0.55), inset 0 1px rgba(255,255,255,0.08); }
 .ac-arrow { display: inline-block; }
 
 /* Responsive */
