@@ -140,6 +140,90 @@
       </div>
     </section>
 
+    <!-- FAQ -->
+    <section id="kyc-faq" class="kyc-faq" aria-labelledby="kyc-faq-title">
+      <div class="kf-wrap">
+        <h2 id="kyc-faq-title" class="kf-title">KYC FAQ</h2>
+        <div class="kf-list" role="list">
+          <article class="kf-item" role="listitem">
+            <h3 class="kf-qh">
+              <button class="kf-q" :aria-expanded="open[0] ? 'true' : 'false'" :aria-controls="'kf-a-0'" @click="toggle(0)">
+                <span class="kf-qtext">What makes SolidProof stand out from other KYC providers?</span>
+                <svg class="kf-caret" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M4 6l4 4 4-4" :stroke="open[0] ? '#6AFFB3' : '#ffffff'" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </h3>
+            <div class="kf-a" :id="'kf-a-0'" role="region" aria-labelledby="kyc-faq-title" v-show="open[0]">
+              <p class="kf-atext">We are a registered KYC provider based in Germany and have verified hundreds of projects since 2020. Our process uses first-class verification standards and supports investors in fraud cases. Sensitive data is handled with strict security: stored offline on AES-256 encrypted drives and communicated via end-to-end encrypted email servers.</p>
+            </div>
+          </article>
+
+          <article class="kf-item" role="listitem">
+            <h3 class="kf-qh">
+              <button class="kf-q" :aria-expanded="open[1] ? 'true' : 'false'" :aria-controls="'kf-a-1'" @click="toggle(1)">
+                <span class="kf-qtext">How long does the KYC verification process take?</span>
+                <svg class="kf-caret" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M4 6l4 4 4-4" :stroke="open[1] ? '#6AFFB3' : '#ffffff'" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </h3>
+            <div class="kf-a" :id="'kf-a-1'" role="region" aria-labelledby="kyc-faq-title" v-show="open[1]">
+              <p class="kf-atext">Timelines vary per project and team responsiveness, but we aim to complete verifications within 48 hours after receiving all required information.</p>
+            </div>
+          </article>
+
+          <article class="kf-item" role="listitem">
+            <h3 class="kf-qh">
+              <button class="kf-q" :aria-expanded="open[2] ? 'true' : 'false'" :aria-controls="'kf-a-2'" @click="toggle(2)">
+                <span class="kf-qtext">Can I update my information after completing the KYC process?</span>
+                <svg class="kf-caret" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M4 6l4 4 4-4" :stroke="open[2] ? '#6AFFB3' : '#ffffff'" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </h3>
+            <div class="kf-a" :id="'kf-a-2'" role="region" aria-labelledby="kyc-faq-title" v-show="open[2]">
+              <p class="kf-atext">Yes, in most cases. Please reach out to our KYC department with the updates; feasibility depends on compliance requirements and verification status.</p>
+            </div>
+          </article>
+
+          <article class="kf-item" role="listitem">
+            <h3 class="kf-qh">
+              <button class="kf-q" :aria-expanded="open[3] ? 'true' : 'false'" :aria-controls="'kf-a-3'" @click="toggle(3)">
+                <span class="kf-qtext">What documents are typically required for KYC verification?</span>
+                <svg class="kf-caret" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M4 6l4 4 4-4" :stroke="open[3] ? '#6AFFB3' : '#ffffff'" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </h3>
+            <div class="kf-a" :id="'kf-a-3'" role="region" aria-labelledby="kyc-faq-title" v-show="open[3]">
+              <ul class="kf-list-bullets">
+                <li>Company details: name, address, registration number, certificate of incorporation.</li>
+                <li>Founders: passport scans (front/back) and a self-portrait; personal residential addresses.</li>
+                <li>Proof of address: a recent utility bill or invoice for verification.</li>
+                <li>Live verification: video call, SMS phone verification, and random identity checks.</li>
+                <li>High-risk jurisdictions may require additional business licenses or documents.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="kf-item" role="listitem">
+            <h3 class="kf-qh">
+              <button class="kf-q" :aria-expanded="open[4] ? 'true' : 'false'" :aria-controls="'kf-a-4'" @click="toggle(4)">
+                <span class="kf-qtext">How does SolidProof handle confidentiality and data protection?</span>
+                <svg class="kf-caret" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M4 6l4 4 4-4" :stroke="open[4] ? '#6AFFB3' : '#ffffff'" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </h3>
+            <div class="kf-a" :id="'kf-a-4'" role="region" aria-labelledby="kyc-faq-title" v-show="open[4]">
+              <p class="kf-atext">We follow GDPR/DSGVO and maintain robust security controls. KYC data is kept offline on AES-256 encrypted drives and treated with strict confidentiality throughout the process.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- CTA -->
     <section id="kyc-contact" class="kyc-cta-section">
       <div class="kc-wrap">
@@ -152,6 +236,12 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
+
+const open = ref([true, false, false, false, false])
+function toggle(i) {
+  open.value[i] = !open.value[i]
+}
 </script>
 
 <style scoped>
@@ -235,4 +325,26 @@
 @media (prefers-reduced-motion: reduce) {
   .kyc-cta, .kc-button { transition: none; }
 }
+/* FAQ */
+.kyc-faq { padding: 8px 20px 24px; }
+.kf-wrap { max-width: 1240px; margin: 0 auto; }
+.kf-title { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 32px; font-weight: 700; line-height: 1.25; margin: 0 0 12px; text-align: center; }
+.kf-list { display: grid; grid-template-columns: 1fr; gap: 10px; }
+.kf-item { border-radius: 16px; background: #0F1011; border: 1px solid rgba(255,255,255,0.08); overflow: hidden; }
+.kf-qh { margin: 0; }
+.kf-q { width: 100%; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 12px; padding: 16px; background: transparent; border: 0; text-align: left; cursor: pointer; color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 16px; font-weight: 600; line-height: 1.2; }
+.kf-q:focus { outline: 2px solid #0D6EFD; outline-offset: 2px; }
+.kf-qtext { display: inline-block; }
+.kf-caret { transition: transform 0.2s ease; }
+.kf-a { padding: 0 16px 16px; }
+.kf-atext { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; line-height: 1.6; margin: 0; }
+.kf-list-bullets { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; line-height: 1.6; margin: 0; padding: 0 0 0 18px; }
+.kf-list-bullets li { margin: 6px 0 0; }
+
+@media (max-width: 768px) {
+  .kf-title { font-size: 26px; }
+  .kf-q { font-size: 15px; padding: 14px; }
+  .kf-a { padding: 0 14px 14px; }
+}
+
 </style>
