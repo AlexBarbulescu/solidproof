@@ -200,10 +200,13 @@ const kycFaqs = [
 .kb-title { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 36px; font-weight: 700; line-height: 1.2; margin: 0 0 8px; text-align: center; }
 .kb-intro { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 16px; line-height: 1.6; margin: 0 auto 20px; max-width: 720px; text-align: center; }
 .kb-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
-.kb-item { display: grid; grid-template-columns: 32px 1fr; gap: 12px; padding: 16px; border-radius: 16px; background: #0F1011; border: 1px solid rgba(255,255,255,0.08); }
-.kb-icon { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 10px; background: linear-gradient(180deg, rgba(47, 47, 51, 0.87) 0%, rgba(61, 62, 67, 0.87) 34.82%, rgba(47, 47, 51, 0.87) 100%), #2F2F33; border: 1px solid #606061; }
-.kb-item-title { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 16px; font-weight: 600; line-height: 1.2; margin: 0; }
-.kb-item-desc { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; line-height: 1.5; margin: 4px 0 0; }
+.kb-item { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; padding: 24px 16px; border-radius: 16px; background: #0F1011; border: 1px solid rgba(255,255,255,0.08); transition: all 0.25s ease; }
+.kb-item:hover { background: rgba(15, 16, 17, 0.8); border-color: rgba(255,255,255,0.12); }
+.kb-icon { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 12px; background: linear-gradient(180deg, rgba(47, 47, 51, 0.87) 0%, rgba(61, 62, 67, 0.87) 34.82%, rgba(47, 47, 51, 0.87) 100%), #2F2F33; border: 1px solid #606061; flex-shrink: 0; }
+.kb-icon svg { width: 22px; height: 22px; }
+.kb-content { display: flex; flex-direction: column; gap: 8px; width: 100%; }
+.kb-item-title { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 15px; font-weight: 600; line-height: 1.2; margin: 0; }
+.kb-item-desc { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 13px; line-height: 1.4; margin: 0; }
 
 /* Process */
 .kyc-process { padding: 32px 20px; }
