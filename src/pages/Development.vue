@@ -61,6 +61,81 @@
       </div>
     </section>
 
+    <!-- Decentralized App Development Section -->
+    <section id="dapp-section" class="dapp-section">
+      <div class="dapp-wrap">
+        <h2 class="dapp-title">Decentralized App Development</h2>
+        <p class="dapp-subtitle">Building User-Friendly DApps on Leading Blockchain Networks</p>
+        <p class="dapp-desc">
+          We specialize in building cutting-edge decentralized applications that leverage the power of blockchain technology. Our approach combines thorough research, strategic planning, and agile development methodologies to deliver DApps that not only meet your requirements but exceed user expectations.
+        </p>
+        <div class="dapp-details">
+          <div class="dapp-detail-item">
+            <h3 class="dapp-detail-title">Our Expertise</h3>
+            <p class="dapp-detail-text">Our experienced team develops user-friendly DApps across multiple industries including finance, gaming, supply chain, and more. We leverage technologies on Ethereum, EOS, Tron, and other leading blockchains to create transparent, secure, and innovative applications.</p>
+          </div>
+          <div class="dapp-detail-item">
+            <h3 class="dapp-detail-title">Development Process</h3>
+            <p class="dapp-detail-text">We follow a comprehensive development process that includes intuitive UI/UX design, seamless Web3 integration, scalable architecture, and rigorous testing. Each DApp is built with a focus on user experience, security, and performance to ensure long-term success.</p>
+          </div>
+          <div class="dapp-detail-item">
+            <h3 class="dapp-detail-title">Outcomes</h3>
+            <p class="dapp-detail-text">The result is a robust, market-ready DApp that empowers users with transparency, security, and control. Whether you're disrupting traditional finance or gaming industries, our DApps are designed to scale and adapt to your growing user base.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Smart Contract Development Section -->
+    <section id="contract-section" class="contract-section">
+      <div class="contract-wrap">
+        <h2 class="contract-title">Smart Contract Development</h2>
+        <p class="contract-subtitle">Secure, Audited Smart Contracts for Your Blockchain Vision</p>
+        <p class="contract-desc">
+          Smart contracts are the backbone of blockchain applications. Our expert developers create secure, efficient, and audited smart contracts that automate complex business logic while maintaining the highest standards of code security and best practices.
+        </p>
+        <div class="contract-details">
+          <div class="contract-detail-item">
+            <h3 class="contract-detail-title">Supported Blockchains</h3>
+            <p class="contract-detail-text">We develop smart contracts for the most popular blockchain networks including Ethereum, Binance Smart Chain, Polkadot, and others. Whether you need an ERC-20 token, a complex DeFi protocol, or a custom application, we have the expertise to deliver.</p>
+          </div>
+          <div class="contract-detail-item">
+            <h3 class="contract-detail-title">Languages & Tools</h3>
+            <p class="contract-detail-text">Our team specializes in Solidity and Vyper programming languages, utilizing industry-standard tools like Truffle, Hardhat, and web3.js. We follow best practices and industry standards to ensure your contracts are optimized, secure, and gas-efficient.</p>
+          </div>
+          <div class="contract-detail-item">
+            <h3 class="contract-detail-title">Security & Auditing</h3>
+            <p class="contract-detail-text">Every smart contract undergoes rigorous security testing and code auditing before deployment. We identify vulnerabilities, optimize for gas efficiency, and ensure compliance with security standards. Your contract is ready for production and trusted by your users.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Web3 and Blockchain Integration Section -->
+    <section id="web3-section" class="web3-section">
+      <div class="web3-wrap">
+        <h2 class="web3-title">Web3 and Blockchain Integration</h2>
+        <p class="web3-subtitle">Seamless Blockchain Connectivity for Your Applications</p>
+        <p class="web3-desc">
+          Integrating blockchain technology into your existing web and mobile applications enables your users to interact directly with smart contracts and decentralized networks. We provide end-to-end Web3 integration services that empower your platform with blockchain capabilities.
+        </p>
+        <div class="web3-details">
+          <div class="web3-detail-item">
+            <h3 class="web3-detail-title">Wallet & Transaction Integration</h3>
+            <p class="web3-detail-text">We integrate wallet functionalities, enable seamless transactions, and provide real-time blockchain data retrieval into your frontend applications. Users can connect their wallets, sign transactions, and manage their digital assets directly within your platform.</p>
+          </div>
+          <div class="web3-detail-item">
+            <h3 class="web3-detail-title">Decentralized Identity & Authentication</h3>
+            <p class="web3-detail-text">Implement secure, decentralized identity management and authentication mechanisms that give users complete control over their data. We integrate solutions that ensure privacy, security, and user sovereignty while maintaining seamless user experience.</p>
+          </div>
+          <div class="web3-detail-item">
+            <h3 class="web3-detail-title">Smart Contract Interaction</h3>
+            <p class="web3-detail-text">Our integration solutions enable smooth interaction between your application and smart contracts. Whether it's reading data from the blockchain or executing contract functions, we ensure reliable, efficient, and user-friendly integration that handles complex blockchain operations transparently.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- FAQ -->
     <FAQ :items="developmentFaqs"
          title="Development FAQ"
