@@ -270,7 +270,13 @@ const developmentFaqs = [
   .development-hero-subtitle { font-size: 16px; }
   .development-hero-ctas { flex-wrap: wrap; }
   .ds-grid { grid-template-columns: 1fr; }
+  .dapp-details { grid-template-columns: 1fr; }
+  .contract-details { grid-template-columns: 1fr; }
+  .web3-details { grid-template-columns: 1fr; }
   .dc-title { font-size: 24px; }
+  .dapp-title { font-size: 24px; }
+  .contract-title { font-size: 24px; }
+  .web3-title { font-size: 24px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
