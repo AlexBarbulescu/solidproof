@@ -250,26 +250,5 @@ const kycFaqs = [
 @media (prefers-reduced-motion: reduce) {
   .kyc-cta, .kc-button { transition: none; }
 }
-/* FAQ */
-.kyc-faq { padding: 8px 20px 24px; }
-.kf-wrap { max-width: 1240px; margin: 0 auto; }
-.kf-title { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 32px; font-weight: 700; line-height: 1.25; margin: 0 0 12px; text-align: center; }
-.kf-list { display: grid; grid-template-columns: 1fr; gap: 10px; }
-.kf-item { border-radius: 16px; background: #0F1011; border: 1px solid rgba(255,255,255,0.08); overflow: hidden; }
-.kf-qh { margin: 0; }
-.kf-q { width: 100%; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 12px; padding: 16px; background: transparent; border: 0; text-align: left; cursor: pointer; color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 16px; font-weight: 600; line-height: 1.2; }
-.kf-q:focus { outline: 2px solid #0D6EFD; outline-offset: 2px; }
-.kf-qtext { display: inline-block; }
-.kf-caret { transition: transform 0.2s ease; }
-.kf-a { padding: 0 16px 16px; }
-.kf-atext { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; line-height: 1.6; margin: 0; }
-.kf-list-bullets { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; line-height: 1.6; margin: 0; padding: 0 0 0 18px; }
-.kf-list-bullets li { margin: 6px 0 0; }
-
-@media (max-width: 768px) {
-  .kf-title { font-size: 26px; }
-  .kf-q { font-size: 15px; padding: 14px; }
-  .kf-a { padding: 0 14px 14px; }
-}
 
 </style>
