@@ -228,7 +228,7 @@ const kycFaqs = [
 @media (max-width: 1180px) {
   .kyc-hero-inner { grid-template-columns: 1fr; }
   .kp-steps { grid-template-columns: repeat(2, 1fr); }
-  .kb-grid { grid-template-columns: repeat(2, 1fr); }
+  .kb-grid { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 768px) {
   .kyc-hero { padding: 140px 16px 48px; }
