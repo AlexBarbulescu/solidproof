@@ -192,12 +192,11 @@ const kycFaqs = [
 .kyc-process { padding: 32px 20px; }
 .kp-wrap { max-width: 1240px; margin: 0 auto; }
 .kp-title { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 36px; font-weight: 700; line-height: 1.2; margin: 0 0 16px; text-align: center; }
-.kp-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; counter-reset: step; }
-.kp-step { position: relative; display: grid; grid-template-columns: 28px 1fr; gap: 12px; padding: 16px; border-radius: 16px; background: #0F1011; border: 1px solid rgba(255,255,255,0.08); }
-.kp-step::before { counter-increment: step; content: counter(step); position: absolute; right: 12px; top: 12px; color: #464649; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 12px; }
-.kp-step-icon { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 8px; background: linear-gradient(180deg, rgba(47, 47, 51, 0.87) 0%, rgba(61, 62, 67, 0.87) 34.82%, rgba(47, 47, 51, 0.87) 100%), #2F2F33; border: 1px solid #606061; }
-.kp-step-title { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 16px; font-weight: 600; line-height: 1.2; margin: 0; }
-.kp-step-desc { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; line-height: 1.5; margin: 4px 0 0; }
+.kp-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; counter-reset: kpstep; }
+.kp-card { position: relative; padding: 16px 16px 16px 56px; border-radius: 16px; background: #0F1011; border: 1px solid rgba(255,255,255,0.08); counter-increment: kpstep; }
+.kp-card-title { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 16px; font-weight: 600; line-height: 1.2; margin: 0 0 6px; }
+.kp-card-desc { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; line-height: 1.5; margin: 0; }
+.kp-card::before { content: counter(kpstep); position: absolute; left: 16px; top: 16px; width: 28px; height: 28px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; font-weight: 600; color: #fff; background: linear-gradient(180deg, rgba(47, 47, 51, 0.87) 0%, rgba(61, 62, 67, 0.87) 34.82%, rgba(47, 47, 51, 0.87) 100%), #2F2F33; border: 1px solid #606061; }
 
 /* CTA */
 .kyc-cta-section { padding: 32px 20px 64px; }
