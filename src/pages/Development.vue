@@ -220,10 +220,49 @@ const developmentFaqs = [
 .dc-button:hover { background: linear-gradient(180deg, #323338 0%, #222427 100%); transform: translateY(-1px); box-shadow: 0 10px 28px rgba(0,0,0,0.55), inset 0 1px rgba(255,255,255,0.08); }
 .dc-arrow { display: inline-block; }
 
+/* Decentralized App Development Section */
+.dapp-section { padding: 64px 20px; background: transparent; }
+.dapp-wrap { max-width: 1240px; margin: 0 auto; }
+.dapp-title { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 32px; font-weight: 700; line-height: 1.2; margin: 0 0 8px; text-align: center; }
+.dapp-subtitle { color: #6AFFB3; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 16px; font-weight: 500; line-height: 1.5; margin: 0 0 24px; text-align: center; }
+.dapp-desc { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 16px; line-height: 1.6; margin: 0 auto 32px; max-width: 900px; text-align: center; }
+.dapp-details { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.dapp-detail-item { display: flex; flex-direction: column; gap: 12px; padding: 24px; border-radius: 12px; background: linear-gradient(180deg, rgba(15, 16, 17, 0.5) 0%, rgba(10, 11, 12, 0.5) 100%); border: 1px solid rgba(106, 255, 179, 0.1); }
+.dapp-detail-item:hover { border-color: rgba(106, 255, 179, 0.3); }
+.dapp-detail-title { color: #6AFFB3; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 16px; font-weight: 600; line-height: 1.3; margin: 0; }
+.dapp-detail-text { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; line-height: 1.6; margin: 0; }
+
+/* Smart Contract Development Section */
+.contract-section { padding: 64px 20px; background: transparent; }
+.contract-wrap { max-width: 1240px; margin: 0 auto; }
+.contract-title { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 32px; font-weight: 700; line-height: 1.2; margin: 0 0 8px; text-align: center; }
+.contract-subtitle { color: #8E60EE; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 16px; font-weight: 500; line-height: 1.5; margin: 0 0 24px; text-align: center; }
+.contract-desc { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 16px; line-height: 1.6; margin: 0 auto 32px; max-width: 900px; text-align: center; }
+.contract-details { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.contract-detail-item { display: flex; flex-direction: column; gap: 12px; padding: 24px; border-radius: 12px; background: linear-gradient(180deg, rgba(15, 16, 17, 0.5) 0%, rgba(10, 11, 12, 0.5) 100%); border: 1px solid rgba(142, 96, 238, 0.1); }
+.contract-detail-item:hover { border-color: rgba(142, 96, 238, 0.3); }
+.contract-detail-title { color: #8E60EE; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 16px; font-weight: 600; line-height: 1.3; margin: 0; }
+.contract-detail-text { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; line-height: 1.6; margin: 0; }
+
+/* Web3 and Blockchain Integration Section */
+.web3-section { padding: 64px 20px; background: transparent; }
+.web3-wrap { max-width: 1240px; margin: 0 auto; }
+.web3-title { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 32px; font-weight: 700; line-height: 1.2; margin: 0 0 8px; text-align: center; }
+.web3-subtitle { color: #0D6EFD; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 16px; font-weight: 500; line-height: 1.5; margin: 0 0 24px; text-align: center; }
+.web3-desc { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 16px; line-height: 1.6; margin: 0 auto 32px; max-width: 900px; text-align: center; }
+.web3-details { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.web3-detail-item { display: flex; flex-direction: column; gap: 12px; padding: 24px; border-radius: 12px; background: linear-gradient(180deg, rgba(15, 16, 17, 0.5) 0%, rgba(10, 11, 12, 0.5) 100%); border: 1px solid rgba(13, 110, 253, 0.1); }
+.web3-detail-item:hover { border-color: rgba(13, 110, 253, 0.3); }
+.web3-detail-title { color: #0D6EFD; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 16px; font-weight: 600; line-height: 1.3; margin: 0; }
+.web3-detail-text { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; line-height: 1.6; margin: 0; }
+
 /* Responsive */
 @media (max-width: 1180px) {
   .development-hero-inner { grid-template-columns: 1fr; }
   .ds-grid { grid-template-columns: repeat(2, 1fr); }
+  .dapp-details { grid-template-columns: repeat(2, 1fr); }
+  .contract-details { grid-template-columns: repeat(2, 1fr); }
+  .web3-details { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 768px) {
   .development-hero { padding: 140px 16px 48px; }
