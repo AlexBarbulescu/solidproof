@@ -5,6 +5,7 @@ import KYC from './pages/KYC.vue'
 import Audit from './pages/Audit.vue'
 import Marketing from './pages/Marketing.vue'
 import Consulting from './pages/Consulting.vue'
+import Development from './pages/Development.vue'
 
 const routes = [
   { path: '/', name: 'home', component: Home },
@@ -12,6 +13,7 @@ const routes = [
   { path: '/audit', name: 'audit', component: Audit },
   { path: '/marketing', name: 'marketing', component: Marketing },
   { path: '/consulting', name: 'consulting', component: Consulting },
+  { path: '/development', name: 'development', component: Development },
 ]
 
 const router = createRouter({
