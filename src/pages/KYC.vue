@@ -198,14 +198,6 @@ const kycFaqs = [
 .kp-step-title { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 16px; font-weight: 600; line-height: 1.2; margin: 0; }
 .kp-step-desc { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; line-height: 1.5; margin: 4px 0 0; }
 
-/* Trust */
-.kyc-trust { padding: 8px 20px 8px; }
-.kt-wrap { max-width: 1240px; margin: 0 auto; }
-.kt-title { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 28px; font-weight: 700; line-height: 1.3; margin: 0 0 8px; text-align: center; }
-.kt-intro { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; line-height: 1.6; margin: 0 auto 16px; max-width: 720px; text-align: center; }
-.kt-logos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; align-items: center; justify-items: center; }
-.kt-logo { height: 42px; width: auto; filter: brightness(1.1) contrast(1.1); }
-
 /* CTA */
 .kyc-cta-section { padding: 32px 20px 64px; }
 .kc-wrap { max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; align-items: center; text-align: center; border-radius: 16px; background: #0F1011; border: 1px solid rgba(255,255,255,0.08); padding: 24px; }
