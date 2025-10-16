@@ -217,7 +217,6 @@ const kycFaqs = [
 /* Responsive */
 @media (max-width: 1180px) {
   .kyc-hero-inner { grid-template-columns: 1fr; }
-  .kt-logos { grid-template-columns: repeat(3, 1fr); }
   .kp-steps { grid-template-columns: repeat(2, 1fr); }
   .kb-grid { grid-template-columns: repeat(2, 1fr); }
 }
@@ -226,7 +225,6 @@ const kycFaqs = [
   .kyc-hero-title { font-size: 40px; }
   .kyc-hero-subtitle { font-size: 16px; }
   .kyc-hero-ctas { flex-wrap: wrap; }
-  .kt-logos { grid-template-columns: repeat(2, 1fr); }
   .kp-steps { grid-template-columns: 1fr; }
   .kb-grid { grid-template-columns: 1fr; }
 }
