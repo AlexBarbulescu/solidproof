@@ -125,21 +125,6 @@
       </div>
     </section>
 
-    <!-- Trusted by -->
-    <section class="kyc-trust" aria-labelledby="kyc-trust-title">
-      <div class="kt-wrap">
-        <h2 id="kyc-trust-title" class="kt-title">Trusted by leading launchpads</h2>
-        <p class="kt-intro">Our KYC certificates are widely recognized across Web3 launchpads and tooling. Build with confidence and showcase your compliance.</p>
-        <div class="kt-logos">
-          <img src="/images/partners/unicrypt_logo.png" alt="Unicrypt" class="kt-logo" loading="lazy"/>
-          <img src="/images/partners/pinksale_logo.png" alt="Pinksale" class="kt-logo" loading="lazy"/>
-          <img src="/images/partners/dxsale_logo.png" alt="DxSale" class="kt-logo" loading="lazy"/>
-          <img src="/images/partners/gempad_logo.png" alt="Gempad" class="kt-logo" loading="lazy"/>
-          <img src="/images/partners/cryptic_logo.png" alt="Cryptic" class="kt-logo" loading="lazy"/>
-        </div>
-      </div>
-    </section>
-
     <!-- FAQ -->
     <FAQ :items="kycFaqs"
          title="KYC FAQ"
