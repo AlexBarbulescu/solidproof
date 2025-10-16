@@ -102,44 +102,24 @@
     <section id="kyc-process" class="kyc-process" aria-labelledby="kyc-process-title">
       <div class="kp-wrap">
         <h2 id="kyc-process-title" class="kp-title">How to KYC</h2>
-        <ol class="kp-steps">
-          <li class="kp-step">
-            <div class="kp-step-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M4 20h16" stroke="#2A2A2C" stroke-width="6" stroke-linecap="round" opacity="0.25"/><rect x="5" y="4" width="14" height="14" rx="3" stroke="#8E60EE" stroke-width="1.5"/><path d="M8 8h6M8 12h8" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
-            </div>
-            <div class="kp-step-content">
-              <h3 class="kp-step-title">Submit full team info</h3>
-              <p class="kp-step-desc">Provide personal details for every core team member via our secure endpoint for initial screening.</p>
-            </div>
-          </li>
-          <li class="kp-step">
-            <div class="kp-step-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><rect x="3" y="5" width="18" height="14" rx="3" stroke="#6AFFB3" stroke-width="1.5"/><path d="M8 9h5M8 13h8" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><circle cx="18" cy="8" r="1.5" fill="#8E60EE"/></svg>
-            </div>
-            <div class="kp-step-content">
-              <h3 class="kp-step-title">Book a live call</h3>
-              <p class="kp-step-desc">Join a verification specialist to review IDs, confirm ownership, and answer a short questionnaire.</p>
-            </div>
-          </li>
-          <li class="kp-step">
-            <div class="kp-step-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M4 7h16v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7Z" stroke="#fff" stroke-width="1.5"/><path d="M12 10v6" stroke="#8E60EE" stroke-width="1.5" stroke-linecap="round"/><path d="M8 10v6M16 10v6" stroke="#6AFFB3" stroke-width="1.5" stroke-linecap="round"/></svg>
-            </div>
-            <div class="kp-step-content">
-              <h3 class="kp-step-title">Internal review</h3>
-              <p class="kp-step-desc">We perform background checks and risk assessment. Typical turnaround is up to 48 hours.</p>
-            </div>
-          </li>
-          <li class="kp-step">
-            <div class="kp-step-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M12 2l7 4v6c0 5-3.5 8-7 10C8.5 20 5 17 5 12V6l7-4Z" stroke="#fff" stroke-width="1.5"/><path d="M9.5 12l2 2 4-4" stroke="#6AFFB3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <div class="kp-step-content">
-              <h3 class="kp-step-title">KYC certification</h3>
-              <p class="kp-step-desc">Upon success, data is archived offline on AES-256 encrypted drives and certificates are issued.</p>
-            </div>
-          </li>
-        </ol>
+        <div class="kp-grid">
+          <div class="kp-card">
+            <h3 class="kp-card-title">Submit full team info</h3>
+            <p class="kp-card-desc">Provide personal details for every core team member via our secure endpoint for initial screening.</p>
+          </div>
+          <div class="kp-card">
+            <h3 class="kp-card-title">Book a live call</h3>
+            <p class="kp-card-desc">Join a verification specialist to review IDs, confirm ownership, and answer a short questionnaire.</p>
+          </div>
+          <div class="kp-card">
+            <h3 class="kp-card-title">Internal review</h3>
+            <p class="kp-card-desc">We perform background checks and risk assessment. Typical turnaround is up to 48 hours.</p>
+          </div>
+          <div class="kp-card">
+            <h3 class="kp-card-title">KYC certification</h3>
+            <p class="kp-card-desc">Upon success, data is archived offline on AES-256 encrypted drives and certificates are issued.</p>
+          </div>
+        </div>
       </div>
     </section>
 
