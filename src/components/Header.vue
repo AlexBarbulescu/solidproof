@@ -120,7 +120,7 @@
                     <div class="item-title">Consulting</div>
                     <div class="item-description">Get support for your project</div>
                   </div>
-                </a>
+                </router-link>
 
                 <a href="#" class="dropdown-item">
                   <svg class="item-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
