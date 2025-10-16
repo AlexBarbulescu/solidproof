@@ -158,11 +158,15 @@
 
 <script setup>
 import { ref } from 'vue'
+import FAQ from '../components/FAQ.vue'
 
-const open = ref([true, false, false, false, false])
-function toggle(i) {
-  open.value[i] = !open.value[i]
-}
+const kycFaqs = [
+  { question: 'What makes SolidProof stand out from other KYC providers?', answer: 'We are a registered KYC provider based in Germany and have verified hundreds of projects since 2020. Our process uses first-class verification standards and supports investors in fraud cases. Sensitive data is handled with strict security: stored offline on AES-256 encrypted drives and communicated via end-to-end encrypted email servers.' },
+  { question: 'How long does the KYC verification process take?', answer: 'Timelines vary per project and team responsiveness, but we aim to complete verifications within 48 hours after receiving all required information.' },
+  { question: 'Can I update my information after completing the KYC process?', answer: 'Yes, in most cases. Please reach out to our KYC department with the updates; feasibility depends on compliance requirements and verification status.' },
+  { question: 'What documents are typically required for KYC verification?', answer: 'Company details: name, address, registration number, certificate of incorporation. Founders: passport scans (front/back) and a self-portrait; personal residential addresses. Proof of address: a recent utility bill or invoice for verification. Live verification: video call, SMS phone verification, and random identity checks. High-risk jurisdictions may require additional business licenses or documents.' },
+  { question: 'How does SolidProof handle confidentiality and data protection?', answer: 'We follow GDPR/DSGVO and maintain robust security controls. KYC data is kept offline on AES-256 encrypted drives and treated with strict confidentiality throughout the process.' },
+]
 </script>
 
 <style scoped>
