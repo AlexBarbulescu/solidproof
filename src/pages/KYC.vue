@@ -41,12 +41,12 @@
         <p class="kb-intro">Increase trust, strengthen compliance, and reduce risk across your ecosystem by verifying the identity of core participants and stakeholders.</p>
         <div class="kb-grid">
           <div class="kb-item">
-            <div class="kb-icon" aria-hidden="true"> 
+            <div class="kb-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="none"><path d="M12 2l7 4v6c0 5-3.5 8-7 10C8.5 20 5 17 5 12V6l7-4Z" stroke="#fff" stroke-width="1.5"/><path d="M9.5 12l2 2 4-4" stroke="#6AFFB3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
             <div class="kb-content">
               <h3 class="kb-item-title">Enhanced Security</h3>
-              <p class="kb-item-desc">Mitigate identity theft, fraud, and money laundering with verified identities and tamper-resistant records.</p>
+              <p class="kb-item-desc">KYC helps mitigate the risks of identity theft, fraud, and money laundering. By verifying the identities of participants, blockchain platforms can prevent unauthorized access, minimize the potential for illicit activities, and ensure compliance with regulatory requirements.</p>
             </div>
           </div>
           <div class="kb-item">
@@ -55,7 +55,7 @@
             </div>
             <div class="kb-content">
               <h3 class="kb-item-title">Regulatory Compliance</h3>
-              <p class="kb-item-desc">Meet jurisdictional requirements and industry standards with a thorough, auditable verification flow.</p>
+              <p class="kb-item-desc">By integrating the Solidproof KYC processes into blockchain systems, organizations ensure regulatory compliance, mitigating legal penalties and reputational harm, as jurisdictions mandate financial institutions to adhere to stringent KYC regulations.</p>
             </div>
           </div>
           <div class="kb-item">
@@ -64,7 +64,7 @@
             </div>
             <div class="kb-content">
               <h3 class="kb-item-title">Trust & Transparency</h3>
-              <p class="kb-item-desc">Boost investor confidence and platform credibility by verifying project team identities.</p>
+              <p class="kb-item-desc">KYC implementation fosters trust and transparency in blockchain networks. By verifying the identities of participants, users can have increased confidence in the integrity of the network, knowing that all participants have undergone a vetting process.</p>
             </div>
           </div>
           <div class="kb-item">
@@ -73,7 +73,25 @@
             </div>
             <div class="kb-content">
               <h3 class="kb-item-title">Reduced Risk</h3>
-              <p class="kb-item-desc">Link real-world identities to blockchain addresses to improve accountability and deter misconduct.</p>
+              <p class="kb-item-desc">KYC mitigates risks tied to unknown or unverified entities, aiding in assessing participant credibility. By linking real-world identities to blockchain addresses, it facilitates traceability, attributing actions to individuals/entities, enhancing accountability, deterring misconduct, and fostering greater responsibility in network participants.</p>
+            </div>
+          </div>
+          <div class="kb-item">
+            <div class="kb-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none"><path d="M12 2l2 5h5l-4 3 2 5-5-3-5 3 2-5-4-3h5l2-5Z" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 6v10" stroke="#6AFFB3" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <div class="kb-content">
+              <h3 class="kb-item-title">Traceability</h3>
+              <p class="kb-item-desc">KYC implementation allows for increased accountability within blockchain networks. By tying real-world identities to blockchain addresses, it becomes easier to trace and attribute actions and transactions to specific individuals or entities. This accountability can deter malicious activities and provide a higher level of responsibility among network participants.</p>
+            </div>
+          </div>
+          <div class="kb-item">
+            <div class="kb-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none"><path d="M3 12c0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9-9-4.03-9-9Z" stroke="#fff" stroke-width="1.5"/><path d="M12 7v5h4" stroke="#8E60EE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="kb-content">
+              <h3 class="kb-item-title">Enforcement</h3>
+              <p class="kb-item-desc">Anti-Money Laundering (AML) regulations are designed to prevent the use of financial systems for money laundering and terrorist financing. KYC processes play a crucial role in enabling compliance with AML regulations by ensuring that participants are identified and verified, making it easier to track suspicious activities and report them if necessary.</p>
             </div>
           </div>
         </div>
