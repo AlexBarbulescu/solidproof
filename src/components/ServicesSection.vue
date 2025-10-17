@@ -312,7 +312,7 @@ onMounted(() => {
   --img-w: 70%; --img-h: auto; --img-fit: contain; --img-pos: center;
   --md-img-w: 65%; --md-img-h: auto; --md-img-fit: contain; --md-img-pos: center;
   --sm-img-w: 70%; --sm-img-h: auto; --sm-img-fit: contain; --sm-img-pos: center;
-  --img-transform: translate(-50%, 0) scale(1.2); --img-transform-hover: translate(-50%, 0) scale(1.25);
+  --img-transform: translate(-50%, -50%) scale(1); --img-transform-hover: translate(-50%, -50%) scale(1.08);
 }
 
 /* Responsive */
