@@ -273,17 +273,17 @@ onMounted(() => {
 
 /* Per-card image configuration via CSS custom properties per-card */
 /* Audits */
-.card--audits { --img-w:100%; --img-h:100%; --img-fit:cover; --img-pos:50% 35%; --md-img-pos:50% 35%; --sm-img-h:70%; --sm-img-pos:center bottom; --img-transform:translate3d(0,0,0) scale(1); --img-transform-hover:translate3d(0,0,0) scale(1.02); }
+.card--audits { --img-w:100%; --img-h:100%; --img-fit:cover; --img-pos:center 35%; --md-img-w:100%; --md-img-h:100%; --md-img-fit:cover; --md-img-pos:center 35%; --sm-img-w:100%; --sm-img-h:90%; --sm-img-fit:cover; --sm-img-pos:center; --img-transform:translate3d(0,0,0) scale(1); --img-transform-hover:translate3d(0,0,0) scale(1.02); }
 /* Marketing */
-.card--marketing { --img-w:100%; --img-h:100%; --img-fit:cover; --img-pos:center; --img-transform:translate3d(0,0,0) scale(1); --img-transform-hover:translate3d(0,0,0) scale(1.02); }
+.card--marketing { --img-w:100%; --img-h:100%; --img-fit:cover; --img-pos:center; --md-img-w:100%; --md-img-h:100%; --md-img-fit:cover; --md-img-pos:center; --sm-img-w:100%; --sm-img-h:85%; --sm-img-fit:cover; --sm-img-pos:center; --img-transform:translate3d(0,0,0) scale(1); --img-transform-hover:translate3d(0,0,0) scale(1.02); }
 /* KYC */
-.card--kyc {  --img-w:100%; --img-max-h:70%; --img-left:50%; --img-bottom:-95px; --img-fit:contain; --img-pos:center bottom; --img-transform:translate(-50%, 6px) scale(1.5); --img-transform-hover:translate(-50%, 0) scale(1.52); }
+.card--kyc { --img-w:90%; --img-h:auto; --img-left:50%; --img-bottom:5%; --img-fit:contain; --img-pos:center; --md-img-w:85%; --md-img-h:auto; --md-img-left:50%; --md-img-bottom:5%; --md-img-fit:contain; --md-img-pos:center; --sm-img-w:80%; --sm-img-h:auto; --sm-img-left:50%; --sm-img-bottom:8%; --sm-img-fit:contain; --sm-img-pos:center; --img-transform:translate(-50%, 0) scale(1.2); --img-transform-hover:translate(-50%, 0) scale(1.25); }
 /* Consulting */
-.card--consulting {  --img-w:100%; --img-max-h:70%; --img-left:50%; --img-bottom:-95px; --img-fit:contain; --img-pos:center bottom; --img-transform:translate(-50%, 6px) scale(1.5); --img-transform-hover:translate(-50%, 0) scale(1.52);; }
+.card--consulting { --img-w:90%; --img-h:auto; --img-left:50%; --img-bottom:5%; --img-fit:contain; --img-pos:center; --md-img-w:85%; --md-img-h:auto; --md-img-left:50%; --md-img-bottom:5%; --md-img-fit:contain; --md-img-pos:center; --sm-img-w:80%; --sm-img-h:auto; --sm-img-left:50%; --sm-img-bottom:8%; --sm-img-fit:contain; --sm-img-pos:center; --img-transform:translate(-50%, 0) scale(1.2); --img-transform-hover:translate(-50%, 0) scale(1.25); }
 /* Smart Contracts */
-.card--contracts {  --img-w:100%; --img-max-h:70%; --img-left:50%; --img-bottom:-95px; --img-fit:contain; --img-pos:center bottom; --img-transform:translate(-50%, 6px) scale(1.5); --img-transform-hover:translate(-50%, 0) scale(1.52);}
+.card--contracts { --img-w:90%; --img-h:auto; --img-left:50%; --img-bottom:5%; --img-fit:contain; --img-pos:center; --md-img-w:85%; --md-img-h:auto; --md-img-left:50%; --md-img-bottom:5%; --md-img-fit:contain; --md-img-pos:center; --sm-img-w:80%; --sm-img-h:auto; --sm-img-left:50%; --sm-img-bottom:8%; --sm-img-fit:contain; --sm-img-pos:center; --img-transform:translate(-50%, 0) scale(1.2); --img-transform-hover:translate(-50%, 0) scale(1.25); }
 /* DApp */
-.card--dapp { --img-w:100%; --img-max-h:70%; --img-left:50%; --img-bottom:-95px; --img-fit:contain; --img-pos:center bottom; --img-transform:translate(-50%, 6px) scale(1.5); --img-transform-hover:translate(-50%, 0) scale(1.52); }
+.card--dapp { --img-w:90%; --img-h:auto; --img-left:50%; --img-bottom:5%; --img-fit:contain; --img-pos:center; --md-img-w:85%; --md-img-h:auto; --md-img-left:50%; --md-img-bottom:5%; --md-img-fit:contain; --md-img-pos:center; --sm-img-w:80%; --sm-img-h:auto; --sm-img-left:50%; --sm-img-bottom:8%; --sm-img-fit:contain; --sm-img-pos:center; --img-transform:translate(-50%, 0) scale(1.2); --img-transform-hover:translate(-50%, 0) scale(1.25); }
 
 /* Responsive */
 @media (max-width: 1180px) {
