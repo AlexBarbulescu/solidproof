@@ -6,6 +6,7 @@ import Audit from './pages/Audit.vue'
 import Marketing from './pages/Marketing.vue'
 import Consulting from './pages/Consulting.vue'
 import Development from './pages/Development.vue'
+import ProactiveWeb3Security from './pages/ProactiveWeb3Security.vue'
 
 const routes = [
   { path: '/', name: 'home', component: Home },
@@ -14,6 +15,7 @@ const routes = [
   { path: '/marketing', name: 'marketing', component: Marketing },
   { path: '/consulting', name: 'consulting', component: Consulting },
   { path: '/development', name: 'development', component: Development },
+  { path: '/proactive-web3-security', name: 'proactive-web3-security', component: ProactiveWeb3Security },
 ]
 
 const router = createRouter({
