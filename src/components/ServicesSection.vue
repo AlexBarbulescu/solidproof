@@ -323,7 +323,7 @@ onMounted(() => {
     'consulting marketing'
     'contracts dapp'; }
   .card--marketing { min-height: 520px; }
-  .service-media img { width: var(--md-img-w, var(--img-w, 70%)); height: var(--md-img-h, var(--img-h, auto)); max-height: var(--md-img-max-h, var(--img-max-h, 78%)); right: var(--md-img-right, var(--img-right, 0)); left: var(--md-img-left, var(--img-left, auto)); bottom: var(--md-img-bottom, var(--img-bottom, 0)); top: var(--md-img-top, var(--img-top, auto)); object-fit: var(--md-img-fit, var(--img-fit, cover)); object-position: var(--md-img-pos, var(--img-pos, center)); }
+  .service-media img { width: var(--md-img-w, var(--img-w, 70%)); height: var(--md-img-h, var(--img-h, auto)); max-height: var(--md-img-max-h, var(--img-max-h, 85%)); right: var(--md-img-right, var(--img-right, auto)); left: var(--md-img-left, var(--img-left, 50%)); bottom: var(--md-img-bottom, var(--img-bottom, auto)); top: var(--md-img-top, var(--img-top, 50%)); object-fit: var(--md-img-fit, var(--img-fit, cover)); object-position: var(--md-img-pos, var(--img-pos, center)); }
 }
 @media (max-width: 768px) {
   .services-section { padding: 64px 16px 32px; }
@@ -331,7 +331,7 @@ onMounted(() => {
   .services-intro { font-size: 16px; }
   .services-grid { grid-template-columns: 1fr; grid-template-areas: 'audits' 'marketing' 'kyc' 'consulting' 'contracts' 'dapp'; gap: 12px; }
   .service-card { min-height: 320px; }
-  .service-media img { width: var(--sm-img-w, var(--md-img-w, var(--img-w, 70%))); height: var(--sm-img-h, var(--md-img-h, var(--img-h, auto))); max-height: var(--sm-img-max-h, var(--md-img-max-h, var(--img-max-h, 62%))); right: var(--sm-img-right, var(--md-img-right, var(--img-right, 0))); left: var(--sm-img-left, var(--md-img-left, var(--img-left, auto))); bottom: var(--sm-img-bottom, var(--md-img-bottom, var(--img-bottom, 0))); top: var(--sm-img-top, var(--md-img-top, var(--img-top, auto))); object-fit: var(--sm-img-fit, var(--md-img-fit, var(--img-fit, cover))); object-position: var(--sm-img-pos, var(--md-img-pos, var(--img-pos, center))); }
+  .service-media img { width: var(--sm-img-w, var(--md-img-w, var(--img-w, 70%))); height: var(--sm-img-h, var(--md-img-h, var(--img-h, auto))); max-height: var(--sm-img-max-h, var(--md-img-max-h, var(--img-max-h, 85%))); right: var(--sm-img-right, var(--md-img-right, var(--img-right, auto))); left: var(--sm-img-left, var(--md-img-left, var(--img-left, 50%))); bottom: var(--sm-img-bottom, var(--md-img-bottom, var(--img-bottom, auto))); top: var(--sm-img-top, var(--md-img-top, var(--img-top, 50%))); object-fit: var(--sm-img-fit, var(--md-img-fit, var(--img-fit, cover))); object-position: var(--sm-img-pos, var(--md-img-pos, var(--img-pos, center))); }
 }
 
 /* Respect reduced motion */
