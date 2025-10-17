@@ -266,10 +266,10 @@ onMounted(() => {
 }
 
 /* Media */
-.service-media { position: absolute; inset: 0; z-index: 1; display: flex; align-items: flex-end; justify-content: flex-end; pointer-events: none; }
+.service-media { position: absolute; inset: 0; z-index: 1; display: flex; align-items: center; justify-content: center; pointer-events: none; }
 .service-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0) 60%); z-index: 1; }
-.service-media img { position: absolute; right: var(--img-right, 0); left: var(--img-left, auto); bottom: var(--img-bottom, 0); top: var(--img-top, auto); width: var(--img-w, 70%); height: var(--img-h, auto); max-height: var(--img-max-h, 78%); object-fit: var(--img-fit, cover); object-position: var(--img-pos, center); filter: saturate(115%) contrast(110%); transform: var(--img-transform, translate3d(6px, 6px, 0) scale(1.01)); transition: transform 0.35s ease; border-top-left-radius: 14px; }
-.service-card:hover .service-media img { transform: var(--img-transform-hover, translate3d(0, 0, 0) scale(1.04)); }
+.service-media img { position: absolute; right: var(--img-right, auto); left: var(--img-left, 50%); bottom: var(--img-bottom, auto); top: var(--img-top, 50%); width: var(--img-w, 70%); height: var(--img-h, auto); max-height: var(--img-max-h, 78%); object-fit: var(--img-fit, cover); object-position: var(--img-pos, center); filter: saturate(115%) contrast(110%); transform: var(--img-transform, translate(-50%, -50%) scale(1)); transition: transform 0.35s ease; border-top-left-radius: 14px; }
+.service-card:hover .service-media img { transform: var(--img-transform-hover, translate(-50%, -50%) scale(1.04)); }
 
 /* Per-card image configuration via CSS custom properties per-card */
 /* Audits */
