@@ -149,7 +149,7 @@
                   </div>
                 </router-link>
 
-                <a href="#" class="dropdown-item">
+                <router-link to="/lossless" class="dropdown-item" @click="showDropdown = false">
                   <svg class="item-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <g clip-path="url(#clip0_lossless)">
                       <path fill-rule="evenodd" clip-rule="evenodd" d="M13.2864 11.1879L12.1095 10.013L7.57938 14.5357L-0.210449 6.7585L2.29276 4.25935L3.46965 5.43433L7.99972 0.911621L15.7896 8.68879L13.2864 11.1879ZM4.64652 10.1155L1.28401 6.7585L2.29276 5.75137L3.46965 6.92633L7.99972 2.40364L10.1854 4.58573L9.17659 5.59287L7.99972 4.41789L4.47838 7.93346L5.65528 9.10842L4.64652 10.1155ZM5.39375 10.8615L7.57938 13.0436L12.1095 8.52096L13.2864 9.69592L14.2951 8.68879L10.9326 5.33174L9.92382 6.33887L11.1007 7.51383L7.57938 11.0294L6.40248 9.85445L5.39375 10.8615ZM7.57938 9.53738L5.97284 7.93346L7.99972 5.90991L9.60626 7.51383L7.57938 9.53738Z" fill="white"/>
@@ -164,7 +164,7 @@
                     <div class="item-title">Lossless</div>
                     <div class="item-description">Reinforce token security framework</div>
                   </div>
-                </a>
+                </router-link>
               </div>
             </div>
           </li>
