@@ -236,7 +236,30 @@ onMounted(() => {
 .card--dapp { grid-area: dapp; min-height: 300px; }
 
 /* Content */
-.service-content { position: relative; z-index: 2; padding: 22px; max-width: 560px; display: flex; flex-direction: column; gap: 10px; }
+.service-content {
+  position: relative;
+  z-index: 2;
+  padding: 22px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: background-color 180ms ease, backdrop-filter 180ms ease;
+}
+/* On hover, darken and subtly blur the media behind the text for readability */
+.service-media::after { 
+  content: ""; 
+  position: absolute; 
+  inset: 0; 
+  background: none; 
+  z-index: 1; 
+  transition: background-color 180ms ease, backdrop-filter 180ms ease; 
+}
+.service-card:hover .service-media::after { 
+  background: rgba(0,0,0,0.35); 
+  backdrop-filter: blur(4px); 
+  -webkit-backdrop-filter: blur(4px); 
+}
 .service-name { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 22px; font-weight: 700; line-height: 1.2; margin: 0; }
 .service-description { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; line-height: 1.5; margin: 0; font-variant-ligatures: none; font-kerning: none; font-feature-settings: 'liga' 0, 'clig' 0, 'calt' 0; text-rendering: geometricPrecision; }
 
@@ -267,7 +290,6 @@ onMounted(() => {
 
 /* Media */
 .service-media { position: absolute; inset: 0; z-index: 1; display: flex; align-items: center; justify-content: center; pointer-events: none; }
-.service-media::after { content: ""; position: absolute; inset: 0; background: none; z-index: 1; }
 .service-media img { position: absolute; right: var(--img-right, auto); left: var(--img-left, 50%); bottom: var(--img-bottom, auto); top: var(--img-top, 50%); width: var(--img-w, 70%); height: var(--img-h, 100%); max-height: var(--img-max-h, none); object-fit: var(--img-fit, cover); object-position: var(--img-pos, center); filter: saturate(115%) contrast(110%); transform: var(--img-transform, translate(-50%, -50%) scale(1)); transition: transform 0.35s ease; border-top-left-radius: 14px; }
 .service-card:hover .service-media img { transform: var(--img-transform-hover, translate(-50%, -50%) scale(1.04)); }
 
@@ -331,6 +353,7 @@ onMounted(() => {
   .services-intro { font-size: 16px; }
   .services-grid { grid-template-columns: 1fr; grid-template-areas: 'audits' 'marketing' 'kyc' 'consulting' 'contracts' 'dapp'; gap: 12px; }
   .service-card { min-height: 320px; }
+  .service-content { padding: 18px; border-radius: 12px; }
   .service-media img { width: var(--sm-img-w, var(--md-img-w, var(--img-w, 70%))); height: var(--sm-img-h, var(--md-img-h, var(--img-h, auto))); max-height: var(--sm-img-max-h, var(--md-img-max-h, var(--img-max-h, 85%))); right: var(--sm-img-right, var(--md-img-right, var(--img-right, auto))); left: var(--sm-img-left, var(--md-img-left, var(--img-left, 50%))); bottom: var(--sm-img-bottom, var(--md-img-bottom, var(--img-bottom, auto))); top: var(--sm-img-top, var(--md-img-top, var(--img-top, 50%))); object-fit: var(--sm-img-fit, var(--md-img-fit, var(--img-fit, cover))); object-position: var(--sm-img-pos, var(--md-img-pos, var(--img-pos, center))); }
 }
 
