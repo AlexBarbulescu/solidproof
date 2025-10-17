@@ -16,7 +16,7 @@
             </p>
           </div>
           <figure class="service-media">
-            <img src="/images/audits.png" alt="Abstract chrome audit visual representing protocol assessments" loading="lazy" />
+            <img src="/images/audits.jpg" alt="Abstract chrome audit visual representing protocol assessments" loading="lazy" />
           </figure>
         </article>
 
@@ -29,7 +29,7 @@
             </p>
           </div>
           <figure class="service-media">
-            <img src="/images/marketing-two.png" alt="Iridescent chrome ring composition highlighting growth and awareness" loading="lazy" />
+            <img src="/images/marketing.jpg" loading="lazy" />
           </figure>
         </article>
 
@@ -42,7 +42,7 @@
             </p>
           </div>
           <figure class="service-media">
-            <img src="/images/kyc.png" alt="Methodology graphic symbolizing secure identity verification" loading="lazy" />
+            <img src="/images/kyc.jpg" alt="Methodology graphic symbolizing secure identity verification" loading="lazy" />
           </figure>
         </article>
 
@@ -55,7 +55,7 @@
             </p>
           </div>
           <figure class="service-media">
-            <img src="/images/consulting.png" alt="Strategic visualization for security consulting" loading="lazy" />
+            <img src="/images/consulting.jpg" alt="Strategic visualization for security consulting" loading="lazy" />
           </figure>
         </article>
 
@@ -68,7 +68,7 @@
             </p>
           </div>
           <figure class="service-media">
-            <img src="/images/smartcontract.png" alt="Chrome vault-like cube implying robust smart contracts" loading="lazy" />
+            <img src="/images/smartcontract.jpg" alt="Chrome vault-like cube implying robust smart contracts" loading="lazy" />
           </figure>
         </article>
 
@@ -81,7 +81,7 @@
             </p>
           </div>
           <figure class="service-media">
-            <img src="/images/dapp.png" alt="Iridescent geometric shards suggesting dApp engineering" loading="lazy" />
+            <img src="/images/dapp.jpg" alt="Iridescent geometric shards suggesting dApp engineering" loading="lazy" />
           </figure>
         </article>
       </div>
@@ -230,7 +230,7 @@ onMounted(() => {
 /* Mosaic placement */
 .card--audits { grid-area: audits; min-height: 360px; }
 .card--marketing { grid-area: marketing; min-height: 560px; }
-.card--kyc { grid-area: kyc; min-height: 280px; }
+.card--kyc { grid-area: kyc; min-height: 500px; }
 .card--consulting { grid-area: consulting; min-height: 280px; }
 .card--contracts { grid-area: contracts; min-height: 300px; }
 .card--dapp { grid-area: dapp; min-height: 300px; }
@@ -273,11 +273,11 @@ onMounted(() => {
 
 /* Per-card image configuration via CSS custom properties per-card */
 /* Audits */
-.card--audits { --img-w:100%; --img-h:100%; --img-fit:cover; --img-pos:center 35%; --md-img-w:100%; --md-img-h:100%; --md-img-fit:cover; --md-img-pos:center 35%; --sm-img-w:100%; --sm-img-h:90%; --sm-img-fit:cover; --sm-img-pos:center; --img-transform:translate3d(0,0,0) scale(1); --img-transform-hover:translate3d(0,0,0) scale(1.02); }
+.card--audits { --img-w:100%; --img-h:100%; --img-fit:cover; --img-pos:center 50%; --md-img-w:100%; --md-img-h:100%; --md-img-fit:cover; --md-img-pos:center 35%; --sm-img-w:100%; --sm-img-h:90%; --sm-img-fit:cover; --sm-img-pos:center; --img-transform:translate3d(0,0,0) scale(1); --img-transform-hover:translate3d(0,0,0) scale(1.02); }
 /* Marketing */
-.card--marketing { --img-w:100%; --img-h:100%; --img-fit:cover; --img-pos:center; --md-img-w:100%; --md-img-h:100%; --md-img-fit:cover; --md-img-pos:center; --sm-img-w:100%; --sm-img-h:85%; --sm-img-fit:cover; --sm-img-pos:center; --img-transform:translate3d(0,0,0) scale(1); --img-transform-hover:translate3d(0,0,0) scale(1.02); }
+.card--marketing { --img-w:100%; --img-h:100%; --img-fit:cover; --img-pos:center; --md-img-w:100%; --md-img-h:100%; --md-img-fit:cover; --md-img-pos:center; --sm-img-w:100%; --sm-img-h:100%; --sm-img-fit:cover; --sm-img-pos:center; --img-transform:translate3d(0,0,0) scale(1); --img-transform-hover:translate3d(0,0,0) scale(1.02); }
 /* KYC */
-.card--kyc { --img-w:90%; --img-h:auto; --img-left:50%; --img-bottom:5%; --img-fit:contain; --img-pos:center; --md-img-w:85%; --md-img-h:auto; --md-img-left:50%; --md-img-bottom:5%; --md-img-fit:contain; --md-img-pos:center; --sm-img-w:80%; --sm-img-h:auto; --sm-img-left:50%; --sm-img-bottom:8%; --sm-img-fit:contain; --sm-img-pos:center; --img-transform:translate(-50%, 0) scale(1.2); --img-transform-hover:translate(-50%, 0) scale(1.25); }
+.card--kyc { --img-w:100%; --img-h:auto; --img-left:50%; --img-bottom:0%; --img-fit:contain; --img-pos:center; --md-img-w:85%; --md-img-h:auto; --md-img-left:50%; --md-img-bottom:5%; --md-img-fit:contain; --md-img-pos:center; --sm-img-w:80%; --sm-img-h:auto; --sm-img-left:50%; --sm-img-bottom:8%; --sm-img-fit:contain; --sm-img-pos:center; --img-transform:translate(-50%, 0) scale(1.2); --img-transform-hover:translate(-50%, 0) scale(1.25); }
 /* Consulting */
 .card--consulting { --img-w:90%; --img-h:auto; --img-left:50%; --img-bottom:5%; --img-fit:contain; --img-pos:center; --md-img-w:85%; --md-img-h:auto; --md-img-left:50%; --md-img-bottom:5%; --md-img-fit:contain; --md-img-pos:center; --sm-img-w:80%; --sm-img-h:auto; --sm-img-left:50%; --sm-img-bottom:8%; --sm-img-fit:contain; --sm-img-pos:center; --img-transform:translate(-50%, 0) scale(1.2); --img-transform-hover:translate(-50%, 0) scale(1.25); }
 /* Smart Contracts */
