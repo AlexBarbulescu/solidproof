@@ -122,7 +122,7 @@
                   </div>
                 </router-link>
 
-                <a href="#" class="dropdown-item">
+                <router-link to="/proactive-web3-security" class="dropdown-item" @click="showDropdown = false">
                   <svg class="item-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <g clip-path="url(#clip0_security)">
                       <path d="M11.4282 1.65875V2.93123H4.6416V1.65875L11.4282 1.65875Z" fill="url(#paint0_linear_security)"/>
@@ -147,7 +147,7 @@
                     <div class="item-title">Proactive Web3 Security</div>
                     <div class="item-description">Real-time detection and prevention of crypto attacks</div>
                   </div>
-                </a>
+                </router-link>
 
                 <a href="#" class="dropdown-item">
                   <svg class="item-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
