@@ -223,7 +223,7 @@ onMounted(() => {
   'contracts dapp marketing'; }
 
 /* Base card */
-.service-card { position: relative; overflow: hidden; border-radius: 16px; background: #0F1011; border: 1px solid rgba(255,255,255,0.08); min-height: 270px; isolation: isolate; }
+.service-card { position: relative; overflow: hidden; border-radius: 16px; background: #000000; border: 1px solid rgba(255,255,255,0.08); min-height: 270px; isolation: isolate; }
 .service-card::before { content: ""; position: absolute; inset: 0; background: radial-gradient(55% 110% at 80% 90%, rgba(13,110,253,0.18) 0%, rgba(99,102,241,0.1) 40%, rgba(0,0,0,0) 70%); pointer-events: none; z-index: 0; }
 .service-card:hover { border-color: rgba(255,255,255,0.18); box-shadow: 0 10px 28px rgba(0,0,0,0.35); }
 
@@ -267,51 +267,51 @@ onMounted(() => {
 
 /* Media */
 .service-media { position: absolute; inset: 0; z-index: 1; display: flex; align-items: center; justify-content: center; pointer-events: none; }
-.service-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0) 60%); z-index: 1; }
-.service-media img { position: absolute; right: var(--img-right, auto); left: var(--img-left, 50%); bottom: var(--img-bottom, auto); top: var(--img-top, 50%); width: var(--img-w, 70%); height: var(--img-h, auto); max-height: var(--img-max-h, 85%); object-fit: var(--img-fit, cover); object-position: var(--img-pos, center); filter: saturate(115%) contrast(110%); transform: var(--img-transform, translate(-50%, -50%) scale(1)); transition: transform 0.35s ease; border-top-left-radius: 14px; }
+.service-media::after { content: ""; position: absolute; inset: 0; background: none; z-index: 1; }
+.service-media img { position: absolute; right: var(--img-right, auto); left: var(--img-left, 50%); bottom: var(--img-bottom, auto); top: var(--img-top, 50%); width: var(--img-w, 70%); height: var(--img-h, 100%); max-height: var(--img-max-h, none); object-fit: var(--img-fit, cover); object-position: var(--img-pos, center); filter: saturate(115%) contrast(110%); transform: var(--img-transform, translate(-50%, -50%) scale(1)); transition: transform 0.35s ease; border-top-left-radius: 14px; }
 .service-card:hover .service-media img { transform: var(--img-transform-hover, translate(-50%, -50%) scale(1.04)); }
 
 /* Per-card image configuration via CSS custom properties per-card */
 /* Audits */
 .card--audits {
-  --img-w: 110%; --img-h: 110%; --img-fit: cover; --img-pos: center;
-  --md-img-w: 120%; --md-img-h: 120%; --md-img-fit: cover; --md-img-pos: center;
-  --sm-img-w: 130%; --sm-img-h: 130%; --sm-img-fit: cover; --sm-img-pos: center;
+  --img-w: 100%; --img-h: 100%; --img-fit: cover; --img-pos: center;
+  --md-img-w: 100%; --md-img-h: 100%; --md-img-fit: cover; --md-img-pos: center;
+  --sm-img-w: 100%; --sm-img-h: 100%; --sm-img-fit: cover; --sm-img-pos: center;
   --img-transform: translate(-50%, -50%) scale(1); --img-transform-hover: translate(-50%, -50%) scale(1.05);
 }
 /* Marketing */
 .card--marketing {
-  --img-w: 110%; --img-h: 110%; --img-fit: cover; --img-pos: center;
-  --md-img-w: 120%; --md-img-h: 120%; --md-img-fit: cover; --md-img-pos: center;
-  --sm-img-w: 130%; --sm-img-h: 130%; --sm-img-fit: cover; --sm-img-pos: center;
+  --img-w: 100%; --img-h: 100%; --img-fit: cover; --img-pos: center;
+  --md-img-w: 100%; --md-img-h: 100%; --md-img-fit: cover; --md-img-pos: center;
+  --sm-img-w: 100%; --sm-img-h: 100%; --sm-img-fit: cover; --sm-img-pos: center;
   --img-transform: translate(-50%, -50%) scale(1); --img-transform-hover: translate(-50%, -50%) scale(1.05);
 }
 /* KYC */
 .card--kyc {
-  --img-w: 95%; --img-h: auto; --img-fit: contain; --img-pos: center;
-  --md-img-w: 100%; --md-img-h: auto; --md-img-fit: contain; --md-img-pos: center;
-  --sm-img-w: 105%; --sm-img-h: auto; --sm-img-fit: contain; --sm-img-pos: center;
+  --img-w: 95%; --img-h: 100%; --img-fit: contain; --img-pos: center;
+  --md-img-w: 95%; --md-img-h: 100%; --md-img-fit: contain; --md-img-pos: center;
+  --sm-img-w: 95%; --sm-img-h: 100%; --sm-img-fit: contain; --sm-img-pos: center;
   --img-transform: translate(-50%, -50%) scale(1); --img-transform-hover: translate(-50%, -50%) scale(1.08);
 }
 /* Consulting */
 .card--consulting {
-  --img-w: 95%; --img-h: auto; --img-fit: contain; --img-pos: center;
-  --md-img-w: 100%; --md-img-h: auto; --md-img-fit: contain; --md-img-pos: center;
-  --sm-img-w: 105%; --sm-img-h: auto; --sm-img-fit: contain; --sm-img-pos: center;
+  --img-w: 95%; --img-h: 100%; --img-fit: contain; --img-pos: center;
+  --md-img-w: 95%; --md-img-h: 100%; --md-img-fit: contain; --md-img-pos: center;
+  --sm-img-w: 95%; --sm-img-h: 100%; --sm-img-fit: contain; --sm-img-pos: center;
   --img-transform: translate(-50%, -50%) scale(1); --img-transform-hover: translate(-50%, -50%) scale(1.08);
 }
 /* Smart Contracts */
 .card--contracts {
-  --img-w: 95%; --img-h: auto; --img-fit: contain; --img-pos: center;
-  --md-img-w: 100%; --md-img-h: auto; --md-img-fit: contain; --md-img-pos: center;
-  --sm-img-w: 105%; --sm-img-h: auto; --sm-img-fit: contain; --sm-img-pos: center;
+  --img-w: 95%; --img-h: 100%; --img-fit: contain; --img-pos: center;
+  --md-img-w: 95%; --md-img-h: 100%; --md-img-fit: contain; --md-img-pos: center;
+  --sm-img-w: 95%; --sm-img-h: 100%; --sm-img-fit: contain; --sm-img-pos: center;
   --img-transform: translate(-50%, -50%) scale(1); --img-transform-hover: translate(-50%, -50%) scale(1.08);
 }
 /* DApp */
 .card--dapp {
-  --img-w: 95%; --img-h: auto; --img-fit: contain; --img-pos: center;
-  --md-img-w: 100%; --md-img-h: auto; --md-img-fit: contain; --md-img-pos: center;
-  --sm-img-w: 105%; --sm-img-h: auto; --sm-img-fit: contain; --sm-img-pos: center;
+  --img-w: 95%; --img-h: 100%; --img-fit: contain; --img-pos: center;
+  --md-img-w: 95%; --md-img-h: 100%; --md-img-fit: contain; --md-img-pos: center;
+  --sm-img-w: 95%; --sm-img-h: 100%; --sm-img-fit: contain; --sm-img-pos: center;
   --img-transform: translate(-50%, -50%) scale(1); --img-transform-hover: translate(-50%, -50%) scale(1.08);
 }
 
