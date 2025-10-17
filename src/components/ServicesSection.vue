@@ -288,30 +288,30 @@ onMounted(() => {
 }
 /* KYC */
 .card--kyc {
-  --img-w: 95%; --img-h: 100%; --img-fit: contain; --img-pos: center;
-  --md-img-w: 95%; --md-img-h: 100%; --md-img-fit: contain; --md-img-pos: center;
-  --sm-img-w: 95%; --sm-img-h: 100%; --sm-img-fit: contain; --sm-img-pos: center;
+  --img-w: 100%; --img-h: 100%; --img-fit: cover; --img-pos: center;
+  --md-img-w: 100%; --md-img-h: 100%; --md-img-fit: cover; --md-img-pos: center;
+  --sm-img-w: 100%; --sm-img-h: 100%; --sm-img-fit: cover; --sm-img-pos: center;
   --img-transform: translate(-50%, -50%) scale(1); --img-transform-hover: translate(-50%, -50%) scale(1.08);
 }
 /* Consulting */
 .card--consulting {
-  --img-w: 95%; --img-h: 100%; --img-fit: contain; --img-pos: center;
-  --md-img-w: 95%; --md-img-h: 100%; --md-img-fit: contain; --md-img-pos: center;
-  --sm-img-w: 95%; --sm-img-h: 100%; --sm-img-fit: contain; --sm-img-pos: center;
+  --img-w: 100%; --img-h: 100%; --img-fit: cover; --img-pos: center;
+  --md-img-w: 100%; --md-img-h: 100%; --md-img-fit: cover; --md-img-pos: center;
+  --sm-img-w: 100%; --sm-img-h: 100%; --sm-img-fit: cover; --sm-img-pos: center;
   --img-transform: translate(-50%, -50%) scale(1); --img-transform-hover: translate(-50%, -50%) scale(1.08);
 }
 /* Smart Contracts */
 .card--contracts {
-  --img-w: 95%; --img-h: 100%; --img-fit: contain; --img-pos: center;
-  --md-img-w: 95%; --md-img-h: 100%; --md-img-fit: contain; --md-img-pos: center;
-  --sm-img-w: 95%; --sm-img-h: 100%; --sm-img-fit: contain; --sm-img-pos: center;
+  --img-w: 100%; --img-h: 100%; --img-fit: cover; --img-pos: center;
+  --md-img-w: 100%; --md-img-h: 100%; --md-img-fit: cover; --md-img-pos: center;
+  --sm-img-w: 100%; --sm-img-h: 100%; --sm-img-fit: cover; --sm-img-pos: center;
   --img-transform: translate(-50%, -50%) scale(1); --img-transform-hover: translate(-50%, -50%) scale(1.08);
 }
 /* DApp */
 .card--dapp {
-  --img-w: 95%; --img-h: 100%; --img-fit: contain; --img-pos: center;
-  --md-img-w: 95%; --md-img-h: 100%; --md-img-fit: contain; --md-img-pos: center;
-  --sm-img-w: 95%; --sm-img-h: 100%; --sm-img-fit: contain; --sm-img-pos: center;
+  --img-w: 100%; --img-h: 100%; --img-fit: cover; --img-pos: center;
+  --md-img-w: 100%; --md-img-h: 100%; --md-img-fit: cover; --md-img-pos: center;
+  --sm-img-w: 100%; --sm-img-h: 100%; --sm-img-fit: cover; --sm-img-pos: center;
   --img-transform: translate(-50%, -50%) scale(1); --img-transform-hover: translate(-50%, -50%) scale(1.08);
 }
 
