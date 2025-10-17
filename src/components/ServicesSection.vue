@@ -274,9 +274,9 @@ onMounted(() => {
 /* Per-card image configuration via CSS custom properties per-card */
 /* Audits */
 .card--audits {
-  --img-w: 90%; --img-h: 90%; --img-fit: cover; --img-pos: center;
-  --md-img-w: 85%; --md-img-h: 85%; --md-img-fit: cover; --md-img-pos: center;
-  --sm-img-w: 90%; --sm-img-h: 80%; --sm-img-fit: cover; --sm-img-pos: center;
+  --img-w: 110%; --img-h: 110%; --img-fit: cover; --img-pos: center;
+  --md-img-w: 105%; --md-img-h: 105%; --md-img-fit: cover; --md-img-pos: center;
+  --sm-img-w: 110%; --sm-img-h: 100%; --sm-img-fit: cover; --sm-img-pos: center;
   --img-transform: translate(-50%, -50%) scale(1); --img-transform-hover: translate(-50%, -50%) scale(1.05);
 }
 /* Marketing */
