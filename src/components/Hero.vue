@@ -133,9 +133,8 @@ onBeforeUnmount(() => {
 
 .flag-band {
   display: inline-block;
-  width: 48px;
+  width: 55px;
   height: 8px;
-  border-radius: 2px;
 }
 
 .flag-black {
@@ -242,7 +241,7 @@ onBeforeUnmount(() => {
   }
 
   .flag-band {
-    width: 42px;
+    width: 48px;
     height: 7px;
   }
 
@@ -281,7 +280,7 @@ onBeforeUnmount(() => {
   }
 
   .flag-band {
-    width: 36px;
+    width: 42px;
     height: 6px;
   }
 
@@ -332,7 +331,7 @@ onBeforeUnmount(() => {
   }
 
   .flag-band {
-    width: 30px;
+    width: 36px;
     height: 5px;
   }
 
