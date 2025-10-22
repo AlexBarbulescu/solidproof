@@ -133,8 +133,8 @@ onBeforeUnmount(() => {
 
 .flag-band {
   display: inline-block;
-  width: 24px;
-  height: 16px;
+  width: 48px;
+  height: 8px;
   border-radius: 2px;
 }
 
