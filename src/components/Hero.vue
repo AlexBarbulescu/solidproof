@@ -331,9 +331,9 @@ onBeforeUnmount(() => {
     font-size: 0.6875rem;
   }
 
-  .flag-icon {
-    height: 18px;
-    width: 24px;
+  .flag-band {
+    width: 16px;
+    height: 10px;
   }
 
   .badge-subtitle {
