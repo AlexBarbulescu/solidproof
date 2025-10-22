@@ -8,6 +8,7 @@ import Consulting from './pages/Consulting.vue'
 import Development from './pages/Development.vue'
 import ProactiveWeb3Security from './pages/ProactiveWeb3Security.vue'
 import Lossless from './pages/Lossless.vue'
+import Branding from './pages/Branding.vue'
 
 const routes = [
   { path: '/', name: 'home', component: Home },
@@ -18,6 +19,7 @@ const routes = [
   { path: '/development', name: 'development', component: Development },
   { path: '/proactive-web3-security', name: 'proactive-web3-security', component: ProactiveWeb3Security },
   { path: '/lossless', name: 'lossless', component: Lossless },
+  { path: '/branding', name: 'branding', component: Branding },
 ]
 
 const router = createRouter({
