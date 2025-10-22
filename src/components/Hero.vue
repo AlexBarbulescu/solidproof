@@ -126,10 +126,28 @@ onBeforeUnmount(() => {
   font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
 }
 
-.flag-icon {
-  height: 24px;
-  width: 32px;
-  object-fit: contain;
+.hero-flag {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.flag-band {
+  display: inline-block;
+  width: 24px;
+  height: 16px;
+  border-radius: 2px;
+}
+
+.flag-black {
+  background: #1b1b1b;
+}
+
+.flag-red {
+  background: #d71f3b;
+}
+
+.flag-gold {
+  background: #f2c200;
 }
 
 .badge-subtitle {
