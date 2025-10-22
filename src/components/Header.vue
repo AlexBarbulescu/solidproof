@@ -412,6 +412,23 @@
                     <div class="item-description">Any questions?</div>
                   </div>
                 </a>
+
+                <a href="#" class="dropdown-item">
+                  <svg class="item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <g clip-path="url(#clip3_branding)">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15h-2v-2h2v2zm0-4h-2V7h2v6zm4 4h-2v-2h2v2zm0-4h-2V7h2v6z" fill="#0D6EFD"/>
+                    </g>
+                    <defs>
+                      <clipPath id="clip3_branding">
+                        <rect width="24" height="24" fill="white"/>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                  <div class="item-content">
+                    <div class="item-title">Branding Logos</div>
+                    <div class="item-description">Brand assets and logo guidelines</div>
+                  </div>
+                </a>
               </div>
             </div>
           </li>
