@@ -328,12 +328,12 @@ onBeforeUnmount(() => {
   }
 
   .badge-text {
-    font-size: 0.6875rem;
+    font-size: 0.875rem;
   }
 
   .flag-band {
-    width: 16px;
-    height: 10px;
+    width: 30px;
+    height: 5px;
   }
 
   .badge-subtitle {
