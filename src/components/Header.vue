@@ -676,7 +676,8 @@ onBeforeUnmount(() => {
   .dropdown-trigger { width: 100%; justify-content: space-between; }
   .services-dropdown,
   .projects-dropdown,
-  .socials-dropdown { position: static; top: auto; left: auto; transform: none; width: 100%; padding: 10px 8px; margin-top: 8px; border-radius: 12px; }
+  .socials-dropdown,
+  .company-dropdown { position: static; top: auto; left: auto; transform: none; width: 100%; padding: 10px 8px; margin-top: 8px; border-radius: 12px; }
   .dropdown-header { padding: 8px 12px; }
   .dropdown-items { gap: 8px; }
   .dropdown-items .dropdown-item + .dropdown-item { margin-top: 8px; }
