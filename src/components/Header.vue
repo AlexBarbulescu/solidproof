@@ -6,7 +6,7 @@
         <img src="/images/logo_horizontal_black.svg" alt="SolidProof" class="brand-logo brand-logo--light" />
       </a>
       <a href="#" class="quote-btn">
-        Request a Quote
+        LAUNCH APP
       </a>
       <button
         class="nav-toggle"
@@ -412,7 +412,7 @@
           </li>
           <li><a href="#">News</a></li>
           <li class="mobile-quote-item">
-            <a href="#" class="mobile-quote-btn">Request a Quote</a>
+            <a href="#" class="mobile-quote-btn">LAUNCH APP</a>
           </li>
         </ul>
       </nav>
@@ -592,7 +592,7 @@ onBeforeUnmount(() => {
   text-decoration: none;
   font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 800;
   line-height: 1;
   transition: all 0.3s ease;
   white-space: nowrap;
@@ -620,7 +620,7 @@ onBeforeUnmount(() => {
   text-decoration: none;
   font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 800;
   line-height: 1;
   transition: all 0.3s ease;
   text-align: center;
