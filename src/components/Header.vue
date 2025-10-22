@@ -346,15 +346,7 @@
               <div class="dropdown-items">
                 <a href="#" class="dropdown-item">
                   <svg class="item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <rect x="3" y="3" width="4" height="4" fill="#0D6EFD"/>
-                    <rect x="9" y="3" width="4" height="4" fill="#0D6EFD"/>
-                    <rect x="15" y="3" width="4" height="4" fill="#0D6EFD"/>
-                    <rect x="3" y="9" width="4" height="4" fill="#0D6EFD"/>
-                    <rect x="9" y="9" width="4" height="4" fill="#0D6EFD"/>
-                    <rect x="15" y="9" width="4" height="4" fill="#0D6EFD"/>
-                    <rect x="3" y="15" width="4" height="4" fill="#0D6EFD"/>
-                    <rect x="9" y="15" width="4" height="4" fill="#0D6EFD"/>
-                    <rect x="15" y="15" width="4" height="4" fill="#0D6EFD"/>
+                    <path d="M15.5 1h-8C6.12 1 5 2.12 5 3.5v17C5 21.88 6.12 23 7.5 23h8c1.38 0 2.5-1.12 2.5-2.5v-17C18 2.12 16.88 1 15.5 1zm-4 21c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4.5-4H7V4h9v14z" fill="#0D6EFD"/>
                   </svg>
                   <div class="item-content">
                     <div class="item-title">Partners</div>
@@ -364,14 +356,7 @@
 
                 <a href="#" class="dropdown-item">
                   <svg class="item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <g clip-path="url(#clip0_sponsor)">
-                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#0D6EFD"/>
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_sponsor">
-                        <rect width="24" height="24" fill="white"/>
-                      </clipPath>
-                    </defs>
+                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2l-2.81 6.63L2 9.24l5.46 4.73L5.82 21 12 17.27z" fill="#0D6EFD"/>
                   </svg>
                   <div class="item-content">
                     <div class="item-title">Sponsoring</div>
@@ -396,6 +381,16 @@
                   </div>
                 </a>
 
+                <a href="#" class="dropdown-item">
+                  <svg class="item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#0D6EFD"/>
+                  </svg>
+                  <div class="item-content">
+                    <div class="item-title">Branding Logos</div>
+                    <div class="item-description">Brand assets and logo guidelines</div>
+                  </div>
+                </a>
+
                 <a href="#" class="dropdown-item company-special">
                   <svg class="item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
                     <g clip-path="url(#clip2_contact)">
@@ -410,23 +405,6 @@
                   <div class="item-content">
                     <div class="item-title">Contact</div>
                     <div class="item-description">Any questions?</div>
-                  </div>
-                </a>
-
-                <a href="#" class="dropdown-item">
-                  <svg class="item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <g clip-path="url(#clip3_branding)">
-                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15h-2v-2h2v2zm0-4h-2V7h2v6zm4 4h-2v-2h2v2zm0-4h-2V7h2v6z" fill="#0D6EFD"/>
-                    </g>
-                    <defs>
-                      <clipPath id="clip3_branding">
-                        <rect width="24" height="24" fill="white"/>
-                      </clipPath>
-                    </defs>
-                  </svg>
-                  <div class="item-content">
-                    <div class="item-title">Branding Logos</div>
-                    <div class="item-description">Brand assets and logo guidelines</div>
                   </div>
                 </a>
               </div>
