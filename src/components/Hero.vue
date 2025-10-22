@@ -287,22 +287,40 @@ onBeforeUnmount(() => {
 
 /* Extra small mobile */
 @media (max-width: 480px) {
-  .hero-section { 
-    padding: 32px 0 48px; 
+  .hero-section {
+    padding: 32px 0 48px;
   }
-  
+
   .hero-inner {
     padding: 0 16px;
   }
-  
-  .hero-title { 
-    font-size: 1.75rem; 
+
+  .hero-badge {
+    margin-bottom: 12px;
+    gap: 4px;
   }
-  
-  .hero-subtitle { 
+
+  .badge-text {
+    font-size: 0.6875rem;
+  }
+
+  .flag-icon {
+    height: 18px;
+    width: 24px;
+  }
+
+  .badge-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .hero-title {
+    font-size: 1.75rem;
+  }
+
+  .hero-subtitle {
     font-size: 0.9rem;
   }
-  
+
   .hero-cta {
     padding: 12px 20px;
     font-size: 14px;
