@@ -634,6 +634,23 @@ onBeforeUnmount(() => {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
+/* Company Dropdown */
+.company-dropdown {
+  position: absolute;
+  top: calc(100% + 18px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 290px;
+  padding: 10px 0;
+  background: linear-gradient(180deg, rgba(47, 47, 51, 0.87) 0%, rgba(61, 62, 67, 0.87) 34.82%, rgba(47, 47, 51, 0.87) 100%), #2F2F33;
+  border: 1px solid #606061;
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1000;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
 .github-special { background: #2A2A2C; padding: 5px 15px; min-height: 94px; align-items: flex-start; }
 .github-special .item-icon { position: absolute; left: 16px; top: 5px; transform: none; width: 14px; height: 16px; }
 .github-content { position: absolute; left: 43px; top: 50%; transform: translateY(-50%); width: 228px; height: 94px; padding: 5px 0; display: flex; flex-direction: column; align-items: flex-start; gap: 3px; }
