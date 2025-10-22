@@ -118,7 +118,7 @@ onBeforeUnmount(() => {
 }
 
 .badge-text {
-  font-size: 0.875rem;
+  font-size: 1.25rem;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.9);
   letter-spacing: 0.05em;
