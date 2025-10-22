@@ -7,6 +7,11 @@
     <div class="hero-inner">
       <div class="hero-layout">
         <div class="hero-copy">
+          <div class="hero-badge">
+            <p class="badge-text">Made in Germany</p>
+            <img src="/images/madeingermany.svg" alt="German Flag" class="flag-icon" />
+            <h2 class="badge-subtitle">Blockchain Security</h2>
+          </div>
           <h1 class="hero-title">Auditing & Security for Web3</h1>
           <p class="hero-subtitle">Solid, independent smart contract audits and blockchain security reviews to protect your protocols and users.</p>
           <div class="hero-actions">
