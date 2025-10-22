@@ -454,6 +454,12 @@ function onDocClick(e) {
       showSocialsDropdown.value = false
     }
   }
+  if (showCompanyDropdown.value) {
+    const companyRoot = companyDropdownWrapper.value
+    if (companyRoot && !companyRoot.contains(e.target)) {
+      showCompanyDropdown.value = false
+    }
+  }
 }
 
 function handleResize() {
