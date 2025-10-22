@@ -435,6 +435,11 @@ const projectsDropdownWrapper = ref(null)
 const socialsDropdownWrapper = ref(null)
 const companyDropdownWrapper = ref(null)
 
+// Tawk configuration
+const tawkPropertyId = '68da53b0acbab119535c12ea'
+const tawkWidgetId = '1j6addqb8'
+let tawkLoaded = false
+
 function toggleDropdown() {
   showDropdown.value = !showDropdown.value
   showProjectsDropdown.value = false
