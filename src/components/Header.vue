@@ -326,7 +326,66 @@
               </div>
             </div>
           </li>
-          <li><a href="#">Company</a></li>
+          <li class="dropdown-container" ref="companyDropdownWrapper">
+            <a href="#" class="dropdown-trigger" @click.prevent.stop="toggleCompanyDropdown" :aria-expanded="showCompanyDropdown ? 'true' : 'false'">
+              Company
+              <svg class="trigger-caret" width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M4.64645 6.64645C4.84171 6.45118 5.15829 6.45118 5.35355 6.64645L8 9.29289L10.6464 6.64645C10.8417 6.45118 11.1583 6.45118 11.3536 6.64645C11.5488 6.84171 11.5488 7.15829 11.3536 7.35355L8.35355 10.3536C8.15829 10.5488 7.84171 10.5488 7.64645 10.3536L4.64645 7.35355C4.45118 7.15829 4.45118 6.84171 4.64645 6.64645Z" fill="currentColor"/>
+              </svg>
+            </a>
+            <div class="company-dropdown" v-show="showCompanyDropdown">
+              <div class="dropdown-header">
+                <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M2 3h4v4H2V3zm5 0h4v4H7V3zm5 0h2v4h-2V3zM2 9h4v4H2V9zm5 0h4v4H7V9zm5 0h2v4h-2V9z" fill="white"/>
+                </svg>
+                <span class="dropdown-title">Company</span>
+              </div>
+
+              <div class="dropdown-divider"></div>
+
+              <div class="dropdown-items">
+                <a href="#" class="dropdown-item">
+                  <svg class="item-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M2 2h4v4H2V2zm5 0h4v4H7V2zm5 0h2v4h-2V2zM2 8h4v4H2V8zm5 0h4v4H7V8zm5 0h2v4h-2V8z" fill="white"/>
+                  </svg>
+                  <div class="item-content">
+                    <div class="item-title">Partners</div>
+                    <div class="item-description">Our official partners</div>
+                  </div>
+                </a>
+
+                <a href="#" class="dropdown-item">
+                  <svg class="item-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M8 0a1 1 0 0 0-1 1v2H3a1 1 0 0 0-1 1v2a2 2 0 0 0-2 2v3a1 1 0 0 0 2 0v-1h12v1a1 1 0 0 0 2 0V8a2 2 0 0 0-2-2V4a1 1 0 0 0-1-1h-4V1a1 1 0 0 0-1-1zm-5 4h10v2H3V4z" fill="white"/>
+                  </svg>
+                  <div class="item-content">
+                    <div class="item-title">Sponsoring</div>
+                    <div class="item-description">SolidProof's sponsorings</div>
+                  </div>
+                </a>
+
+                <a href="#" class="dropdown-item">
+                  <svg class="item-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M8 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 1c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="white"/>
+                  </svg>
+                  <div class="item-content">
+                    <div class="item-title">Meet us</div>
+                    <div class="item-description">Where Personal Conversations Come to Life</div>
+                  </div>
+                </a>
+
+                <a href="#" class="dropdown-item">
+                  <svg class="item-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M2.5 2h11a1.5 1.5 0 0 1 1.5 1.5v9A1.5 1.5 0 0 1 13.5 14h-11A1.5 1.5 0 0 1 1 12.5v-9A1.5 1.5 0 0 1 2.5 2zm0 1a.5.5 0 0 0-.5.5v.75l7 3.5 7-3.5V3.5a.5.5 0 0 0-.5-.5h-11zm0 3.5V12.5a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5V6.5l-7 3.5-5-2.5z" fill="white"/>
+                  </svg>
+                  <div class="item-content">
+                    <div class="item-title">Contact</div>
+                    <div class="item-description">Any questions?</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
           <li><a href="#">News</a></li>
           <li class="mobile-quote-item">
             <a href="#" class="mobile-quote-btn">Request a Quote</a>
