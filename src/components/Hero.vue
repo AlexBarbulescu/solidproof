@@ -234,32 +234,50 @@ onBeforeUnmount(() => {
 
 /* Mobile responsive */
 @media (max-width: 767px) {
-  .hero-section { 
-    padding: 40px 0 60px; 
+  .hero-section {
+    padding: 40px 0 60px;
     min-height: 80vh;
   }
-  
+
   .hero-inner {
     padding: 0 20px;
     min-height: 40vh;
   }
-  
-  .hero-title { 
-    font-size: 2rem; 
+
+  .hero-badge {
+    margin-bottom: 16px;
+    gap: 6px;
   }
-  
-  .hero-subtitle { 
+
+  .badge-text {
+    font-size: 0.75rem;
+  }
+
+  .flag-icon {
+    height: 20px;
+    width: 28px;
+  }
+
+  .badge-subtitle {
+    font-size: 1.25rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
     font-size: 1rem;
     margin-top: 12px;
   }
-  
+
   .hero-actions {
     margin-top: 24px;
     flex-direction: column;
     width: 100%;
     align-items: center;
   }
-  
+
   .hero-cta {
     width: 100%;
     max-width: 280px;
