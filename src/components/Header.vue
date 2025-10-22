@@ -415,16 +415,25 @@ function toggleDropdown() {
   showDropdown.value = !showDropdown.value
   showProjectsDropdown.value = false
   showSocialsDropdown.value = false
+  showCompanyDropdown.value = false
 }
 function toggleProjectsDropdown() {
   showProjectsDropdown.value = !showProjectsDropdown.value
   showDropdown.value = false
   showSocialsDropdown.value = false
+  showCompanyDropdown.value = false
 }
 function toggleSocialsDropdown() {
   showSocialsDropdown.value = !showSocialsDropdown.value
   showDropdown.value = false
   showProjectsDropdown.value = false
+  showCompanyDropdown.value = false
+}
+function toggleCompanyDropdown() {
+  showCompanyDropdown.value = !showCompanyDropdown.value
+  showDropdown.value = false
+  showProjectsDropdown.value = false
+  showSocialsDropdown.value = false
 }
 function onDocClick(e) {
   if (showDropdown.value) {
