@@ -375,7 +375,7 @@ onBeforeUnmount(() => {
 
 .footer-center { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; justify-self: center; }
 .footer-flag { display: inline-flex; gap: 6px; }
-.flag-band { display: inline-block; width: 56px; height: 10px; border-radius: 2px; }
+.flag-band { display: inline-block; width: 56px; height: 10px; }
 .flag-black { background: #1b1b1b; }
 .flag-red { background: #d71f3b; }
 .flag-gold { background: #f2c200; }
