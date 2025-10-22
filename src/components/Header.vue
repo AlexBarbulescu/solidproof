@@ -439,7 +439,6 @@ const companyDropdownWrapper = ref(null)
 const tawkPropertyId = '68da53b0acbab119535c12ea'
 const tawkWidgetId = '1j6addqb8'
 let tawkLoaded = false
-let shouldMaximizeOnLoad = false
 
 function toggleDropdown() {
   showDropdown.value = !showDropdown.value
