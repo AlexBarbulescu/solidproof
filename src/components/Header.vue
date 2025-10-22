@@ -345,8 +345,16 @@
 
               <div class="dropdown-items">
                 <a href="#" class="dropdown-item">
-                  <svg class="item-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M2 2h4v4H2V2zm5 0h4v4H7V2zm5 0h2v4h-2V2zM2 8h4v4H2V8zm5 0h4v4H7V8zm5 0h2v4h-2V8z" fill="white"/>
+                  <svg class="item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="3" width="4" height="4" fill="#0D6EFD"/>
+                    <rect x="9" y="3" width="4" height="4" fill="#0D6EFD"/>
+                    <rect x="15" y="3" width="4" height="4" fill="#0D6EFD"/>
+                    <rect x="3" y="9" width="4" height="4" fill="#0D6EFD"/>
+                    <rect x="9" y="9" width="4" height="4" fill="#0D6EFD"/>
+                    <rect x="15" y="9" width="4" height="4" fill="#0D6EFD"/>
+                    <rect x="3" y="15" width="4" height="4" fill="#0D6EFD"/>
+                    <rect x="9" y="15" width="4" height="4" fill="#0D6EFD"/>
+                    <rect x="15" y="15" width="4" height="4" fill="#0D6EFD"/>
                   </svg>
                   <div class="item-content">
                     <div class="item-title">Partners</div>
@@ -355,8 +363,15 @@
                 </a>
 
                 <a href="#" class="dropdown-item">
-                  <svg class="item-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M8 0a1 1 0 0 0-1 1v2H3a1 1 0 0 0-1 1v2a2 2 0 0 0-2 2v3a1 1 0 0 0 2 0v-1h12v1a1 1 0 0 0 2 0V8a2 2 0 0 0-2-2V4a1 1 0 0 0-1-1h-4V1a1 1 0 0 0-1-1zm-5 4h10v2H3V4z" fill="white"/>
+                  <svg class="item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <g clip-path="url(#clip0_sponsor)">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="#0D6EFD"/>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_sponsor">
+                        <rect width="24" height="24" fill="white"/>
+                      </clipPath>
+                    </defs>
                   </svg>
                   <div class="item-content">
                     <div class="item-title">Sponsoring</div>
@@ -365,8 +380,15 @@
                 </a>
 
                 <a href="#" class="dropdown-item">
-                  <svg class="item-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M8 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 1c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="white"/>
+                  <svg class="item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <g clip-path="url(#clip1_meetup)">
+                      <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="#0D6EFD"/>
+                    </g>
+                    <defs>
+                      <clipPath id="clip1_meetup">
+                        <rect width="24" height="24" fill="white"/>
+                      </clipPath>
+                    </defs>
                   </svg>
                   <div class="item-content">
                     <div class="item-title">Meet us</div>
@@ -374,9 +396,16 @@
                   </div>
                 </a>
 
-                <a href="#" class="dropdown-item">
-                  <svg class="item-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M2.5 2h11a1.5 1.5 0 0 1 1.5 1.5v9A1.5 1.5 0 0 1 13.5 14h-11A1.5 1.5 0 0 1 1 12.5v-9A1.5 1.5 0 0 1 2.5 2zm0 1a.5.5 0 0 0-.5.5v.75l7 3.5 7-3.5V3.5a.5.5 0 0 0-.5-.5h-11zm0 3.5V12.5a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 .5-.5V6.5l-7 3.5-5-2.5z" fill="white"/>
+                <a href="#" class="dropdown-item company-special">
+                  <svg class="item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <g clip-path="url(#clip2_contact)">
+                      <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#0D6EFD"/>
+                    </g>
+                    <defs>
+                      <clipPath id="clip2_contact">
+                        <rect width="24" height="24" fill="white"/>
+                      </clipPath>
+                    </defs>
                   </svg>
                   <div class="item-content">
                     <div class="item-title">Contact</div>
