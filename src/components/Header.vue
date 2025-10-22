@@ -511,16 +511,37 @@ function injectTawk(propertyId, widgetId) {
   return true
 }
 
+function waitForTawkAndMaximize() {
+  // Wait for Tawk_API to be available, then maximize
+  let attempts = 0
+  const maxAttempts = 100 // ~5 seconds with 50ms intervals
+
+  const checkTawk = setInterval(() => {
+    attempts++
+    if (window.Tawk_API && typeof window.Tawk_API.maximize === 'function') {
+      clearInterval(checkTawk)
+      window.Tawk_API.maximize()
+    } else if (attempts >= maxAttempts) {
+      clearInterval(checkTawk)
+      // Fallback if Tawk doesn't load
+      window.open('https://www.tawk.to/', '_blank', 'noopener')
+    }
+  }, 50)
+}
+
 function openTawkChat() {
   showCompanyDropdown.value = false
-  // If Tawk is already loaded, maximize the chat
+  // If Tawk is already loaded and ready, maximize immediately
   if (window.Tawk_API && typeof window.Tawk_API.maximize === 'function') {
     window.Tawk_API.maximize()
     return
   }
   // Try to inject Tawk if not already loaded
   const injected = injectTawk(tawkPropertyId, tawkWidgetId)
-  if (!injected) {
+  if (injected) {
+    // Wait for Tawk_API to be available after injection
+    waitForTawkAndMaximize()
+  } else {
     // Fallback: open tawk.to website if IDs not available
     window.open('https://www.tawk.to/', '_blank', 'noopener')
   }
