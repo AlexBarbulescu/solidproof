@@ -405,9 +405,11 @@ const isOpen = ref(false)
 const showDropdown = ref(false)
 const showProjectsDropdown = ref(false)
 const showSocialsDropdown = ref(false)
+const showCompanyDropdown = ref(false)
 const dropdownWrapper = ref(null)
 const projectsDropdownWrapper = ref(null)
 const socialsDropdownWrapper = ref(null)
+const companyDropdownWrapper = ref(null)
 
 function toggleDropdown() {
   showDropdown.value = !showDropdown.value
