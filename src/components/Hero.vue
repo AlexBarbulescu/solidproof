@@ -114,7 +114,7 @@ onBeforeUnmount(() => {
   flex-direction: column;
   align-items: center;
   margin-bottom: 24px;
-  gap: 8px;
+  gap: 0px;
 }
 
 .badge-text {
