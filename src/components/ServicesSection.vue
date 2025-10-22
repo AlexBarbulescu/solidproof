@@ -345,7 +345,7 @@ onMounted(() => {
     'consulting marketing'
     'contracts dapp'; }
   .card--marketing { min-height: 520px; }
-  .service-media img { width: var(--md-img-w, var(--img-w, 70%)); height: var(--md-img-h, var(--img-h, auto)); max-height: var(--md-img-max-h, var(--img-max-h, 85%)); right: var(--md-img-right, var(--img-right, auto)); left: var(--md-img-left, var(--img-left, 50%)); bottom: var(--md-img-bottom, var(--img-bottom, auto)); top: var(--md-img-top, var(--img-top, 50%)); object-fit: var(--md-img-fit, var(--img-fit, cover)); object-position: var(--md-img-pos, var(--img-pos, center)); }
+  .service-media img { width: var(--md-img-w, var(--img-w, 70%)); height: var(--md-img-h, var(--img-h, auto)); max-height: var(--md-img-max-h, var(--img-max-h, none)); right: var(--md-img-right, var(--img-right, auto)); left: var(--md-img-left, var(--img-left, 50%)); bottom: var(--md-img-bottom, var(--img-bottom, auto)); top: var(--md-img-top, var(--img-top, 50%)); object-fit: var(--md-img-fit, var(--img-fit, cover)); object-position: var(--md-img-pos, var(--img-pos, center)); }
 }
 @media (max-width: 768px) {
   .services-section { padding: 64px 16px 32px; }
