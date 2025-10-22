@@ -682,6 +682,9 @@ onBeforeUnmount(() => {
 
 .github-special { background: #2A2A2C; padding: 5px 15px; min-height: 94px; align-items: flex-start; }
 .github-special .item-icon { position: absolute; left: 16px; top: 5px; transform: none; width: 14px; height: 16px; }
+
+.company-special { background: #2A2A2C; }
+.company-special .item-icon { width: 16px; height: 16px; }
 .github-content { position: absolute; left: 43px; top: 50%; transform: translateY(-50%); width: 228px; height: 94px; padding: 5px 0; display: flex; flex-direction: column; align-items: flex-start; gap: 3px; }
 .github-section { position: relative; display: flex; padding-bottom: 2px; justify-content: center; align-items: flex-start; gap: 9px; align-self: stretch; height: 56px; }
 .github-text { position: absolute; left: 0; top: 0; width: 129px; height: 55px; display: flex; flex-direction: column; gap: 2px; }
