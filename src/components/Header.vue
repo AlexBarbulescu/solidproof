@@ -497,15 +497,31 @@ function handleResize() {
   }
 }
 
+function injectTawk(propertyId, widgetId) {
+  if (tawkLoaded || !propertyId || !widgetId) return false
+  const s1 = document.createElement('script')
+  s1.async = true
+  s1.src = `https://embed.tawk.to/${propertyId}/${widgetId}`
+  s1.charset = 'UTF-8'
+  s1.setAttribute('crossorigin', '*')
+  const s0 = document.getElementsByTagName('script')[0]
+  s0.parentNode.insertBefore(s1, s0)
+  tawkLoaded = true
+  return true
+}
+
 function openTawkChat() {
   showCompanyDropdown.value = false
-  if (window.Tawk_API) {
-    window.Tawk_API.toggle()
-  } else {
-    const tawkContainer = document.getElementById('tawk-min-container')
-    if (tawkContainer) {
-      tawkContainer.click()
-    }
+  // If Tawk is already loaded, maximize the chat
+  if (window.Tawk_API && typeof window.Tawk_API.maximize === 'function') {
+    window.Tawk_API.maximize()
+    return
+  }
+  // Try to inject Tawk if not already loaded
+  const injected = injectTawk(tawkPropertyId, tawkWidgetId)
+  if (!injected) {
+    // Fallback: open tawk.to website if IDs not available
+    window.open('https://www.tawk.to/', '_blank', 'noopener')
   }
 }
 
