@@ -105,11 +105,43 @@ onBeforeUnmount(() => {
   width: 100%;
 }
 
-.hero-title { 
-  font-size: 3rem; 
-  line-height: 1.1; 
-  font-weight: 700; 
-  letter-spacing: -0.02em; 
+.hero-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+  gap: 8px;
+}
+
+.badge-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.05em;
+  margin: 0;
+  font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.flag-icon {
+  height: 24px;
+  width: 32px;
+  object-fit: contain;
+}
+
+.badge-subtitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  letter-spacing: -0.01em;
+  font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
+}
+
+.hero-title {
+  font-size: 3rem;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   color: #fff;
   margin: 0;
   font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
