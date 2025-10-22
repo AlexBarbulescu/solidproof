@@ -201,22 +201,34 @@ onBeforeUnmount(() => {
 
 /* Tablet responsive */
 @media (max-width: 1024px) {
-  .hero-section { 
-    padding: 60px 0 72px; 
+  .hero-section {
+    padding: 60px 0 72px;
     min-height: 90vh;
   }
-  
+
   .hero-inner {
     padding: 0 32px;
     min-height: 50vh;
   }
-  
-  .hero-title { 
-    font-size: 2.5rem; 
+
+  .hero-badge {
+    margin-bottom: 20px;
   }
-  
-  .hero-subtitle { 
-    font-size: 1.125rem; 
+
+  .badge-text {
+    font-size: 0.8125rem;
+  }
+
+  .badge-subtitle {
+    font-size: 1.375rem;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.125rem;
   }
 }
 
