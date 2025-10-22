@@ -664,7 +664,8 @@ onBeforeUnmount(() => {
 @media (max-width: 1024px) {
   .services-dropdown,
   .projects-dropdown,
-  .socials-dropdown { width: min(92vw, 480px); left: 50%; transform: translateX(-50%); }
+  .socials-dropdown,
+  .company-dropdown { width: min(92vw, 480px); left: 50%; transform: translateX(-50%); }
   .item-content { width: calc(100% - 62px); }
   .github-content { width: calc(100% - 62px); }
 }
