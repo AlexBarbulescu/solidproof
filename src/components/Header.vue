@@ -492,6 +492,18 @@ function handleResize() {
   }
 }
 
+function openTawkChat() {
+  showCompanyDropdown.value = false
+  if (window.Tawk_API) {
+    window.Tawk_API.toggle()
+  } else {
+    const tawkContainer = document.getElementById('tawk-min-container')
+    if (tawkContainer) {
+      tawkContainer.click()
+    }
+  }
+}
+
 onMounted(() => {
   window.addEventListener('resize', handleResize)
   document.addEventListener('click', onDocClick)
