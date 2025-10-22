@@ -244,10 +244,10 @@ onBeforeUnmount(() => {
 
 @media (max-width: 768px) {
   .contact-section {
-    padding: 48px 16px 24px;
+    padding: 48px 16px 0;
     margin: 32px 0 0;
   }
-  
+
   .contact-card {
     overflow: hidden;
   }
@@ -256,12 +256,12 @@ onBeforeUnmount(() => {
     padding: 40px 20px 0;
     gap: 30px;
   }
-  
+
   .contact-title {
     font-size: 42px;
     line-height: 95%;
   }
-  
+
   .contact-description {
     font-size: 16px;
     line-height: 120%;
@@ -280,7 +280,7 @@ onBeforeUnmount(() => {
     height: auto;
     position: static;
     transform: none;
-    margin: 16px 0 0;
+    margin: 24px 0 0;
     right: auto;
     bottom: auto;
   }
