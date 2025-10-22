@@ -9,7 +9,11 @@
         <div class="hero-copy">
           <div class="hero-badge">
             <p class="badge-text">Made in Germany</p>
-            <img src="/images/madeingermany.svg" alt="German Flag" class="flag-icon" />
+            <div class="hero-flag" aria-hidden="true">
+              <span class="flag-band flag-black"></span>
+              <span class="flag-band flag-red"></span>
+              <span class="flag-band flag-gold"></span>
+            </div>
             <h2 class="badge-subtitle">Blockchain Security</h2>
           </div>
           <h1 class="hero-title">Auditing & Security for Web3</h1>
