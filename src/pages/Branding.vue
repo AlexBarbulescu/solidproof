@@ -234,6 +234,7 @@ function getLogoPath(logoName) {
   .branding-hero-subtitle { font-size: 16px; }
   .branding-grid { grid-template-columns: 1fr; }
   .shield-logos-grid { grid-template-columns: 1fr; }
+  .centered-logos-grid { grid-template-columns: 1fr; }
   .branding-card--horizontal { grid-column: span 1; }
   .guidelines-grid { grid-template-columns: 1fr; }
   .branding-cta-title { font-size: 28px; }
