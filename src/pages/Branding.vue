@@ -180,6 +180,7 @@ function getLogoPath(logoName) {
 /* Grid */
 .branding-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 .shield-logos-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 600px; margin: 0 auto; }
+.centered-logos-grid { display: grid; grid-template-columns: repeat(1, 1fr); gap: 16px; max-width: 300px; margin: 0 auto; }
 
 /* Card */
 .branding-card { display: flex; flex-direction: column; gap: 12px; padding: 16px; border-radius: 12px; background: #0F1011; border: 1px solid rgba(255,255,255,0.08); text-align: center; }
