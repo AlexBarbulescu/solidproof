@@ -27,7 +27,7 @@
           <div class="branding-grid">
             <div class="branding-card">
               <div class="branding-card-preview">
-                <img src="/images/branding/logo_shield_black.svg" alt="Shield Logo Black" class="branding-logo-image" />
+                <img :src="getLogoPath('logo_shield_black')" alt="Shield Logo Black" class="branding-logo-image" />
               </div>
               <p class="branding-card-label">Shield - Black</p>
               <a href="/images/branding/logo_shield_black.svg" download="logo_shield_black.svg" class="branding-download-btn">Download</a>
@@ -35,7 +35,7 @@
 
             <div class="branding-card">
               <div class="branding-card-preview">
-                <img src="/images/branding/logo_shield_white.svg" alt="Shield Logo White" class="branding-logo-image" />
+                <img :src="getLogoPath('logo_shield_white')" alt="Shield Logo White" class="branding-logo-image" />
               </div>
               <p class="branding-card-label">Shield - White</p>
               <a href="/images/branding/logo_shield_white.svg" download="logo_shield_white.svg" class="branding-download-btn">Download</a>
@@ -43,7 +43,7 @@
 
             <div class="branding-card">
               <div class="branding-card-preview">
-                <img src="/images/branding/logo_shield_text_black.svg" alt="Shield with Text - Black" class="branding-logo-image" />
+                <img :src="getLogoPath('logo_shield_text_black')" alt="Shield with Text - Black" class="branding-logo-image" />
               </div>
               <p class="branding-card-label">Shield + Text - Black</p>
               <a href="/images/branding/logo_shield_text_black.svg" download="logo_shield_text_black.svg" class="branding-download-btn">Download</a>
@@ -51,7 +51,7 @@
 
             <div class="branding-card">
               <div class="branding-card-preview">
-                <img src="/images/branding/logo_shield_text_white.svg" alt="Shield with Text - White" class="branding-logo-image" />
+                <img :src="getLogoPath('logo_shield_text_white')" alt="Shield with Text - White" class="branding-logo-image" />
               </div>
               <p class="branding-card-label">Shield + Text - White</p>
               <a href="/images/branding/logo_shield_text_white.svg" download="logo_shield_text_white.svg" class="branding-download-btn">Download</a>
@@ -59,7 +59,7 @@
 
             <div class="branding-card">
               <div class="branding-card-preview">
-                <img src="/images/branding/logo_shield_slogan_text_black.svg" alt="Shield with Slogan Text - Black" class="branding-logo-image" />
+                <img :src="getLogoPath('logo_shield_slogan_text_black')" alt="Shield with Slogan Text - Black" class="branding-logo-image" />
               </div>
               <p class="branding-card-label">Shield + Slogan - Black</p>
               <a href="/images/branding/logo_shield_slogan_text_black.svg" download="logo_shield_slogan_text_black.svg" class="branding-download-btn">Download</a>
@@ -67,7 +67,7 @@
 
             <div class="branding-card">
               <div class="branding-card-preview">
-                <img src="/images/branding/logo_shield_slogan_text_white.svg" alt="Shield with Slogan Text - White" class="branding-logo-image" />
+                <img :src="getLogoPath('logo_shield_slogan_text_white')" alt="Shield with Slogan Text - White" class="branding-logo-image" />
               </div>
               <p class="branding-card-label">Shield + Slogan - White</p>
               <a href="/images/branding/logo_shield_slogan_text_white.svg" download="logo_shield_slogan_text_white.svg" class="branding-download-btn">Download</a>
