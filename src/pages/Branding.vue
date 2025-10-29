@@ -27,9 +27,9 @@
           <div class="branding-grid">
             <div class="branding-card">
               <div class="branding-card-preview">
-                <svg class="branding-logo-preview" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="20" y="20" width="60" height="60" rx="4" fill="none" stroke="#333" stroke-width="1"/>
-                  <text x="50" y="55" font-size="14" font-weight="bold" fill="#333" text-anchor="middle" font-family="Arial">Shield</text>
+                <svg class="branding-logo-preview" viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M100 20C100 20 140 50 140 100C140 150 100 200 100 200C100 200 60 150 60 100C60 50 100 20 100 20Z" fill="none" stroke="#000" stroke-width="3" stroke-linejoin="round"/>
+                  <circle cx="100" cy="100" r="15" fill="#000"/>
                 </svg>
               </div>
               <p class="branding-card-label">Shield - Black</p>
@@ -38,9 +38,9 @@
 
             <div class="branding-card">
               <div class="branding-card-preview">
-                <svg class="branding-logo-preview" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="20" y="20" width="60" height="60" rx="4" fill="none" stroke="#fff" stroke-width="1"/>
-                  <text x="50" y="55" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle" font-family="Arial">Shield</text>
+                <svg class="branding-logo-preview" viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M100 20C100 20 140 50 140 100C140 150 100 200 100 200C100 200 60 150 60 100C60 50 100 20 100 20Z" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round"/>
+                  <circle cx="100" cy="100" r="15" fill="#fff"/>
                 </svg>
               </div>
               <p class="branding-card-label">Shield - White</p>
@@ -49,9 +49,10 @@
 
             <div class="branding-card">
               <div class="branding-card-preview">
-                <svg class="branding-logo-preview" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="15" y="20" width="40" height="60" rx="4" fill="none" stroke="#333" stroke-width="1"/>
-                  <text x="50" y="55" font-size="12" font-weight="bold" fill="#333" text-anchor="middle" font-family="Arial">S+T</text>
+                <svg class="branding-logo-preview" viewBox="0 0 300 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M40 20C40 20 65 40 65 70C65 95 40 115 40 115C40 115 15 95 15 70C15 40 40 20 40 20Z" fill="none" stroke="#000" stroke-width="2" stroke-linejoin="round"/>
+                  <circle cx="40" cy="70" r="8" fill="#000"/>
+                  <text x="120" y="75" font-size="32" font-weight="bold" fill="#000" font-family="'Geist', sans-serif">SolidProof</text>
                 </svg>
               </div>
               <p class="branding-card-label">Shield + Text - Black</p>
@@ -60,9 +61,10 @@
 
             <div class="branding-card">
               <div class="branding-card-preview">
-                <svg class="branding-logo-preview" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="15" y="20" width="40" height="60" rx="4" fill="none" stroke="#fff" stroke-width="1"/>
-                  <text x="50" y="55" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle" font-family="Arial">S+T</text>
+                <svg class="branding-logo-preview" viewBox="0 0 300 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M40 20C40 20 65 40 65 70C65 95 40 115 40 115C40 115 15 95 15 70C15 40 40 20 40 20Z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/>
+                  <circle cx="40" cy="70" r="8" fill="#fff"/>
+                  <text x="120" y="75" font-size="32" font-weight="bold" fill="#fff" font-family="'Geist', sans-serif">SolidProof</text>
                 </svg>
               </div>
               <p class="branding-card-label">Shield + Text - White</p>
@@ -71,9 +73,11 @@
 
             <div class="branding-card">
               <div class="branding-card-preview">
-                <svg class="branding-logo-preview" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="15" y="20" width="40" height="50" rx="4" fill="none" stroke="#333" stroke-width="1"/>
-                  <text x="50" y="50" font-size="10" font-weight="bold" fill="#333" text-anchor="middle" font-family="Arial">S+SLG</text>
+                <svg class="branding-logo-preview" viewBox="0 0 300 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M40 20C40 20 65 40 65 70C65 95 40 115 40 115C40 115 15 95 15 70C15 40 40 20 40 20Z" fill="none" stroke="#000" stroke-width="2" stroke-linejoin="round"/>
+                  <circle cx="40" cy="70" r="8" fill="#000"/>
+                  <text x="120" y="65" font-size="28" font-weight="bold" fill="#000" font-family="'Geist', sans-serif">SolidProof</text>
+                  <text x="120" y="85" font-size="12" fill="#000" font-family="'Geist', sans-serif">Smart Contract Audits</text>
                 </svg>
               </div>
               <p class="branding-card-label">Shield + Slogan - Black</p>
@@ -82,9 +86,11 @@
 
             <div class="branding-card">
               <div class="branding-card-preview">
-                <svg class="branding-logo-preview" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="15" y="20" width="40" height="50" rx="4" fill="none" stroke="#fff" stroke-width="1"/>
-                  <text x="50" y="50" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle" font-family="Arial">S+SLG</text>
+                <svg class="branding-logo-preview" viewBox="0 0 300 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M40 20C40 20 65 40 65 70C65 95 40 115 40 115C40 115 15 95 15 70C15 40 40 20 40 20Z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/>
+                  <circle cx="40" cy="70" r="8" fill="#fff"/>
+                  <text x="120" y="65" font-size="28" font-weight="bold" fill="#fff" font-family="'Geist', sans-serif">SolidProof</text>
+                  <text x="120" y="85" font-size="12" fill="#fff" font-family="'Geist', sans-serif">Smart Contract Audits</text>
                 </svg>
               </div>
               <p class="branding-card-label">Shield + Slogan - White</p>
