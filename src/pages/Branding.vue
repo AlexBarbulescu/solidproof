@@ -103,56 +103,6 @@
           </div>
         </div>
 
-        <!-- PNG Logos -->
-        <div class="branding-group">
-          <h3 class="branding-group-title">PNG Format</h3>
-          <div class="branding-grid">
-            <div class="branding-card">
-              <div class="branding-card-preview">
-                <svg class="branding-logo-preview" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="50" cy="50" r="48" fill="none" stroke="#0D6EFD" stroke-width="2" opacity="0.3"/>
-                  <text x="50" y="55" font-size="24" font-weight="bold" fill="#0D6EFD" text-anchor="middle" font-family="Arial">SP</text>
-                </svg>
-              </div>
-              <p class="branding-card-label">PNG</p>
-              <a href="#" class="branding-download-btn">Download</a>
-            </div>
-
-            <div class="branding-card">
-              <div class="branding-card-preview">
-                <svg class="branding-logo-preview" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="50" cy="50" r="48" fill="none" stroke="#0D6EFD" stroke-width="2" opacity="0.3"/>
-                  <text x="50" y="55" font-size="24" font-weight="bold" fill="#0D6EFD" text-anchor="middle" font-family="Arial">SP</text>
-                </svg>
-              </div>
-              <p class="branding-card-label">PNG</p>
-              <a href="#" class="branding-download-btn">Download</a>
-            </div>
-
-            <div class="branding-card">
-              <div class="branding-card-preview">
-                <svg class="branding-logo-preview" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="50" cy="50" r="48" fill="none" stroke="#0D6EFD" stroke-width="2" opacity="0.3"/>
-                  <text x="50" y="55" font-size="24" font-weight="bold" fill="#0D6EFD" text-anchor="middle" font-family="Arial">SP</text>
-                </svg>
-              </div>
-              <p class="branding-card-label">PNG</p>
-              <a href="#" class="branding-download-btn">Download</a>
-            </div>
-
-            <div class="branding-card branding-card--horizontal">
-              <div class="branding-card-preview branding-card-preview--horizontal">
-                <svg class="branding-logo-preview branding-logo-preview--horizontal" viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="50" cy="50" r="40" fill="none" stroke="#0D6EFD" stroke-width="2" opacity="0.3"/>
-                  <text x="50" y="55" font-size="20" font-weight="bold" fill="#0D6EFD" text-anchor="middle" font-family="Arial">SP</text>
-                  <text x="110" y="55" font-size="24" font-weight="bold" fill="#fff" font-family="Arial">MANE</text>
-                </svg>
-              </div>
-              <p class="branding-card-label">PNG</p>
-              <a href="#" class="branding-download-btn">Download</a>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
