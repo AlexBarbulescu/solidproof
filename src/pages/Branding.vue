@@ -75,7 +75,7 @@
           </div>
 
           <!-- Text Logos -->
-          <h4 class="branding-subgroup-title" style="margin-top: 24px;">Text Only Logos</h4>
+          <h4 class="branding-subgroup-title branding-subgroup-title--spaced">Text Only Logos</h4>
           <div class="branding-grid">
             <div class="branding-card">
               <div class="branding-card-preview">
