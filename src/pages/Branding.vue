@@ -76,7 +76,7 @@
 
           <!-- Text Logos -->
           <h4 class="branding-subgroup-title branding-subgroup-title--spaced">Text Only Logos</h4>
-          <div class="branding-grid">
+          <div class="centered-logos-grid">
             <div class="branding-card">
               <div class="branding-card-preview">
                 <img :src="getLogoPath('logo_justtext')" alt="Logo Just Text" class="branding-logo-image" />
