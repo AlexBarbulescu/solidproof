@@ -24,9 +24,9 @@
 
           <!-- Shield Logos -->
           <h4 class="branding-subgroup-title">Shield Logos</h4>
-          <div class="branding-grid">
+          <div class="shield-logos-grid">
             <div class="branding-card">
-              <div class="branding-card-preview">
+              <div class="branding-card-preview branding-card-preview--black">
                 <img :src="getLogoPath('logo_shield_black')" alt="Shield Logo Black" class="branding-logo-image" />
               </div>
               <p class="branding-card-label">Shield - Black</p>
@@ -42,7 +42,7 @@
             </div>
 
             <div class="branding-card">
-              <div class="branding-card-preview">
+              <div class="branding-card-preview branding-card-preview--black">
                 <img :src="getLogoPath('logo_shield_text_black')" alt="Shield with Text - Black" class="branding-logo-image" />
               </div>
               <p class="branding-card-label">Shield + Text - Black</p>
@@ -58,7 +58,7 @@
             </div>
 
             <div class="branding-card">
-              <div class="branding-card-preview">
+              <div class="branding-card-preview branding-card-preview--black">
                 <img :src="getLogoPath('logo_shield_slogan_text_black')" alt="Shield with Slogan Text - Black" class="branding-logo-image" />
               </div>
               <p class="branding-card-label">Shield + Slogan - Black</p>
@@ -179,6 +179,7 @@ function getLogoPath(logoName) {
 
 /* Grid */
 .branding-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.shield-logos-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 600px; margin: 0 auto; }
 
 /* Card */
 .branding-card { display: flex; flex-direction: column; gap: 12px; padding: 16px; border-radius: 12px; background: #0F1011; border: 1px solid rgba(255,255,255,0.08); text-align: center; }
@@ -186,6 +187,7 @@ function getLogoPath(logoName) {
 
 .branding-card-preview { display: flex; align-items: center; justify-content: center; min-height: 120px; background: rgba(255,255,255,0.02); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); padding: 8px; }
 .branding-card-preview--horizontal { min-height: 80px; }
+.branding-card-preview--black { background: #ffffff; border-color: rgba(0,0,0,0.1); }
 
 .branding-logo-preview { width: 100%; height: 100%; object-fit: contain; }
 .branding-logo-preview--horizontal { max-width: 100%; }
@@ -220,6 +222,7 @@ function getLogoPath(logoName) {
 /* Responsive */
 @media (max-width: 1180px) {
   .branding-grid { grid-template-columns: repeat(2, 1fr); }
+  .shield-logos-grid { grid-template-columns: repeat(2, 1fr); }
   .guidelines-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -228,6 +231,7 @@ function getLogoPath(logoName) {
   .branding-hero-title { font-size: 40px; }
   .branding-hero-subtitle { font-size: 16px; }
   .branding-grid { grid-template-columns: 1fr; }
+  .shield-logos-grid { grid-template-columns: 1fr; }
   .branding-card--horizontal { grid-column: span 1; }
   .guidelines-grid { grid-template-columns: 1fr; }
   .branding-cta-title { font-size: 28px; }
