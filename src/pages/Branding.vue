@@ -224,6 +224,7 @@ function getLogoPath(logoName) {
 @media (max-width: 1180px) {
   .branding-grid { grid-template-columns: repeat(2, 1fr); }
   .shield-logos-grid { grid-template-columns: repeat(2, 1fr); }
+  .centered-logos-grid { grid-template-columns: repeat(1, 1fr); }
   .guidelines-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
