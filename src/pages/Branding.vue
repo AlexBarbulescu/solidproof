@@ -27,7 +27,10 @@
           <div class="branding-grid">
             <div class="branding-card">
               <div class="branding-card-preview">
-                <img src="/images/branding/logo_shield_black.svg" alt="Shield Logo Black" class="branding-logo-image" />
+                <svg class="branding-logo-preview" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="20" y="20" width="60" height="60" rx="4" fill="none" stroke="#333" stroke-width="1"/>
+                  <text x="50" y="55" font-size="14" font-weight="bold" fill="#333" text-anchor="middle" font-family="Arial">Shield</text>
+                </svg>
               </div>
               <p class="branding-card-label">Shield - Black</p>
               <a href="/images/branding/logo_shield_black.svg" download="logo_shield_black.svg" class="branding-download-btn">Download</a>
@@ -35,7 +38,10 @@
 
             <div class="branding-card">
               <div class="branding-card-preview">
-                <img src="/images/branding/logo_shield_white.svg" alt="Shield Logo White" class="branding-logo-image" />
+                <svg class="branding-logo-preview" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="20" y="20" width="60" height="60" rx="4" fill="none" stroke="#fff" stroke-width="1"/>
+                  <text x="50" y="55" font-size="14" font-weight="bold" fill="#fff" text-anchor="middle" font-family="Arial">Shield</text>
+                </svg>
               </div>
               <p class="branding-card-label">Shield - White</p>
               <a href="/images/branding/logo_shield_white.svg" download="logo_shield_white.svg" class="branding-download-btn">Download</a>
@@ -43,7 +49,10 @@
 
             <div class="branding-card">
               <div class="branding-card-preview">
-                <img src="/images/branding/logo_shield_text_black.svg" alt="Shield with Text - Black" class="branding-logo-image" />
+                <svg class="branding-logo-preview" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="15" y="20" width="40" height="60" rx="4" fill="none" stroke="#333" stroke-width="1"/>
+                  <text x="50" y="55" font-size="12" font-weight="bold" fill="#333" text-anchor="middle" font-family="Arial">S+T</text>
+                </svg>
               </div>
               <p class="branding-card-label">Shield + Text - Black</p>
               <a href="/images/branding/logo_shield_text_black.svg" download="logo_shield_text_black.svg" class="branding-download-btn">Download</a>
@@ -51,7 +60,10 @@
 
             <div class="branding-card">
               <div class="branding-card-preview">
-                <img src="/images/branding/logo_shield_text_white.svg" alt="Shield with Text - White" class="branding-logo-image" />
+                <svg class="branding-logo-preview" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="15" y="20" width="40" height="60" rx="4" fill="none" stroke="#fff" stroke-width="1"/>
+                  <text x="50" y="55" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle" font-family="Arial">S+T</text>
+                </svg>
               </div>
               <p class="branding-card-label">Shield + Text - White</p>
               <a href="/images/branding/logo_shield_text_white.svg" download="logo_shield_text_white.svg" class="branding-download-btn">Download</a>
@@ -59,7 +71,10 @@
 
             <div class="branding-card">
               <div class="branding-card-preview">
-                <img src="/images/branding/logo_shield_slogan_text_black.svg" alt="Shield with Slogan Text - Black" class="branding-logo-image" />
+                <svg class="branding-logo-preview" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="15" y="20" width="40" height="50" rx="4" fill="none" stroke="#333" stroke-width="1"/>
+                  <text x="50" y="50" font-size="10" font-weight="bold" fill="#333" text-anchor="middle" font-family="Arial">S+SLG</text>
+                </svg>
               </div>
               <p class="branding-card-label">Shield + Slogan - Black</p>
               <a href="/images/branding/logo_shield_slogan_text_black.svg" download="logo_shield_slogan_text_black.svg" class="branding-download-btn">Download</a>
@@ -67,7 +82,10 @@
 
             <div class="branding-card">
               <div class="branding-card-preview">
-                <img src="/images/branding/logo_shield_slogan_text_white.svg" alt="Shield with Slogan Text - White" class="branding-logo-image" />
+                <svg class="branding-logo-preview" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="15" y="20" width="40" height="50" rx="4" fill="none" stroke="#fff" stroke-width="1"/>
+                  <text x="50" y="50" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle" font-family="Arial">S+SLG</text>
+                </svg>
               </div>
               <p class="branding-card-label">Shield + Slogan - White</p>
               <a href="/images/branding/logo_shield_slogan_text_white.svg" download="logo_shield_slogan_text_white.svg" class="branding-download-btn">Download</a>
