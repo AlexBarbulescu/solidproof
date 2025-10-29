@@ -186,6 +186,7 @@
 .branding-group { margin-bottom: 32px; }
 .branding-group:last-child { margin-bottom: 0; }
 .branding-group-title { color: #fff; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 20px; font-weight: 600; line-height: 1.2; margin: 0 0 16px; }
+.branding-subgroup-title { color: #D1D5DB; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; font-weight: 600; line-height: 1.2; margin: 0 0 12px; text-transform: uppercase; letter-spacing: 0.5px; }
 
 /* Grid */
 .branding-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
