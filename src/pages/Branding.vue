@@ -225,7 +225,6 @@
 
 .branding-logo-preview { width: 100%; height: 100%; object-fit: contain; }
 .branding-logo-preview--horizontal { max-width: 100%; }
-.branding-logo-image { width: 100%; height: 100%; object-fit: contain; max-width: 100%; }
 
 .branding-card-label { color: #9BA1A5; font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 12px; font-weight: 500; line-height: 1; margin: 0; text-transform: uppercase; letter-spacing: 0.5px; }
 
