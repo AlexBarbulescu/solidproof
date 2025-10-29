@@ -164,6 +164,9 @@
 </template>
 
 <script setup>
+function getLogoPath(logoName) {
+  return `/images/branding/${logoName}.svg`
+}
 </script>
 
 <style scoped>
