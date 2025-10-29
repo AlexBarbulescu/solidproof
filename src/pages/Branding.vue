@@ -79,9 +79,7 @@
           <div class="branding-grid">
             <div class="branding-card">
               <div class="branding-card-preview">
-                <svg class="branding-logo-preview" viewBox="0 0 300 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <text x="150" y="60" font-size="48" font-weight="700" fill="#000" text-anchor="middle" font-family="'Geist', sans-serif">SolidProof</text>
-                </svg>
+                <img src="/images/branding/logo_justtext.svg" alt="Logo Just Text" class="branding-logo-image" />
               </div>
               <p class="branding-card-label">Text Only</p>
               <a href="/images/branding/logo_justtext.svg" download="logo_justtext.svg" class="branding-download-btn">Download</a>
@@ -89,9 +87,7 @@
 
             <div class="branding-card">
               <div class="branding-card-preview">
-                <svg class="branding-logo-preview" viewBox="0 0 300 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <text x="150" y="60" font-size="48" font-weight="700" fill="#000" text-anchor="middle" font-family="'Geist', sans-serif">SolidProof</text>
-                </svg>
+                <img src="/images/branding/logo_text_black.svg" alt="Logo Text - Black" class="branding-logo-image" />
               </div>
               <p class="branding-card-label">Text - Black</p>
               <a href="/images/branding/logo_text_black.svg" download="logo_text_black.svg" class="branding-download-btn">Download</a>
@@ -99,9 +95,7 @@
 
             <div class="branding-card">
               <div class="branding-card-preview">
-                <svg class="branding-logo-preview" viewBox="0 0 300 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <text x="150" y="60" font-size="48" font-weight="700" fill="#fff" text-anchor="middle" font-family="'Geist', sans-serif">SolidProof</text>
-                </svg>
+                <img src="/images/branding/logo_text_white.svg" alt="Logo Text - White" class="branding-logo-image" />
               </div>
               <p class="branding-card-label">Text - White</p>
               <a href="/images/branding/logo_text_white.svg" download="logo_text_white.svg" class="branding-download-btn">Download</a>
