@@ -103,8 +103,8 @@
           <div class="branding-grid">
             <div class="branding-card">
               <div class="branding-card-preview">
-                <svg class="branding-logo-preview" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <text x="50" y="55" font-size="18" font-weight="bold" fill="#333" text-anchor="middle" font-family="Arial">TEXT</text>
+                <svg class="branding-logo-preview" viewBox="0 0 300 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <text x="150" y="60" font-size="48" font-weight="700" fill="#000" text-anchor="middle" font-family="'Geist', sans-serif">SolidProof</text>
                 </svg>
               </div>
               <p class="branding-card-label">Text Only</p>
@@ -113,8 +113,8 @@
 
             <div class="branding-card">
               <div class="branding-card-preview">
-                <svg class="branding-logo-preview" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <text x="50" y="55" font-size="18" font-weight="bold" fill="#333" text-anchor="middle" font-family="Arial">TEXT</text>
+                <svg class="branding-logo-preview" viewBox="0 0 300 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <text x="150" y="60" font-size="48" font-weight="700" fill="#000" text-anchor="middle" font-family="'Geist', sans-serif">SolidProof</text>
                 </svg>
               </div>
               <p class="branding-card-label">Text - Black</p>
@@ -123,8 +123,8 @@
 
             <div class="branding-card">
               <div class="branding-card-preview">
-                <svg class="branding-logo-preview" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <text x="50" y="55" font-size="18" font-weight="bold" fill="#fff" text-anchor="middle" font-family="Arial">TEXT</text>
+                <svg class="branding-logo-preview" viewBox="0 0 300 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <text x="150" y="60" font-size="48" font-weight="700" fill="#fff" text-anchor="middle" font-family="'Geist', sans-serif">SolidProof</text>
                 </svg>
               </div>
               <p class="branding-card-label">Text - White</p>
