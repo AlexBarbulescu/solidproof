@@ -85,21 +85,6 @@
               <a href="/images/branding/logo_justtext.svg" download="logo_justtext.svg" class="branding-download-btn">Download</a>
             </div>
 
-            <div class="branding-card">
-              <div class="branding-card-preview">
-                <img :src="getLogoPath('logo_text_black')" alt="Logo Text - Black" class="branding-logo-image" />
-              </div>
-              <p class="branding-card-label">Text - Black</p>
-              <a href="/images/branding/logo_text_black.svg" download="logo_text_black.svg" class="branding-download-btn">Download</a>
-            </div>
-
-            <div class="branding-card">
-              <div class="branding-card-preview">
-                <img :src="getLogoPath('logo_text_white')" alt="Logo Text - White" class="branding-logo-image" />
-              </div>
-              <p class="branding-card-label">Text - White</p>
-              <a href="/images/branding/logo_text_white.svg" download="logo_text_white.svg" class="branding-download-btn">Download</a>
-            </div>
           </div>
         </div>
 
