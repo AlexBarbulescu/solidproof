@@ -16,7 +16,7 @@
             </div>
             <h2 class="badge-subtitle">Blockchain Security</h2>
           </div>
-          <div class="hero-slideshow" aria-label="Core service highlights" aria-live="polite">
+          <div class="hero-slideshow" aria-label="Core service highlights" aria-live="polite" :style="slideshowStyle">
             <transition name="hero-slide" mode="out-in">
               <div class="hero-frame" :key="currentFrame.title">
                 <h1 class="hero-title">{{ currentFrame.title }}</h1>
@@ -25,8 +25,29 @@
             </transition>
           </div>
           <div class="hero-actions">
-            <a href="#" class="hero-cta primary-cta">Get Started</a>
-            <a href="#" class="hero-cta secondary-cta">Contact Us</a>
+            <div class="hero-actions-main">
+              <a href="#" class="hero-cta primary-cta">Get Started</a>
+              <a href="#" class="hero-cta secondary-cta">Contact Us</a>
+            </div>
+            <span class="hero-or" aria-hidden="true">OR</span>
+            <div class="hero-actions-icons" aria-label="Alternate contact channels">
+              <a href="mailto:hello@solidproof.io" class="hero-cta icon-cta mail-cta" aria-label="Email SolidProof">
+                <span class="icon-cta-inner" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 5h18v14H3z" />
+                    <path d="M3 5l9 7 9-7" />
+                  </svg>
+                </span>
+              </a>
+              <a href="https://t.me/solidproof" target="_blank" rel="noopener noreferrer" class="hero-cta icon-cta telegram-cta" aria-label="Open SolidProof Telegram">
+                <span class="icon-cta-inner" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 3L10 14" />
+                    <path d="M22 3L15 21l-5-7-7-3 19-8z" />
+                  </svg>
+                </span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -48,7 +69,7 @@ const frames = [
     subtitle: 'Solid, independent smart contract audits and blockchain security reviews to protect your protocols and users.'
   },
   {
-    title: 'Comprehensive Smart Contract Audits',
+    title: 'Smart Contract Audits',
     subtitle: 'Deep manual analysis, automated tooling, and actionable remediation guidance for resilient protocols.'
   },
   {
@@ -67,9 +88,40 @@ const frames = [
 const activeIndex = ref(0)
 let slideInterval = null
 const currentFrame = computed(() => frames[activeIndex.value])
+const slideshowHeight = ref(0)
+const slideshowStyle = computed(() => slideshowHeight.value ? { height: slideshowHeight.value + 'px' } : {})
+
+function measureSlideshowHeight() {
+  // Create temporary measuring container
+  const temp = document.createElement('div')
+  temp.style.cssText = 'position:absolute;left:-9999px;top:0;width:800px;visibility:hidden;pointer-events:none;'
+  document.body.appendChild(temp)
+  let max = 0
+  frames.forEach(frame => {
+    const el = document.createElement('div')
+    el.className = 'hero-frame'
+    el.innerHTML = `<h1 class="hero-title">${frame.title}</h1><p class="hero-subtitle">${frame.subtitle}</p>`
+    temp.appendChild(el)
+    const h = el.offsetHeight
+    if (h > max) max = h
+  })
+  slideshowHeight.value = max
+  temp.remove()
+}
+
+let resizeRaf = null
+function handleResize() {
+  if (resizeRaf) cancelAnimationFrame(resizeRaf)
+  resizeRaf = requestAnimationFrame(() => {
+    measureSlideshowHeight()
+  })
+}
 
 onMounted(() => {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  // Measure height for stability (even with reduced motion)
+  measureSlideshowHeight()
+  window.addEventListener('resize', handleResize, { passive: true })
   if (prefersReducedMotion) return
 
   const el = videoEl.value
@@ -106,6 +158,8 @@ onMounted(() => {
 onBeforeUnmount(() => {
   if (observer) observer.disconnect()
   if (slideInterval) clearInterval(slideInterval)
+  window.removeEventListener('resize', handleResize)
+  if (resizeRaf) cancelAnimationFrame(resizeRaf)
 })
 </script>
 
@@ -218,7 +272,7 @@ onBeforeUnmount(() => {
   font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
 }
 
-/* Slideshow container maintains layout stability */
+/* Slideshow container now gets fixed height inline; fallback min-height for very early render */
 .hero-slideshow { position: relative; min-height: 150px; }
 .hero-frame { will-change: opacity, transform; }
 
@@ -238,10 +292,15 @@ onBeforeUnmount(() => {
 .hero-actions { 
   margin-top: 32px; 
   display: flex; 
-  gap: 16px; 
+  gap: 28px; 
   flex-wrap: wrap; 
   justify-content: center;
+  align-items: center;
 }
+.hero-actions-main { display: flex; gap: 16px; align-items: center; }
+.hero-actions-icons { display: flex; gap: 16px; align-items: center; }
+.hero-or { font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; color: #FFFFFF; opacity: 0.9; position: relative; }
+
 
 .hero-cta { 
   display: inline-block; 
@@ -276,6 +335,47 @@ onBeforeUnmount(() => {
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.5);
   transform: translateY(-2px);
+}
+
+/* Icon CTA buttons */
+.icon-cta {
+  padding: 0; 
+  width: 48px; 
+  height: 48px; 
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center; 
+  border-radius: 50%;
+  position: relative;
+  background: linear-gradient(135deg, #0D6EFD 0%, #6366F1 100%);
+  box-shadow: 0 6px 18px rgba(13,110,253,0.35);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #fff;
+  transition: transform 0.35s cubic-bezier(.16,.84,.44,1), box-shadow 0.35s ease;
+}
+.icon-cta svg { display: block; }
+.icon-cta:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(13,110,253,0.5); }
+.icon-cta:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+/* Mail specific subtle overlay */
+.mail-cta::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; background: radial-gradient(60% 90% at 70% 30%, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%); mix-blend-mode: overlay; pointer-events: none;
+}
+
+/* Telegram slight color shift */
+.telegram-cta { background: linear-gradient(135deg, #6366F1 0%, #0D6EFD 100%); }
+.telegram-cta::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: radial-gradient(70% 100% at 30% 70%, rgba(99,102,241,0.55) 0%, rgba(255,255,255,0) 70%); mix-blend-mode: screen; pointer-events: none; }
+
+@media (max-width: 767px) {
+  .icon-cta { width: 52px; height: 52px; }
+}
+@media (max-width: 480px) {
+  .icon-cta { width: 50px; height: 50px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .icon-cta { transition: none; }
+  .icon-cta:hover { transform: none; }
 }
 
 /* Tablet responsive */
@@ -314,7 +414,7 @@ onBeforeUnmount(() => {
   .hero-subtitle {
     font-size: 1.125rem;
   }
-  .hero-slideshow { min-height: 140px; }
+  /* height provided inline */
 }
 
 /* Mobile responsive */
@@ -355,20 +455,21 @@ onBeforeUnmount(() => {
     font-size: 1rem;
     margin-top: 12px;
   }
-  .hero-slideshow { min-height: 130px; }
+  /* height provided inline */
 
   .hero-actions {
     margin-top: 24px;
     flex-direction: column;
     width: 100%;
     align-items: center;
+    gap: 22px;
   }
 
-  .hero-cta {
-    width: 100%;
-    max-width: 280px;
-    padding: 14px 24px;
-  }
+  .hero-actions-main { flex-direction: column; width:100%; align-items: stretch; gap:14px; }
+  .hero-actions-icons { gap:20px; }
+  .hero-cta { width:100%; max-width: 280px; padding: 14px 24px; }
+  .hero-or { order:2; font-size:13px; }
+  .hero-or::after { display:none; }
 }
 
 /* Extra small mobile */
@@ -406,16 +507,24 @@ onBeforeUnmount(() => {
   .hero-subtitle {
     font-size: 0.9rem;
   }
-  .hero-slideshow { min-height: 120px; }
+  /* height provided inline */
 
   .hero-cta {
     padding: 12px 20px;
     font-size: 14px;
   }
+  .hero-actions-icons { gap:18px; }
+  .hero-or { font-size:12px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .background-video { display: none; }
   .hero-overlay { background: rgba(0,0,0,0.7); }
 }
+
+/* Added bottom padding to slideshow to keep space between subtitle and buttons */
+.hero-slideshow { padding-bottom: 28px; }
+@media (max-width:1024px){ .hero-slideshow { padding-bottom:34px; } }
+@media (max-width:767px){ .hero-slideshow { padding-bottom:30px; } }
+@media (max-width:480px){ .hero-slideshow { padding-bottom:26px; } }
 </style>
