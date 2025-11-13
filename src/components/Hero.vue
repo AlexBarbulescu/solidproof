@@ -16,8 +16,14 @@
             </div>
             <h2 class="badge-subtitle">Blockchain Security</h2>
           </div>
-          <h1 class="hero-title">Auditing & Security for Web3</h1>
-          <p class="hero-subtitle">Solid, independent smart contract audits and blockchain security reviews to protect your protocols and users.</p>
+          <div class="hero-slideshow" aria-label="Core service highlights" aria-live="polite">
+            <transition name="hero-slide" mode="out-in">
+              <div class="hero-frame" :key="currentFrame.title">
+                <h1 class="hero-title">{{ currentFrame.title }}</h1>
+                <p class="hero-subtitle">{{ currentFrame.subtitle }}</p>
+              </div>
+            </transition>
+          </div>
           <div class="hero-actions">
             <a href="#" class="hero-cta primary-cta">Get Started</a>
             <a href="#" class="hero-cta secondary-cta">Contact Us</a>
@@ -29,11 +35,38 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
 
 const videoEl = ref(null)
 let observer = null
 const VIDEO_SRC = '/images/hero_video.mp4'
+
+// Slideshow frames (title + subtitle)
+const frames = [
+  {
+    title: 'Auditing & Security for Web3',
+    subtitle: 'Solid, independent smart contract audits and blockchain security reviews to protect your protocols and users.'
+  },
+  {
+    title: 'Comprehensive Smart Contract Audits',
+    subtitle: 'Deep manual analysis, automated tooling, and actionable remediation guidance for resilient protocols.'
+  },
+  {
+    title: 'Trusted KYC & Compliance',
+    subtitle: 'Encrypted identity verification and recognized compliance badges to build investor confidence.'
+  },
+  {
+    title: 'Secure Contract Development',
+    subtitle: 'From token standards to complex protocol architectures—shipped with audit-grade engineering rigor.'
+  },
+  {
+    title: 'Strategic Web3 Consulting',
+    subtitle: 'Architecture, risk mitigation, and growth guidance to harden and scale your ecosystem.'
+  }
+]
+const activeIndex = ref(0)
+let slideInterval = null
+const currentFrame = computed(() => frames[activeIndex.value])
 
 onMounted(() => {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -61,10 +94,18 @@ onMounted(() => {
   }, { rootMargin: '200px 0px' })
 
   observer.observe(el)
+
+  // Start slideshow rotation (skip if reduced motion)
+  if (!prefersReducedMotion) {
+    slideInterval = setInterval(() => {
+      activeIndex.value = (activeIndex.value + 1) % frames.length
+    }, 5200) // ~5.2s per frame
+  }
 })
 
 onBeforeUnmount(() => {
   if (observer) observer.disconnect()
+  if (slideInterval) clearInterval(slideInterval)
 })
 </script>
 
@@ -177,6 +218,23 @@ onBeforeUnmount(() => {
   font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
 }
 
+/* Slideshow container maintains layout stability */
+.hero-slideshow { position: relative; min-height: 150px; }
+.hero-frame { will-change: opacity, transform; }
+
+/* Slide / fade transition */
+.hero-slide-enter-active, .hero-slide-leave-active { transition: opacity 0.65s ease, transform 0.65s cubic-bezier(.16,.84,.44,1); }
+.hero-slide-enter-from { opacity: 0; transform: translateY(26px); }
+.hero-slide-enter-to { opacity: 1; transform: translateY(0); }
+.hero-slide-leave-from { opacity: 1; transform: translateY(0); }
+.hero-slide-leave-to { opacity: 0; transform: translateY(-20px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide-enter-active, .hero-slide-leave-active { transition: none; }
+  .hero-slide-enter-from, .hero-slide-leave-to { opacity: 1; transform: none; }
+  .hero-slideshow { min-height: auto; }
+}
+
 .hero-actions { 
   margin-top: 32px; 
   display: flex; 
@@ -256,6 +314,7 @@ onBeforeUnmount(() => {
   .hero-subtitle {
     font-size: 1.125rem;
   }
+  .hero-slideshow { min-height: 140px; }
 }
 
 /* Mobile responsive */
@@ -296,6 +355,7 @@ onBeforeUnmount(() => {
     font-size: 1rem;
     margin-top: 12px;
   }
+  .hero-slideshow { min-height: 130px; }
 
   .hero-actions {
     margin-top: 24px;
@@ -346,6 +406,7 @@ onBeforeUnmount(() => {
   .hero-subtitle {
     font-size: 0.9rem;
   }
+  .hero-slideshow { min-height: 120px; }
 
   .hero-cta {
     padding: 12px 20px;
