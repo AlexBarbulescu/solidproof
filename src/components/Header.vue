@@ -5,7 +5,7 @@
         <img src="/images/logo_horizontal_white.svg" alt="SolidProof" class="brand-logo brand-logo--dark" />
         <img src="/images/logo_horizontal_black.svg" alt="SolidProof" class="brand-logo brand-logo--light" />
       </a>
-      <a href="#" class="quote-btn">
+      <a href="https://app.solidproof.io/" class="quote-btn">
         LAUNCH APP
       </a>
       <button

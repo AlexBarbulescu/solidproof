@@ -39,7 +39,7 @@
                   </svg>
                 </span>
               </a>
-              <a href="https://t.me/solidproof" target="_blank" rel="noopener noreferrer" class="hero-cta icon-cta telegram-cta" aria-label="Open SolidProof Telegram">
+              <a href="https://t.me/solidproof_io" target="_blank" rel="noopener noreferrer" class="hero-cta icon-cta telegram-cta" aria-label="Open SolidProof Telegram">
                 <span class="icon-cta-inner" aria-hidden="true">
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M22 3L10 14" />
