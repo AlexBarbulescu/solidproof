@@ -92,9 +92,13 @@ const slideshowHeight = ref(0)
 const slideshowStyle = computed(() => slideshowHeight.value ? { height: slideshowHeight.value + 'px' } : {})
 
 function measureSlideshowHeight() {
-  // Create temporary measuring container
+  // Create temporary measuring container; adapt width to viewport for tighter height on mobile
   const temp = document.createElement('div')
-  temp.style.cssText = 'position:absolute;left:-9999px;top:0;width:800px;visibility:hidden;pointer-events:none;'
+  let measureWidth = 800
+  const vw = window.innerWidth
+  if (vw <= 480) measureWidth = 360
+  else if (vw <= 767) measureWidth = 560
+  temp.style.cssText = `position:absolute;left:-9999px;top:0;width:${measureWidth}px;visibility:hidden;pointer-events:none;`
   document.body.appendChild(temp)
   let max = 0
   frames.forEach(frame => {
@@ -105,7 +109,14 @@ function measureSlideshowHeight() {
     const h = el.offsetHeight
     if (h > max) max = h
   })
-  slideshowHeight.value = max
+  // Cap height for smaller viewports to reduce vertical space while keeping stability
+  let targetHeight = max
+  if (vw <= 480) {
+    targetHeight = Math.min(max, 60)
+  } else if (vw <= 767) {
+    targetHeight = Math.min(max, 148)
+  }
+  slideshowHeight.value = targetHeight
   temp.remove()
 }
 
@@ -420,7 +431,7 @@ onBeforeUnmount(() => {
 /* Mobile responsive */
 @media (max-width: 767px) {
   .hero-section {
-    padding: 40px 0 60px;
+    padding: 112px 0 60px;
     min-height: 80vh;
   }
 
@@ -456,6 +467,7 @@ onBeforeUnmount(() => {
     margin-top: 12px;
   }
   /* height provided inline */
+  .hero-slideshow { min-height:128px; }
 
   .hero-actions {
     margin-top: 24px;
@@ -464,18 +476,21 @@ onBeforeUnmount(() => {
     align-items: center;
     gap: 22px;
   }
-
-  .hero-actions-main { flex-direction: column; width:100%; align-items: stretch; gap:14px; }
+  /* Center main call-to-action buttons vertically without stretching full width */
+  .hero-actions-main { flex-direction: column; width:auto; align-items: center; gap:14px; }
   .hero-actions-icons { gap:20px; }
-  .hero-cta { width:100%; max-width: 280px; padding: 14px 24px; }
-  .hero-or { order:2; font-size:13px; }
+  /* Constrain button width for nicer centering; allow them to shrink on very narrow screens */
+  .hero-actions-main .hero-cta { width:auto; min-width:220px; max-width: 280px; padding: 14px 24px; margin:0 auto; }
+  .hero-actions-icons .icon-cta { width: 52px; height: 52px; flex: 0 0 auto; }
+  /* Keep OR text above the icon buttons (DOM order) */
+  .hero-or { font-size:13px; }
   .hero-or::after { display:none; }
 }
 
 /* Extra small mobile */
 @media (max-width: 480px) {
   .hero-section {
-    padding: 32px 0 48px;
+    padding: 120px 0 48px;
   }
 
   .hero-inner {
@@ -508,11 +523,14 @@ onBeforeUnmount(() => {
     font-size: 0.9rem;
   }
   /* height provided inline */
+  .hero-slideshow { min-height:120px; }
 
-  .hero-cta {
+  .hero-actions-main .hero-cta {
     padding: 12px 20px;
     font-size: 14px;
+    min-width:200px;
   }
+  .hero-actions-icons .icon-cta { width: 50px; height: 50px; }
   .hero-actions-icons { gap:18px; }
   .hero-or { font-size:12px; }
 }
@@ -523,8 +541,8 @@ onBeforeUnmount(() => {
 }
 
 /* Added bottom padding to slideshow to keep space between subtitle and buttons */
-.hero-slideshow { padding-bottom: 28px; }
-@media (max-width:1024px){ .hero-slideshow { padding-bottom:34px; } }
-@media (max-width:767px){ .hero-slideshow { padding-bottom:30px; } }
-@media (max-width:480px){ .hero-slideshow { padding-bottom:26px; } }
+.hero-slideshow { padding-bottom: 24px; }
+@media (max-width:1024px){ .hero-slideshow { padding-bottom:30px; } }
+@media (max-width:767px){ .hero-slideshow { padding-bottom:16px; } }
+@media (max-width:480px){ .hero-slideshow { padding-bottom:10px; } }
 </style>
