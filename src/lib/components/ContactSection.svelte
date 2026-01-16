@@ -1,6 +1,10 @@
 <script>
 	import { onDestroy, onMount } from 'svelte';
 
+	// Toggle slideshow behavior (default: off).
+	// You can enable it from the parent via: <ContactSection slideshowEnabled={true} />
+	export let slideshowEnabled = false;
+
 	const images = ['/images/kevin01.png'];
 	let index = 0;
 	let isTransitioning = false;
@@ -9,10 +13,20 @@
 
 	let intervalId = null;
 	let fadeTimeoutId = null;
+	let mounted = false;
 
 	$: currentSrc = images[index];
 
+	function clearTimers() {
+		if (intervalId) clearInterval(intervalId);
+		if (fadeTimeoutId) clearTimeout(fadeTimeoutId);
+		intervalId = null;
+		fadeTimeoutId = null;
+		isTransitioning = false;
+	}
+
 	function startTransition() {
+		if (images.length < 2) return;
 		if (isTransitioning) return;
 		isTransitioning = true;
 
@@ -24,7 +38,13 @@
 		}, FADE_DURATION / 2);
 	}
 
-	onMount(() => {
+	function setupSlideshow() {
+		clearTimers();
+		if (!slideshowEnabled || images.length < 2) {
+			index = 0;
+			return;
+		}
+
 		try {
 			const storageKey = 'contactFlipLastIndex';
 			const stored = localStorage.getItem(storageKey);
@@ -45,13 +65,21 @@
 		} else {
 			intervalId = setInterval(startTransition, CYCLE_INTERVAL);
 		}
+	}
+
+	onMount(() => {
+		mounted = true;
 	});
 
+	$: if (mounted) {
+		// Explicit dependency so toggling the prop reconfigures timers.
+		slideshowEnabled;
+		setupSlideshow();
+	}
+
 	onDestroy(() => {
-		if (intervalId) clearInterval(intervalId);
-		if (fadeTimeoutId) clearTimeout(fadeTimeoutId);
-		intervalId = null;
-		fadeTimeoutId = null;
+		mounted = false;
+		clearTimers();
 	});
 </script>
 
