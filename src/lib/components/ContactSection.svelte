@@ -1,7 +1,7 @@
 <script>
 	import { onDestroy, onMount } from 'svelte';
 
-	const images = ['/images/kevin01.png', '/images/kevin02.png', '/images/kevin03.png'];
+	const images = ['/images/kevin01.png'];
 	let index = 0;
 	let isTransitioning = false;
 	const FADE_DURATION = 600;
