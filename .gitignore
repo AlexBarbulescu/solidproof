@@ -19,6 +19,9 @@ coverage
 .vercel/
 .output/
 
+# Cloudflare / Wrangler
+.wrangler/
+
 # env files
 .env
 .env.*
