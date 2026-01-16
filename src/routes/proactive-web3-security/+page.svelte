@@ -1,100 +1,95 @@
-<template>
-  <main class="security-page" aria-labelledby="security-hero-title">
-    <!-- Hero -->
-    <section class="security-hero">
-      <div class="security-hero-inner">
-        <div class="security-hero-copy">
-          <h1 id="security-hero-title" class="security-hero-title">Proactive Web3 Security</h1>
-          <p class="security-hero-subtitle">
-            Cyvers is a next-generation security company that provides real-time detection and prevention of crypto attacks for Web3 and a decentralized economy.
-          </p>
-          <p class="security-hero-note">
-            Our Proactive Web3 Security is a product from our partner Cyvers.ai
-          </p>
-          <div class="security-hero-ctas">
-            <a href="https://cyvers.ai/demo" target="_blank" class="security-cta security-cta--primary">Request now</a>
-            <a href="#security-features" class="security-cta security-cta--ghost">Learn more</a>
-          </div>
-        </div>
-        <div class="security-hero-art" aria-hidden="true">
-          <div class="security-orb security-orb--lg"></div>
-          <div class="security-orb security-orb--sm"></div>
-          <svg class="security-hero-svg" viewBox="0 0 160 160" fill="none" aria-hidden="true">
-            <defs>
-              <linearGradient id="gs1" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#FF6B6B"/>
-                <stop offset="1" stop-color="#FF1744"/>
-              </linearGradient>
-            </defs>
-            <circle cx="80" cy="80" r="72" stroke="url(#gs1)" stroke-width="2" opacity="0.6"/>
-            <circle cx="80" cy="80" r="52" stroke="url(#gs1)" stroke-width="2" opacity="0.35"/>
-            <circle cx="80" cy="80" r="28" stroke="url(#gs1)" stroke-width="2" opacity="0.25"/>
-          </svg>
-        </div>
-      </div>
-    </section>
+<svelte:head>
+	<title>Proactive Web3 Security • SolidProof</title>
+</svelte:head>
 
-    <!-- Intro -->
-    <section class="security-intro">
-      <div class="si-wrap">
-        <h2 class="si-title">Fortify Blockchain Security</h2>
-        <p class="si-text">
-          Unleashing the Potential of Blockchain real-time detection and prevention of malicious crypto activity
-        </p>
-      </div>
-    </section>
+<main class="security-page" aria-labelledby="security-hero-title">
+	<!-- Hero -->
+	<section class="security-hero">
+		<div class="security-hero-inner">
+			<div class="security-hero-copy">
+				<h1 id="security-hero-title" class="security-hero-title">Proactive Web3 Security</h1>
+				<p class="security-hero-subtitle">
+					Cyvers is a next-generation security company that provides real-time detection and prevention of crypto attacks for Web3 and a decentralized economy.
+				</p>
+				<p class="security-hero-note">Our Proactive Web3 Security is a product from our partner Cyvers.ai</p>
+				<div class="security-hero-ctas">
+					<a href="https://cyvers.ai/demo" target="_blank" class="security-cta security-cta--primary">Request now</a>
+					<a href="#security-features" class="security-cta security-cta--ghost">Learn more</a>
+				</div>
+			</div>
+			<div class="security-hero-art" aria-hidden="true">
+				<div class="security-orb security-orb--lg"></div>
+				<div class="security-orb security-orb--sm"></div>
+				<svg class="security-hero-svg" viewBox="0 0 160 160" fill="none" aria-hidden="true">
+					<defs>
+						<linearGradient id="gs1" x1="0" y1="0" x2="1" y2="1">
+							<stop offset="0" stop-color="#FF6B6B" />
+							<stop offset="1" stop-color="#FF1744" />
+						</linearGradient>
+					</defs>
+					<circle cx="80" cy="80" r="72" stroke="url(#gs1)" stroke-width="2" opacity="0.6" />
+					<circle cx="80" cy="80" r="52" stroke="url(#gs1)" stroke-width="2" opacity="0.35" />
+					<circle cx="80" cy="80" r="28" stroke="url(#gs1)" stroke-width="2" opacity="0.25" />
+				</svg>
+			</div>
+		</div>
+	</section>
 
-    <!-- Features -->
-    <section id="security-features" class="security-features" aria-labelledby="security-features-title">
-      <div class="sf-wrap">
-        <h2 id="security-features-title" class="sf-title">Key Security Features</h2>
-        <div class="sf-grid">
-          <div class="sf-item">
-            <div class="sf-icon-wrapper">
-              <h3 class="sf-icon-title">Screen</h3>
-            </div>
-            <p class="sf-item-desc">Build a cross-blockchain meta graph by scanning off-chain business data, smart contracts, and major blockchain networks</p>
-            <a href="https://cyvers.ai/platform" target="_blank" class="sf-link">Learn more →</a>
-          </div>
-          <div class="sf-item">
-            <div class="sf-icon-wrapper">
-              <h3 class="sf-icon-title">Detect</h3>
-            </div>
-            <p class="sf-item-desc">Analyze the cross-blockchain graph to find anomalies, based on attack patterns and illicit behavior indicators</p>
-            <a href="https://cyvers.ai/platform" target="_blank" class="sf-link">Learn more →</a>
-          </div>
-          <div class="sf-item">
-            <div class="sf-icon-wrapper">
-              <h3 class="sf-icon-title">Respond</h3>
-            </div>
-            <p class="sf-item-desc">Leverage the "golden window" to prevent the registry of malicious activity on the blockchain</p>
-            <a href="https://cyvers.ai/platform" target="_blank" class="sf-link">Learn more →</a>
-          </div>
-        </div>
-      </div>
-    </section>
+	<!-- Intro -->
+	<section class="security-intro">
+		<div class="si-wrap">
+			<h2 class="si-title">Fortify Blockchain Security</h2>
+			<p class="si-text">Unleashing the Potential of Blockchain real-time detection and prevention of malicious crypto activity</p>
+		</div>
+	</section>
 
-    <!-- CTA -->
-    <section id="security-contact" class="security-cta-section">
-      <div class="sc-wrap">
-        <h2 class="sc-title">Need help?</h2>
-        <p class="sc-intro">Click on the button "Help" to get in contact with the Cyvers team!</p>
-        <a href="https://cyvers.ai/" target="_blank" class="sc-button">
-          <span>Help</span>
-          <svg class="sc-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M3 8h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <path d="M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-      </div>
-    </section>
-  </main>
-</template>
+	<!-- Features -->
+	<section id="security-features" class="security-features" aria-labelledby="security-features-title">
+		<div class="sf-wrap">
+			<h2 id="security-features-title" class="sf-title">Key Security Features</h2>
+			<div class="sf-grid">
+				<div class="sf-item">
+					<div class="sf-icon-wrapper">
+						<h3 class="sf-icon-title">Screen</h3>
+					</div>
+					<p class="sf-item-desc">Build a cross-blockchain meta graph by scanning off-chain business data, smart contracts, and major blockchain networks</p>
+					<a href="https://cyvers.ai/platform" target="_blank" class="sf-link">Learn more →</a>
+				</div>
+				<div class="sf-item">
+					<div class="sf-icon-wrapper">
+						<h3 class="sf-icon-title">Detect</h3>
+					</div>
+					<p class="sf-item-desc">Analyze the cross-blockchain graph to find anomalies, based on attack patterns and illicit behavior indicators</p>
+					<a href="https://cyvers.ai/platform" target="_blank" class="sf-link">Learn more →</a>
+				</div>
+				<div class="sf-item">
+					<div class="sf-icon-wrapper">
+						<h3 class="sf-icon-title">Respond</h3>
+					</div>
+					<p class="sf-item-desc">Leverage the "golden window" to prevent the registry of malicious activity on the blockchain</p>
+					<a href="https://cyvers.ai/platform" target="_blank" class="sf-link">Learn more →</a>
+				</div>
+			</div>
+		</div>
+	</section>
 
-<script setup>
-</script>
+	<!-- CTA -->
+	<section id="security-contact" class="security-cta-section">
+		<div class="sc-wrap">
+			<h2 class="sc-title">Need help?</h2>
+			<p class="sc-intro">Click on the button "Help" to get in contact with the Cyvers team!</p>
+			<a href="https://cyvers.ai/" target="_blank" class="sc-button">
+				<span>Help</span>
+				<svg class="sc-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+					<path d="M3 8h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+					<path d="M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+				</svg>
+			</a>
+		</div>
+	</section>
+</main>
 
-<style scoped>
+<style>
 .security-page { flex: 1; display: flex; flex-direction: column; background: transparent; }
 
 /* Hero */

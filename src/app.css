@@ -1,4 +1,5 @@
-/* color palette from <https://github.com/vuejs/theme> */
+/* Migrated from the previous Vue styles */
+
 :root {
   --vt-c-white: #ffffff;
   --vt-c-white-soft: #f8f8f8;
@@ -21,7 +22,6 @@
   --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
 }
 
-/* semantic color variables for this project */
 :root {
   --color-background: var(--vt-c-white);
   --color-background-soft: var(--vt-c-white-soft);
@@ -58,13 +58,14 @@
   font-weight: normal;
 }
 
+html, body {
+  margin: 0;
+}
+
 body {
   min-height: 100vh;
   color: var(--color-text);
-  background: var(--color-background);
-  transition:
-    color 0.5s,
-    background-color 0.5s;
+  background: #000; /* Force dark background site-wide */
   line-height: 1.6;
   font-family:
     'Geist',
@@ -84,4 +85,9 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }

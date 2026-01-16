@@ -14,6 +14,16 @@ dist-ssr
 coverage
 *.local
 
+# SvelteKit (generated)
+.svelte-kit/
+.vercel/
+.output/
+
+# env files
+.env
+.env.*
+!.env.example
+
 /cypress/videos/
 /cypress/screenshots/
 
@@ -34,3 +44,9 @@ tests_output/
 
 test-results/
 playwright-report/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

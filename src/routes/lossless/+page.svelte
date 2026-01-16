@@ -1,89 +1,84 @@
-<template>
-  <main class="lossless-page" aria-labelledby="lossless-hero-title">
-    <!-- Hero -->
-    <section class="lossless-hero">
-      <div class="lossless-hero-inner">
-        <div class="lossless-hero-copy">
-          <h1 id="lossless-hero-title" class="lossless-hero-title">Lossless</h1>
-          <p class="lossless-hero-subtitle">
-            Lossless incorporates a new layer of blockchain transaction security, protecting selected projects and their communities from malicious exploits and the associated financial loss.
-          </p>
-          <p class="lossless-hero-note">
-            *Products are from Lossless
-          </p>
-          <div class="lossless-hero-ctas">
-            <a href="https://lossless.io/contact-us/" target="_blank" class="lossless-cta lossless-cta--primary">Request now</a>
-            <a href="#lossless-features" class="lossless-cta lossless-cta--ghost">Learn more</a>
-          </div>
-        </div>
-        <div class="lossless-hero-art" aria-hidden="true">
-          <div class="lossless-orb lossless-orb--lg"></div>
-          <div class="lossless-orb lossless-orb--sm"></div>
-          <svg class="lossless-hero-svg" viewBox="0 0 160 160" fill="none" aria-hidden="true">
-            <defs>
-              <linearGradient id="gl1" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#FFD600"/>
-                <stop offset="1" stop-color="#FF9E00"/>
-              </linearGradient>
-            </defs>
-            <circle cx="80" cy="80" r="72" stroke="url(#gl1)" stroke-width="2" opacity="0.6"/>
-            <circle cx="80" cy="80" r="52" stroke="url(#gl1)" stroke-width="2" opacity="0.35"/>
-            <circle cx="80" cy="80" r="28" stroke="url(#gl1)" stroke-width="2" opacity="0.25"/>
-          </svg>
-        </div>
-      </div>
-    </section>
+<svelte:head>
+	<title>Lossless • SolidProof</title>
+</svelte:head>
 
-    <!-- Intro -->
-    <section class="lossless-intro">
-      <div class="li-wrap">
-        <h2 class="li-title">Restoring Trust in Web3 Security</h2>
-        <p class="li-text">
-          Lossless protocol is designed to reinforce token security framework, ensuring project creators and their communities have a fail-safe against malicious exploits.
-        </p>
-      </div>
-    </section>
+<main class="lossless-page" aria-labelledby="lossless-hero-title">
+	<!-- Hero -->
+	<section class="lossless-hero">
+		<div class="lossless-hero-inner">
+			<div class="lossless-hero-copy">
+				<h1 id="lossless-hero-title" class="lossless-hero-title">Lossless</h1>
+				<p class="lossless-hero-subtitle">
+					Lossless incorporates a new layer of blockchain transaction security, protecting selected projects and their communities from malicious exploits and the associated financial loss.
+				</p>
+				<p class="lossless-hero-note">*Products are from Lossless</p>
+				<div class="lossless-hero-ctas">
+					<a href="https://lossless.io/contact-us/" target="_blank" class="lossless-cta lossless-cta--primary">Request now</a>
+					<a href="#lossless-features" class="lossless-cta lossless-cta--ghost">Learn more</a>
+				</div>
+			</div>
+			<div class="lossless-hero-art" aria-hidden="true">
+				<div class="lossless-orb lossless-orb--lg"></div>
+				<div class="lossless-orb lossless-orb--sm"></div>
+				<svg class="lossless-hero-svg" viewBox="0 0 160 160" fill="none" aria-hidden="true">
+					<defs>
+						<linearGradient id="gl1" x1="0" y1="0" x2="1" y2="1">
+							<stop offset="0" stop-color="#FFD600" />
+							<stop offset="1" stop-color="#FF9E00" />
+						</linearGradient>
+					</defs>
+					<circle cx="80" cy="80" r="72" stroke="url(#gl1)" stroke-width="2" opacity="0.6" />
+					<circle cx="80" cy="80" r="52" stroke="url(#gl1)" stroke-width="2" opacity="0.35" />
+					<circle cx="80" cy="80" r="28" stroke="url(#gl1)" stroke-width="2" opacity="0.25" />
+				</svg>
+			</div>
+		</div>
+	</section>
 
-    <!-- Features -->
-    <section id="lossless-features" class="lossless-features" aria-labelledby="lossless-features-title">
-      <div class="lf-wrap">
-        <h2 id="lossless-features-title" class="lf-title">Key Security Features</h2>
-        <div class="lf-grid">
-          <div class="lf-item">
-            <h3 class="lf-item-title">Lossless Protocol</h3>
-            <p class="lf-item-desc">Reinforce your project's token with the option to recover them if stolen</p>
-            <a href="https://platform.lossless.io/latest-transfers?chain=mainnet" target="_blank" class="lf-link">Learn more →</a>
-          </div>
-          <div class="lf-item">
-            <h3 class="lf-item-title">Aegis</h3>
-            <p class="lf-item-desc">Lossless Aegis provides industry-leading threat monitoring and smart contract defence capabilities, designed to prevent exploits before they happen</p>
-            <a href="https://aegis.lossless.io/" target="_blank" class="lf-link">Learn more →</a>
-          </div>
-        </div>
-      </div>
-    </section>
+	<!-- Intro -->
+	<section class="lossless-intro">
+		<div class="li-wrap">
+			<h2 class="li-title">Restoring Trust in Web3 Security</h2>
+			<p class="li-text">Lossless protocol is designed to reinforce token security framework, ensuring project creators and their communities have a fail-safe against malicious exploits.</p>
+		</div>
+	</section>
 
-    <!-- CTA -->
-    <section id="lossless-contact" class="lossless-cta-section">
-      <div class="lc-wrap">
-        <h2 class="lc-title">Need help?</h2>
-        <p class="lc-intro">Click on the button "Help" to get in contact with the Lossless team!</p>
-        <a href="https://lossless.io/contact-us/" target="_blank" class="lc-button">
-          <span>Help</span>
-          <svg class="lc-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M3 8h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <path d="M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-      </div>
-    </section>
-  </main>
-</template>
+	<!-- Features -->
+	<section id="lossless-features" class="lossless-features" aria-labelledby="lossless-features-title">
+		<div class="lf-wrap">
+			<h2 id="lossless-features-title" class="lf-title">Key Security Features</h2>
+			<div class="lf-grid">
+				<div class="lf-item">
+					<h3 class="lf-item-title">Lossless Protocol</h3>
+					<p class="lf-item-desc">Reinforce your project's token with the option to recover them if stolen</p>
+					<a href="https://platform.lossless.io/latest-transfers?chain=mainnet" target="_blank" class="lf-link">Learn more →</a>
+				</div>
+				<div class="lf-item">
+					<h3 class="lf-item-title">Aegis</h3>
+					<p class="lf-item-desc">Lossless Aegis provides industry-leading threat monitoring and smart contract defence capabilities, designed to prevent exploits before they happen</p>
+					<a href="https://aegis.lossless.io/" target="_blank" class="lf-link">Learn more →</a>
+				</div>
+			</div>
+		</div>
+	</section>
 
-<script setup>
-</script>
+	<!-- CTA -->
+	<section id="lossless-contact" class="lossless-cta-section">
+		<div class="lc-wrap">
+			<h2 class="lc-title">Need help?</h2>
+			<p class="lc-intro">Click on the button "Help" to get in contact with the Lossless team!</p>
+			<a href="https://lossless.io/contact-us/" target="_blank" class="lc-button">
+				<span>Help</span>
+				<svg class="lc-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+					<path d="M3 8h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+					<path d="M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+				</svg>
+			</a>
+		</div>
+	</section>
+</main>
 
-<style scoped>
+<style>
 .lossless-page { flex: 1; display: flex; flex-direction: column; background: transparent; }
 
 /* Hero */
