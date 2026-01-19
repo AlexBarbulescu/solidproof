@@ -17,9 +17,9 @@
 	let observer = null;
 
 	const stats = [
-		{ label: 'Clients', value: 1007 },
-		{ label: 'Audits', value: 957 },
-		{ label: 'KYC', value: 385 }
+		{ label: 'Clients', value: 3250 },
+		{ label: 'Audits', value: 2340 },
+		{ label: 'KYC', value: 925 }
 	];
 	let displayValues = stats.map(() => 0);
 	let statsStarted = false;
