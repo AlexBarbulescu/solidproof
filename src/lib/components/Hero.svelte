@@ -4,6 +4,9 @@
 	let videoEl;
 	let observer = null;
 	const VIDEO_SRC = '/images/hero_video.mp4';
+	// Adjust this to reframe the background video (e.g. '50% 35%', 'center top', 'calc(50% + 40px) 50%')
+	let videoObjectPosition = 'calc(50% + 350px) 50%';
+	let isMobile = false;
 
 	// Rotating text (keeps the previous hero “text change animation” behavior)
 	const frames = [
@@ -44,9 +47,154 @@
 	let dynamicHeight = 0;
 	let resizeRaf = null;
 
+	// Contact modal + Tawk handoff
+	let contactOpen = false;
+	let contactFormError = '';
+	let submittingContact = false;
+
+	let projectOrCompany = '';
+	let fullName = '';
+	let email = '';
+	let jobTitle = '';
+	let contactPlatform = 'Telegram';
+	let handleOrUsername = '';
+	let serviceInterest = '';
+	let additionalInfo = '';
+
+	let firstFieldEl;
+	let contactCleanup = null;
+
+	const tawkPropertyId = '68da53b0acbab119535c12ea';
+	const tawkWidgetId = '1j6addqb8';
+	let tawkInjected = false;
+
+	const heroContacts = [
+		{
+			name: 'Kevin Arens',
+			title: 'Chief Financial Officer',
+			imageSrc: '/images/kevin01.png',
+			gradient: 'linear-gradient(90deg, rgba(0, 64, 160, 0.95), rgba(0, 16, 50, 0.55))',
+			links: {
+				telegram: 'https://t.me/solidproof_io',
+				linkedin: 'https://www.linkedin.com/showcase/solidproof/about/',
+				email: 'mailto:info@solidproof.io?subject=Quote Request 2026-01-19&body=Quote Request%0DThere is a new quote request (Time: 2026-01-19 09:08 UTC)%0D%0DProject name%0D➣ %0D%0DService type (Please choose)%0D➣ Audit or Kyc or Audit/KYC%0D%0DProject link%0D➣ %0D%0DContact name%0D➣ %0D%0DContact details%0D➣ %0D%0DCompany%0DCompany Name%0D➣ %0D%0DAddress%0D➣ %0D%0DDeadline%0D➣ %0D%0DLaunchpad%0D➣ %0D%0DAdditional Information%0D➣ '
+			}
+		},
+		{
+			name: 'Support & Sales',
+			title: 'Chief Sales Officer',
+			imageSrc: '/images/wappen.jpg',
+			gradient: 'linear-gradient(90deg, rgba(155, 0, 90, 0.95), rgba(35, 0, 20, 0.55))',
+			links: {
+				telegram: 'https://t.me/Solidproof_io_Support',
+				email: 'mailto:support@solidproof.io?subject=Quote Request 2026-01-19&amp;body=Quote Request%0DThere is a new quote request (Time: 2026-01-19 09:08 UTC)%0D%0DProject name%0D➣ %0D%0DService type (Please choose)%0D➣ Audit or Kyc or Audit/KYC%0D%0DProject link%0D➣ %0D%0DContact name%0D➣ %0D%0DContact details%0D➣ %0D%0DCompany%0DCompany Name%0D➣ %0D%0DAddress%0D➣ %0D%0DDeadline%0D➣ %0D%0DLaunchpad%0D➣ %0D%0DAdditional Information%0D➣ '
+			}
+		}
+	];
+
+	function closeContact() {
+		contactOpen = false;
+		contactFormError = '';
+		submittingContact = false;
+	}
+
+	function openContact() {
+		contactOpen = true;
+		contactFormError = '';
+	}
+
+	function injectTawk(propertyId, widgetId) {
+		if (typeof window === 'undefined') return false;
+		if (tawkInjected || !propertyId || !widgetId) return false;
+		const s1 = document.createElement('script');
+		s1.async = true;
+		s1.src = `https://embed.tawk.to/${propertyId}/${widgetId}`;
+		s1.charset = 'UTF-8';
+		s1.setAttribute('crossorigin', '*');
+		const s0 = document.getElementsByTagName('script')[0];
+		s0?.parentNode?.insertBefore(s1, s0);
+		tawkInjected = true;
+		return true;
+	}
+
+	function waitForTawkReady() {
+		return new Promise((resolve) => {
+			let attempts = 0;
+			const maxAttempts = 160; // ~8s
+			const interval = setInterval(() => {
+				attempts++;
+				const ready =
+					typeof window !== 'undefined' &&
+					window.Tawk_API &&
+					typeof window.Tawk_API.maximize === 'function' &&
+					typeof window.Tawk_API.setAttributes === 'function';
+				if (ready || attempts >= maxAttempts) {
+					clearInterval(interval);
+					resolve(Boolean(ready));
+				}
+			}, 50);
+		});
+	}
+
+	async function submitContact(e) {
+		e?.preventDefault?.();
+		contactFormError = '';
+		if (submittingContact) return;
+
+		const trimmedProject = projectOrCompany.trim();
+		const trimmedEmail = email.trim();
+		const trimmedHandle = handleOrUsername.trim();
+
+		if (!trimmedProject) {
+			contactFormError = 'Project or Company Name is required.';
+			return;
+		}
+		if (!trimmedEmail) {
+			contactFormError = 'Email is required.';
+			return;
+		}
+		if (!trimmedHandle) {
+			contactFormError = 'Handle / Username is required.';
+			return;
+		}
+
+		submittingContact = true;
+		try {
+			if (!window.Tawk_API) injectTawk(tawkPropertyId, tawkWidgetId);
+			const ready = await waitForTawkReady();
+			if (!ready) {
+				contactFormError = 'Chat is still loading. Please try again in a moment.';
+				submittingContact = false;
+				return;
+			}
+
+			window.Tawk_API.setAttributes(
+				{
+					name: fullName.trim() || undefined,
+					email: trimmedEmail,
+					jobTitle: jobTitle.trim() || undefined,
+					projectOrCompany: trimmedProject,
+					contactPlatform,
+					handleOrUsername: trimmedHandle,
+					serviceInterest: serviceInterest.trim() || undefined,
+					additionalInfo: additionalInfo.trim() || undefined
+				},
+				() => {
+					window.Tawk_API.maximize();
+				}
+			);
+
+			closeContact();
+		} catch {
+			contactFormError = 'Something went wrong. Please try again.';
+			submittingContact = false;
+		}
+	}
+
 	$: currentFrame = frames[activeIndex];
 	$: dynamicStyle = dynamicHeight ? `height: ${dynamicHeight}px;` : '';
 	$: titleKey = `${currentFrame.titleLine1}|${currentFrame.titleLine2}`;
+	$: effectiveVideoObjectPosition = isMobile ? '50% 50%' : videoObjectPosition;
 
 	function startSlideshow() {
 		if (slideInterval) return;
@@ -88,6 +236,7 @@
 		if (typeof window === 'undefined') return;
 		if (resizeRaf) cancelAnimationFrame(resizeRaf);
 		resizeRaf = requestAnimationFrame(() => {
+			isMobile = window.innerWidth <= 767;
 			measureDynamicHeight();
 		});
 	}
@@ -102,6 +251,7 @@
 
 	onMount(() => {
 		const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		isMobile = window.innerWidth <= 767;
 
 		measureDynamicHeight();
 		window.addEventListener('resize', handleResize, { passive: true });
@@ -133,9 +283,31 @@
 		if (videoEl) observer.observe(videoEl);
 	});
 
+	$: {
+		if (contactCleanup) {
+			contactCleanup();
+			contactCleanup = null;
+		}
+		if (contactOpen && typeof window !== 'undefined') {
+			const prevOverflow = document.body.style.overflow;
+			document.body.style.overflow = 'hidden';
+			queueMicrotask(() => firstFieldEl?.focus?.());
+			const onKeyDown = (ev) => {
+				if (ev.key === 'Escape') closeContact();
+			};
+			window.addEventListener('keydown', onKeyDown);
+			contactCleanup = () => {
+				window.removeEventListener('keydown', onKeyDown);
+				document.body.style.overflow = prevOverflow;
+			};
+		}
+	}
+
 	onDestroy(() => {
 		observer?.disconnect();
 		observer = null;
+		if (contactCleanup) contactCleanup();
+		contactCleanup = null;
 		stopSlideshow();
 		if (typeof window !== 'undefined') {
 			window.removeEventListener('resize', handleResize);
@@ -151,6 +323,7 @@
 		<video
 			bind:this={videoEl}
 			class="background-video"
+			style={`object-position: ${effectiveVideoObjectPosition};`}
 			preload="none"
 			autoplay
 			muted
@@ -163,7 +336,6 @@
 	<div class="hero-inner">
 		<div class="hero-layout">
 			<div class="hero-copy">
-				<!-- <p class="hero-kicker">Elevate Your Web3 Journey</p> -->
 				<h1 class="hero-title">
 					{#key titleKey}
 						<span class="hero-title-frame">
@@ -180,18 +352,157 @@
 					{/key}
 				</div>
 				<div class="hero-actions">
-					<a href="mailto:info@solidproof.io" class="hero-cta primary-cta">Talk to an expert</a>
+					<button type="button" class="hero-cta primary-cta" on:click={openContact}>Request a quote</button>
 					<a href="https://app.solidproof.io/" class="hero-cta secondary-cta">
 						Launch App <span class="cta-arrow" aria-hidden="true">→</span>
 					</a>
 				</div>
+
+				<div class="hero-contact-strip" aria-label="Direct contacts">
+					{#each heroContacts as c}
+						<div class="contact-card" style={`--card-bg: ${c.gradient};`}>
+							<img class="contact-avatar" src={c.imageSrc} alt={c.name} loading="lazy" />
+							<div class="contact-meta">
+								<div class="contact-name">{c.name}</div>
+								<div class="contact-title">{c.title}</div>
+							</div>
+							<div class="contact-links" aria-label={`${c.name} links`}>
+								{#if c.links.telegram}
+									<a class="contact-icon" href={c.links.telegram} target="_blank" rel="noopener" aria-label="Telegram">
+										<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+											<path
+												fill="currentColor"
+												d="M9.51 14.42 9.3 18.2c.41 0 .58-.18.8-.39l1.92-1.83 3.97 2.92c.73.4 1.25.19 1.43-.67L20.8 5.64c.24-1.06-.4-1.48-1.1-1.22L2.84 10.9c-1.02.4-1.01.98-.18 1.24l4.31 1.35L17.3 7.04c.48-.3.92-.13.56.19z"
+											/>
+										</svg>
+									</a>
+								{/if}
+								{#if c.links.linkedin}
+									<a class="contact-icon" href={c.links.linkedin} target="_blank" rel="noopener" aria-label="LinkedIn">
+										<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+											<path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0.5 8.5h4V23h-4V8.5zM8.5 8.5h3.83v1.98h.05c.53-1 1.82-2.06 3.74-2.06 4 0 4.74 2.63 4.74 6.05V23h-4v-7.53c0-1.8-.03-4.12-2.5-4.12-2.5 0-2.88 1.95-2.88 3.98V23h-4V8.5z"/>
+										</svg>
+									</a>
+								{/if}
+								{#if c.links.email}
+									<a class="contact-icon" href={c.links.email} aria-label="Email">
+										<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+											<path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+										</svg>
+									</a>
+								{/if}
+						</div>
+					</div>
+				{/each}
+				</div>
 			</div>
 
 			<!-- Reserved column for an image/SVG you can add later -->
-			<div class="hero-media" aria-hidden="true"></div>
+			<div class="hero-media" aria-hidden="true">
+				<img class="hero-right-logo" src="/images/logo_3d.png" alt="" loading="lazy" decoding="async" />
+			</div>
 		</div>
 	</div>
 </section>
+
+{#if contactOpen}
+	<div class="contact-modal" role="dialog" aria-modal="true" aria-label="Talk to an expert">
+		<button class="contact-backdrop" type="button" aria-label="Close" on:click={closeContact}></button>
+		<div class="contact-panel" role="document">
+			<div class="contact-header">
+				<div class="contact-title-wrap">
+					<h2 class="contact-title">Protect Your Project Today</h2>
+					<p class="contact-subtitle">
+						Share a few details and we’ll open a secure chat with our team via Tawk.
+					</p>
+				</div>
+				<button class="contact-close" type="button" aria-label="Close" on:click={closeContact}>×</button>
+			</div>
+
+			<form class="contact-form" on:submit={submitContact}>
+				<div class="field">
+					<label for="contact-project">Project or Company Name <span class="req">*</span></label>
+					<input
+						id="contact-project"
+						bind:this={firstFieldEl}
+						bind:value={projectOrCompany}
+						placeholder="Enter project or company name"
+					/>
+				</div>
+
+				<div class="grid-3">
+					<div class="field">
+						<label for="contact-fullname">Full Name</label>
+						<input id="contact-fullname" bind:value={fullName} placeholder="Enter your full name" />
+					</div>
+					<div class="field">
+						<label for="contact-email">Email <span class="req">*</span></label>
+						<input
+							id="contact-email"
+							bind:value={email}
+							inputmode="email"
+							autocomplete="email"
+							placeholder="Enter your work email"
+						/>
+					</div>
+					<div class="field">
+						<label for="contact-job">Job Title</label>
+						<input id="contact-job" bind:value={jobTitle} placeholder="Enter your job title" />
+					</div>
+				</div>
+
+				<div class="grid-2">
+					<div class="field">
+						<label for="contact-platform">Contact Platform <span class="req">*</span></label>
+						<select id="contact-platform" bind:value={contactPlatform}>
+							<option>Telegram</option>
+							<option>Discord</option>
+							<option>WhatsApp</option>
+							<option>Signal</option>
+							<option>Email</option>
+						</select>
+					</div>
+					<div class="field">
+						<label for="contact-handle">Handle / Username <span class="req">*</span></label>
+						<input id="contact-handle" bind:value={handleOrUsername} placeholder="Enter your handle or ID" />
+					</div>
+				</div>
+
+				<div class="field">
+					<label for="contact-service">Service Interest</label>
+					<select id="contact-service" bind:value={serviceInterest}>
+						<option value="">Select from available services</option>
+						<option>Audit</option>
+						<option>KYC</option>
+						<option>Development</option>
+						<option>Consulting</option>
+						<option>Marketing</option>
+					</select>
+				</div>
+
+				<div class="field">
+					<label for="contact-additional">Additional Information</label>
+					<textarea
+						id="contact-additional"
+						bind:value={additionalInfo}
+						rows="4"
+						placeholder="Include project details, relevant links, or any questions you may have"
+					></textarea>
+				</div>
+
+				{#if contactFormError}
+					<div class="form-error" role="alert">{contactFormError}</div>
+				{/if}
+
+				<div class="contact-actions">
+					<button class="contact-submit" type="submit" disabled={submittingContact}>
+						{submittingContact ? 'Opening secure chat…' : 'Request My Quote'}
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+{/if}
 
 <style>
 	.hero-section { 
@@ -199,6 +510,7 @@
 		overflow: hidden; 
 		padding: 80px 0 72px;
 		min-height: 100vh;
+		min-height: 100svh;
 		display: flex;
 		align-items: center;
 	}
@@ -237,15 +549,28 @@
 	.hero-media {
 		min-height: 420px;
 		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
 	}
 
-	.hero-kicker {
-		margin: 0 0 18px;
-		font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
-		font-size: 18px;
-		font-weight: 500;
-		color: rgba(255, 255, 255, 0.9);
-		letter-spacing: 0.01em;
+	.hero-right-logo {
+		width: min(560px, 100%);
+		max-width: 100%;
+		height: auto;
+		object-fit: contain;
+		display: block;
+		filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.55));
+		opacity: 0.98;
+	}
+
+	@media (max-width: 980px) {
+		.hero-layout { grid-template-columns: 1fr; gap: 28px; }
+		.hero-media {
+			min-height: auto;
+			justify-content: center;
+		}
+		.hero-right-logo { width: min(420px, 80vw); }
 	}
 
 	.hero-title {
@@ -297,6 +622,86 @@
 		align-items: center;
 	}
 
+	.hero-contact-strip {
+		margin-top: 18px;
+		display: flex;
+		gap: 14px;
+		flex-wrap: nowrap;
+		align-items: center;
+	}
+
+	.contact-card {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		padding: 9px 10px;
+		border-radius: 12px;
+		background: var(--card-bg);
+		border: 1px solid rgba(255, 255, 255, 0.10);
+		box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+		flex: 1 1 0;
+		min-width: 0;
+	}
+
+	.contact-avatar {
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		object-fit: cover;
+		border: 2px solid rgba(0, 0, 0, 0.25);
+		background: rgba(0, 0, 0, 0.2);
+	}
+
+	.contact-meta { min-width: 0; }
+	.contact-name {
+		color: rgba(255, 255, 255, 0.96);
+		font-weight: 600;
+		font-size: 13px;
+		line-height: 1.15;
+		font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.contact-meta .contact-title {
+		margin-top: 2px;
+		color: rgba(255, 255, 255, 0.82);
+		font-weight: 500;
+		font-size: 10px;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
+		white-space: normal;
+		line-height: 1.2;
+		max-height: calc(1.2em * 2);
+		overflow: hidden;
+		word-break: break-word;
+		hyphens: auto;
+	}
+
+	.contact-links {
+		margin-left: auto;
+		display: flex;
+		gap: 8px;
+		align-items: center;
+	}
+	.contact-icon {
+		width: 28px;
+		height: 28px;
+		display: grid;
+		place-items: center;
+		border-radius: 9px;
+		color: rgba(255, 255, 255, 0.95);
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		background: rgba(0, 0, 0, 0.18);
+		transition: background 0.2s ease, transform 0.2s ease;
+		text-decoration: none;
+	}
+	.contact-icon:hover {
+		background: rgba(255, 255, 255, 0.08);
+		transform: translateY(-1px);
+	}
+
 	.hero-cta { 
 		display: inline-block; 
 		padding: 14px 22px;
@@ -307,16 +712,17 @@
 		transition: all 0.3s ease;
 		font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
 		font-size: 14px;
+		cursor: pointer;
 	}
 
 	.primary-cta { 
-		background: #e64a3b;
+		background: #0D6EFD;
 		color: #fff;
 		box-shadow: none;
 	}
 
 	.primary-cta:hover {
-		filter: brightness(1.05);
+		background: #0B5ED7;
 	}
 
 	.secondary-cta { 
@@ -331,23 +737,161 @@
 	}
 	.cta-arrow { margin-left: 4px; }
 
+	/* Contact modal */
+	.contact-modal {
+		position: fixed;
+		inset: 0;
+		z-index: 9999;
+		display: grid;
+		place-items: center;
+	}
+	.contact-backdrop {
+		position: absolute;
+		inset: 0;
+		background: rgba(0, 0, 0, 0.72);
+		border: 0;
+	}
+	.contact-panel {
+		position: relative;
+		width: min(760px, calc(100vw - 32px));
+		max-height: calc(100vh - 32px);
+		overflow: auto;
+		border-radius: 12px;
+		background: rgba(10, 10, 10, 0.96);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		box-shadow: 0 22px 70px rgba(0, 0, 0, 0.6);
+		padding: 22px;
+		backdrop-filter: blur(10px);
+		-webkit-backdrop-filter: blur(10px);
+	}
+	.contact-header {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 16px;
+		margin-bottom: 18px;
+	}
+	.contact-panel .contact-title {
+		margin: 0;
+		font-size: 34px;
+		line-height: 1.1;
+		font-weight: 500;
+		color: rgba(255, 255, 255, 0.96);
+		font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
+	}
+	.contact-subtitle {
+		margin: 10px 0 0;
+		color: #9BA1A5;
+		font-size: 14px;
+		line-height: 1.45;
+		font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
+	}
+	.contact-close {
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		background: rgba(255, 255, 255, 0.06);
+		color: rgba(255, 255, 255, 0.9);
+		width: 34px;
+		height: 34px;
+		border-radius: 10px;
+		cursor: pointer;
+		line-height: 1;
+		font-size: 18px;
+		display: grid;
+		place-items: center;
+	}
+	.contact-close:hover { background: rgba(255, 255, 255, 0.10); }
+
+	.contact-form { display: grid; gap: 14px; }
+	.field { display: grid; gap: 8px; }
+	.field label {
+		color: rgba(255, 255, 255, 0.9);
+		font-size: 13px;
+		font-weight: 500;
+		font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
+	}
+	.req { color: #e64a3b; }
+	.field input,
+	.field select,
+	.field textarea {
+		width: 100%;
+		padding: 12px 12px;
+		border-radius: 8px;
+		border: 1px solid rgba(255, 255, 255, 0.10);
+		background: rgba(0, 0, 0, 0.28);
+		color: rgba(255, 255, 255, 0.92);
+		outline: none;
+		font-size: 14px;
+		font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
+	}
+	.field textarea { resize: vertical; min-height: 110px; }
+	.field input:focus,
+	.field select:focus,
+	.field textarea:focus {
+		border-color: rgba(13, 110, 253, 0.65);
+		box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.18);
+	}
+
+	.grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+	.grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+
+	.form-error {
+		padding: 10px 12px;
+		border-radius: 10px;
+		border: 1px solid rgba(230, 74, 59, 0.35);
+		background: rgba(230, 74, 59, 0.12);
+		color: rgba(255, 255, 255, 0.92);
+		font-size: 13px;
+		font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
+	}
+
+	.contact-actions { display: flex; justify-content: center; padding-top: 6px; }
+	.contact-submit {
+		width: min(360px, 100%);
+		padding: 14px 18px;
+		border-radius: 10px;
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		background: #0D6EFD;
+		color: #fff;
+		font-size: 15px;
+		font-weight: 600;
+		cursor: pointer;
+		transition: background 0.2s ease, transform 0.2s ease;
+		font-family: 'Geist', -apple-system, Roboto, Helvetica, sans-serif;
+	}
+	.contact-submit:hover { background: #0B5ED7; transform: translateY(-1px); }
+	.contact-submit:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+
+	@media (max-width: 767px) {
+		.contact-panel { padding: 18px; }
+		.contact-panel .contact-title { font-size: 26px; }
+		.grid-3 { grid-template-columns: 1fr; }
+		.grid-2 { grid-template-columns: 1fr; }
+	}
+
 	@media (max-width: 1024px) {
 		.hero-section { padding: 60px 0 72px; min-height: 90vh; }
 		.hero-inner { padding: 0 32px; min-height: 50vh; }
 		.hero-layout { grid-template-columns: minmax(0, 560px) minmax(0, 1fr); gap: 40px; }
 		.hero-media { min-height: 360px; }
+		.hero-right-logo { width: min(420px, 100%); }
 	}
 
 	@media (max-width: 767px) {
 		.hero-section { padding: 112px 0 60px; min-height: 80vh; }
 		.hero-inner { padding: 0 20px; min-height: 40vh; }
 		.hero-layout { grid-template-columns: 1fr; gap: 28px; }
-		.hero-media { min-height: 0; height: 0; }
-		.hero-kicker { font-size: 16px; margin-bottom: 14px; }
+		.hero-media { display: none; }
 		.hero-title { font-size: clamp(44px, 12vw, 72px); }
 		.hero-subtitle { font-size: 16px; }
 		.hero-dynamic { margin-top: 16px; }
 		.hero-actions { margin-top: 24px; justify-content: flex-start; }
+		.hero-contact-strip { margin-top: 16px; gap: 10px; }
+		.hero-contact-strip { flex-wrap: wrap; }
+		.contact-card { min-width: 100%; }
+	}
+
+	@media (max-width: 1024px) {
+		.hero-contact-strip { flex-wrap: wrap; }
 	}
 
 	@media (max-width: 480px) {
