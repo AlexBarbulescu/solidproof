@@ -5,7 +5,8 @@
 	let observer = null;
 	const VIDEO_SRC = '/images/hero_video.mp4';
 	// Adjust this to reframe the background video (e.g. '50% 35%', 'center top', 'calc(50% + 40px) 50%')
-	let videoObjectPosition = 'calc(50% + 350px) 50%';
+	// let videoObjectPosition = 'calc(50% + 350px) 50%';
+	let videoObjectPosition = '50% 50%';
 	let isMobile = false;
 
 	// Rotating text (keeps the previous hero “text change animation” behavior)
@@ -399,7 +400,7 @@
 
 			<!-- Reserved column for an image/SVG you can add later -->
 			<div class="hero-media" aria-hidden="true">
-				<img class="hero-right-logo" src="/images/logo_3d.png" alt="" loading="lazy" decoding="async" />
+				<img class="hero-right-logo" src="images/hero_robot.png" alt="" loading="lazy" decoding="async" />
 			</div>
 		</div>
 	</div>
@@ -537,7 +538,7 @@
 		grid-template-columns: minmax(0, 620px) minmax(0, 1fr);
 		align-items: center;
 		gap: 56px;
-		width: 100%;
+		width: 95%;
 	}
 
 	.hero-copy {
