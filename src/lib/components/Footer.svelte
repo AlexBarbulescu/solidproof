@@ -154,7 +154,7 @@
 							<div class="footer-col">
 								<h4 class="footer-heading">Legal</h4>
 								<ul class="footer-list">
-									<li><a href="/#">Legal Notice</a></li>
+									<li><a href="/legal-notice">Legal Notice</a></li>
 									<li><a href="/privacy">Privacy Policy</a></li>
 									<li><a href="/terms-of-service">Terms of Service</a></li>
 								</ul>

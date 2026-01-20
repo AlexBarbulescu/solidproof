@@ -366,7 +366,9 @@
 
 			<!-- Reserved column for an image/SVG you can add later -->
 			<div class="hero-media" aria-hidden="true">
-				<img class="hero-right-logo" src="images/hero_robot.png" alt="" loading="lazy" decoding="async" />
+				<div class="hero-glitch">
+					<img class="hero-right-logo" src="/images/hero_robot.png" alt="" loading="lazy" decoding="async" />
+				</div>
 			</div>
 		</div>
 	</div>
@@ -527,8 +529,152 @@
 		height: auto;
 		object-fit: contain;
 		display: block;
-		filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.55));
+		filter: drop-shadow(0 18px 20px rgba(0, 0, 0, 0.55));
 		opacity: 0.98;
+	}
+
+	/* Glitch effect for the hero right image (slice-style, inspired by the referenced demo). */
+	.hero-glitch {
+		--glitch-speed: 3.2s;
+		--glitch-img: url('/images/hero_robot.png');
+		display: inline-block;
+		position: relative;
+		isolation: isolate;
+		animation: heroGlitchJitter var(--glitch-speed) infinite;
+
+		/* Bottom fade (so the image softly fades into the background). */
+		-webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 72%, rgba(0, 0, 0, 0) 100%);
+		mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 72%, rgba(0, 0, 0, 0) 100%);
+		-webkit-mask-size: 100% 100%;
+		mask-size: 100% 100%;
+		-webkit-mask-repeat: no-repeat;
+		mask-repeat: no-repeat;
+	}
+
+	.hero-glitch::before,
+	.hero-glitch::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background-image: var(--glitch-img);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: contain;
+		pointer-events: none;
+		opacity: 0;
+		mix-blend-mode: screen;
+		will-change: transform, clip-path, opacity, filter;
+	}
+
+	.hero-glitch::before {
+		filter: saturate(1.25) contrast(1.05) hue-rotate(25deg);
+		animation: heroGlitchSliceA calc(var(--glitch-speed) * 0.82) infinite steps(1, end);
+	}
+
+	.hero-glitch::after {
+		filter: saturate(1.25) contrast(1.05) hue-rotate(-25deg);
+		animation: heroGlitchSliceB calc(var(--glitch-speed) * 0.9) infinite steps(1, end);
+	}
+
+	@keyframes heroGlitchJitter {
+		0%,
+		72%,
+		100% {
+			transform: translate3d(0, 0, 0);
+		}
+		74% {
+			transform: translate3d(-1px, 1px, 0);
+		}
+		76% {
+			transform: translate3d(1px, -1px, 0);
+		}
+		78% {
+			transform: translate3d(-2px, 0, 0);
+		}
+		80% {
+			transform: translate3d(2px, 1px, 0);
+		}
+	}
+
+	@keyframes heroGlitchSliceA {
+		0%,
+		66% {
+			opacity: 0;
+			clip-path: inset(0 0 0 0);
+			transform: translate3d(0, 0, 0);
+		}
+		68% {
+			opacity: 0.65;
+			clip-path: inset(8% 0 72% 0);
+			transform: translate3d(-10px, -2px, 0);
+		}
+		70% {
+			opacity: 0.55;
+			clip-path: inset(42% 0 46% 0);
+			transform: translate3d(12px, 1px, 0);
+		}
+		72% {
+			opacity: 0.6;
+			clip-path: inset(70% 0 12% 0);
+			transform: translate3d(-14px, 2px, 0);
+		}
+		74% {
+			opacity: 0.25;
+			clip-path: inset(14% 0 78% 0);
+			transform: translate3d(10px, -1px, 0);
+		}
+		76%,
+		100% {
+			opacity: 0;
+			clip-path: inset(0 0 0 0);
+			transform: translate3d(0, 0, 0);
+		}
+	}
+
+	@keyframes heroGlitchSliceB {
+		0%,
+		64% {
+			opacity: 0;
+			clip-path: inset(0 0 0 0);
+			transform: translate3d(0, 0, 0);
+		}
+		66% {
+			opacity: 0.5;
+			clip-path: inset(18% 0 64% 0);
+			transform: translate3d(12px, 2px, 0);
+		}
+		68% {
+			opacity: 0.55;
+			clip-path: inset(54% 0 30% 0);
+			transform: translate3d(-10px, -2px, 0);
+		}
+		70% {
+			opacity: 0.45;
+			clip-path: inset(78% 0 10% 0);
+			transform: translate3d(14px, 1px, 0);
+		}
+		72% {
+			opacity: 0.22;
+			clip-path: inset(10% 0 82% 0);
+			transform: translate3d(-12px, 0px, 0);
+		}
+		74%,
+		100% {
+			opacity: 0;
+			clip-path: inset(0 0 0 0);
+			transform: translate3d(0, 0, 0);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.hero-glitch {
+			animation: none !important;
+		}
+		.hero-glitch::before,
+		.hero-glitch::after {
+			display: none;
+			animation: none !important;
+		}
 	}
 
 	@media (max-width: 980px) {
