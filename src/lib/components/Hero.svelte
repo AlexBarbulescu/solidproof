@@ -48,7 +48,7 @@
 	let dynamicHeight = 0;
 	let resizeRaf = null;
 
-	// Contact modal + Tawk handoff
+	// Contact modal
 	let contactOpen = false;
 	let contactFormError = '';
 	let submittingContact = false;
@@ -65,9 +65,7 @@
 	let firstFieldEl;
 	let contactCleanup = null;
 
-	const tawkPropertyId = '68da53b0acbab119535c12ea';
-	const tawkWidgetId = '1j6addqb8';
-	let tawkInjected = false;
+	const contactEmailTo = 'info@solidproof.io';
 
 	const heroContacts = [
 		{
@@ -104,37 +102,26 @@
 		contactFormError = '';
 	}
 
-	function injectTawk(propertyId, widgetId) {
-		if (typeof window === 'undefined') return false;
-		if (tawkInjected || !propertyId || !widgetId) return false;
-		const s1 = document.createElement('script');
-		s1.async = true;
-		s1.src = `https://embed.tawk.to/${propertyId}/${widgetId}`;
-		s1.charset = 'UTF-8';
-		s1.setAttribute('crossorigin', '*');
-		const s0 = document.getElementsByTagName('script')[0];
-		s0?.parentNode?.insertBefore(s1, s0);
-		tawkInjected = true;
-		return true;
-	}
 
-	function waitForTawkReady() {
-		return new Promise((resolve) => {
-			let attempts = 0;
-			const maxAttempts = 160; // ~8s
-			const interval = setInterval(() => {
-				attempts++;
-				const ready =
-					typeof window !== 'undefined' &&
-					window.Tawk_API &&
-					typeof window.Tawk_API.maximize === 'function' &&
-					typeof window.Tawk_API.setAttributes === 'function';
-				if (ready || attempts >= maxAttempts) {
-					clearInterval(interval);
-					resolve(Boolean(ready));
-				}
-			}, 50);
-		});
+	function buildMailtoUrl() {
+		const lines = [
+			'Quote Request',
+			'',
+			`Project or Company Name: ${projectOrCompany.trim()}`,
+			`Full Name: ${fullName.trim() || '-'}`,
+			`Email: ${email.trim()}`,
+			`Job Title: ${jobTitle.trim() || '-'}`,
+			`Contact Platform: ${contactPlatform}`,
+			`Handle / Username: ${handleOrUsername.trim()}`,
+			`Service Interest: ${serviceInterest.trim() || '-'}`,
+			'',
+			'Additional Information:',
+			additionalInfo.trim() || '-'
+		];
+
+		const subject = encodeURIComponent('Quote Request');
+		const body = encodeURIComponent(lines.join('\n'));
+		return `mailto:${contactEmailTo}?subject=${subject}&body=${body}`;
 	}
 
 	async function submitContact(e) {
@@ -161,33 +148,12 @@
 
 		submittingContact = true;
 		try {
-			if (!window.Tawk_API) injectTawk(tawkPropertyId, tawkWidgetId);
-			const ready = await waitForTawkReady();
-			if (!ready) {
-				contactFormError = 'Chat is still loading. Please try again in a moment.';
-				submittingContact = false;
-				return;
+			if (typeof window !== 'undefined') {
+				window.location.href = buildMailtoUrl();
 			}
-
-			window.Tawk_API.setAttributes(
-				{
-					name: fullName.trim() || undefined,
-					email: trimmedEmail,
-					jobTitle: jobTitle.trim() || undefined,
-					projectOrCompany: trimmedProject,
-					contactPlatform,
-					handleOrUsername: trimmedHandle,
-					serviceInterest: serviceInterest.trim() || undefined,
-					additionalInfo: additionalInfo.trim() || undefined
-				},
-				() => {
-					window.Tawk_API.maximize();
-				}
-			);
-
 			closeContact();
 		} catch {
-			contactFormError = 'Something went wrong. Please try again.';
+			contactFormError = 'Could not open your email client. Please email us at info@solidproof.io.';
 			submittingContact = false;
 		}
 	}
@@ -414,7 +380,7 @@
 				<div class="contact-title-wrap">
 					<h2 class="contact-title">Protect Your Project Today</h2>
 					<p class="contact-subtitle">
-						Share a few details and we’ll open a secure chat with our team via Tawk.
+						Share a few details and we’ll prepare an email to our team.
 					</p>
 				</div>
 				<button class="contact-close" type="button" aria-label="Close" on:click={closeContact}>×</button>
