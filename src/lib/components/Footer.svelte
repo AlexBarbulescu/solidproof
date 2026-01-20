@@ -156,7 +156,7 @@
 								<ul class="footer-list">
 									<li><a href="/#">Legal Notice</a></li>
 									<li><a href="/#">Privacy Policy</a></li>
-									<li><a href="/#">Terms of Service</a></li>
+									<li><a href="/terms-of-service">Terms of Service</a></li>
 								</ul>
 							</div>
 						</nav>
