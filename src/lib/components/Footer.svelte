@@ -144,13 +144,6 @@
 								</ul>
 							</div>
 							<div class="footer-col">
-								<h4 class="footer-heading">Projects</h4>
-								<ul class="footer-list">
-									<li><a href="/#">Gold Projects</a></li>
-									<li><a href="/#">Regular Projects</a></li>
-								</ul>
-							</div>
-							<div class="footer-col">
 								<h4 class="footer-heading">About</h4>
 								<ul class="footer-list">
 									<li><a href="/#">Security News</a></li>
