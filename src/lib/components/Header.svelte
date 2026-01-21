@@ -659,7 +659,7 @@
 					{/if}
 				</li>
 
-				<li><button type="button" class="nav-link" on:click={closeAllDropdowns}>News</button></li>
+				<!-- <li><button type="button" class="nav-link" on:click={closeAllDropdowns}>News</button></li> -->
 				<li class="mobile-quote-item">
 					<a href="https://app.solidproof.io/" class="mobile-quote-btn">LAUNCH APP</a>
 				</li>
