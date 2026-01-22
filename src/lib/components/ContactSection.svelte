@@ -15,6 +15,16 @@
 	let fadeTimeoutId = null;
 	let mounted = false;
 
+	function openQuoteModal(e) {
+		e?.preventDefault?.();
+		if (typeof window === 'undefined') return;
+		if (window.location?.pathname !== '/') {
+			window.location.href = '/?contact=1';
+			return;
+		}
+		window.dispatchEvent(new CustomEvent('solidproof:open-contact'));
+	}
+
 	$: currentSrc = images[index];
 
 	function clearTimers() {
@@ -95,7 +105,7 @@
 						<br /><br />
 						Our team is ready to assist you with secure, professional solutions tailored to your project.
 					</p>
-					<button type="button" class="contact-cta">Contact Us</button>
+					<button type="button" class="contact-cta" on:click={openQuoteModal}>Contact Us</button>
 				</div>
 				<div class="contact-image">
 					<div class="contact-fade">
