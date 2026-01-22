@@ -217,6 +217,21 @@
 	}
 
 	onMount(() => {
+		const onOpenContact = () => openContact();
+		window.addEventListener('solidproof:open-contact', onOpenContact);
+		// If navigated from another page via /?contact=1, open the modal.
+		const params = new URLSearchParams(window.location.search);
+		if (params.get('contact') === '1') {
+			openContact();
+			try {
+				const url = new URL(window.location.href);
+				url.searchParams.delete('contact');
+				window.history.replaceState({}, '', `${url.pathname}${url.search}${url.hash}`);
+			} catch {
+				// no-op
+			}
+		}
+
 		const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 		isMobile = window.innerWidth <= 767;
 
@@ -226,12 +241,16 @@
 
 		if (prefersReducedMotion) {
 			loadVideo();
-			return;
+			return () => {
+				window.removeEventListener('solidproof:open-contact', onOpenContact);
+			};
 		}
 
 		if (!('IntersectionObserver' in window)) {
 			loadVideo();
-			return;
+			return () => {
+				window.removeEventListener('solidproof:open-contact', onOpenContact);
+			};
 		}
 
 		observer = new IntersectionObserver(
@@ -248,6 +267,10 @@
 		);
 
 		if (videoEl) observer.observe(videoEl);
+
+		return () => {
+			window.removeEventListener('solidproof:open-contact', onOpenContact);
+		};
 	});
 
 	$: {

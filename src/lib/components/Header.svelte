@@ -14,9 +14,20 @@
 	let socialsDropdownWrapper;
 	let companyDropdownWrapper;
 
-	const tawkPropertyId = '68da53b0acbab119535c12ea';
-	const tawkWidgetId = '1j6addqb8';
-	let tawkLoaded = false;
+	function openQuoteModal(e) {
+		e?.preventDefault?.();
+		showCompanyDropdown = false;
+		isOpen = false;
+		if (typeof window === 'undefined') return;
+
+		// If we're not on the homepage (where the Hero modal lives), navigate there and open it.
+		if (window.location?.pathname !== '/') {
+			window.location.href = '/?contact=1';
+			return;
+		}
+
+		window.dispatchEvent(new CustomEvent('solidproof:open-contact'));
+	}
 
 	function closeAllDropdowns() {
 		showDropdown = false;
@@ -75,48 +86,6 @@
 		}
 	}
 
-	function injectTawk(propertyId, widgetId) {
-		if (tawkLoaded || !propertyId || !widgetId) return false;
-		const s1 = document.createElement('script');
-		s1.async = true;
-		s1.src = `https://embed.tawk.to/${propertyId}/${widgetId}`;
-		s1.charset = 'UTF-8';
-		s1.setAttribute('crossorigin', '*');
-		const s0 = document.getElementsByTagName('script')[0];
-		s0?.parentNode?.insertBefore(s1, s0);
-		tawkLoaded = true;
-		return true;
-	}
-
-	function waitForTawkAndMaximize() {
-		let attempts = 0;
-		const maxAttempts = 100;
-		const checkTawk = setInterval(() => {
-			attempts++;
-			if (window.Tawk_API && typeof window.Tawk_API.maximize === 'function') {
-				clearInterval(checkTawk);
-				window.Tawk_API.maximize();
-			} else if (attempts >= maxAttempts) {
-				clearInterval(checkTawk);
-				window.open('https://www.tawk.to/', '_blank', 'noopener');
-			}
-		}, 50);
-	}
-
-	function openTawkChat(e) {
-		e?.preventDefault?.();
-		showCompanyDropdown = false;
-		if (window.Tawk_API && typeof window.Tawk_API.maximize === 'function') {
-			window.Tawk_API.maximize();
-			return;
-		}
-		const injected = injectTawk(tawkPropertyId, tawkWidgetId);
-		if (injected) {
-			waitForTawkAndMaximize();
-		} else {
-			window.open('https://www.tawk.to/', '_blank', 'noopener');
-		}
-	}
 
 	onMount(() => {
 		window.addEventListener('resize', handleResize);
@@ -595,7 +564,7 @@
 										<div class="item-description">Our official partners</div>
 									</div>
 								</button>
-								<button type="button" class="dropdown-item" on:click={closeAllDropdowns}>
+								<!-- <button type="button" class="dropdown-item" on:click={closeAllDropdowns}>
 									<svg class="item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
 										<path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2l-2.81 6.63L2 9.24l5.46 4.73L5.82 21 12 17.27z" fill="#0D6EFD" />
 									</svg>
@@ -603,8 +572,8 @@
 										<div class="item-title">Sponsoring</div>
 										<div class="item-description">SolidProof's sponsorings</div>
 									</div>
-								</button>
-								<button type="button" class="dropdown-item" on:click={closeAllDropdowns}>
+								</button> -->
+								<!-- <button type="button" class="dropdown-item" on:click={closeAllDropdowns}>
 									<svg class="item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
 										<g clip-path="url(#clip1_meetup)">
 											<path
@@ -622,7 +591,7 @@
 										<div class="item-title">Meet us</div>
 										<div class="item-description">Where Personal Conversations Come to Life</div>
 									</div>
-								</button>
+								</button> -->
 								<a href="/branding" class="dropdown-item" on:click={() => (showCompanyDropdown = false)}>
 									<svg class="item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
 										<path
@@ -635,7 +604,7 @@
 										<div class="item-description">Brand assets and logo guidelines</div>
 									</div>
 								</a>
-								<button type="button" class="dropdown-item company-special" on:click={openTawkChat}>
+								<button type="button" class="dropdown-item company-special" on:click={openQuoteModal}>
 									<svg class="item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none">
 										<g clip-path="url(#clip2_contact)">
 											<path
@@ -829,5 +798,4 @@
 		.site-header .container { max-width: 1240px; }
 	}
 
-	.nav-link { width: 100%; }
 </style>
