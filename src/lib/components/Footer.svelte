@@ -143,14 +143,14 @@
 									<li><a href="/development">Development</a></li>
 								</ul>
 							</div>
-							<div class="footer-col">
+							<!-- <div class="footer-col">
 								<h4 class="footer-heading">About</h4>
 								<ul class="footer-list">
 									<li><a href="/#">Security News</a></li>
 									<li><a href="/#">Milestones</a></li>
 									<li><a href="/#">Company</a></li>
 								</ul>
-							</div>
+							</div> -->
 							<div class="footer-col">
 								<h4 class="footer-heading">Legal</h4>
 								<ul class="footer-list">
@@ -309,7 +309,7 @@
 
 				.footer-top {
 					display: grid;
-					grid-template-columns: minmax(120px, 1fr) repeat(4, minmax(120px, auto));
+					grid-template-columns: minmax(120px, 1fr) auto;
 					gap: 24px 48px;
 					align-items: start;
 				}
@@ -379,7 +379,11 @@
 				}
 
 				.footer-links {
-					display: contents;
+					display: flex;
+					gap: 48px;
+					justify-content: flex-end;
+					justify-self: end;
+					align-items: flex-start;
 				}
 				.footer-heading {
 					margin: 0 0 10px;
@@ -497,6 +501,10 @@
 					.footer-top {
 						grid-template-columns: 1fr 1fr;
 					}
+					.footer-links {
+						justify-self: end;
+						gap: 32px;
+					}
 					.footer-brand {
 						margin-bottom: 8px;
 					}
@@ -508,6 +516,11 @@
 				@media (max-width: 640px) {
 					.footer-top {
 						grid-template-columns: 1fr;
+					}
+					.footer-links {
+						justify-self: start;
+						justify-content: flex-start;
+						gap: 24px;
 					}
 					.footer-bottom {
 						grid-template-columns: 1fr;
