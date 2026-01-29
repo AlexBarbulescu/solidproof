@@ -547,7 +547,7 @@
 	}
 
 	.hero-right-logo {
-		width: min(560px, 100%);
+		width: min(640px, 100%);
 		max-width: 100%;
 		height: auto;
 		object-fit: contain;
