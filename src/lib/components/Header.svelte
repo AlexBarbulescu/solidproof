@@ -29,6 +29,21 @@
 		window.dispatchEvent(new CustomEvent('solidproof:open-contact'));
 	}
 
+	function goToPartners(e) {
+		e?.preventDefault?.();
+		showCompanyDropdown = false;
+		isOpen = false;
+		if (typeof window === 'undefined') return;
+		if (window.location?.pathname !== '/') {
+			window.location.href = '/#partners';
+			return;
+		}
+		const el = document.getElementById('partners');
+		if (el && typeof el.scrollIntoView === 'function') {
+			el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		}
+	}
+
 	function closeAllDropdowns() {
 		showDropdown = false;
 		showProjectsDropdown = false;
@@ -602,6 +617,15 @@
 									<div class="item-content">
 										<div class="item-title">Branding Logos</div>
 										<div class="item-description">Brand assets and logo guidelines</div>
+									</div>
+								</a>
+								<a href="/#partners" class="dropdown-item" on:click={goToPartners}>
+									<svg class="item-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+										<path d="M12 2a10 10 0 100 20 10 10 0 000-20zm-1 14l-4-4 1.41-1.41L11 12.17l5.59-5.59L18 8l-7 8z" fill="#0D6EFD"/>
+									</svg>
+									<div class="item-content">
+										<div class="item-title">Partners</div>
+										<div class="item-description">Jump to our partners</div>
 									</div>
 								</a>
 								<button type="button" class="dropdown-item company-special" on:click={openQuoteModal}>

@@ -111,7 +111,7 @@
 	});
 </script>
 
-<section class="partners" bind:this={partnersRef} class:in-view={inView} aria-labelledby="partners-heading">
+<section id="partners" class="partners" bind:this={partnersRef} class:in-view={inView} aria-labelledby="partners-heading">
 	<div class="partners-inner">
 		<h2 id="partners-heading" class="partners-title">Trusted by Leading Web3 Innovators</h2>
 		<p class="partners-sub">
@@ -163,9 +163,14 @@
 		padding: 80px 20px;
 		background: #000;
 		position: relative;
+		scroll-margin-top: 140px;
 	}
 
 	.partners-inner {
+	@media (max-width: 767px) {
+		.partners { scroll-margin-top: 100px; }
+	}
+
 		max-width: 1200px;
 		margin: 0 auto;
 		text-align: center;
